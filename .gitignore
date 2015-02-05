@@ -1,0 +1,61 @@
+# binaires
+*.pyc
+*.pyo
+
+# Fichier temporaires:
+.*.swp
+*~
+\#*#
+src/*
+
+# DB de dev
+*.db
+db.sqlite
+
+# restants de merge
+*.orig
+*.rej
+
+# Configuration du projet - par environnement
+conf.py
+django.wsgi
+
+# buildout
+/.installed.cfg
+/bin
+/develop-eggs
+/downloads
+/eggs
+/log
+/parts
+/tmp
+/sitestatic
+/media
+/smedia
+/build
+/fabfile.py
+/catalogue_dexpert/media/
+/catalogue_dexpert.egg-info/
+
+#settings
+/catalogue_dexpert/settings/*-local.py
+/catalogue_dexpert/urls/*-local.py
+/catalogue_dexpert/settings/10-secret.py
+/catalogue_dexpert/settings/20-secret.py
+/catalogue_dexpert/settings/*-prod.py
+/catalogue_dexpert/urls/*-prod.py
+
+#mac
+.DS_Store
+
+#sass
+.sass-cache/
+
+# virtualenv
+/include
+/lib
+/local
+/share
+
+# django-jenkins
+/reports

@@ -1,0 +1,12 @@
+django-cms
+django-reversion
+
+django-filer
+cmsplugin-filer
+easy_thumbnails
+
+djangocms-text-ckeditor>=2.3.0
+djangocms-style
+djangocms-admin-style
+djangocms-column
+djangocms-inherit
