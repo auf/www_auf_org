@@ -4,5 +4,15 @@
 {% block title %}{% page_attribute 'title' %}{% endblock title %}
 
 {% block content %}
+    {% if request.current_page.bureauextension %}
+        <ul>
+            {% for b in request.current_page.bureauextension.bureau.all %}
+                <li>{{b.nom}}</li>
+            {% endfor %}
+        </ul>
+        {% render_model_block request.current_page.bureauextension %}Cliquez ici pour modifier les bureaux{% endrender_model_block %}
+    {% endif %}
 	{% placeholder "content" %}
 {% endblock content %}
+
+

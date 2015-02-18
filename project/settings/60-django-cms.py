@@ -59,6 +59,8 @@ INSTALLED_APPS += (
     'djangocms_inherit',
     'djangocms_style',
     'djangocms_text_ckeditor',
+    'project.djangocms_bureaux',
+    'project.importa',
 )
 
 LANGUAGES = [
