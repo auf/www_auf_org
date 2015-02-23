@@ -1,0 +1,11 @@
+#container .wide label{
+	width: 8em !important;
+}
+
+.colM fieldset.wide .vLargeTextField, .colM fieldset.wide .vXMLLargeTextField{
+	width: 680px !important;
+}
+
+#id_resume{
+	height: 80px;
+}

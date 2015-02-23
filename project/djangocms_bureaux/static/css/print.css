@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------------------------//
+// Feuille de styles pout impression -------------------------------------------------//
+//------------------------------------------------------------------------------------//
+// Client : -
+// Note   : Pour l'impression: certaines classes sont ici redéfinies ou ajoutées
+            afin de rendre des portions du site invisibles ou adaptées à l'impression
+// Date   : 00 mois 0000
+//------------------------------------------------------------------------------------*/
+
+/*- Redéfinitions utiles pour l'impression -------------------------------------------*/
+
+/*- Couleur noir et aucun arrière-plan partout -*/
+* {
+    color:#000 !important;
+    background-image:none !important;
+}
+#WrapperEntete, #Entete, #WrapperCorps, #Corps, #BlocContenu, #BlocContenu .Contenu{
+    width:600px !important;
+    border:none;
+    margin:0;
+    padding:0 !important;
+}
+#NavFixe, .ChampRecherche, #WrapperEnteteSecondaire, #MenuPrincipal, #BlocCarteMonde, #FilAriane,
+#ColonneLaterale, #ColonneMenuSecondaire, #BlocBasPage, #PiedPage{
+    display:none;
+}
+#WrapperEntete, #Entete{
+    height:auto !important;
+}
+#BlocContenu .Contenu{
+    float:none;
+}
+#Entete .Logo{
+    display:none;
+}
+#Entete .LogoImpression{
+    display:block;
+    margin-left:-24px;
+    margin-bottom:20px;
+}
+body.Actualite .ColonneGauche .Partage{
+    display:none;
+}
+body.Formulaire #BlocContenu .Contenu .BlocOnglets{
+    display:none;
+}
+.Formulaire form{
+    display:block !important;
+    padding:0 !important;
+    width:600px !important;
+}
+
+
+
+/*- Autres redéfinitions spécifiques pour ce site ------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------------------*/
