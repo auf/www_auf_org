@@ -1,0 +1,27 @@
+
+#auf-spacer {
+	height: 1px;
+	margin-bottom: 23px;
+}
+
+#auf-estampille {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+}
+
+.auf-couleurs { width: 100% ;}
+.auf-couleurs div { float:left; width:20%; height:5px; font-size:1px; }
+.auf-bleu { background-color: #1D9DD9; }
+.auf-jaune { background-color: #FFD500; }
+.auf-vert { background-color: #8DBE23; }
+.auf-violet { background-color: #702283; }
+.auf-rouge { background-color: #E52727; }
+
+.auf-phrase {
+	background-color:#FFFFFF;
+	text-align: center;
+	font-family: 'Open Sans';
+	font-size: 0.9em;
+}
