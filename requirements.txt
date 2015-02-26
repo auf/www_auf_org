@@ -1,5 +1,6 @@
 django-cms
 django-reversion
+django-compressor
 
 django-filer
 cmsplugin-filer
@@ -10,3 +11,9 @@ djangocms-style
 djangocms-admin-style
 djangocms-column
 djangocms-inherit
+djangocms-aldryn-search
+djangocms-inherit
+
+
+django-haystack
+django-standard-form
