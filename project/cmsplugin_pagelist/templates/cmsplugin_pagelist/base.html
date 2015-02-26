@@ -1,0 +1,37 @@
+{% load menu_tags cms_tags %}
+{% load thumbnail %}
+<div id="cms-menu-{{ plugin.id }}"
+     class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
+     data-plugin-position="{{ plugin.position }}">
+
+  <h2 class="page_title">{% render_model request.current_page "page_title" %}</h2>
+  {# include plugin.instance.tree_template with Children=MenuItems #}
+    
+<ul>
+{% for p in request.current_page.get_descendants %}
+	<li>	
+			<a href="{{p.get_absolute_url}}"><img src="{% thumbnail p.imageextension.image 58x58 crop %}"/></a>
+			<span>{{p.publication_date}}</span>
+			<a href="{{p.get_absolute_url}}"><span>{% render_model p "page_title" %}</span></a>
+
+			{% if p.bureauextension %}
+				<ul>
+				{% for b in p.bureauextension.bureau.all %}			
+				    <a href="{{p.get_absolute_url}}"><li>{{b.nom}}</li></a>
+				{% endfor %}
+	 		    </ul>
+		    	{% render_model_block p.bureauextension %}Cliquez ici pour modifier les bureaux{% endrender_model_block %}
+		    
+			{% endif %}
+	
+	</li>
+{% endfor %}
+</ul>
+
+
+
+
+
+
+</div>   
+      
