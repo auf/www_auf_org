@@ -38,12 +38,13 @@ django.wsgi
 /catalogue_dexpert.egg-info/
 
 #settings
-/catalogue_dexpert/settings/*-local.py
-/catalogue_dexpert/urls/*-local.py
-/catalogue_dexpert/settings/10-secret.py
-/catalogue_dexpert/settings/20-secret.py
-/catalogue_dexpert/settings/*-prod.py
-/catalogue_dexpert/urls/*-prod.py
+/project/settings/*-local.py
+/project/urls/*-local.py
+/project/settings/10-secret.py
+/project/settings/20-secret.py
+/project/settings/*-prod.py
+/project/urls/*-prod.py
+/project/whoosh_index/
 
 #mac
 .DS_Store
