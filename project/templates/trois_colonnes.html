@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static i18n cms_tags menu_tags sekizai_tags %}
+{% load thumbnail %}
+
+{% block contenu %}
+<div class="row">
+<div class="col-md-12">
+   <ul id="FilAriane">
+	{% show_breadcrumb %}
+   </ul>
+</div>
+
+<div class="col-md-4">
+
+{% if request.current_page.imageextension %}
+<img src="{% thumbnail request.current_page.imageextension.image 184x169 crop %}"/>
+{% endif %}
+
+{% placeholder colonne_gauche %}
+</div>			
+<div class= "col-md-4">
+        <span>{% render_model request.current_page "page_title" %}</span>
+
+			{% if request.current_page.bureauextension %}
+			    <ul>
+				{% for b in request.current_page.bureauextension.bureau.all %}			
+					<li>{{b.nom}}</li>
+		       
+		    	{% endfor %}
+	 		    </ul>
+		    	{% render_model_block request.current_page.bureauextension %}Cliquez ici pour modifier les bureaux{% endrender_model_block %}
+		    
+			{% endif %}
+	
+	
+
+
+{% placeholder texte %}
+</div>
+
+<div class="col-md-4">
+{% placeholder colonne_droite%}
+</div>
+</div>
+{% endblock %}
