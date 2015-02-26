@@ -15,6 +15,7 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 ]
 
 MIDDLEWARE_CLASSES_DJANGO_15 = [
@@ -48,6 +49,7 @@ INSTALLED_APPS += (
     'sekizai',
     'filer',
     'easy_thumbnails',
+    
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
@@ -55,12 +57,17 @@ INSTALLED_APPS += (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_utils',
     'cmsplugin_filer_video',
+    'cmsplugin_embeddedmenu',
+    
     'djangocms_column',
     'djangocms_inherit',
     'djangocms_style',
     'djangocms_text_ckeditor',
+    
+    'project.cmsplugin_pagelist',
     'project.djangocms_bureaux',
     'project.importa',
+
 )
 
 LANGUAGES = [
@@ -116,12 +123,6 @@ MIGRATION_MODULES = {
 }
 
 CMS_TEMPLATES = (
-    ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
-)
+    ('trois_colonnes.html', gettext('page de test trois colonnes')),
 
-CMS_TEMPLATES_BOOTSTRAP = (
-    ('page.html', 'Page'),
-    ('feature.html', 'Page with Feature'),
 )
