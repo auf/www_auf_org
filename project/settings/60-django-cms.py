@@ -18,11 +18,6 @@ MIDDLEWARE_CLASSES = [
     'pagination.middleware.PaginationMiddleware',
 ]
 
-MIDDLEWARE_CLASSES_DJANGO_15 = [
-    'django.middleware.transaction.TransactionMiddleware',
-]
-
-
 TEMPLATE_CONTEXT_PROCESSORS = [
     "django.contrib.auth.context_processors.auth",
     "django.contrib.messages.context_processors.messages",
@@ -44,12 +39,14 @@ INSTALLED_APPS += (
     'cms',
     'mptt',
     'menus',
-#    'south',
+    'django_extensions',
+
     'reversion',
     'sekizai',
     'filer',
     'easy_thumbnails',
-    
+
+    'djangocms_picture',
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
@@ -57,34 +54,37 @@ INSTALLED_APPS += (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_utils',
     'cmsplugin_filer_video',
+
     'cmsplugin_embeddedmenu',
     
-    'djangocms_column',
     'djangocms_inherit',
     'djangocms_style',
     'djangocms_text_ckeditor',
     
     'project.cmsplugin_pagelist',
+
+    'compressor',
+
+    'adminfiles',
+
     'project.djangocms_bureaux',
     'project.importa',
-
 )
 
 LANGUAGES = [
     ('fr', gettext('French')),
 ]
-
 CMS_LANGUAGES = LANGUAGES
 CMS_HIDE_UNTRANSLATED = True
 
 CMS_LANGUAGES = {
     1: [
+        {
+            'code': 'fr',
+            'name': gettext('French'),
+            'public': True,
+        },
     ],
-    'default': {
-        'redirect_on_fallback': True,
-        'public': True,
-        'hide_untranslated': False,
-    }
 }
 
 
@@ -97,6 +97,8 @@ CMS_SHOW_START_DATE = True
 CMS_SHOW_END_DATE = True
 CMS_SEO_FIELDS = True
 
+TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
+
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
@@ -105,24 +107,24 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
-MIGRATION_MODULES = {
-    'cms': 'cms.migrations_django',
-    'menus': 'menus.migrations_django',
-    'filer': 'filer.migrations_django',
-    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
-    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
-    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
-    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
-    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
-    'cmsplugin_filer_utils': 'cmsplugin_filer_utils.migrations_django',
-    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
-    'djangocms_inherit': 'djangocms_inherit.migrations_django',
-    'djangocms_column': 'djangocms_column.migrations_django',
-    'djangocms_style': 'djangocms_style.migrations_django',
-    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
-}
+#MIGRATION_MODULES = {
+#    'cms': 'cms.migrations_django',
+#    'menus': 'menus.migrations_django',
+#    'filer': 'filer.migrations_django',
+#    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
+#    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
+#    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
+#    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
+#    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
+#    'cmsplugin_filer_utils': 'cmsplugin_filer_utils.migrations_django',
+#    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
+#    'djangocms_inherit': 'djangocms_inherit.migrations_django',
+#    'djangocms_column': 'djangocms_column.migrations_django',
+#    'djangocms_style': 'djangocms_style.migrations_django',
+#    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
+#}
 
 CMS_TEMPLATES = (
     ('trois_colonnes.html', gettext('page de test trois colonnes')),
-
+    ('deux_colonnes.html', gettext('Deux colonnes')),
 )

@@ -2,8 +2,8 @@
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cms30',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -23,3 +23,5 @@ SAML_AUTH = False
 PIWIK_TOKEN = None
 
 DEBUG = True
+AUF_REFERENCES_MANAGED = True
+

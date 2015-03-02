@@ -2,7 +2,7 @@
 import os
 import sys
 
-sys.path.append('../auf-django-sdk/sdk/django17_auf/')
+sys.path.append('../auf-django-sdk/sdk/django14_auf/')
 sys.path.append('../auf-django-sdk/sdk/django17_base/')
 sys.path.append('../auf-django-sdk/sdk/django17_auf_dev/')
 sys.path.append('./project/')
