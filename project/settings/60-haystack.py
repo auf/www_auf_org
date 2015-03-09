@@ -5,7 +5,7 @@ INSTALLED_APPS += (
 )
 
 HAYSTACK_CONNECTIONS = {
-    'default': {
+    'fr': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(PROJECT_ROOT, 'whoosh_index'),
         'INCLUDE_SPELLING': True,
@@ -13,4 +13,5 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_ROUTERS = ['aldryn_search.router.LanguageRouter',]
-
+HAYSTACK_CONNECTIONS['default'] = HAYSTACK_CONNECTIONS['fr']
+ALDRYN_SEARCH_INDEX_BASE_CLASS= 'project.djangocms_bureaux.search_indexes.AufIndex'

@@ -1,0 +1,53 @@
+{% extends "aldryn_search/base.html" %}
+{% load i18n standard_form %}
+
+{% block contenu %}
+<div class="col-md-8">
+<form action="." method="get" class="frm frm-search">
+	{% standard_widget form.q options custom_class='input-large' %}
+	{% standard_submit %}
+</form>
+
+<div class="search-results">
+	<ul>
+		{% include "aldryn_search/includes/search_items.html" %}
+	</ul>
+</div>
+
+{% include "aldryn_search/includes/pagination.html" with obj_string=_('results') %}
+</div>
+<div class="col-md-4">
+    <div>
+        <dl>
+            {% if facets.fields.bureaux %}
+                <dt>Bureaux</dt>
+                {% for bureau in facets.fields.bureaux %}
+                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=bureaux:{{ bureau.0|urlencode }}">{{ bureau.0 }}</a> ({{ bureau.1 }})</dd>
+                {% endfor %}
+            {% endif %}
+        </dl>
+    </div>
+
+    <div>
+        <dl>
+            {% if facets.fields.annee %}
+                <dt>Années</dt>
+                {% for annee in facets.fields.annee %}
+                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=annee:{{ annee.0|urlencode }}">{{ annee.0 }}</a> ({{ annee.1 }})</dd>
+                {% endfor %}
+            {% endif %}
+        </dl>
+    </div>
+
+    <div>
+        <dl>
+            {% if facets.fields.section %}
+                <dt>Sections</dt>
+                {% for section in facets.fields.section %}
+                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=section:{{ section.0|urlencode }}">{{ section.0 }}</a> ({{ section.1 }})</dd>
+                {% endfor %}
+            {% endif %}
+        </dl>
+    </div>
+</div>
+{% endblock %}
