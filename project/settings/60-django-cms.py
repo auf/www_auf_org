@@ -125,6 +125,8 @@ THUMBNAIL_PROCESSORS = (
 #}
 
 CMS_TEMPLATES = (
+    ('cms.html', gettext('page de cms trois colonnes')),
     ('trois_colonnes.html', gettext('page de test trois colonnes')),
+    ('article.html', "Article"),
     ('deux_colonnes.html', gettext('Deux colonnes')),
 )

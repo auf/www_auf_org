@@ -2,12 +2,6 @@
 {% load static cms_tags sekizai_tags menu_tags %}
 
 {% block contenu %}
-<div class="row">
-<div class="col-md-12">
-  <ul id="FilAriane">
-    {% show_breadcrumb %}
-  </ul>
-</div>
 <div class="col-md-8">
   <div style="padding: 0px 24px 37px 24px;">
   {% placeholder texte %}
@@ -15,6 +9,5 @@
 </div>
 <div class="col-md-4">
   {% placeholder colonne_droite %}
-</div>
 </div>
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static i18n cms_tags menu_tags sekizai_tags %}
+
+{% block contenu %}
+<div class="col-md-2">
+    <div id="ColonneMenuSecondaire">
+        <ul id="MenuSecondaire">
+        {% show_menu 1 2 0 1 "menu/menu.html" %}
+        <div id="MenuSecondaireBas"></div>
+        </ul>
+
+        <div class="NavigationRapide">
+            <p>Vous recherchez</p>
+            <ul>
+                <li><a href="/auf_dans_le_monde/">Les bureaux régionaux</a></li>
+                <li><a href="/les-services-de-l-auf/etudiants/etudier-en-francais/un-institut/">Les instituts de la Francophonie</a></li>
+                <li><a href="/implantations/?region=&amp;type=Campus+numérique+francophone">Les campus numériques francophones</a></li>
+                <li><a href="/membres/">Les universités membres</a></li>
+            </ul>
+        </div>
+    </div>
+    {% placeholder colonne_gauche %}
+</div>
+<div class= "col-md-10" style="background-color: white;">
+    {% placeholder texte %}
+</div>
+
+{% endblock %}
