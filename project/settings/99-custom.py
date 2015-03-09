@@ -1,4 +1,4 @@
-SESSION_COOKIE_NAME = 'sessionid_project'
+SESSION_COOKIE_NAME = 'sessionid_auf_org'
 
 ROOT_URLCONF = 'project.urls'
 
