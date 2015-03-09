@@ -7,6 +7,7 @@ from .models import (
   TEMPLATE_PATH,
 )
 
+
 class PageListCMSPlugin(CMSPluginBase):
     model = PageList
     name = "Liste des sous pages"
@@ -14,17 +15,11 @@ class PageListCMSPlugin(CMSPluginBase):
     admin_preview = False
 
     def render(self, context, instance, placeholder):
+        ctx = super(PageListCMSPlugin, self).render(context, instance, placeholder)
 
-        try:
-            # If there's an exception (500), default context_processors may not be called.
-            request = context['request']
-        except KeyError:
-            return "There is no  `request` object in the context."
+        ctx['descendants'] = instance.root.get_descendants()[:instance.nbelements]
+        ctx['title'] = instance.title
 
-        root_page = instance.root
-        root_page_url = root_page.get_absolute_url()
-        nbelements = instance.nbelements
-
-        return context
+        return ctx
 
 plugin_pool.register_plugin(PageListCMSPlugin)

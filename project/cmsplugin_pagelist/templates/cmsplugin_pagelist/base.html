@@ -4,34 +4,33 @@
      class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
      data-plugin-position="{{ plugin.position }}">
 
-  <h2 class="page_title">{% render_model request.current_page "page_title" %}</h2>
+  <h2 class="page_title">{{ title }}</h2>
   {# include plugin.instance.tree_template with Children=MenuItems #}
-    
-<ul>
-{% for p in request.current_page.get_descendants %}
-	<li>	
-			<a href="{{p.get_absolute_url}}"><img src="{% thumbnail p.imageextension.image 58x58 crop %}"/></a>
-			<span>{{p.publication_date}}</span>
-			<a href="{{p.get_absolute_url}}"><span>{% render_model p "page_title" %}</span></a>
 
-			{% if p.bureauextension %}
-				<ul>
-				{% for b in p.bureauextension.bureau.all %}			
-				    <a href="{{p.get_absolute_url}}"><li>{{b.nom}}</li></a>
-				{% endfor %}
-	 		    </ul>
-		    	{% render_model_block p.bureauextension %}Cliquez ici pour modifier les bureaux{% endrender_model_block %}
-		    
-			{% endif %}
-	
-	</li>
+{% for p in descendants %}
+<div class ="thumbnail">
+          <a class="" href="{{p.get_absolute_url}}">
+            {% if p.imageextension %}
+            <img class="img-thumbnail" src="{% thumbnail p.imageextension.image 360x360 crop %}"/>
+            {% else %}
+            <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="360px" height="360px">
+            {% endif %}
+          </a>
+<div class="caption" style="padding-bottom: 15px;">
+          <a href="{{p.get_absolute_url}}" style="color: #616161;">{% render_model p "page_title" %}</a>
+          <p class="text-muted pull-right">Date: {{p.publication_date|date:"j F Y"}}</p>
+
+          {% if p.bureauextension %}
+            {% render_model_block p.bureauextension %}
+            <ul>
+            {% for b in p.bureauextension.bureau.all %}
+                <li><span class="TexteRegion">{{b.nom}}</span></li>
+            {% endfor %}
+            </ul>
+            {% endrender_model_block %}
+
+          {% endif %}
+</div>
+</div>
 {% endfor %}
-</ul>
-
-
-
-
-
-
-</div>   
-      
+</div>

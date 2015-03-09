@@ -13,6 +13,7 @@ from .lib.choices import (
 TEMPLATE_PATH = os.path.join("cmsplugin_pagelist", "layouts")
 
 class PageList(CMSPlugin):
+    title = models.CharField("Titre", max_length="256")
 
     layout_template = models.CharField("Template utilisé pour l'affichage",
       choices = DynamicTemplateChoices(
