@@ -18,6 +18,7 @@ box-sizing: content-box;
 body {
   font-family: Open Sans;
   background-color: #E5E5E5;
+  margin-top: 15px;
 }
 
 a {
@@ -118,9 +119,8 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 
 /* -----Menu navigation couleurs---- */
 #NavFixe {
-  margin-right: 98px;
-  margin-top: 7px;
-  padding-bottom:62px;
+  display: table-cell;
+  width: 33%;
 }
 #NavFixe a {
   color: #474747;
@@ -133,40 +133,32 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   background-color: transparent;
 }
 #NavFixe li {
-  background: repeat-x 0 0;
   float: right;
-  min-width: 93px;
+  margin-top: 10px;
   padding: 12px 0 0 0;
   font-size: 10px;
   color: #474747;
   width: 20%;
   text-align: right;
 }
-#NavFixe li.MenuRSS {
-  background-image: url(../img/Bg_NavRSS.gif);
-  background-size: 1px 6px;
-}
 #NavFixe li.MenuRSS a {
   background: url(../img/Picto_RSS.gif) no-repeat right top 3px;
   padding-right: 17px;
 }
+#NavFixe li.MenuRSS {
+  border-top: 9px solid #1D9DD9;
+}
 #NavFixe li.MenuPresse {
-  background-image: url(../img/Bg_NavPresse.gif);
-  background-size: 1px 6px;
+  border-top: 9px solid #FFD500;
 }
 #NavFixe li.MenuEmploi {
-  background-image: url(../img/Bg_NavEmploi.gif);
-  background-size: 1px 6px;
+  border-top: 9px solid #8DBE23;
 }
 #NavFixe li.MenuContact {
-  background-image: url(../img/Bg_NavContact.gif);
-  background-size: 1px 6px;
+  border-top: 9px solid #702283;
 }
 #NavFixe li.MenuLangue {
-  background-image: url(../img/Bg_NavLangue.gif);
-  padding-top: 12px;
-  position: relative;
-  background-size: 1px 6px;
+  border-top: 9px solid #E52727;
 }
 #NavFixe li.MenuLangue a {
   outline: none;
@@ -258,14 +250,14 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 /* ----------Tetière en angle----------- */
 #tetiere-bottom {
   transform: skewY(-2deg);
+  -webkit-transform: skewY(-2deg);
   z-index: 1;
   position: relative;
   background: white;
-  height: 40px;
-  top: 18px;
+  height: 60px;
+  top: 39px;
   width: 100%;
   margin: 0 auto;
-  box-shadow: 0 8px 6px -6px #585858;
 }
 
 /* -------------Entete secondaire----------------- */
@@ -277,10 +269,8 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 }
 
 #EnteteSecondaire {
-  height: 240px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 0;
+  height: 340px;
+  padding-top: 50px;
   background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url() no-repeat 502px 0;
   /* Safari */
   background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url() no-repeat 502px 0;
@@ -1028,13 +1018,6 @@ body.Accueil #BlocPresentation, body.ListeActualites #BlocPresentation {
   float: left;
   width: 283px;
   padding: 61px 20px 0 25px;
-}
-body.Accueil #BlocPresentation h1, body.ListeActualites #BlocPresentation h1 {
-  font-size: 20px;
-  line-height: 20px;
-  color: #F00;
-  margin-bottom: 19px !important;
-  text-transform: uppercase;
 }
 body.Accueil #BlocPresentation p, body.ListeActualites #BlocPresentation p {
   font-size: 11px;
@@ -2053,9 +2036,7 @@ CARTE DU MONDE -----------------------------------------------------------------
 #BlocCarteMonde #BlocSelectionBureau {
   width: 57%;
   height: 64px;
-  background: url(../img/Bg_BlocSelectionBureau.jpg) no-repeat 0 0;
-  position: relative;
-  z-index: 500;
+  background-color: #FFD500;
   display: inline-block;
 }
 #BlocCarteMonde #BlocSelectionBureau.On {
@@ -2969,4 +2950,18 @@ iframe #afficher {
 
 .bleu {
   background-color: #702283;
+}
+
+.navbar-brand {
+    max-width: 15%;
+    padding: 10px 0 0 10px;
+}
+
+.navbar-toggle {
+    margin-top: 14px;
+}
+#BlocPresentation h1 {font-size: 20px;line-height: 20px;color: #F00;margin-bottom: 19px !important;text-transform:uppercase;}
+
+h2 {
+  margin-top: 30px;
 }
