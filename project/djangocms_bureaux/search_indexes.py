@@ -1,10 +1,10 @@
 # encoding: utf-8
 
+from django.core.exceptions import DoesNotExist
+
 from aldryn_search.base import AldrynIndexBase
 
 from haystack import indexes
-
-from project.djangocms_bureaux.models import DoesNotExist
 
 
 class AufIndex(AldrynIndexBase):
