@@ -29,10 +29,11 @@
     <div class="container">
       <div class="row">
       <div class="navbar-default" role="navigation" style="background-color:rgba(255, 255, 255, 1);">
-        <a href="/">
-         <img src="{% static "img/Logo_Auf_FR_mince.png" %}" alt="Agence universitaire de la Francophonie" class="Logo">
+        <div>
+        <a class="navbar-brand" href="/">
+         <img class="img-responsive" src="{% static "img/auf-menu-logo.svg" %}" alt="Agence universitaire de la Francophonie" class="Logo">
         </a>
-        <div class="nav pull-right">
+        <div class="nav">
           <img  class="hidden-sm hidden-xs" align="right" src="{% static "img/logo-droite.png" %}" />
           <ul id="NavFixe">
 
@@ -53,18 +54,17 @@
            <li class="MenuRSS"><a href="/rss/">RSS</a></li>
 
          </ul>
+        </div>
+        </div>
+
           <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#MenuPrincipal-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
-
-        </div>
-
         <div class="collapse navbar-collapse" id="MenuPrincipal-collapse">
-            <div class="navbar-form pull-right" style="display: block; clear: both">
+            <div class="navbar-form pull-right">
                 <form class="form-group" action="/recherche/" method="get">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control">
@@ -74,71 +74,110 @@
                 </div>
             </form>
             </div>
-            <ul class="nav navbar-nav" id="MenuPrincipal">
+            <ul class="nav navbar-nav pull-left" id="MenuPrincipal">
               {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
             </ul>
         </div>
         <div id="tetiere-bottom"></div>
 
-            <div id="EnteteSecondaire">
-                  <div class="ContenuEntete"></div>
+        <div id="EnteteSecondaire" class="hidden-sm hidden-xs">
+          <div class="col-md-3 col-md-offset-1">
+            <div id="BlocPresentation">
+               <h1>Donnons toutes ses chances à l’excellence</h1>
+               <p>L'Agence universitaire de la Francophonie (AUF) est présente sur tous les continents, avec plus de 427 agents répartis dans 70 implantations rattachées à dix bureaux.</p>
+              <ul>
+                <li><a href="/membres/">Voir nos établissements membres</a></li>
+                <li><a href="/auf/nos-membres/pourquoi-devenir-membre/">Comment devenir membre de l’AUF?</a></li>
+              </ul>
+              <p><a href="/auf/" class="LienBoutonPresentation">En savoir plus sur l’AUF</a></p>
             </div>
-            <div id="BlocCarteMonde">
-                <div id="BlocSelectionBureau" class="On">
-                    <a href="#" class="SelectionCarte">
-                        <span class="RegionSelectionnee" id="International">International</span>
-                    </a>
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;SITE INTERNET DE LA REGION:</label>
-                        <a href="#" class="SelectionBureau">
-                            Veuillez choisir un bureau régional
-                        </a>
-                    <ul class="MenuDeroulantBureau">
-                            <li><a href="/bureau-afrique-centrale-et-des-grands-lacs/" class="afrique-centrale-et-des-grands-lacs">Afrique centrale et des Grands-Lacs</a></li>
-                            <li><a href="/bureau-afrique-de-l-ouest/" class="afrique-de-l-ouest">Afrique de l'Ouest</a></li>
-                            <li><a href="/bureau-ameriques/" class="ameriques">Amériques</a></li>
-                            <li><a href="/bureau-asie-pacifique/" class="asie-pacifique">Asie-Pacifique</a></li>
-                            <li><a href="/bureau-caraibe/" class="caraibe">Caraïbe</a></li>
-                            <li><a href="/bureau-europe-centrale-et-orientale/" class="europe-centrale-et-orientale">Europe centrale et orientale</a></li>
-                            <li><a href="/bureau-moyen-orient/" class="moyen-orient">Moyen-Orient</a></li>
-                            <li><a href="/bureau-ocean-indien/" class="ocean-indien">Océan Indien</a></li>
-                            <li><a href="/bureau-maghreb/" class="maghreb">Maghreb</a></li>
-                            <li><a href="/bureau-europe-de-l-ouest/" class="europe-de-l-ouest">Europe de l'Ouest</a></li>
-                    </ul>
-                </div>
-                <!--------------Carte extensible------------------>
-                <div id="WrapperCarte">
-                    <div id="Carte">
-                        <a href="/bureau-afrique-centrale-et-des-grands-lacs" class="zone0" id="Zoneafrique-centrale-et-des-grands-lacs">Afrique centrale et des Grands-Lacs</a>
-                        <a href="/bureau-afrique-de-l-ouest" class="zone1" id="Zoneafrique-de-l-ouest">Afrique de l'Ouest</a>
-                        <a href="/bureau-ameriques" class="zone2" id="Zoneameriques">Amériques</a>
-                        <a href="/bureau-asie-pacifique" class="zone3" id="Zoneasie-pacifique">Asie-Pacifique</a>
-                        <a href="/bureau-caraibe" class="zone4" id="Zonecaraibe">Caraïbe</a>
-                        <a href="/bureau-europe-centrale-et-orientale" class="zone5" id="Zoneeurope-centrale-et-orientale">Europe centrale et orientale</a>
-                        <a href="/bureau-moyen-orient" class="zone6" id="Zonemoyen-orient">Moyen-Orient</a>
-                        <a href="/bureau-ocean-indien" class="zone7" id="Zoneocean-indien">Océan Indien</a>
-                        <a href="/bureau-maghreb" class="zone8" id="Zonemaghreb">Maghreb</a>
-                        <a href="/bureau-europe-de-l-ouest" class="zone9" id="Zoneeurope-de-l-ouest">Europe de l'Ouest</a>
-                        <a href="/bureau-international" class="zone10" id="Zoneinternational">International</a>
-                    </div>
-                    <div class="ControlesCarte">
-                        <a href="#" class="FermetureCarte">Fermer la carte</a>
-                    </div>
-                </div>
-
-                <!--------------Bloc réseaux sociaux------------------>
-                <div id="BlocReseauxSociaux">
-                    <div class="BlocMediasSociaux">
-                        <p>Suivez-nous</p>
-                        <a href="http://www.dailymotion.com/planeteauf" target="_blank" title="Dailymotion"><img src="/static/img/Icone_Dailymotion.gif" alt="Dailymotion"></a>
-                        <a href="http://www.youtube.com/planeteauf" target="_blank" title="YouTube"><img src="/static/img/Icone_YouTube.gif" alt="YouTube"></a>
-                        <a href="https://twitter.com/auf_org" target="_blank" title="Twitter"><img src="/static/img/Icone_Twitter.gif" alt="Twitter"></a>
-                        <a href="http://www.facebook.com/pages/Agence-universitaire-de-la-Francophonie/275363650646" target="_blank" title="Facebook"><img src="/static/img/Icone_Facebook.gif" alt="Facebook"></a>
-                   </div>
-                </div>
+          </div>
+          <div class="col-md-6 col-md-offset-1">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                            <a href="http://www.auf.org/actualites/appel-projets-clom-mooc-2015/ "><img src="http://www.auf.org/media/slider/mooc.jpg" width="607" height="220" alt="Appel à projets CLOM / MOOC 2015"></a>
+                      </div>
+                      <div class="item">
+                            <a href="http://www.auf.org/actualites/prix-louis-dhainaut-de-la-meilleure-these-en-techn/"><img src="http://www.auf.org/media/slider/bandeauhainaut.jpg" width="607" height="220" alt="Prix Louis D’Hainaut 2015"></a>
+                      </div>
+                      <div class="item">
+                            <a href="www.tv5monde.com/df"><img src="http://www.auf.org/media/slider/df.jpg" width="607" height="220" alt="Destination francophonie consacrée au projet de l'Université de Koudougou"/></a>
+                      </div>
               </div>
-            <ul id="FilAriane" class="breadcrumb">
-            {% show_breadcrumb %}
-            </ul>
+              <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+        <div id="BlocCarteMonde" class="hidden-sm hidden-xs">
+            <div id="BlocSelectionBureau" class="On">
+                <a href="#" class="SelectionCarte">
+                    <span class="RegionSelectionnee" id="International">International</span>
+                </a>
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;SITE INTERNET DE LA REGION:</label>
+                    <a href="#" class="SelectionBureau">
+                        Veuillez choisir un bureau régional
+                    </a>
+                <ul class="MenuDeroulantBureau">
+                        <li><a href="/bureau-afrique-centrale-et-des-grands-lacs/" class="afrique-centrale-et-des-grands-lacs">Afrique centrale et des Grands-Lacs</a></li>
+                        <li><a href="/bureau-afrique-de-l-ouest/" class="afrique-de-l-ouest">Afrique de l'Ouest</a></li>
+                        <li><a href="/bureau-ameriques/" class="ameriques">Amériques</a></li>
+                        <li><a href="/bureau-asie-pacifique/" class="asie-pacifique">Asie-Pacifique</a></li>
+                        <li><a href="/bureau-caraibe/" class="caraibe">Caraïbe</a></li>
+                        <li><a href="/bureau-europe-centrale-et-orientale/" class="europe-centrale-et-orientale">Europe centrale et orientale</a></li>
+                        <li><a href="/bureau-moyen-orient/" class="moyen-orient">Moyen-Orient</a></li>
+                        <li><a href="/bureau-ocean-indien/" class="ocean-indien">Océan Indien</a></li>
+                        <li><a href="/bureau-maghreb/" class="maghreb">Maghreb</a></li>
+                        <li><a href="/bureau-europe-de-l-ouest/" class="europe-de-l-ouest">Europe de l'Ouest</a></li>
+                </ul>
+            </div>
+            <!--------------Carte extensible------------------>
+            <div id="WrapperCarte">
+                <div id="Carte">
+                    <a href="/bureau-afrique-centrale-et-des-grands-lacs" class="zone0" id="Zoneafrique-centrale-et-des-grands-lacs">Afrique centrale et des Grands-Lacs</a>
+                    <a href="/bureau-afrique-de-l-ouest" class="zone1" id="Zoneafrique-de-l-ouest">Afrique de l'Ouest</a>
+                    <a href="/bureau-ameriques" class="zone2" id="Zoneameriques">Amériques</a>
+                    <a href="/bureau-asie-pacifique" class="zone3" id="Zoneasie-pacifique">Asie-Pacifique</a>
+                    <a href="/bureau-caraibe" class="zone4" id="Zonecaraibe">Caraïbe</a>
+                    <a href="/bureau-europe-centrale-et-orientale" class="zone5" id="Zoneeurope-centrale-et-orientale">Europe centrale et orientale</a>
+                    <a href="/bureau-moyen-orient" class="zone6" id="Zonemoyen-orient">Moyen-Orient</a>
+                    <a href="/bureau-ocean-indien" class="zone7" id="Zoneocean-indien">Océan Indien</a>
+                    <a href="/bureau-maghreb" class="zone8" id="Zonemaghreb">Maghreb</a>
+                    <a href="/bureau-europe-de-l-ouest" class="zone9" id="Zoneeurope-de-l-ouest">Europe de l'Ouest</a>
+                    <a href="/bureau-international" class="zone10" id="Zoneinternational">International</a>
+                </div>
+                <div class="ControlesCarte">
+                    <a href="#" class="FermetureCarte">Fermer la carte</a>
+                </div>
+            </div>
+
+            <!--------------Bloc réseaux sociaux------------------>
+            <div id="BlocReseauxSociaux">
+                <div class="BlocMediasSociaux">
+                    <p>Suivez-nous</p>
+                    <a href="http://www.dailymotion.com/planeteauf" target="_blank" title="Dailymotion"><img src="/static/img/Icone_Dailymotion.gif" alt="Dailymotion"></a>
+                    <a href="http://www.youtube.com/planeteauf" target="_blank" title="YouTube"><img src="/static/img/Icone_YouTube.gif" alt="YouTube"></a>
+                    <a href="https://twitter.com/auf_org" target="_blank" title="Twitter"><img src="/static/img/Icone_Twitter.gif" alt="Twitter"></a>
+                    <a href="http://www.facebook.com/pages/Agence-universitaire-de-la-Francophonie/275363650646" target="_blank" title="Facebook"><img src="/static/img/Icone_Facebook.gif" alt="Facebook"></a>
+               </div>
+            </div>
+          </div>
+        <ul id="FilAriane" class="breadcrumb">
+        {% show_breadcrumb %}
+        </ul>
         </div>
           {% block contenu %}
           {% endblock contenu %}
