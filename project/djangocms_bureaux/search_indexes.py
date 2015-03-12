@@ -19,7 +19,7 @@ class AufIndex(AldrynIndexBase):
     def prepare_bureaux(self, obj):
         try:
             return [b.nom for b in obj.page.bureauextension.bureau.all()]
-        except DoesNotExist, e:
+        except ObjectDoesNotExist, e:
             print(e)
             return 'Non précisé'
 
