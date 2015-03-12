@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-from django.core.exceptions import DoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 
 from aldryn_search.base import AldrynIndexBase
 
