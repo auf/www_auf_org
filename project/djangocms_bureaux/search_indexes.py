@@ -4,6 +4,8 @@ from aldryn_search.base import AldrynIndexBase
 
 from haystack import indexes
 
+from project.djangocms_bureaux.models import DoesNotExist
+
 
 class AufIndex(AldrynIndexBase):
     index_title = True
@@ -17,7 +19,7 @@ class AufIndex(AldrynIndexBase):
     def prepare_bureaux(self, obj):
         try:
             return [b.nom for b in obj.page.bureauextension.bureau.all()]
-        except AttributeError, e:
+        except DoesNotExist, e:
             print(e)
             return 'Non précisé'
 
