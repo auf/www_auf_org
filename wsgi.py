@@ -14,6 +14,8 @@ sys.path.append('/var/lib/auf-django-sdk/django16_auf/')
 sys.path.append('/var/lib/auf-django-sdk/django16_base/')
 sys.path.append('/var/lib/auf-django-sdk/django16_dev/')
 
+sys.path.append(SITE_ROOT)
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
 from django.core.wsgi import get_wsgi_application
