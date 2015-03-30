@@ -1,17 +1,16 @@
 INSTALLED_APPS += (
-    'standard_form',
-    'aldryn_search',
+    'project.aldryn_search',
     'haystack',
+    'spurl',
 )
 
 HAYSTACK_CONNECTIONS = {
-    'fr': {
+    'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(PROJECT_ROOT, 'whoosh_index'),
         'INCLUDE_SPELLING': True,
     },
 }
 
-HAYSTACK_ROUTERS = ['aldryn_search.router.LanguageRouter',]
-HAYSTACK_CONNECTIONS['default'] = HAYSTACK_CONNECTIONS['fr']
+#HAYSTACK_ROUTERS = ['project.aldryn_search.router.LanguageRouter',]
 ALDRYN_SEARCH_INDEX_BASE_CLASS= 'project.djangocms_bureaux.search_indexes.AufIndex'

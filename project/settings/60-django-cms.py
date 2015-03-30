@@ -56,12 +56,14 @@ INSTALLED_APPS += (
     'cmsplugin_filer_video',
 
     'cmsplugin_embeddedmenu',
-    
+
     'djangocms_inherit',
     'djangocms_style',
     'djangocms_text_ckeditor',
-    
+
     'project.cmsplugin_pagelist',
+    'project.cmsplugin_modellist',
+    'project.cmsplugin_carte',
 
     'compressor',
 
@@ -75,7 +77,6 @@ LANGUAGES = [
     ('fr', gettext('French')),
 ]
 CMS_LANGUAGES = LANGUAGES
-CMS_HIDE_UNTRANSLATED = True
 
 CMS_LANGUAGES = {
     1: [
@@ -125,8 +126,14 @@ THUMBNAIL_PROCESSORS = (
 #}
 
 CMS_TEMPLATES = (
-    ('cms.html', gettext('page de cms trois colonnes')),
-    ('trois_colonnes.html', gettext('page de test trois colonnes')),
-    ('article.html', "Article"),
+    ('cms.html', gettext('Page du cms avec menu')),
+    ('trois_colonnes.html', gettext('Trois colonnes')),
     ('deux_colonnes.html', gettext('Deux colonnes')),
+    ('article.html', "Article"),
+    ('accueil.html', gettext('Accueil')),
+)
+
+FILER_ENABLE_PERMISSIONS = True
+FILER_FILE_MODELS = (
+    "project.djangocms_bureaux.models.AufFile",
 )
