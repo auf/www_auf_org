@@ -1,0 +1,27 @@
+{% extends "baseBureau.html" %}
+{% load i18n cms_tags %}
+
+{% block tpl_id %}tpl_col_three{% endblock %}
+{% block tpl_class %}ListeActualites{% endblock %}
+
+{% block EnteteSecondaire %}
+    {% include "EnteteSecondaireAccueil.html" %}
+{% endblock %}
+
+{% block Contenu %}
+<div id="texte">
+    <h1>Inscription à la lettre d'information</h1>
+    <p>Votre demande d'inscription a été traitée. Vous recevrez un courriel de confirmation sous peu.</p>
+    <p>Vous pouvez découvrir les dernières lettres éléctroniques:</p>
+    <div id="tabemploye">
+    <table>
+    <tr style="background:#777 !important; font-weight: bold;"><td style="color: #fff !important;">Numéro</td><td style="color: #fff !important;">Date</td><td style="color: #fff !important;">Visualiser</td></tr>
+    {% if list_news %}
+        {% for news in list_news %}
+            <tr><td>Lettre éléctronqiue Numéro {{news.numero}}</td><td>{{news.date}}</td><td><a href="/lettre-information/{{news.id}}" target="_blank"><img src="{{STATIC_URL}}/img/fichepico.gif" /></a></td></tr>
+        {% endfor %}
+    {% endif %}
+    </table>
+    </div>
+</div>
+{% endblock %}

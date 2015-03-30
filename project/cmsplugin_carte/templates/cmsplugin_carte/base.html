@@ -1,0 +1,79 @@
+{% load sekizai_tags staticfiles %}
+
+{% addtoblock "js" %}
+<script type="text/javascript" src="{% static "js/d3.v3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/topojson.v1.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/datamaps.world.min.js" %}"></script>
+<script>
+    var map = new Datamap({
+    element: document.getElementById("carte"),
+    responsive: true,          //Responsive
+    width:117,                 //Longueur de la carte
+    height:61,                //Hauteur de la carte
+    dataUrl: '{% static "js/cities.geojson" %}', //Fichier JSON personalisé
+    data: {},
+
+    done: function(datamap) {
+        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+            window.open('http://www.auf.org');
+        });
+    },
+
+    geographyConfig: {
+      highlightBorderColor: '#E5E5E5',
+      highlightFillColor: '#e5e5e5',
+      borderColor:'#FFF',
+      borderWidth: 0.5,
+      highlightBorderWidth: 0.5,
+      popupTemplate: function(geography, data) {
+              return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong> <br /></div>';}
+   },
+
+   fills: {
+              'BA':'#34AB92',
+              'BACGL':'#F7AB00',
+              'BAO': '#65B22E',
+              'BAP': '#9F72AE',
+              'BC': '#601D52',
+              'BECO': '#73D0F5',
+              'BEO': '#EA560D',
+              'BM': '#B49B5A',
+              'BMO': '#387DC0',
+              'BOI': '#EE79AD',
+               defaultFill: '#AAA'
+            }
+    });
+
+ $.getJSON("{% static "js/cities.geojson" %}", function(points) {
+        map.bubbles(points, {
+            borderWidth: 1,
+            popupOnHover: true,
+            highlightOnHover: true,
+            borderColor: '#000',
+            popupTemplate: function (geo, data) {
+              return '<div class="hoverinfo"><strong>' +  data.name  + '</strong></div>';
+            }
+        })
+ }).fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});
+/*
+//Responsive
+    window.addEventListener('resize', function() {
+        map.resize();
+    });
+*/
+
+//Legende
+    map.legend();
+</script>
+
+{% endaddtoblock %}
+
+
+<h3 class="page_title">L'AUF dans le monde</h3>
+
+<div id="carte">
+
+</div>

@@ -1,0 +1,13 @@
+{% extends "baseBureau.html" %}
+{% load i18n cms_tags %}
+
+{% block Contenu %}
+<div id="texte">
+    <h1>Désinscription à la lettre d'information éléctronique</h1>
+    <p>Pour vous désinscrire voud devez renseigner votre adresse éléctronique:</p>
+    <form method='post' name="news" action='/bureau-{{region_actuel}}/lettre-information-desinscription-confirme/'>{% csrf_token %}
+        {{ desabonne_form }}
+        <input type='submit' class="BtInscription" Value='Désinscription'>
+    </form>
+</div>
+{% endblock %}

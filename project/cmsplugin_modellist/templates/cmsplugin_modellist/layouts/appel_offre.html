@@ -1,0 +1,36 @@
+{% load menu_tags cms_tags %}
+{% load thumbnail %}
+<div id="cms-menu-{{ plugin.id }}"
+     class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
+     data-plugin-position="{{ plugin.position }}">
+
+    <h3 class="page_title">{{ title }}</h3>
+
+{% for p in object_list %}
+<div class="thumbnail thumbnail-appel">
+  <a class="" href="{{p.get_absolute_url}}">
+    {% if p.image %}
+    <img class="img-thumbnail" src="{% thumbnail p.image 360x360 crop %}"/>
+    {% else %}
+    <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="360px" height="360px">
+    {% endif %}
+    <h4 class="page_title">{{ p.titre }}</h4>
+  </a>
+  <div class="caption">
+    <p class="text-muted  pull-right">Date limite:<strong>{{p.date_fin|date:"j F Y"}}</strong></p>
+    <hr>
+    <a class="btn btn-default pull-right" href="{{p.get_absolute_url}}">Lire plus</a>
+{% comment %}
+    {% if p.bureau.all %}
+      <ul>
+      {% for b in p.bureau.all %}
+          <li><span class="TexteRegion">{{b.nom}}</span></li>
+      {% endfor %}
+      </ul>
+
+    {% endif %}
+{% endcomment %}
+  </div>
+</div>
+{% endfor %}
+</div>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n cms_tags %}
+
+{% block tpl_id %}tpl_col_three{% endblock %}
+{% block tpl_class %}ListeActualites{% endblock %}
+
+{% block EnteteSecondaire %}
+    {% include "EnteteSecondaireAccueil.html" %}
+{% endblock %}
+
+{% block Contenu %}
+<h1>Erreur lors de l'inscription</h1>
+<p>L'erreur suivant n'a pas permis l'inscription à  la lettre éléctronique de l'Agence universitaire de la Francophonie:</p>
+<form method='post' name="news" action='/lettre-information/'>{% csrf_token %}
+	{{ abonne_form }}
+	<input type='submit' class="BtInscription" Value='Inscription'>
+</form>
+{% endblock %}
