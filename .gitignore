@@ -16,10 +16,6 @@ db.sqlite
 *.orig
 *.rej
 
-# Configuration du projet - par environnement
-conf.py
-django.wsgi
-
 # buildout
 /.installed.cfg
 /bin
