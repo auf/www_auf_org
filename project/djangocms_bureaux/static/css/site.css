@@ -121,6 +121,7 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 #NavFixe {
   display: table-cell;
   width: 33%;
+  padding-right: 7px;
 }
 #NavFixe a {
   color: #474747;
@@ -141,12 +142,9 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   width: 20%;
   text-align: right;
 }
-#NavFixe li.MenuRSS a {
-  background: url(../img/Picto_RSS.gif) no-repeat right top 3px;
-  padding-right: 17px;
-}
 #NavFixe li.MenuRSS {
   border-top: 9px solid #1D9DD9;
+  font-size: 14px;
 }
 #NavFixe li.MenuPresse {
   border-top: 9px solid #FFD500;
@@ -270,7 +268,6 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 
 #EnteteSecondaire {
   height: 340px;
-  padding-top: 50px;
   background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url() no-repeat 502px 0;
   /* Safari */
   background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url() no-repeat 502px 0;
@@ -313,10 +310,12 @@ CORPS + CONTENU ----------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------- */
 /* ------------Fil d'Ariane--------------- */
 #FilAriane {
-    padding: 0 24px 0 21px;
-    overflow: hidden;
-    margin: -5px 10px 0px 10px;
-    background: white;
+  padding: 0 24px 0 21px;
+  overflow: hidden;
+  background: white;
+  border-bottom: 1px solid #cdcdce;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 #FilAriane li {
   font-size: 11px;
@@ -1019,8 +1018,7 @@ body.Accueil #BlocPresentation, body.ListeActualites #BlocPresentation {
   width: 283px;
   padding: 61px 20px 0 25px;
 }
-body.Accueil #BlocPresentation p, body.ListeActualites #BlocPresentation p {
-  font-size: 11px;
+#BlocPresentation p, body.ListeActualites #BlocPresentation p {
   line-height: 17px;
   color: #000;
   margin-bottom: 14px;
@@ -1929,6 +1927,9 @@ MENU PRINCIPAL + MENU SECONDAIRES ----------------------------------------------
   font-weight: normal;
   color: #FFF;
 }
+#MenuSecondaire li.ancestor ul li.Selection a {
+  color: #ffdf49;
+}
 #MenuSecondaire li.Selection li a.On, #MenuSecondaire li.Selection li a:hover {
   color: #ffdf49;
 }
@@ -2585,100 +2586,6 @@ body.ListeActualites #BlocContenu #sitemap li {
 }
 
 /*------------------Carte Bureaux-----------------------*/
-#carte {
-  width: 910px;
-  height: 540px;
-  background: url(../img/carte/map1.jpg) no-repeat center;
-  margin: 30px  auto;
-  padding: 5px;
-  border: 1px solid #DCDCDC;
-  position: relative;
-}
-#carte img {
-  position: absolute;
-}
-#carte .bucarest {
-  top: 179px;
-  left: 493px;
-}
-#carte .paris {
-  top: 169px;
-  left: 437px;
-}
-#carte .bruxelles {
-  top: 155px;
-  left: 443px;
-}
-#carte .montreal {
-  top: 170px;
-  left: 264px;
-}
-#carte .port {
-  top: 253px;
-  left: 253px;
-}
-#carte .dakar {
-  top: 254px;
-  left: 397px;
-}
-#carte .yaounde {
-  top: 288px;
-  left: 456px;
-}
-#carte .anta {
-  top: 348px;
-  left: 543px;
-}
-#carte .beyrouth {
-  top: 212px;
-  left: 518px;
-}
-#carte .rabat {
-  top: 215px;
-  left: 413px;
-}
-#carte .hanoi {
-  top: 249px;
-  left: 685px;
-}
-#carte .bureau {
-  background: url(../img/carte/bureau.png) no-repeat center left;
-  padding-left: 12px;
-}
-#carte .siege {
-  background: url(../img/carte/siege.png) no-repeat center left;
-  padding-left: 12px;
-}
-#carte .rectorat {
-  background: url(../img/carte/rectorat.png) no-repeat center left;
-  padding-left: 12px;
-}
-#carte .siegebureau {
-  background: url(../img/carte/rectorat2.png) no-repeat center left;
-  padding-left: 20px;
-}
-#carte .carteBoite {
-  position: absolute;
-  padding: 0px 3px 0px 3px;
-  display: inline-block;
-  color: #272727;
-  line-height: 13px;
-  background-color: rgba(255, 255, 255, 0.65);
-  z-index: 100;
-}
-#carte .carteBoite2 {
-  position: absolute;
-  padding: 3px 0px 3px 17px;
-  display: inline-block;
-  color: #474747;
-  line-height: 14px;
-  background-color: rgba(255, 255, 255, 0.68);
-  z-index: 100;
-  font-size: 11px;
-}
-#carte .carteBoite2 span {
-  margin-right: 13px;
-}
 
 #carte2 {
   width: 732px;
@@ -2941,15 +2848,24 @@ iframe #afficher {
 
 .vert {
   background-color: #8DBE23;
+  background: #8DBE23 url(/static/img/Coinvert.png) no-repeat;
+  background-position: bottom right;
 }
 
 .rouge {
   margin-top: 63px;
-  background-color: #E52727;
+  background: #E52727 url(/static/img/Coinrouge.png) no-repeat;
+  background-position: bottom right;
 }
 
 .bleu {
   background-color: #702283;
+  background: #702283 url(/static/img/Coinmauve.png) no-repeat;
+  background-position: bottom right;
+}
+
+.navbar-default {
+  margin-bottom: 20px;
 }
 
 .navbar-brand {
@@ -2958,10 +2874,357 @@ iframe #afficher {
 }
 
 .navbar-toggle {
-    margin-top: 14px;
+    margin-top: 22px;
 }
-#BlocPresentation h1 {font-size: 20px;line-height: 20px;color: #F00;margin-bottom: 19px !important;text-transform:uppercase;}
+#BlocPresentation h1 {font-size: 16px;line-height: 20px;color: #F00;margin-bottom: 19px !important;text-transform:uppercase;}
 
 h2 {
   margin-top: 30px;
 }
+
+
+/*--Styles pour intérieur des cartes, section "À LA UNE"--*/
+
+/*--Box shadow--*/
+.thumbnail-actu {
+  box-shadow: 0px 0px 2px 0px #B0B0B0;
+}
+
+/*--Couleur du H4 dans la carte--*/
+.thumbnail-actu h4{
+   color: #1D9DD9;
+   padding: 10px;
+   text-align: justify;
+}
+
+/*--Style pour la description--*/
+.thumbnail-actu .caption {
+  padding-bottom: 23px;
+}
+
+/*--Couleur de la description--*/
+.thumbnail-actu a {
+  color: #616161;
+}
+
+/*--Style pour la date--*/
+.thumbnail-actu .text-muted {
+   margin-top: -20px;
+}
+
+/*--Style pour le bouton de la carte--*/
+.thumbnail-actu .btn-default {
+   margin-top: -21px;
+  border-top: 2px solid #1D9DD9;
+  border-radius: 0px;
+  color: #1D9DD9;
+}
+
+
+
+
+/*--Styles pour intérieur des cartes, section "APPELS D'OFFRE"--*/
+
+/*--Box shadow--*/
+.thumbnail-appels {
+  box-shadow: 0px 0px 2px 0px #B0B0B0;
+}
+
+/*--Couleur du H4 dans la carte--*/
+.thumbnail-appels h4 {
+  color: #1D9DD9;
+}
+
+/*--Redimension de l'image et margin--*/
+.thumbnail-appels .img-thumbnail {
+    width: 138px;
+    margin: 10px;
+}
+
+/*--Style pour la description--*/
+.thumbnail-appels .caption {
+  padding-bottom: 23px;
+  margin-top: 28px;
+}
+
+/*--Couleur de la description--*/
+.thumbnail-appels .caption a {
+    color: #616161;
+}
+
+/*--Style pour le bouton de la carte--*/
+.thumbnail-appels .btn-default {
+    margin-top: 10px;
+    border-top: 2px solid #1D9DD9;
+    border-radius: 0px;
+    color: #1D9DD9;
+}
+
+.highlighted {
+    background-color: #1D9DD9;
+}
+
+#EnteteSecondaire.BA  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BACGL  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BAO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BAP  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BC  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BECO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BEO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BM  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BMO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
+}
+
+#EnteteSecondaire.BOI  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
+}
+
+
+.estampille {
+    position: relative;
+    top: 5px;
+    right: -28px;
+}
+
+.estampille-bureau {
+  width: 15%;
+}
+
+.titre-bureau {
+    display: inline;
+    position: relative;
+    top: -19px;
+    left: 21px;
+    font-weight: bold;
+}
+
+.BA , .BA .circle1, .BA rect, .BA #dailymotion {
+   color: #34AB92;
+   fill: #34AB92 !important;
+}
+
+.BACGL, .BACGL .circle1, .BACGL rect, .BACGL #dailymotion {
+   fill: #F7AB00;
+    color: #F7AB00 !important;
+}
+
+.BAO, .BAO .circle1, .BAO rect, .BAO #dailymotion {
+   fill: #65B22E;
+    color: #65B22E !important;
+}
+
+.BAP, .BAP .circle1, .BAP rect, .BAP #dailymotion {
+   fill: #9F72AE;
+    color: #9F72AE !important;
+}
+
+.BC, .BC .circle1, .BC rect, .BC #dailymotion {
+   fill: #601D52;
+    color: #601D52 !important;
+}
+
+.BECO, .BECO .circle1, .BECO rect, .BECO #dailymotion {
+   fill: #73D0F5;
+    color: #73D0F5 !important;
+}
+
+.BEO, .BEO .circle1, .BEO rect, .BEO #dailymotion {
+   fill: #EA560D;
+    color: #EA560D !important;
+}
+
+.BM, .BM .circle1, .BM rect, .BM #dailymotion {
+   fill: #B49B5A;
+    color: #B49B5A !important;
+}
+
+.BMO, .BMO .circle1, .BMO rect, .BMO #dailymotion {
+   fill: #387DC0;
+    color: #387DC0 !important;
+}
+
+.BOI, .BOI .circle1, .BOI rect, .BOI #dailymotion {
+   fill: #EE79AD;
+    color: #EE79AD !important;
+}
+
+
+  .datamaps-legend {
+   top:255px;
+   position:absolute;
+}
+
+  .datamaps-legend dl dd {
+  width: 16px;
+   margin-right: 18px;
+   border-radius: 10px;
+}
+.tetiere-svg {
+  position: relative;
+  float:left;
+  width: 100%;
+}
+
+.ReseauxSociaux {
+  margin-right: 19px;
+}
+
+.btn-carre {
+    background: none;
+    color: white;
+    margin-left: 14px;
+    bottom:50px;
+}
+
+.transluscide {
+  background: rgba(255, 255, 255, 0.44);
+  border-radius: 10px;
+  top: 16px;
+}
+
+.carrousel {
+width: 638px;
+top: 34px;
+left: -10px;
+}
+
+
+#EnteteSecondaire .carousel-indicators {
+bottom: -35px;
+}
+
+#carousel i {
+margin-top: 90px;
+font-size: 35px;
+text-shadow: -1px 2px 9px #000;
+}
+
+.fa-chevron-circle-right {
+margin-left: 78px;
+}
+
+.fa-chevron-circle-left {
+margin-left: -92px;
+}
+
+#EnteteSecondaire .carousel-caption {
+background: rgba(244, 18, 18, 0.71);
+bottom: -8px;
+padding: 0px;
+right: 0%;
+left: 0%;
+}
+
+.search-results li {
+background: #E5E5E5;
+padding: 1px 0px 1px 14px;
+margin: 11px;
+border: 1px dashed rgb(205, 205, 205);
+border-radius: 4px;
+}
+
+.filtres {
+margin-top: 41px;
+border: 1px solid rgb(214, 214, 214);
+padding: 17px 0px 0px 31px;
+margin-bottom: -20px;
+box-shadow: rgb(176, 176, 176) 1px 1px 2px;
+}
+
+.titre-filtres {
+background: rgb(241, 241, 241);
+text-align: center;
+margin: 21px 0px -24px;
+padding: 2px;
+border: 1px solid;
+}
+
+.navbar-form {
+  padding-right: 68px;
+}
+
+#content {
+  margin-top: 20px;
+}
+
+.fa-rss {
+  color: #F99000;
+}
+.fa-twitter-square {
+  color:  #00aced;
+}
+.fa-facebook-square {
+  color: #3b5998;
+}
+.fa-youtube-play {
+  color: #bb0000;
+}
+#dailymotion {
+  fill: #32506d;
+}
+
+/* parent selection in css is not ready...
+a:not( [href*='auf.org'] ):not( [href^='#'] ):not( [href^='/'] ):not( .carousel-caption ):after{
+    font-family: 'FontAwesome';
+    content: " \f08e";
+}
+
+a:after >  img{
+  content: "";
+}
+*/
