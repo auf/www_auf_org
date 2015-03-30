@@ -1,0 +1,3 @@
+{% for item in partenaire_list %}
+			{% if item.image %}<a href="{{ item.site }}" class="Item" target="_blank"><img src="{{ MEDIA_URL }}{{ item.image }}" width="80" height="80" /></a>{% else %}<a href="{{ item.nom }}" class="Item" target="_blank">{{ item.nom }}</a>{% endif %}
+ {% endfor %}

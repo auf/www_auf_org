@@ -1,0 +1,23 @@
+{% load menu_tags cms_tags cms_tags_extend cache %}
+
+{% for child in children %}
+<li class="liEncartMenu {% if child.selected %} Selection{% endif %}{% if child.ancestor %} ancestor{% endif %}">
+        <div class="Imgbloc">{% show_placeholdervar "image" child.id inherit as varimage %}{% if varimage %}{{ varimage }}{% else %}<img src="{{ STATIC_URL }}img/logo_actu.png" />{% endif %}{% endshow_placeholdervar %}</div>
+        <div class="BlocD">
+                {% show_placeholdervar "description" child.id inherit as vardescription %}
+                        {% if vardescription %}
+                                <h2><a href="{{ child.get_absolute_url }}" class="menu {% if child.selected %} selected{% endif %}{% if child.ancestor %} ancestor{% endif %}">{{ child.get_menu_title }}</a></h2>
+                                <div class="stuff">
+                                {{ vardescription }}
+                                </div>
+                        {% endif %}
+                {% endshow_placeholdervar %}
+                <div><a href="{{ child.get_absolute_url }}" class="lien_suite">> lire la suite</a></div>
+        </div>
+        {% if child.children %}
+        <ul>
+        {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+        </ul>
+        {% endif %}
+</li>
+{% endfor %}

@@ -1,0 +1,14 @@
+{% load i18n cms_tags %}
+
+{% block Contenu %}
+<h1>{{ _('Nos Partenaires') }} <a href="#" title="RSS : {{ _('implantations') }} internationales"><img src="{{ STATIC_URL }}img/Picto_RSSLarge.gif" width="15" height="15" class="RSS" alt="RSS" /></a></h1>
+					<!-- Première colonne -->
+                    
+{% if partenaire_list %}
+    {% with partenaire_list as item_list %}
+        {% include "auf_site_institutionnel/item_liste_partenaire.html" %}
+    {% endwith %}
+{% else %}
+    <p>{{ _('Aucun partenaire pour le moment') }}</p>
+{% endif %}
+{% endblock %}

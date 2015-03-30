@@ -2,6 +2,10 @@
 {% load static cms_tags sekizai_tags menu_tags %}
 
 {% block contenu %}
+<div class="col-md-12" id="content" style="background-color: white;">
+    <ul id="FilAriane" class="hidden-sm hidden-xs">
+      {% show_breadcrumb %}
+    </ul>
 <div class="col-md-8">
   <div style="padding: 0px 24px 37px 24px;">
   {% placeholder texte %}
@@ -9,5 +13,6 @@
 </div>
 <div class="col-md-4">
   {% placeholder colonne_droite %}
+</div>
 </div>
 {% endblock %}

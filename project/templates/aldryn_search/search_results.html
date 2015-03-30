@@ -1,14 +1,27 @@
-{% extends "aldryn_search/base.html" %}
-{% load i18n standard_form %}
+{% extends "base.html" %}
+{% load i18n bootstrap3 spurl auf cms_tags menu_tags %}
 
 {% block contenu %}
+<div class="col-md-12" id="content" style="background-color: white;">
+    <ul id="FilAriane" class="hidden-sm hidden-xs">
+      {% show_breadcrumb %}
+    </ul>
 <div class="col-md-8">
-<form action="." method="get" class="frm frm-search">
-	{% standard_widget form.q options custom_class='input-large' %}
-	{% standard_submit %}
+
+<form action="." method="get" class="">
+  <h1></h1>
+  {% bootstrap_field form.q layout='inline' %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary pull-right">
+      Rechercher
+    </button>
+  {% endbuttons %}
 </form>
 
+    <h1>Résultats</h1>
+{% include "aldryn_search/includes/pagination.html" with obj_string=_('results') %}
 <div class="search-results">
+
 	<ul>
 		{% include "aldryn_search/includes/search_items.html" %}
 	</ul>
@@ -17,37 +30,46 @@
 {% include "aldryn_search/includes/pagination.html" with obj_string=_('results') %}
 </div>
 <div class="col-md-4">
-    <div>
+
+    <div class="titre-filtres">
+    <h4><i class="fa fa-filter"></i> Filtres</h4>
+    </div> 
+
+    {% if facets.fields.bureaux %}
+    <div class="filtres">
         <dl>
-            {% if facets.fields.bureaux %}
                 <dt>Bureaux</dt>
-                {% for bureau in facets.fields.bureaux %}
-                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=bureaux:{{ bureau.0|urlencode }}">{{ bureau.0 }}</a> ({{ bureau.1 }})</dd>
-                {% endfor %}
-            {% endif %}
+                {% show_facet "bureaux" %}
         </dl>
     </div>
+    {% endif %}
 
-    <div>
+    {% if facets.fields.annee %}
+    <div class="filtres">
         <dl>
-            {% if facets.fields.annee %}
                 <dt>Années</dt>
-                {% for annee in facets.fields.annee %}
-                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=annee:{{ annee.0|urlencode }}">{{ annee.0 }}</a> ({{ annee.1 }})</dd>
-                {% endfor %}
-            {% endif %}
+                {% show_facet "annee" %}
         </dl>
     </div>
+    {% endif %}
 
-    <div>
+    {% if facets.fields.section %}
+    <div class="filtres">
         <dl>
-            {% if facets.fields.section %}
                 <dt>Sections</dt>
-                {% for section in facets.fields.section %}
-                    <dd><a href="{{ request.get_full_path }}&amp;selected_facets=section:{{ section.0|urlencode }}">{{ section.0 }}</a> ({{ section.1 }})</dd>
-                {% endfor %}
-            {% endif %}
+                {% show_facet "section" %}
         </dl>
     </div>
+    {% endif %}
+
+    {% if facets.fields.partenaire %}
+    <div class="filtres">
+        <dl>
+                <dt>Appel d'offre par:</dt>
+                {# show_facet "partenaire" #}
+        </dl>
+    </div>
+    {% endif %}
+</div>
 </div>
 {% endblock %}

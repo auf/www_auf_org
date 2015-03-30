@@ -1,0 +1,18 @@
+{% load i18n cms_tags %}
+
+
+{% block Contenu %}
+
+    <p>Vous pouvez découvrir les dernières lettres éléctroniques:</p>
+        <div id="tabemploye">
+        <table>
+        <tr style="background:#777 !important; font-weight: bold;"><td style="color: #fff !important;">Numéro</td><td style="color: #fff !important;">Date</td><td style="color: #fff !important;">Visualiser</td></tr>
+        {% if lettre_list %}
+            {% for news in lettre_list %}
+                <tr><td>Lettre électronique Numéro {{news.numero}}</td><td>{{news.date}}</td><td><a href="/lettre-information/{{news.id}}" target="_blank"><img src="{{STATIC_URL}}/img/fichepico.gif" /></a></td></tr>
+            {% endfor %}
+        {% endif %}
+        </table>
+        </div>
+
+{% endblock %}

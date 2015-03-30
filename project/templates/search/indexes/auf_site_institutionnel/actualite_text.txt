@@ -1,0 +1,5 @@
+{{ object.titre|striptags }}
+{{ object.resume|striptags }}
+{% comment %}
+{{ object.texte|striptags }}
+{% endcomment %}

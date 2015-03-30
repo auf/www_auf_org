@@ -1,0 +1,20 @@
+{% load get_attr %}
+
+<a href="{{ object.get_absolute_url }}">
+<h2>{{ object.get_title }}
+{% if object.login_required %}
+  (Réservé aux membres)
+{% endif %}
+</h2>
+</a>
+
+<p>
+{{ object.text|safe }}
+{% for plugin in object.cmsplugin_set.all %}
+  {% with plugin.get_plugin_instance|first as instance %}
+    {% for field in instance.search_fields %}
+      {{ instance|get_attr:field|safe }}
+    {% endfor %}
+  {% endwith %}
+{% endfor %}
+</p>

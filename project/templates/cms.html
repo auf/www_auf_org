@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 {% load static i18n cms_tags menu_tags sekizai_tags %}
 
+{% block menu %}
+    {% if request.current_page.get_root.reverse_id != "bureaux" %}
+            {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+    {% else %}
+            {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
+    {% endif %}
+{% endblock %}
+
+
 {% block contenu %}
+<div class="col-md-12" id="content" style="background-color: white;">
 <div class="col-md-2">
     <div id="ColonneMenuSecondaire">
         <ul id="MenuSecondaire">
@@ -21,8 +31,9 @@
     </div>
     {% placeholder colonne_gauche %}
 </div>
-<div class= "col-md-10" style="background-color: white;">
+<div class= "col-md-6 col-md-offset-2" style="background-color: white;">
+    <h3>{% page_attribute "title" %}</h3>
     {% placeholder texte %}
 </div>
-
+</div>
 {% endblock %}

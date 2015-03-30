@@ -2,14 +2,19 @@
 {% load static i18n cms_tags menu_tags sekizai_tags %}
 
 {% block contenu %}
-<div class="col-md-4">
+<div class="col-md-12" id="content" style="background-color: white;">
+    <ul id="FilAriane" class="hidden-sm hidden-xs">
+      {% show_breadcrumb %}
+    </ul>
+<div class="col-md-5">
     {% placeholder colonne_gauche %}
 </div>
 <div class= "col-md-4">
     {% placeholder texte %}
 </div>
 
-<div class="col-md-4">
+<div class="col-md-3">
     {% placeholder colonne_droite%}
+</div>
 </div>
 {% endblock %}

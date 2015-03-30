@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Brèves des Services Centraux - {{ breve.date }}</title>
+
+<!--MISE EN PAGE A NE PAS MODIFIER -->
+<style type="text/css">
+#contenu{width: 785px; text-align:justify; font-size: 0.84em; border: 1px solid #eee; margin: 20px 0px 30px 10px; padding: 18px 28px 5px 28px; line-height: 1.55em; background: #fbfbfb; }
+.logo{ float: right; }
+.entete{display: inline-block; width: 100%;}
+h2{font-size: 0.95em; margin: 0px;} 
+p{margin: 18px 0px 18px 0px;}
+li{margin-left: 14px;}
+ul{margin-left: 10px;}
+table{ margin-top: 30px;}
+.left{float: left; margin: 20px 25px 20px 0px;}
+*{font-family: Georgia, "Times New Roman", Times, serif;}
+.footer{ display: block; text-align:center; background-color: #efefef; padding: 15px; font-size: 0.94em; margin-top: 50px;} .footer a{ text-decoration: none; color: #000;}
+a{color: #003366; text-decoration:none}
+</style>
+</head>
+
+<body>
+<div id="contenu">
+
+
+<!--DEBUT DU CONTENU-->
+
+
+<!-- Date et logo -->
+<p class="entete">Paris, le {{ breve.date }}<img src="http://portail2010.auf/IMG/logo_AUF-50e.png" / class="logo" height="80"></p>
+
+<h1>Brèves des Services Centraux</h1>
+
+{% if breve.texte_intro%}
+<p>{{ breve.texte_intro|safe }}</p>
+{% endif %}
+
+{% if breve.texte_rh%}
+<table><tr><td background="http://www.auf.org/media/adminfiles/rh.png" height="36px" width="400px" style="padding-left:50px;"><h2>Rubrique RH</h2></td></tr></table>
+<p>{{ breve.texte_rh|safe }}</p>
+{% endif %}
+
+{% if breve.texte_ari%}
+<table><tr><td background="http://www.auf.org/media/adminfiles/ari.png" height="36px" width="400px" style="padding-left:50px;"><h2>Rubrique ARI</h2></td></tr></table>
+<p>{{ breve.texte_ari|safe }}</p>
+{% endif %}
+
+{% if breve.texte_agenda%}
+<table><tr><td background="http://www.auf.org/media/adminfiles/titre1.png" height="36px" width="400px" style="padding-left:50px;"><h2>Agenda Recteur</h2></td></tr></table>
+<p>{{ breve.texte_agenda|safe }}</p>
+{% endif %}
+
+{% if breve.texte_mission%}
+<table><tr><td background="http://www.auf.org/media/adminfiles/venir2.png" height="36px" width="400px" style="padding-left:50px;"><h2>Prochainement en mission</h2></td></tr></table>
+<p>{{ breve.texte_mission|safe }}</p>
+{% endif %}
+
+{% if breve.texte_arrive%}
+<table><tr><td background="http://www.auf.org/media/adminfiles/va.png" height="36px" width="400px" style="padding-left:50px;"><h2>Arrivées et départs</h2></td></tr></table>
+<p>{{ breve.texte_arrive|safe }}</p>
+{% endif %}
+
+{% if breve.texte_diver%}
+<table><tr><td background="http://www.auf.org/media/adminfiles/diverss.png" height="36px" width="400px" style="padding-left:50px;"><h2>Divers</h2></td></tr></table>
+<p>{{ breve.texte_diver|safe }}</p>
+{% endif %}
+
+<!--
+<table><tr><td background="http://www.auf.org/media/adminfiles/bureau.png" height="36px" width="400px" style="padding-left:50px;"><h2>Prochainement dans nos locaux</h2></td></tr></table>
+<p>{{ breve.texte_intro }}</p>
+-->
+
+<!-- pied de page-->
+<p class="footer">Edité par l'AUF - <a href="mailto:communication@auf.org">communication@auf.org</a> - {{ breve.date }}</p>
+
+
+<!-- FIN DU CONTENU -->
+
+</div>
+</body>
+
+</html>

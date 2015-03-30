@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static i18n cms_tags menu_tags sekizai_tags %}
+
+{% block menu %}
+    {% if request.current_page.reverse_id == "accueil"%}
+            {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+    {% else %}
+            <li><a href="/"><i class="fa fa-twitter-square fa-2x BA"></i> Retour au site principal</a></li>
+            {% show_sub_menu 2 2 3 "bootstrap/menu/navbar.html" %}
+    {% endif %}
+{% endblock %}
+
+{% block entete %}
+        <div id="EnteteSecondaire" class="{{ bureau.0 }} hidden-sm hidden-xs">
+          <div class="col-md-3 col-md-offset-1 transluscide">
+            <div id="BlocPresentation">
+               <h1>La Coopération universitaire internationale en langue française</h1>
+               <p>L'Agence universitaire de la Francophonie (AUF) est présente sur tous les continents, avec plus de 427 agents répartis dans 70 implantations rattachées à dix bureaux.</p>
+              <ul>
+                <li><a href="/membres/">Voir nos établissements membres</a></li>
+                <li><a href="/auf/nos-membres/pourquoi-devenir-membre/">Comment devenir membre de l’AUF?</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-1 carrousel">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                            <a href="http://www.auf.org/actualites/appel-projets-clom-mooc-2015/ ">
+                            <img src="http://www.auf.org/media/slider/mooc.jpg" alt="Appel à projets CLOM / MOOC 2015">
+                            <div class="carousel-caption">
+                                <p>CLOM / MOOC CERTICE-SUP : Appel à collaborations</p>
+                            </div>
+                            </a>
+                      </div>
+                      <div class="item">
+                            <a href="http://www.auf.org/actualites/prix-louis-dhainaut-de-la-meilleure-these-en-techn/">
+                            <img src="http://www.auf.org/media/slider/bandeauhainaut.jpg" alt="Prix Louis D’Hainaut 2015">
+                            <div class="carousel-caption">
+                                <p>Prix Louis D’Hainaut 2015</p>
+                            </div>
+                            </a>
+                      </div>
+                      <div class="item">
+                            <a href="www.tv5monde.com/df">
+                                <img src="http://www.auf.org/media/slider/df.jpg" alt="Destination francophonie consacrée au projet de l'Université de Koudougou"/>
+                            <div class="carousel-caption">
+                                <p>Destination francophonie consacrée au projet de l'Université de Koudougou</p>
+                            </div>
+                            </a>
+                      </div>
+              </div>
+              <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <i class="fa fa-chevron-circle-left"></i>
+                <span class="sr-only">Précédent</span>
+              </a>
+              <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <i class="fa fa-chevron-circle-right"></i>
+                <span class="sr-only">Suivant</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+{% endblock %}
+
+{% block contenu %}
+<div class="row" id="content">
+<div class="col-md-5">
+    {% placeholder colonne_gauche %}
+</div>
+<div class= "col-md-4">
+    {% placeholder texte %}
+</div>
+
+<div class="col-md-3">
+    {% placeholder colonne_droite%}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% load i18n cms_tags pagination_tags%}
+
+
+{% block Contenu %}
+
+<h2>Critères de recherche</h2>
+<div style="margin-bottom: 40px">
+<form method="get" acion="">
+    {{ form.as_p }}
+    <input type="submit" value="Rechercher"/>
+	<input type='reset' value="Réinisialiser" />
+</form>
+
+</div>
+{% if membre_list %}
+    {% with membre_list as item_list %}
+	
+    {% autopaginate item_list.qs 30 as filter_list %}
+    {% paginate %}
+
+    	<div id="tabemploye">
+            <table>
+                <tr style="background:#777 !important; font-weight: bold;">
+                    <td width="24%" style="color: #fff !important;">Nom</td>
+                    <td width="4%" style="color: #fff !important;"></td>
+                    <!--<td width="10%" style="color: #fff !important;">Status</td>-->
+                    <td width="18%" style="color: #fff !important;">Ville</td>
+                    <td width="24%" style="color: #fff !important;">Pays</td>
+                    <td width="20%" style="color: #fff !important;">Région</td>
+                    <td width="8%" style="color: #fff !important; text-align: center">Site Web</td>
+                </tr>
+            {% for item in filter_list  %}
+                <tr>
+                    <td>{{ item.nom }}</td>
+                    <td><a href="/membres/{{item.id}}/?height=602&width=604" target="_blank" class="thickbox"><img src="{{ STATIC_URL }}img/fichepico.gif" title="Fiche déscriptive"/></a></td>
+                    <!--<td>{{ item.membre }}</td>-->
+                    <td>{{ item.ville }}</td>
+                    <td>{{ item.pays }}</td>
+                    <td>{{ item.region }}</td>
+                   <td align="center" valign="middle">{% if item.url %}<a href="{{ item.url }}" target="_blank"><img src="{{ STATIC_URL }}img/contact_web.png" title="Site Internet"/></a>{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+
+    {% paginate %}  
+    {% endwith %}
+{% else %}
+    <p>{{ _('Aucune membre pour le moment') }}</p>
+{% endif %}
+{% endblock %}

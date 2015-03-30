@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load i18n cms_tags %}
+{% load highlight %}
+{% load listutil %}
+{% load render_paginator %}
+
+{% if region_actuel == 'international' %}
+    {% block tpl_id %}tpl_col_three{% endblock %}
+    {% block tpl_class %}bodyDetail{% endblock %}
+    
+    {% block EnteteSecondaire %}
+        {% include "EnteteSecondaire.html" %}
+    {% endblock %}
+{% endif %}
+
+{% block Contenu %}
+	  <h1>Moteur de recherche {{region_actuel}}</h1>
+      <div id="article">
+			<div id="search">
+				{% if page.object_list %}
+				<div id="results_header">
+					<div id="results_header_keyword"><h3>{{ _('Résultats') }} <span>{{page.start_index}} - {{page.end_index}}</span>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;Pour la recheche&nbsp;&nbsp;<span class="results_header_keyword_orange">"{{query}}"</span></h3></div>
+                    <div id="results_header_paging">
+						{% with paginator.count as total %}
+							<p>{{ total }} {{ _('résultat') }}{{ total|pluralize }} trouvé{{ total|pluralize }}</p>
+						{% endwith %}
+						{% ifnotequal paginator.num_pages 1%}<p>{% render_paginator 1 3 %}</p>{% endifnotequal %}
+					</div>
+				</div>
+				
+				<div id="results_content">
+					<ul>
+						{% for result in page.object_list %}
+						<li>
+							<h2 class="results_link"><a href="{{result.object.get_absolute_url}}">{{ result.title }}</a></h2>
+							<p class="results_text">{% highlight result.text with query max_length 275 %}</p>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div id="results_footer_paging">
+					{% with paginator.count as total %}
+						<p>{{ total }} {{ _('résultat') }}{{ total|pluralize }} {{ _('trouvé') }}{{ total|pluralize }}</p>
+					{% endwith %}
+					{% ifnotequal paginator.num_pages 1%}<p>{% render_paginator 1 3 %}</p>{% endifnotequal %}
+				</div>
+
+				{% else %}
+
+				<div id="results_header">
+					<div id="results_header_paging">
+						<p>0 {{ _('résultat trouvé') }}</p>
+					</div>
+				</div>
+				
+				<div id="results_none">
+					<h2>{{ _('Désolé, aucun document ne correspond au(x) terme(s) recherché(s)') }} : {{query}}</h2>
+					<div id="suggestions">
+					<p>{{ _('Suggestions') }} :</p>
+					<ul>
+						<li>{{ _('Vérifiez l\'orthographe des termes de recherche.') }}</li>
+						<li>{{ _('Essayez d\'autres mots.') }}</li>
+						<li>{{ _('Utilisez des mots plus généraux.') }}</li>
+						<li>{{ _('Spécifiez un moins grand nombre de mots.') }}</li>
+					</ul>
+                    </div>
+				</div>
+				<div id="results_footer_paging">
+				</div>
+				
+				{% endif %}
+			</div>
+      <div class="article_nav clear">
+		<p><a href="/" class="backward" title="{{_('revenir a la page d\'accueil') }}">{{_('revenir a la page d\'accueil') }}</a></p>
+      </div>
+      </div>
+{% endblock %}

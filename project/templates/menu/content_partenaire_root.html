@@ -1,0 +1,31 @@
+{% load menu_tags cms_tags_extend cms_tags cache %}
+{% for child in children %}
+				
+<li{% if forloop.counter|divisibleby:2 %} class="noMargin-right"{% endif %}>
+	<div class="article_preview">
+		<div class="article_preview_text">
+			<h2>{{ child.get_menu_title }}</h2>
+            
+
+            {% show_placeholdervar "siteweb" child.id inherit as varsiteweb %}
+            
+            {% show_placeholdervar "logo" child.id inherit as varlogo %}
+			{% if varlogo %}{% if varsiteweb %}<a href="{{ varsiteweb }}" title="{{ _('site internet') }}">{% endif %}<span class="partenaire_logo">{{ varlogo }}</span>{% if varsiteweb %}</a>{% endif %}{% endif %}
+			{% endshow_placeholdervar %}
+            
+                {% if varsiteweb %}<span class="partenaire_url"><a href="{{ varsiteweb }}" title="{{ _('site internet') }}">{{ varsiteweb }}</a></span>{% endif %}
+                {% endshow_placeholdervar %}
+			{% show_placeholdervar "texte" child.id inherit as vartexte %}
+                {% if vartexte %}
+                <div class="partenaire_texte">
+                    {{ vartexte }}
+                </div>
+                {% endif %}
+			{% endshow_placeholdervar %}
+		</div>
+    </div>
+    
+    
+</li>
+				
+{% endfor %}

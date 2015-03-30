@@ -1,0 +1,11 @@
+{% load i18n cms_tags %}
+
+{% block Contenu %}
+
+<h2>{{video.titre}}</h2>
+
+<div style="margin-bottom:20px">{{ video.video|safe }}</div>
+
+<p>{{video.description}} </p>
+                    
+{% endblock %}

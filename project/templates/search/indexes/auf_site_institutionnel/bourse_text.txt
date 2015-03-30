@@ -1,0 +1,3 @@
+{{ object.titre|striptags }}
+{{ object.resume|striptags }}
+{{ object.texte|striptags }}

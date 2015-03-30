@@ -1,0 +1,21 @@
+{% load i18n cms_tags %}
+
+
+{% block Contenu %}
+<div id="texte">
+    <div style="margin-bottom: 40px">
+    <form method="get" acion="">
+        {{ form.as_p }}
+        <input type="submit" value="Rechercher" />
+        <input type='reset' value="Réinitialiser" />
+    </form>
+    </div>
+    {% if implantation_list %}
+        {% with implantation_list as item_list %}
+            {% include "auf_site_institutionnel/item_liste_implantation.html" %}
+        {% endwith %}
+    {% else %}
+        <p>{{ _('Aucune implantation pour le moment') }}</p>
+    {% endif %}
+</div>
+{% endblock %}

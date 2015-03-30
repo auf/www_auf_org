@@ -1,0 +1,13 @@
+{% load i18n cms_tags menu_tags %}
+{% load menu_tags %}
+				<li class="MenuLangue">
+					<!-- Afficher la langue sélectionnée dans le premier lien -->
+					<a href="/international/" class="LangueSelectionnee">Français</a>
+					<!-- Afficher les autres choix de langues ci-dessous et diriger l'utilisateur vers les bonnes pages -->
+					<ul id="ChoixLangue">
+						<li><a href="{% page_url "en" %}">English</a></li>
+                        <li><a href="{% page_url "es" %}">Español</a></li>
+                        <li><a href="{% page_url "arabe" %}">العربية</a></li>
+                        <li><a href="{% page_url "portugais" %}">Português</a></li>
+					</ul>
+				</li>

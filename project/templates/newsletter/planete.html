@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AUF - Planète N°{{ planete.numero}} - {{ planete.date }}</title>
+</head>
+<style>
+html{
+font-family: "Myriad Pro", arial, helvetica, sans-serif;
+color: #404040;
+font-size:12px;
+background-color: #fefefe;
+}
+a{
+color: #404040;
+text-decoration: none;
+}
+a:hover {
+color:#6b4f5b;
+text-decoration: none;
+}
+h3{
+margin: 0px;
+font-size: 17px;
+text-transform: uppercase;
+}
+p{
+margin: 0px;
+}
+</style>
+<body>
+<center>
+
+<!--TOP-->
+<table cellpadding="0" cellspacing="0" border="0" width="606" height="60" style="text-align:center; font-size:12px;">
+<tr>
+<td><a href="http://www.auf.org/planete-auf/{{planete.id}}/" target="_blank"  style="font-family: 'Myriad Pro', arial, helvetica, sans-serif; text-decoration: none">Problème de lecture? Elle est également disponible ici : www.auf.org/planete-auf/{{planete.id}}/</a></td>
+</tr>
+</table>
+
+<!-- MAIN-->
+<table id="container" style="border:1px solid #dbd4d7;" background="images/fond.png"  bgcolor="#f6f6f6" cellpadding="0" cellspacing="0" border="0" width="606">
+
+    <!--HEADER TABLE-->
+    <tr>
+        <td width="604" height="155">
+        <!--LOGO-->
+        <img src="http://www.auf.org/media/adminfiles/logo.jpg" width="604" height="155" alt=""/>
+        </td>
+    </tr>
+    
+    <!--BODY TOP GRADIENT-->
+    <tr>
+        <td height="34" width="604" bgcolor="#6b4f5b" style="padding: 0px 20px; font-size:14px; text-transform:uppercase; color:#fff; font-weight: bold; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">
+        Numéro {{ planete.numero }} - {{ planete.date|date:"F Y" }}
+        </td>
+    </tr>
+    
+    <!--BODY CONTENT-->
+    <tr>
+        <td width="564" bgcolor="#f6f6f6" style="padding: 32px 20px 35px 20px;  color: #404040;">
+            
+            <!--LE DOSSIER DU MOIS-->
+            <h1 style="font-size: 22px; text-transform: uppercase; margin: 0px 0px 20px 0px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #404040;">Le dossier du mois</h1>
+            <table cellpadding="0" cellspacing="0" border="0" width="544" bgcolor="#ededed" style="padding: 12px 10px 6px 10px">
+            
+            <tr>
+                <td width="544">
+                    <!--FEATURED POST CONTENT-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="544">
+                        <tr>
+                            <td  style="color: #404040;">
+                            <h2 style="font-size:16px; margin: 0px 0px 4px 0px; background: url(http://www.auf.org/media/adminfiles/puce.png) left top no-repeat; line-height: 14px; padding-left: 20px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #404040;">{{ planete.titre_dossier }}</h2>
+                            <!--DATE-->
+                            <br style="font-size:8px;"/>
+                            
+                            <!--IMAGE-->
+                            {% if planete.photo_dossier %}
+                                <img src="http://www.auf.org/media/{{planete.photo_dossier}}" style="padding: 5px; margin-left:20px; background-color:#fff" width="150" align="right" alt="dossier du mois"/>
+                                {% else %}
+                                <img src="http://www.auf.org/media/uploads/dossier2.jpg" style="padding: 5px; margin-left:20px; background-color:#fff" width="150" align="right" alt="dossier du mois"/>
+                            {% endif %}
+                            <p style="line-height:18px; text-align: justify; font-size:13px; width: 370px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; margin: 0px 0px 4px 0px; color: #404040;">
+                            {{ planete.texte_dossier|safe }}
+                            </p>
+                            <!--READ MORE-->
+                            {% if planete.lien_dossier  %}
+                            <a href="{{ planete.lien_dossier }}" style="padding: 5px 10px; background-color:#931022; color:#fff; font-size: 12px; text-decoration: none; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">>  Consulter le dossier</a>
+                            {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </table>
+            <!--END FEATURED POST-->
+            
+            <!--SEPAR -->
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="35" width="564"></td>
+                </tr>
+            </table>
+            <!--END SEPAR -->
+            
+            <center>
+            <table cellpadding="0" cellspacing="0" border="0" width="564">
+            <tr>
+                <!--LEFT COLUMN-->
+                <td width="380" align="left" valign="top" style="color: #404040;">
+                	
+                    {% if list_projet %}
+                	<h1 style="width:380px; font-size: 19px; text-transform: uppercase; margin: 0px 0px 20px 0px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #404040;">Actualité des projets</h1>
+                    
+                    {% for projet in list_projet %}
+                    <!--NORMAL POST-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="380">
+                    <tr>
+                        <td valign="top" width="93" align="left" style="font-size:11px; color:#5d5b35;">
+                        <!--IMAGE-->
+                         {% if projet.photo_projet %}
+                            <img src="http://www.auf.org/media/{{projet.photo_projet}}" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                         {% else %}
+                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                         {% endif %}
+                        </td>
+                        <td valign="top" style="font-size:12px; color:#404040;" width="287">
+                        <strong style="font-size:15px; color:#404040; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{{ projet.titre_projet }}</strong>
+                        <br/>
+                        <p style="line-height:17px; text-align:justify; margin-top: 10px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #404040;">{{ projet.texte_projet }}</p>
+                        <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <!--READ MORE-->
+                    <td>
+                    <a href="{{ projet.lien_projet }}" style="color:#a91d30; font-weight: bold; font-size:12px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">> Lire la suite</a>
+                    </td>
+                    </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <!--END NORMAL POST-->
+                    {% endfor %}
+                    <!--SEPAR -->
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td height="16" width="564"></td>
+                        </tr>
+                    </table>
+            		<!--END SEPAR -->
+                    {% endif %}
+                    
+                    
+                    {% if list_membre %}
+                	<h1 style="width:380px; font-size: 19px; text-transform: uppercase; margin: 0px 0px 20px 0px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #404040;">Parole de membres</h1>
+                    
+                    {% for membre in list_membre %}
+                    <!--NORMAL POST-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="380">
+                    <tr>
+                        <td valign="top" width="93" align="left" style="font-size:11px; color:#5d5b35;">
+                        <!--IMAGE-->
+                         {% if membre.photo_membre %}
+                            <img src="http://www.auf.org/media/{{membre.photo_membre}}" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                         {% else %}
+                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                         {% endif %}
+                        </td>
+                        <td valign="top" style="font-size:12px; color:#404040;" width="287">
+                        <strong style="font-size:15px; color:#404040; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{{ membre.titre_membre }}</strong>
+                        <br/>
+                        <p style="line-height:17px; text-align:justify; margin-top: 10px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{{ membre.texte_membre }}</p>
+                        <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <!--READ MORE-->
+                    <td>
+                    <a href="{{ membre.lien_membre }}" style="color:#a91d30; font-weight: bold; font-size:12px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">> Lire la suite</a>
+                    </td>
+                    </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <!--END NORMAL POST-->
+                    {% endfor %}
+                    <!--SEPAR -->
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td height="16" width="564"></td>
+                        </tr>
+                    </table>
+            		<!--END SEPAR -->
+                    {% endif %}
+
+                   
+                    <h1 style="width:380px; font-size: 19px; text-transform: uppercase; margin: 0px 0px 20px 0px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #404040;">Agenda / appels d'offres</h1>
+                     
+                    {% if list_offre %}
+                    {% for item in list_offre %}
+                    <!--NORMAL POST-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="380">
+                    <tr>
+                        <td valign="top" width="93" align="left" style="font-size:11px; color:#5d5b35;"  width="287">
+                        <!--IMAGE-->
+                            {% if item.image %}
+                            <img src="http://www.auf.org/media/{{item.image}}" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                            {% else %}
+                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                            {% endif %}
+                        </td>
+                        <td valign="top" style="font-size:12px; color:#404040;">
+                        <strong style="font-size:15px; color:#404040; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{{item.titre}}</strong>
+                        <br/>
+                        <p style="line-height:17px; text-align:justify; margin-top: 10px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}</p>
+                        <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <!--READ MORE-->
+                    <td>
+                    <a href="http://www.auf.org{{ item.get_absolute_url }}"  style="color:#a91d30; font-weight: bold; font-size:12px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">> Lire la suite</a>&nbsp;&nbsp;
+                    </td>
+                    </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <!--END NORMAL POST-->
+                    {% endfor %}
+                    {% endif %}
+                    
+                    {% if list_evenement %}
+                    {% for item in list_evenement %}
+                    <!--NORMAL POST-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="380">
+                    <tr>
+                        <td valign="top" width="93" align="left" style="font-size:11px; color:#5d5b35;"  width="287">
+                        <!--IMAGE-->
+                            {% if item.image %}
+                            <img src="http://www.auf.org/media/{{item.image}}" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                            {% else %}
+                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                            {% endif %}
+                        </td>
+                        <td valign="top" style="font-size:12px; color:#404040;">
+                        <strong style="font-size:15px; color:#404040; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{{item.titre}}</strong>
+                        <br/>
+                        <p style="line-height:17px; text-align:justify; margin-top: 10px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}</p>
+                        <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <!--READ MORE-->
+                    <td>
+                    <a href="http://www.auf.org{{ item.get_absolute_url }}" style="color:#a91d30; font-weight: bold; font-size:12px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">> Lire la suite</a>&nbsp;&nbsp;
+                    </td>
+                    </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <!--END NORMAL POST-->
+                    {% endfor %}
+                    {% endif %}
+                    
+                     {% if list_bourse%}
+                    {% for item in list_bourse %}
+                    <!--NORMAL POST-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="380">
+                    <tr>
+                        <td valign="top" width="93" align="left" style="font-size:11px; color:#5d5b35;"  width="287">
+                        <!--IMAGE-->
+                            {% if item.image %}
+                            <img src="http://www.auf.org/media/{{item.image}}" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                            {% else %}
+                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="padding: 5px; background-color: #fff; margin: 2px 10px 5px 0px" width="81" height="81"/>
+                            {% endif %}
+                        </td>
+                        <td valign="top" style="font-size:12px; color:#404040;">
+                        <strong style="font-size:15px; color:#404040; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{{item.titre}}</strong>
+                        <br/>
+                        <p style="line-height:17px; text-align:justify; margin-top: 10px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}</p>
+                        <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <!--READ MORE-->
+                    <td>
+                    <a href="http://www.auf.org{{ item.get_absolute_url }}" style="color:#a91d30; font-weight: bold; font-size:12px; font-family: 'Myriad Pro', arial, helvetica, sans-serif;">> Lire la suite</a>&nbsp;&nbsp;
+                    </td>
+                    </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <!--END NORMAL POST-->
+                    {% endfor %}
+                    {% endif %}
+                
+                </td>
+                <!--RIGHT COLUMN-->
+                <td width="166" align="right" valign="top">
+                
+                <!--SIDEBAR TITLEBAR-->
+                <table cellpadding="0" cellspacing="0" border="0" width="166">
+                <tr>
+                    <td style="color: #505050;">
+                    <h3 style="margin: 0px; font-size: 17px; text-transform: uppercase; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #505050;">En bref</h3>
+                    </td>
+                </tr>
+                </table>
+                <br/>
+                
+                <!--CATEGORIES BOX-->
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ededed" width="166" style="padding: 12px 10px 0px 10px;">
+                	 {% for item in list_actualite %}
+                    <tr>
+                    <td><a href="http://www.auf.org{{ item.get_absolute_url }}" style="padding-left: 12px; background: url(http://www.auf.org/media/adminfiles/puce2.png) left center no-repeat; font-size: 13px; text-decoration:none; font-family: 'Myriad Pro', arial, helvetica, sans-serif;  color: #505050">{{ item.titre }}</a></td>
+                    </tr>
+                    <tr><td height="20"></td></tr>
+                    {% endfor %}
+                    {% for item in list_evenement2 %}
+                    <tr>
+                    <td><a href="http://www.auf.org{{ item.get_absolute_url }}" style="padding-left: 12px; background: url(http://www.auf.org/media/adminfiles/puce2.png) left center no-repeat; font-size: 13px; text-decoration:none; font-family: 'Myriad Pro', arial, helvetica, sans-serif;  color: #505050">{{ item.titre }}</a></td>
+                    </tr>
+                    <tr><td height="20"></td></tr>
+                    {% endfor %}
+                </table>
+                
+                <!--BOX-->
+                <table cellpadding="0" cellspacing="0" border="0">
+                     <tr>
+                         <td height="34" width="564"></td>
+                     </tr>
+                </table>
+                <table cellpadding="0" cellspacing="0" border="0" width="166">
+                <tr>
+                    <td style="color: #505050;">
+                    <h3 style="margin: 0px; font-size: 17px; text-transform: uppercase; font-family: 'Myriad Pro', arial, helvetica, sans-serif;  color: #505050;">Suivez-nous</h3>
+                    </td>
+                </tr>
+                </table>
+                <br/>
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ededed" width="166" style="padding: 12px 10px;">
+                    <tr>
+                    <td>
+                    	<a href="https://www.facebook.com/aufinternational"><img src="http://www.auf.org/media/adminfiles/face.png" border="none" /></a>
+                        <a href="https://twitter.com/auf_org"><img src="http://www.auf.org/media/adminfiles/twitt.png" border="none" style="margin-left:6px"/></a>
+                        <a href="http://www.auf.org/rss/"><img src="http://www.auf.org/media/adminfiles/rss.png" border="none" style="margin-left:6px"/></a>
+                        <a href="http://www.dailymotion.com/planeteauf/"><img src="http://www.auf.org/media/adminfiles/daily.png" border="none" style="margin-left:6px"/></a>
+                    </tr>
+                </table>
+                <!--END BOX-->
+                
+                <!--BOX-->
+                <table cellpadding="0" cellspacing="0" border="0">
+                     <tr>
+                         <td height="34" width="564"></td>
+                     </tr>
+                </table>
+                <table cellpadding="0" cellspacing="0" border="0" width="166">
+                <tr>
+                    <td style="color: #505050;">
+                    <h3 style="margin: 0px; font-size: 17px; text-transform: uppercase; font-family: 'Myriad Pro', arial, helvetica, sans-serif;  color: #505050;">Réagir</h3>
+                    </td>
+                </tr>
+                </table>
+                <br/>
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ededed" width="166" style="padding: 12px 10px;">
+                    <tr>
+                    <td>
+                    	<p style="font-size: 13px; margin-bottom: 6px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #505050">Si vous souhaitez réagir par rapport au contenu ou à la forme de cette lettre : </p>
+                        <a href="mailto:communication@auf.org" style="color:#a91d30; font-weight: bold; margin-top: 8px; font-size:12px;">> Cliquez-ici</a>
+                    </tr>
+                </table>
+                <!--END BOX-->
+                
+                <!--BOX-->
+                <table cellpadding="0" cellspacing="0" border="0">
+                     <tr>
+                         <td height="34" width="564"></td>
+                     </tr>
+                </table>
+                <table cellpadding="0" cellspacing="0" border="0" width="166">
+                <tr>
+                    <td style="color: #505050;">
+                    <h3 style="margin: 0px; font-size: 17px; text-transform: uppercase; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #505050;">Se désabonner</h3>
+                    </td>
+                </tr>
+                </table>
+                <br/>
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ededed" width="166" style="padding: 12px 10px;">
+                    <tr>
+                    <td>
+                    	<p style="font-size: 13px; margin-bottom: 6px; font-family: 'Myriad Pro', arial, helvetica, sans-serif; color: #505050">Si vous souhaitez vous désabonner de cette lettre d'information :</p>
+                        <a href="http://www.auf.org/lettre-information-desinscription/" style="color:#a91d30; font-weight: bold; margin-top: 8px; font-size:12px;">> Cliquez-ici</a>
+                    </tr>
+                </table>
+                <!--END BOX-->
+                
+                <!--END RIGHT COLUMN-->
+                </td>
+            </tr>
+            </table>
+            </center>
+            
+        </td>
+    </tr>
+</table>
+    
+<!--FOOTER-->
+<table cellpadding="0" cellspacing="0" border="0" width="606" style="text-align:left;">
+<tr>
+<td bgcolor="#6b4f5b" style="padding: 16px 20px"><a href="http://www.auf.org/" style="color:#fff; font-size:12px; text-decoration: none;">La Lettre électronique de l'AUF est une publication réalisée par l'Agence universitaire de la Francophonie, une des plus grandes associations d'universités au monde, avec 782 établissements membres dans 98 pays. Cette lettre d'information est diffusée sur une base mensuelle. Elle est libre de droits, à condition d'en préciser la source. N'hésitez pas à la diffuser largement. Si vous avez un problème de lecture, le contenu de cette lettre est également disponible à cette adresse : http://www.auf.org/<br /><br />
+
+Reproduction autorisée avec mention de la source et de l’adresse URL.</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

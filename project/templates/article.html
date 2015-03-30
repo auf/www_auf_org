@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static i18n cms_tags menu_tags sekizai_tags %}
+{% load thumbnail %}
+
+{% block contenu %}
+<div class="col-md-12" id="content" style="background-color: white;">
+    <ul id="FilAriane" class="hidden-sm hidden-xs">
+      {% show_breadcrumb %}
+    </ul>
+<div class="col-md-4">
+
+{% if object.image %}
+{% render_model_block object "image" %}
+    <img class="img-thumbnail" src="{% thumbnail object.image 300x300 crop %}"/>
+{% endrender_model_block %}
+{% else %}
+{% render_model_block object "image" %}
+    <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg"/>
+{% endrender_model_block %}
+{% endif %}
+
+{% placeholder colonne_gauche %}
+</div>
+
+<div class= "col-md-4">
+    <h3>{% render_model object "titre" "titre" %}</h3>
+
+    <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
+
+    {% if object.bureau.all %}
+        <ul>
+      {% for b in object.bureau.all %}
+        <li>{{b.nom}}</li>
+
+      {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div>
+    {% render_placeholder object.cmstexte %}
+    </div>
+</div>
+
+<div class="col-md-4">
+{% placeholder colonne_droite%}
+</div>
+</div>
+{% endblock %}

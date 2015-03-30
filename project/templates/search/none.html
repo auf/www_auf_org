@@ -1,0 +1,32 @@
+{% extends "tcn_base.html" %}
+{%load i18n%}
+
+{% block head %}
+<link href="{{STATIC_URL}}css/search.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block header_banner %}
+	{% with 1111 as zoneid %}
+	{% include "openx/pub.html" %}
+	{% endwith %}
+{% endblock %}
+
+{% block content %}
+			<div id="search">
+				<div id="results_none">
+					<h1>Recherche</h1>
+					<h2>Désolé,<br />aucun document ne correspond au(x) terme(s) recherché(s) : (poullet)</h2>
+					
+					Suggestions :
+					<ul>
+						<li>Vérifiez l’orthographe des termes de recherche.</li>
+						<li>Essayez d'autres mots.</li>
+						<li>Utilisez des mots plus généraux.</li>
+						<li>Spécifiez un moins grand nombre de mots.</li>
+					</ul>
+				</div>
+				<div id="results_footer_paging">
+						1 | 2 | 3 | 4 &gt; &raquo;
+				</div>
+			</div>
+{% endblock %}
