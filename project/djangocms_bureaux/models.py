@@ -22,12 +22,12 @@ ICONES = {
     "zip": "fa-file-archive-o"
 }
 
-TAILLES = {
-    "16":"",
-    "32":"fa-2x",
-    "48":"fa-3x",
-    "64":"fa-4x",
-}
+#TAILLES = {
+#    "16":"",
+#    "32":"fa-2x",
+#    "48":"fa-3x",
+#    "64":"fa-4x",
+#}
 
 
 class AufFile(File):
@@ -37,17 +37,19 @@ class AufFile(File):
         for size in FILER_ADMIN_ICON_SIZES:
             ext = self.extension
             if ext in ICONES.keys():
-                r[size] = ICONES[ext] + " " + TAILLES[size]
+                r[size] = "/static/fonts/pngs/%s/.png" % (ICONES[ext])
             else:
-                r[size] = "fa-file-o" + " " + TAILLES[size]
+                r[size] = "/static/fonts/pngs/fa-file-o.png"
         return r
 
     class Meta:
         proxy = True
 
+
 class Region(models.Model):
     code = models.CharField(max_length=255, unique=True)
     nom = models.CharField(max_length=255, db_index=True)
+
 
 class BureauExtension(PageExtension):
     bureau = models.ManyToManyField(Region)
