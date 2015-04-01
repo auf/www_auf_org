@@ -3265,3 +3265,9 @@ a:after >  img{
  margin-bottom: 10px;
   margin-left:6px;
 }
+
+.texte ul li {
+  margin-left:40px;
+  list-style-type:circle;
+  padding-top:9px;
+}
