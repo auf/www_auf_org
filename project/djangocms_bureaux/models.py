@@ -37,7 +37,7 @@ class AufFile(File):
         for size in FILER_ADMIN_ICON_SIZES:
             ext = self.extension
             if ext in ICONES.keys():
-                r[size] = "/static/fonts/pngs/%s/.png" % (ICONES[ext])
+                r[size] = "/static/fonts/pngs/%s.png" % (ICONES[ext])
             else:
                 r[size] = "/static/fonts/pngs/fa-file-o.png"
         return r
