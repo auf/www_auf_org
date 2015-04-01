@@ -79,6 +79,72 @@
 </div>
 
 <div class="col-md-3">
+    {% if request.current_page.reverse_id == "accueil"%}
+     <div class="rouge">
+     <div class="panel-body">
+     Étudiants
+     <div class="liste-carres">
+     <h5><ul>
+{% show_menu_below_id "etudiants" %}
+    </ul></h5>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if request.current_page.reverse_id == "accueil"%}
+     <div class="vert">
+     <div class="panel-body">
+     Enseignants/Chercheurs
+     <div class="liste-carres">
+     <h5><ul>
+{% show_menu_below_id "professeur-chercheur" %}
+    </ul></h5>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+
+    {% if request.current_page.reverse_id == "accueil"%}
+     <div class="bleu">
+     <div class="panel-body">
+     Responsable d'établissement
+     <div class="liste-carres">
+     <h5><ul>
+{% show_menu_below_id "responsable-d-etablissement" %}
+    </ul></h5>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+
+    <div class="panel boite-lettre">
+    <div class="panel-body">
+        <h4>Lettre d'information</h4>
+        <p style="margin-bottom:8px;">Restez informé grâce à notre lettre d'information</p>
+        <form class="form-group" action="#" method="get">
+       <div class="input-group">
+           <input type="text" name="q" class="form-control">
+           <span class="input-group-btn">
+           <button type="submit" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
+           </span>
+       </div>
+        <p>
+           <button type="submit" class="btn btn-default">S'inscrire</button>
+        </p>
+       </form>
+       </div>
+       </div>
+
+        <div class="panel boite-temoignages">
+        <div class="panel-body">
+            <h4>Témoignages</h4>
+                            <p>Voilà pourquoi ils ont choisi l'AUF !</p>
+                            <p><a href="/auf/temoignages/" class="btn btn-info">En savoir plus</a></p>
+    </div>
+    </div>
+
+
     {% placeholder colonne_droite%}
 </div>
 </div>
