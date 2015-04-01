@@ -48,6 +48,6 @@ def do_show_facet(context, facet_name):
                 % (get_full_path.replace("&selected_facets=" + long_facet_name,""),
                    f[0], f[1])
         else:
-            html += "<dd><a href='%s&selected_facets=%s'>%s</a> (%s)</dd>"\
+            html += "<dd><a href='%s?&selected_facets=%s'>%s</a> (%s)</dd>"\
                 % (get_full_path, long_facet_name, f[0], f[1])
     return html
