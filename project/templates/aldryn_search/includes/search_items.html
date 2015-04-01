@@ -4,7 +4,11 @@
 <li>
 	<h3><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a></h3>
 	{% if result.text %}
+  {% if request.GET.q %}
 	<p>{% highlight result.text with request.GET.q %}</p>
+  {% else %}
+  <p>{{ result.text }}</p>
+	{% endif %}
 	{% endif %}
 	<p><a href="{{ result.object.get_absolute_url }}">{{ result.object.get_absolute_url }}</a></p>
 </li>

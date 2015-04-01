@@ -11,6 +11,7 @@
 <form action="." method="get" class="">
   <h1></h1>
   {% bootstrap_field form.q layout='inline' %}
+  {% bootstrap_field form.selected_facets %}
   {% buttons %}
     <button type="submit" class="btn btn-primary pull-right">
       Rechercher

@@ -41,7 +41,7 @@ def do_show_facet(context, facet_name):
     get_full_path = context['request'].get_full_path()
 
     for f in facets:
-        long_facet_name = ":".join([facet_name, urlquote(f[0])])
+        long_facet_name = "__".join([facet_name, urlquote(f[0])])
 
         if urlunquote(long_facet_name) in selected_facets:
             html += "<dd><a href='%s'>(-) %s</a> (%s)</dd>"\
