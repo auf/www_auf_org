@@ -7,19 +7,19 @@ from filer.models.filemodels import File
 from filer.settings import FILER_ADMIN_ICON_SIZES
 
 ICONES = {
-    "pdf": "fa-file-pdf-o",
-    "doc": "fa-file-word-o",
-    "odt": "fa-file-text",
-    "jpeg": "fa-file-image-o",
-    "png": "fa-file-image-o",
-    "jpg": "fa-file-image-o",
-    "gif": "fa-file-image-o",
-    "mp3": "fa-file-audio-o",
-    "wav": "fa-file-audio-o",
-    "mp4": "fa-file-video-o",
-    "mov": "fa-file-video-o",
-    "avi": "fa-file-video-o",
-    "zip": "fa-file-archive-o"
+    "pdf": "file-pdf-o",
+    "doc": "file-word-o",
+    "odt": "file-text",
+    "jpeg": "file-image-o",
+    "png": "file-image-o",
+    "jpg": "file-image-o",
+    "gif": "file-image-o",
+    "mp3": "file-audio-o",
+    "wav": "file-audio-o",
+    "mp4": "file-video-o",
+    "mov": "file-video-o",
+    "avi": "file-video-o",
+    "zip": "file-archive-o"
 }
 
 #TAILLES = {
@@ -39,7 +39,7 @@ class AufFile(File):
             if ext in ICONES.keys():
                 r[size] = "/static/fonts/pngs/%s.png" % (ICONES[ext])
             else:
-                r[size] = "/static/fonts/pngs/fa-file-o.png"
+                r[size] = "/static/fonts/pngs/file-o.png"
         return r
 
     class Meta:
