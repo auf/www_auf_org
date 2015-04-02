@@ -37,7 +37,7 @@
             {% for item in filter_list  %}
                 <tr>
                     <td>{{ item.nom }}</td>
-                    <td><a href="/membres/{{item.id}}/?height=602&width=604" target="_blank" class="thickbox"><img src="{{ STATIC_URL }}img/fichepico.gif" title="Fiche déscriptive"/></a></td>
+                    <td><a href="/membres/{{item.id}}/?height=602&width=604" data-toggle="modal" data-target="#myModal"><img src="{{ STATIC_URL }}img/fichepico.gif" title="Fiche déscriptive"/></a></td>
                     <!--<td>{{ item.membre }}</td>-->
                     <td>{{ item.ville }}</td>
                     <td>{{ item.pays }}</td>
@@ -54,4 +54,25 @@
     <p>{{ _('Aucune membre pour le moment') }}</p>
 {% endif %}
 </div>
+
+<script>
+$("#myModal").on("show.bs.modal", function(e) {
+    var link = $(e.relatedTarget);
+    $(this).find(".modal-body").load(link.attr("href"));
+});
+</script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

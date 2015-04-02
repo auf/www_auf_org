@@ -1,0 +1,48 @@
+{% load i18n cms_tags %}
+
+{% block Contenu %}
+<div id="box_membre">
+
+    {% for item in membre %}
+    <div class="box_membre">
+        <h3>IDENTIFICATION</h3><A href="javascript:window.print()" style="float: right">Imprimer</A>
+        <p><strong>{{item.nom}}</strong></p>
+        <!--<p>Statut: {{item.membre}}<br />
+        Type: {{item.qualite}}<br />-->
+        <p>Responsable: {{item.responsable_genre}} {{item.responsable_prenom}} {{item.responsable_nom}}<br />
+        Région: {{item.region}}<br />
+        URL: <a href="{{item.url}}" target="_blank">{{item.url}}</a></p>
+    </div>
+    <div class="box_membre">
+    	<div style="float: left; width: 50%;">
+            <h3>ADRESSE</h3>
+            <p>{{item.adresse}}<br />
+            {{item.code_postal}}{{item.cedex}}</br>
+            {{item.ville}}{{item.province}}<br />
+            {{item.pays}}</p>
+        </div>
+        <div style="float: left; width: 50%;">
+    	<h3>COORDONNÉES</h3>
+        <p>Téléphone : {{item.telephone}}<br />
+        Télécopie : {{item.fax}}</p>
+    	</div>
+    </div>
+    <div class="box_membre">
+        <h3>DESCRIPTION</h3>
+        {% if item.description %}
+        	<p>{{item.description|safe}}</p>
+        {% else %}
+        	<p>Aucune déscription disponible pour le moment</p>
+        {% endif %}
+    </div>
+    <div class="box_membre">
+        <h3>HISTORIQUE</h3>
+        {% if item.historique %}
+        	<p>{{item.historique|safe}}</p>
+        {% else %}
+        	<p>Aucun historique disponible pour le moment</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
