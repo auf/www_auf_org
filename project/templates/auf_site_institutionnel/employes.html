@@ -35,7 +35,7 @@
         <td>{{ employe.implantation.region.nom }}</td>
         <td>{{ employe.service.nom }}</td>
         <td>{{ employe.fonction }}</td>
-        <td align="center" valign="middle"><a href="{% url contacter_employe employe.id %}"><img src="{{ STATIC_URL }}img/contact_letttre.gif"</a></td>
+        <td align="center" valign="middle"><a href="{% url "contacter_employe" employe.id %}"><img src="{{ STATIC_URL }}img/contact_letttre.gif"</a></td>
     </tr>
 {% endfor %}
 </table>
