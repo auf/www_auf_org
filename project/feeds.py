@@ -30,7 +30,7 @@ class DerniereActualites(Feed):
     def description(self, obj):
         return "Toutes les actualites %s" % self.region_actuel
 
-    def items(self,obj):
+    def items(self):
         if (self.region_actuel!=''):
             return Actualite.objects.filter(bureau=obj).filter(status=3).order_by('-date_pub')[:5]
         else:
@@ -68,7 +68,7 @@ class DerniereVeille(Feed):
     def description(self, obj):
         return "Veille de la region %s" % self.region_actuel
 
-    def items(self,obj):
+    def items(self):
         if (self.region_actuel!=''):
             return Veille.objects.filter(bureau=obj).filter(status=3).order_by('-date_pub')[:5]
         else:
@@ -106,7 +106,7 @@ class DerniereAppel(Feed):
     def description(self, obj):
         return "Toutes les appels d\'offres %s" % self.region_actuel
 
-    def items(self,obj):
+    def items(self):
         if (self.region_actuel!=''):
             return Appel_Offre.objects.filter(bureau=obj).filter(status=3).order_by('-date_pub')[:5]
         else:
@@ -144,7 +144,7 @@ class DerniereAllocations(Feed):
     def description(self, obj):
         return "Toutes les allocations %s" % self.region_actuel
 
-    def items(self,obj):
+    def items(self):
         if (self.region_actuel!=''):
             return Bourse.objects.filter(bureau=obj).filter(status=3).order_by('-date_pub')[:5]
         else:
@@ -182,7 +182,7 @@ class DerniereEvenement(Feed):
     def description(self, obj):
         return "Tous les evenements %s" % self.region_actuel
 
-    def items(self,obj):
+    def items(self):
         if (self.region_actuel!=''):
             return Evenement.objects.filter(bureau=obj).filter(status=3).order_by('-date_pub')[:5]
         else:
@@ -210,7 +210,7 @@ class foad(Feed):
     def description(self):
         return "Tous les actus FOAD"
 
-    def items(self,obj):
+    def items(self):
 	mot = ["FOAD", "TICE"]
 	event = Evenement.objects.filter(titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:4]
 	actu = Actualite.objects.filter(titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:6]
@@ -250,7 +250,7 @@ class DernierePublication(Feed):
     def description(self, obj):
         return "Toutes les publications %s" % self.region_actuel
 
-    def items(self,obj):
+    def items(self):
         if (self.region_actuel!=''):
             return Publication.objects.filter(bureau=obj).filter(status=3).order_by('-date_pub')[:5]
         else:
