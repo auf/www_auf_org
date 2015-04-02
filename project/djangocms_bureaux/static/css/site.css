@@ -3200,6 +3200,7 @@ border: 1px solid;
 
 #content {
   margin-top: 20px;
+  padding-bottom: 37px;
 }
 
 .fa-rss {
@@ -3271,4 +3272,8 @@ a:after >  img{
   margin-left:40px;
   list-style-type:circle;
   padding-top:9px;
+}
+
+.texte img{
+ margin: 0px 10px 0px 4px;
 }

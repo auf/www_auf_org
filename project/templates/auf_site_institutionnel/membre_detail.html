@@ -5,7 +5,7 @@
 
     {% for item in membre %}
     <div class="box_membre">
-        <h3>IDENTIFICATION</h3><A href="javascript:window.print()" style="float: right">Imprimer</A>
+        <h3>IDENTIFICATION</h3>
         <p><strong>{{item.nom}}</strong></p>
         <!--<p>Statut: {{item.membre}}<br />
         Type: {{item.qualite}}<br />-->
@@ -44,5 +44,9 @@
         {% endif %}
     </div>
     {% endfor %}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+
 </div>
 {% endblock %}
