@@ -18,9 +18,9 @@ class DerniereActualites(Feed):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
-            return Region.objects.get(slug = region_actuel)
+            return Region.objects.get(nom = region_actuel)
         else:
-            return Region.objects.get(slug = u'Ameriques')
+            return Region.objects.get(nom = u'Ameriques')
 
     def title(self, obj):
         return "Actualite %s" % self.region_actuel
@@ -55,9 +55,9 @@ class DerniereVeille(Feed):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
-            return Region.objects.get(slug = region_actuel)
+            return Region.objects.get(nom = region_actuel)
         else:
-            return Region.objects.get(slug = u'Ameriques')
+            return Region.objects.get(nom = u'Ameriques')
 
     def title(self, obj):
         return "Veille %s" % self.region_actuel
@@ -92,9 +92,9 @@ class DerniereAppel(Feed):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
-            return Region.objects.get(slug = region_actuel)
+            return Region.objects.get(nom = region_actuel)
         else:
-            return Region.objects.get(slug = u'Ameriques')
+            return Region.objects.get(nom = u'Ameriques')
 
     def title(self, obj):
         return "Appel d\'offres %s" % self.region_actuel
@@ -129,9 +129,9 @@ class DerniereAllocations(Feed):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
-            return Region.objects.get(slug = region_actuel)
+            return Region.objects.get(nom = region_actuel)
         else:
-            return Region.objects.get(slug = u'Ameriques')
+            return Region.objects.get(nom = u'Ameriques')
 
     def title(self, obj):
         return "allocations %s" % self.region_actuel
@@ -166,9 +166,9 @@ class DerniereEvenement(Feed):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
-            return Region.objects.get(slug = region_actuel)
+            return Region.objects.get(nom = region_actuel)
         else:
-            return Region.objects.get(slug = u'Ameriques')
+            return Region.objects.get(nom = u'Ameriques')
 
     def title(self, obj):
         return "Evenements %s" % self.region_actuel
@@ -233,9 +233,9 @@ class DernierePublication(Feed):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
-            return Region.objects.get(slug = region_actuel)
+            return Region.objects.get(nom = region_actuel)
         else:
-            return Region.objects.get(slug = u'Ameriques')
+            return Region.objects.get(nom = u'Ameriques')
 
     def title(self, obj):
         return "Publication %s" % self.region_actuel
