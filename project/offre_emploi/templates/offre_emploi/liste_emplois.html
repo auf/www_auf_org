@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block EnteteSecondaire %}
+    {% include "EnteteSecondaire.html" %}
+{% endblock %}
+
+{% block Contenu%}
+
+<div id="content-main">
+    {% block object-tools %}{% endblock %}
+
+    {% if offres_emploi|length == 1 %}
+        <h1>Offre d'emploi</h1>
+    {% else %}
+        <h1>Offres d'emploi disponibles</h1>
+    {% endif %}
+
+    {% for offre in offres_emploi %}
+    <div class="BlocEmploi">
+        <fieldset>
+            <h2>{{ offre.titre_poste }}</h2>
+            	<div class="postuler">
+                    <a href="https://recrutement.auf.org/?page=personal_information&rrid={{ offre.id }}" />POSTULER A CETTE OFFRE EN LIGNE</a>
+                    </div>
+                <div class="tabpostuler">
+                    <div class="tabtr">
+                        <span class="tabtd">Nom:</span>
+                        <span class="tabtd2">{{ offre.titre_poste }}</span>
+                    </div>
+                    <div class="tabtr">
+                        <span class="tabtd">Métier:</span>
+                        <span class="tabtd2">{{ offre.metier }}</span>
+                    </div>
+                    <div class="tabtr">
+                        <span class="tabtd">Lieu affectation:</span>
+                        <span class="tabtd2">{{ offre.lieu }}</span>
+                    </div>
+                </div>
+        </fieldset>
+    </div>
+    {% empty %}
+        <p>Aucune offre d'emploi disponible</p>
+        <p>Notez que vous pouvez quand même créer votre profil sur notre <a href="https://recrutement.auf.org/?page=new_account">portail d'emploi</a>.</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+

@@ -7,7 +7,7 @@ from cms.sitemaps import CMSSitemap
 
 urlpatterns += patterns('project.auf_site_institutionnel.views',
 #    (r'^', include('project.carte.urls')),
-#    url(r'^offres_emploi/', include('project.offre_emploi.urls')),
+    url(r'^offres_emploi/', include('project.offre_emploi.urls'))
 #    url(r'^captcha/', include('captcha.urls')),
     url(r'^employes/$', 'employes', name='employes' ),
     url(r'^contacter/employe/(?P<employe_id>\d+)/$', 'contacter_employe', name='contacter_employe'),
