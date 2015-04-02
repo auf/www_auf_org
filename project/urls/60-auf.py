@@ -14,7 +14,7 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 #    (r'^espace/', include('project.espace_membre.urls')),
 #    (r'^$', 'accueil'),
     #Url articles
-    (r'^actualites/$', 'actualite'),
+#    (r'^actualites/$', 'actualite'),
     (r'^actualites/(?P<slug>[-\w]+)/$', 'actualite_detail'),
     (r'^bureau-(?P<slugRegion>[-\w]+)/actualites-regionales/(?P<slug>[-\w]+)/$', 'actualite_detail_br'),
     (r'^bureau-(?P<slugRegion>[-\w]+)/veille-regionale/(?P<slug>[-\w]+)/$', 'veille_detail_br'),
@@ -25,10 +25,10 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
     (r'^appels-offre/(?P<slug>[-\w]+)/$', 'appel_offre_detail'),
     (r'^appels-offre-partenaires/$', 'appel_offre_partenaires'),
     (r'^bureau-(?P<slugRegion>[-\w]+)/appels-offre-regionales/(?P<slug>[-\w]+)/$', 'appel_offre_detail_br'),
-    (r'^evenements/$', 'evenement'),
+#    (r'^evenements/$', 'evenement'),
     (r'^evenements/(?P<slug>[-\w]+)/$', 'evenement_detail'),
     (r'^bureau-(?P<slugRegion>[-\w]+)/evenements-regionales/(?P<slug>[-\w]+)/$', 'evenement_detail_br'),
-    (r'^publications/$', 'publication'),
+#    (r'^publications/$', 'publication'),
     (r'^publications/(?P<slug>[-\w]+)/$', 'publication_detail'),
     (r'^bureau-(?P<slugRegion>[-\w]+)/publications-regionales/(?P<slug>[-\w]+)/$', 'publication_detail_br'),
     (r'^bureau-(?P<slugRegion>[-\w]+)/comares/(?P<slug>[-\w]+)/$', 'comares_detail'),
@@ -85,22 +85,22 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 #)
 
 #rss Marc
-#from django.contrib.syndication.views import Feed
-#from feeds import *
+from django.contrib.syndication.views import Feed
+from feeds import *
 
-#flux = {
-#    'actualite': DerniereActualites,
-#    'appel_offre': DerniereAppel,
-#    'allocations': DerniereAllocations,
-#    'evenement': DerniereEvenement,
-#    'publication': DernierePublication,
-#    'veille': DerniereVeille,
-#    'foad': foad,
-#}
+flux = {
+    'actualite': DerniereActualites,
+    'appel_offre': DerniereAppel,
+    'allocations': DerniereAllocations,
+    'evenement': DerniereEvenement,
+    'publication': DernierePublication,
+    'veille': DerniereVeille,
+    'foad': foad,
+}
 
-#urlpatterns += patterns('',
-#(r'^flux/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
-#    {'feed_dict': flux}),)
+urlpatterns += patterns('',
+(r'^flux/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
+    {'feed_dict': flux}),)
 
 #Lien pour Newsletter
 urlpatterns += patterns ('project.newsletter.views',
