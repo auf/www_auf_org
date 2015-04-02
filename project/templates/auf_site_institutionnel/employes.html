@@ -2,12 +2,14 @@
 {% load i18n cms_tags bootstrap3 %}
 
 {% block Contenu %}
-
+<div class="col-md-12" id="content" style="background-color: white;">
 <h1>Annuaire des employés</h1>
 
-<form method="get" action="">
+<form method="get" action="" class="">
+    <div class="form-group">
     {% bootstrap_form form %}
-    <input type="submit" value="{% trans "Search" %}" />
+    </div>
+    <input type="submit" value="Rechercher"/>
 </form>
 
 
@@ -40,5 +42,5 @@
 {% endfor %}
 </table>
 </div>
-
+</div>
 {% endblock %}
