@@ -84,8 +84,6 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 #    (r'^contact/$',contact),
 #)
 
-#rss Marc
-from django.contrib.syndication.views import Feed
 from feeds import *
 
 flux = {
@@ -99,7 +97,7 @@ flux = {
 }
 
 urlpatterns += patterns('',
-(r'^flux/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
+(r'^flux/(?P<url>.*)/$', 'django.contrib.syndication.views.Feed',
     {'feed_dict': flux}),)
 
 #Lien pour Newsletter
