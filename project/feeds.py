@@ -1,6 +1,5 @@
 # encoding: utf-8
 #Classe pour le flux RSS
-from django.template import RequestContext
 from django.contrib.syndication.views import Feed
 from project.auf_site_institutionnel.models import *
 from auf.django.references.models import Region
@@ -16,8 +15,7 @@ class DerniereActualites(Feed):
     region_actuel = ''
 
     def get_object(self, request):
-        context = RequestContext(request)
-        region_actuel = context['region_actuel']
+        region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
             return Region.objects.get(slug = region_actuel)
@@ -54,8 +52,7 @@ class DerniereVeille(Feed):
     region_actuel = ''
 
     def get_object(self, request):
-        context = RequestContext(request)
-        region_actuel = context['region_actuel']
+        region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
             return Region.objects.get(slug = region_actuel)
@@ -92,8 +89,7 @@ class DerniereAppel(Feed):
     region_actuel = ''
 
     def get_object(self, request):
-        context = RequestContext(request)
-        region_actuel = context['region_actuel']
+        region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
             return Region.objects.get(slug = region_actuel)
@@ -130,8 +126,7 @@ class DerniereAllocations(Feed):
     region_actuel = ''
 
     def get_object(self, request):
-        context = RequestContext(request)
-        region_actuel = context['region_actuel']
+        region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
             return Region.objects.get(slug = region_actuel)
@@ -168,8 +163,7 @@ class DerniereEvenement(Feed):
     region_actuel = ''
 
     def get_object(self, request):
-        context = RequestContext(request)
-        region_actuel = context['region_actuel']
+        region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
             return Region.objects.get(slug = region_actuel)
@@ -236,8 +230,7 @@ class DernierePublication(Feed):
     region_actuel = ''
 
     def get_object(self, request):
-        context = RequestContext(request)
-        region_actuel = context['region_actuel']
+        region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel!=''):
             return Region.objects.get(slug = region_actuel)
