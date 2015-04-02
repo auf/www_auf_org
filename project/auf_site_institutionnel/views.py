@@ -332,7 +332,7 @@ def test_membres(request, slugRegion=''):
     dictFilter['membre'] = True
     #if request.method == 'GET': # If the form has been submitted...
     item_list = MembreFilter(request.GET or None, queryset = Etablissement.objects.filter(**dictFilter))
-    return render_to_response('testmembre.html', {'page_title': 'Membres','membre_list': item_list,'form': item_list.form}, context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/membre.html', {'page_title': 'Membres','membre_list': item_list,'form': item_list.form}, context_instance = RequestContext(request))
     
 def employes(request, ):
     form = RechercheEmployeForm(request.GET)
