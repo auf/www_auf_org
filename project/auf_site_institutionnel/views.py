@@ -331,7 +331,7 @@ def comares_detail(request, slug, slugRegion=''):
 #AUTRES VUES
 
 def page_rss(request, slugRegion=''):
-    return render_to_response('article.html', {'page_title': 'Actualite'}, context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/page_rss.html', {'page_title': 'Actualite'}, context_instance = RequestContext(request))
 
 
 def plan_du_site(request, slugRegion=''):
