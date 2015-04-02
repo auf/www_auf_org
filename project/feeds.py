@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.syndication.views import FeedDoesNotExist
 from django.shortcuts import get_object_or_404
 from itertools import chain
-from django.utils.text import truncate_words
+from django.utils.text import Truncator
 
 
 class DerniereActualites(Feed):
@@ -46,7 +46,7 @@ class DerniereActualites(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            truncate_words(obj.texte, 40)
+            Truncator(obj.texte).chars(40)
 
 
 class DerniereVeille(Feed):
@@ -84,7 +84,7 @@ class DerniereVeille(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            truncate_words(obj.texte, 40)
+            Truncator(obj.texte).chars(40)
 
 
 class DerniereAppel(Feed):
@@ -122,7 +122,7 @@ class DerniereAppel(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            truncate_words(obj.texte, 40)
+            Truncator(obj.texte).chars(40)
 
 
 class DerniereAllocations(Feed):
@@ -160,7 +160,7 @@ class DerniereAllocations(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            truncate_words(obj.texte, 40)
+            Truncator(obj.texte).chars(40)
 
 
 class DerniereEvenement(Feed):
@@ -198,7 +198,7 @@ class DerniereEvenement(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            truncate_words(obj.texte, 40)
+            Truncator(obj.texte).chars(40)
 
 
 class foad(Feed):
@@ -228,7 +228,7 @@ class foad(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            return truncate_words(obj.texte, 40)
+            return Truncator(obj.texte).chars(40)
 
 
 class DernierePublication(Feed):
@@ -266,4 +266,4 @@ class DernierePublication(Feed):
         if (obj.resume!=''):
             return "%s"%(obj.resume)
         else:
-            return truncate_words(obj.texte, 40)
+            return Truncator(obj.texte).chars(40)
