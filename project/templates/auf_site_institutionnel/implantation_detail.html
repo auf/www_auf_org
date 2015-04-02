@@ -1,0 +1,53 @@
+{% load i18n cms_tags %}
+
+{% block Contenu %}
+<div id="box_membre">
+
+    {% for item in implantation %}
+    <div class="box_membre">
+        <h3>IDENTIFICATION</h3><A href="javascript:window.print()" style="float: right">Imprimer</A>
+        <p><strong>{{item.nom}}</strong></p>
+        <!--<p>Statut: {{item.membre}}<br />
+        Type: {{item.qualite}}<br />-->
+        <p>Pays: {{item.adresse_postale_pays}}<br />
+        Région: {{item.region}}<br />
+        {% if item.url %}URL: <a href="{{item.url}}" target="_blank">{{item.url}}</a>{% endif %}</p>
+    </div>
+    <div class="box_membre">
+    	<div style="float: left; width: 48%; margin-right: 10px">
+            <h3>ADRESSE POSTALE</h3>
+            <p>{% if item.adresse_postale_precision_avant %}{{ item.adresse_postale_precision_avant }}<br />{% endif %}
+            {{item.adresse_postale_no}} {{item.adresse_postale_rue}} {{item.adresse_postale_bureau}} {{item.adresse_postale_precision}}</br>
+            {% if item.adresse_postale_boite_postale %}{{ item.adresse_postale_boite_postale }}<br />{% endif %}
+            {% if item.adresse_postale_code_postal %}{{item.adresse_postale_code_postal}} {% endif %}{{item.adresse_postale_ville}}<br />
+            {{item.adresse_postale_pays}}</p>
+        </div>
+        <div style="float: left; width: 50%;">
+    	<h3>ADRESSE PHYSIQUE</h3>
+        <p>{% if item.adresse_physique_precision_avant %}{{ item.adresse_physique_precision_avant }}<br />{% endif %}
+            {{item.adresse_physique_no}}{{item.adresse_physique_rue}} {{item.adresse_physique_bureau}} {{item.adresse_physique_precision}}</br>
+            {% if item.adresse_physique_code_postal %}{{item.adresse_physique_code_postal}} {% endif %}{{item.adresse_physique_ville}}<br />
+            {{item.adresse_physique_pays}}</p>
+    	</div>
+    </div>
+    <div class="box_membre">
+        <h3>COORDONNÉES</h3>
+        <p><strong>Téléphone:</strong> {{item.telephone}}<br />
+        {% if item.fax %}<strong>Fax:</strong> {{ item.fax }} <br />{% endif %}
+        {% if item.courriel %}<strong>Courriel:</strong> <a href="mailto:{{ item.courriel }}" target="_blank">{{ item.courriel }}</a> <br />{% endif %}
+        </p>
+    </div>
+    <div class="box_membre">
+        <h3>INFORMATIONS COMPLÉMENTAIRES</h3>
+        <p>{% if item.date_ouverture %}<strong>Date d'ouverture:</strong> {{ item.date_ouverture }} <br />{% endif %} 
+        {% if item.date_inauguration %}<strong>Date d'inauguration:</strong> {{ item.date_inauguration }} <br />{% endif %} 
+        {% if item.date_extension %}<strong>Date d'extension:</strong> {{ item.date_extension }} <br />{% endif %} </p>
+    </div>
+    {% endfor %}
+    
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+
+{% endblock %}

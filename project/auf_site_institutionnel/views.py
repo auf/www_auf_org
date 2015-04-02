@@ -25,11 +25,11 @@ from forms import *
 
 #ACCUEIL et prout
 def accueil(request):
-    publi_list_accueil = Publication.objects.filter(status=3).order_by('-date_pub')[:6]  
+    publi_list_accueil = Publication.objects.filter(status=3).order_by('-date_pub')[:6]
     event_list_accueil = Evenement.objects.filter(status=3).filter(date_fin__gte=datetime.datetime.now()).order_by('-date_fin').reverse()[:4]
     appel_list_accueil = list(Appel_Offre.objects.filter(status=3).filter(date_fin__gte=datetime.datetime.now()).order_by('-date_fin').reverse()[:2])
 #    appel_list_accueil.insert(0, Appel_Offre.objects.get(id=2866))
-    appel_list_accueil2 = Appel_Offre.objects.filter(status=3).filter(date_fin2__isnull = False)[:2]  
+    appel_list_accueil2 = Appel_Offre.objects.filter(status=3).filter(date_fin2__isnull = False)[:2]
     bourse_list_accueil = Bourse.objects.filter(status=3).filter(date_fin__gte=datetime.datetime.now()).order_by('-date_fin').reverse()[:3]
     bourse_list_accueil2 = Bourse.objects.filter(status=3).filter(date_fin2__isnull = False)[:2]
 #    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
@@ -58,17 +58,20 @@ def actualite(request):
     else:
         form = ActuSearchForm()
     item_list = actualite.filter(status=3).order_by('-date_pub')
-#    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')    
+#    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     return render_to_response('article.html', {'actualite_list': item_list, 'ActuSearchForm': form, 'slider_list': item_list2, 'nb_resultats': item_list.count(), 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance = RequestContext(request))
+
 
 def actualite_latest(request, slugRegion=''):
     latest_actualite_list = Actualite.objects.all().order_by('-date_pub')[:5]
     return render_to_response('article.html', {'latest_actualite_list': latest_actualite_list}, context_instance = RequestContext(request))
 
+
 def actualite_detail(request, slug):
     p = get_object_or_404(Actualite, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
     return render_to_response('article.html', {'object':p, 'actualite': p, 'bureau': bureau, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance = RequestContext(request))
+
 
 def actualite_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
@@ -81,6 +84,7 @@ def actualite_detail_br(request, slug, slugRegion=''):
     p = get_object_or_404(Actualite, slug=slug)
     return render_to_response('article.html', {'actualite': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance = RequestContext(request))
 
+
 #VUES VEILLE REGIONALE
 def veille_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
@@ -92,6 +96,7 @@ def veille_detail_br(request, slug, slugRegion=''):
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Veille, slug=slug)
     return render_to_response('article.html', {'actualite': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance = RequestContext(request))
+
 
 #VUES BOURSES
 def bourse(request):
@@ -121,18 +126,21 @@ def bourse(request):
         form = BourseSearchForm()
         bourse = bourse.exclude(date_fin__lt=datetime.datetime.now())
     item_list = bourse.filter(status=3).order_by('-date_fin').reverse()
-#    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj') 
+#    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     return render_to_response('article.html', {'bourse_list': item_list, 'slider_list': item_list2, 'BourseSearchForm': form, 'page_slug': 'allocations/', 'page_title': 'Allocations', 'nb_resultats': item_list.count()}, context_instance = RequestContext(request))
+
 
 def bourse_latest(request, slugRegion=''):
     latest_bourse_list = Bourse.objects.all().order_by('-date_pub')[:5]
     return render_to_response('article.html', {'latest_bourse_list': latest_bourse_list}, context_instance = RequestContext(request))
 
+
 def bourse_detail(request, slug):
     p = get_object_or_404(Bourse, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
     return render_to_response('article.html', {'bourse': p, 'bureau': bureau, 'page_slug': 'allocations/', 'page_title': 'Allocations'}, context_instance = RequestContext(request))
-    
+
+
 def bourse_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
@@ -177,6 +185,7 @@ def appel_offre(request):
 #    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     return render_to_response('article.html', {'appel_offre_list': item_list, 'appel_offre_list2': item_list3, 'slider_list': item_list2, 'AppelSearchForm': form, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres', 'nb_resultats': item_list.count(), 'nb_resultats2': item_list3.count()}, context_instance = RequestContext(request))
 
+
 #VUES APPLE OFFRES PARTENAIRES
 def appel_offre_partenaires(request):
     appel = Appel_Offre.objects.filter(auf=False)
@@ -209,6 +218,7 @@ def appel_offre_partenaires(request):
 #    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     return render_to_response('article.html', {'appel_offre_list': item_list, 'appel_offre_list2': item_list3, 'slider_list': item_list2, 'AppelSearchForm': form, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres', 'nb_resultats': item_list.count(), 'nb_resultats2': item_list3.count()}, context_instance = RequestContext(request))
 
+
 def appel_offre_latest(request, slugRegion=''):
     latest_appel_offre_list = Appel_Offre.objects.all().order_by('-date_pub')[:5]
     return render_to_response('article.html', {'latest_appel_offre_list': latest_appel_offre_list}, context_instance = RequestContext(request))
@@ -217,7 +227,8 @@ def appel_offre_detail(request, slug):
     p = get_object_or_404(Appel_Offre, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
     return render_to_response('article.html', {'appel_offre': p, 'bureau': bureau, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres'}, context_instance = RequestContext(request))
-    
+
+
 def appel_offre_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
@@ -258,15 +269,18 @@ def evenement(request):
 #    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     return render_to_response('article.html', {'evenement_list': item_list, 'slider_list': item_list2, 'EventSearchForm': form, 'page_slug': 'evenements/', 'page_title': 'Evenements', 'nb_resultats': item_list.count()}, context_instance = RequestContext(request))
 
+
 def evenement_latest(request, slugRegion=''):
     latest_evenement_list = Evenement.objects.all().order_by('-date_pub')[:5]
     return render_to_response('article.html', {'latest_evenement_list': latest_evenement_list}, context_instance = RequestContext(request))
+
 
 def evenement_detail(request, slug):
     p = get_object_or_404(Evenement, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
     return render_to_response('article.html', {'evenement': p, 'bureau': bureau, 'page_slug': 'evenements/', 'page_title': 'Appels offres'}, context_instance = RequestContext(request))
-    
+
+
 def evenement_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
@@ -286,15 +300,18 @@ def publication(request):
 #    item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     return render_to_response('article.html', {'publication_list': item_list, 'slider_list': item_list2, 'PubliForm': item_list.form, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance = RequestContext(request))
 
+
 def publication_latest(request, slugRegion=''):
     latest_publication_list = Publication.objects.all().order_by('-date_pub')[:5]
     return render_to_response('article.html', {'latest_publication_list': latest_publication_list}, context_instance = RequestContext(request))
+
 
 def publication_detail(request, slug, slugRegion=''):
     p = get_object_or_404(Publication, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
     return render_to_response('article.html', {'publication': p, 'bureau': bureau, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance = RequestContext(request))
-    
+
+
 def publication_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
@@ -305,6 +322,7 @@ def publication_detail_br(request, slug, slugRegion=''):
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Publication, slug=slug)
     return render_to_response('article.html', {'publication': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance = RequestContext(request))
+
 
 #VUE COMARES
 def comares_detail(request, slug, slugRegion=''):
@@ -319,11 +337,14 @@ def comares_detail(request, slug, slugRegion=''):
     return render_to_response('article.html', {'comares': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'comares/', 'page_title': 'Actualités COMARES'}, context_instance = RequestContext(request))
 
 #AUTRES VUES
+
 def page_rss(request, slugRegion=''):
     return render_to_response('article.html', {'page_title': 'Actualite'}, context_instance = RequestContext(request))
 
+
 def plan_du_site(request, slugRegion=''):
     return render_to_response('sitemap.html', {'page_title': 'Plan du site'}, context_instance = RequestContext(request))
+
 
 def test_membres(request, slugRegion=''):
     dictFilter = {}
@@ -333,7 +354,8 @@ def test_membres(request, slugRegion=''):
     #if request.method == 'GET': # If the form has been submitted...
     item_list = MembreFilter(request.GET or None, queryset = Etablissement.objects.filter(**dictFilter))
     return render_to_response('auf_site_institutionnel/membre.html', {'page_title': 'Membres','membre_list': item_list,'form': item_list.form}, context_instance = RequestContext(request))
-    
+
+
 def employes(request, ):
     form = RechercheEmployeForm(request.GET)
     liste_employes = form.get_results()
@@ -350,7 +372,7 @@ def employes(request, ):
         page = paginator.page(paginator.num_pages)
 
     c = {'form' : form, 'page' : page,  }
-    return render_to_response('article.html', Context(c), context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/employes.html', Context(c), context_instance = RequestContext(request))
 
 def contacter_employe(request, employe_id=None):
     employe = get_object_or_404(Employe, id=employe_id)
@@ -373,7 +395,7 @@ def contacter_employe(request, employe_id=None):
     else:
         form = ContactEmployeForm()
     c = {'form' : form, 'employe' : employe}
-    return render_to_response('article.html', Context(c), context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/contacter_employe.html', Context(c), context_instance = RequestContext(request))
 
 
 def membre(request, slugRegion=''):
@@ -391,21 +413,23 @@ def membre(request, slugRegion=''):
             item_list2 = Slider.objects.all()
 
     item_list2 = item_list2.filter(status=3).order_by('-date_maj')
-    
+
     return render_to_response('article.html', {'form': item_list.form,'slider_list': item_list2, 'membre_list': item_list, 'page_title': 'Liste des membres'}, context_instance = RequestContext(request))
-    
+
+
 def implantation(request):
     dictFilter = {}
     dictFilter['actif'] = True
     item_list2 = Slider.objects.filter(bureau__slug='international').filter(status=3).order_by('-date_maj')
     item_list = ImplantationFilter(request.GET or None, queryset = Implantation.ouvertes.filter(**dictFilter))
     
-    return render_to_response('article.html', {'form': item_list.form, 'slider_list': item_list2, 'implantation_list': item_list, 'page_title': 'Liste des implantations'}, context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/implantation.html', {'form': item_list.form, 'slider_list': item_list2, 'implantation_list': item_list, 'page_title': 'Liste des implantations'}, context_instance = RequestContext(request))
 
 def membre_detail(request, id, slugRegion=''):
     p = Etablissement.objects.filter(id=id)
     return render_to_response('auf_site_institutionnel/membre_detail.html', {'membre': p,'page_title': 'Membres'}, context_instance = RequestContext(request))
-    
+
+
 def implantation_detail(request, id, slugRegion=''):
     p = Implantation.objects.filter(id=id)
-    return render_to_response('article.html', {'implantation': p,'page_title': 'Implantation'}, context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/implantation_detail.html', {'implantation': p,'page_title': 'Implantation'}, context_instance = RequestContext(request))

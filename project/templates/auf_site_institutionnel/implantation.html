@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n cms_tags pagination_tags bootstrap3 %}
+
+{% block Contenu %}
+<div class="col-md-12" id="content" style="background-color: white;">
+<h1>Implantations <a href="#" title="RSS : {{ _('Membres') }} internationales"><img src="{{ STATIC_URL }}img/Picto_RSSLarge.gif" width="15" height="15" class="RSS" alt="RSS" /></a></h1>
+
+<div class="fondform">
+<form method="get" action="" class="">
+    <div class="form-group">
+    {% bootstrap_form form %}
+    </div>
+    <input type="submit" value="Rechercher"/>
+</form>
+
+</div>
+{% if implantation_list %}
+    {% with implantation_list as item_list %}
+
+    {% autopaginate item_list.qs 15 as filter_list %}
+    {% paginate %}
+
+    	<div id="tabemploye">
+            <table>
+                <tr style="background:#E6B804 !important; font-weight: bold;">
+                    <td width="24%" style="color: #fff !important;">Nom</td>
+                    <td width="4%" style="color: #fff !important;"></td>
+                    <td width="18%" style="color: #fff !important;">Ville</td>
+                    <td width="22%" style="color: #fff !important;">Pays</td>
+                    <td width="22%" style="color: #fff !important;">Région</td>
+                    <td width="8%" style="color: #fff !important; text-align: center">Site Web</td>
+                </tr>
+            {% for item in filter_list  %}
+                <tr>
+                    <td>{{ item.nom}}</td>
+                    <td><a href="/implantations/{{item.id}}/?height=602&width=604" data-toggle="modal" data-target="#myModal""><img src="{{ STATIC_URL }}img/fichepico.gif" title="Fiche descriptive"/></a></td>
+                    <td>{% if item.adresse_physique_ville %}{{ item.adresse_physique_ville }}{% endif %}</td>
+                    <td>{% if item.adresse_physique_pays %}{{ item.adresse_physique_pays }}{% endif %}</td>
+                    <td>{{ item.region }}</td>
+                    <td align="center" valign="middle">{% if item.url %}<a href="{{ item.url }}" target="_blank"><img src="{{ STATIC_URL }}img/contact_letttre.gif" /></a>{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+
+    {% paginate %}  
+    {% endwith %}
+{% else %}
+    <p>{{ _('Aucune membre pour le moment') }}</p>
+{% endif %}
+</div>
+
+<script>
+$("#myModal").on("show.bs.modal", function(e) {
+    var link = $(e.relatedTarget);
+    $(this).find(".modal-body").load(link.attr("href"));
+});
+</script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

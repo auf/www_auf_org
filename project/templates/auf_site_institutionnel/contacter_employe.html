@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n cms_tags bootstrap3 %}
+
+{% block Contenu %}
+<h1>Envoyer un courriel à {{ employe.nom.upper }} {{ employe.prenom }}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="{% trans "Envoyer" %}" />
+</form>
+
+{% endblock %}
