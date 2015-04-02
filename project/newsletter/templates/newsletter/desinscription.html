@@ -10,7 +10,7 @@
 
 {% block Contenu %}
 <h1>Désinscription à la lettre d'information éléctronique</h1>
-<p>Pour vous désinscrire voud devez renseigner votre adresse éléctronique:</p>
+<p>Pour vous désinscrire vous devez renseigner votre adresse éléctronique:</p>
 <form method='post' name="news" action='/lettre-information-desinscription-confirme/'>{% csrf_token %}
 	{{ desabonne_form }}
 	<input type='submit' class="BtInscription" Value='Désinscription'>

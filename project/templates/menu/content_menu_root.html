@@ -1,0 +1,7 @@
+{% if children %}
+	<ul id="EncartSousMenu">
+	{% with "menu/content_sub_menu.html" as template %}
+	{% include "menu/content_sub_menu.html" %}
+	{% endwith %}
+	</ul>
+{% else %}{% endif %}

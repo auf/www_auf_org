@@ -80,6 +80,7 @@
 
 <div class="col-md-3">
     {% if request.current_page.reverse_id == "accueil"%}
+     <h2>Vous êtes:</h2>
      <div class="rouge">
      <div class="panel-body">
      Étudiants
@@ -116,7 +117,6 @@
     </div>
     </div>
     </div>
-    {% endif %}
 
     <div class="panel boite-lettre">
     <div class="panel-body">
@@ -144,6 +144,7 @@
     </div>
     </div>
 
+    {% endif %}
 
     {% placeholder colonne_droite%}
 </div>
