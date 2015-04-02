@@ -86,19 +86,15 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 
 from feeds import *
 
-flux = {
-    'actualite': DerniereActualites,
-    'appel_offre': DerniereAppel,
-    'allocations': DerniereAllocations,
-    'evenement': DerniereEvenement,
-    'publication': DernierePublication,
-    'veille': DerniereVeille,
-    'foad': foad,
-}
-
-urlpatterns += patterns('',
-(r'^flux/(?P<url>.*)/$', 'django.contrib.syndication.views.Feed',
-    {'feed_dict': flux}),)
+urlpatterns += patterns ('',
+    (r'^flux/actualite/$', DerniereActualites()),
+    (r'^flux/appel_offre/$', DerniereAppel()),
+    (r'^flux/allocations/$', DerniereAllocations()),
+    (r'^flux/evenement/$', DerniereEvenement()),
+    (r'^flux/publication/$', DernierePublication()),
+    (r'^flux/veille/$', DerniereVeille()),
+    (r'^flux/foad/$', foad()),
+)
 
 #Lien pour Newsletter
 urlpatterns += patterns ('project.newsletter.views',
