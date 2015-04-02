@@ -3291,16 +3291,20 @@ list-style:none;
 max-height: 150px;
 width: 118px;
 margin-right: 15px;
-margin-bottom:60px;
 float:left;
 }
 
 #EncartSousMenu .btn-info {
 display: inline-block;
 line-height: 23px;
-float:left;
+float:right;
 }
+
 #EncartSousMenu .BlocD {
   margin-top:-35px;
   top:10px;
+}
+
+#EncartSousMenu .stuff {
+margin-left:130px
 }
