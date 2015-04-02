@@ -404,7 +404,7 @@ def implantation(request):
 
 def membre_detail(request, id, slugRegion=''):
     p = Etablissement.objects.filter(id=id)
-    return render_to_response('article.html', {'membre': p,'page_title': 'Membres'}, context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/membre_detail.html', {'membre': p,'page_title': 'Membres'}, context_instance = RequestContext(request))
     
 def implantation_detail(request, id, slugRegion=''):
     p = Implantation.objects.filter(id=id)
