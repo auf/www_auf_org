@@ -22,6 +22,7 @@ class ModelListCMSPlugin(CMSPluginBase):
         obj = get_model('auf_site_institutionnel', instance.modele)
         ctx['object_list'] = obj.objects.all()[:instance.nbelements]
         ctx['title'] = instance.title
+        ctx['layout_template'] = instance.layout_template
 
         return ctx
 
