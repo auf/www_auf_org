@@ -3439,6 +3439,9 @@ ul.nav.nav-tabs > li.active:nth-child(5) > a {
 
 .mini-estampilles{
 margin-top: -15px;
+}
+
+.mini-estampilles i{
 margin-left: 12px;
 }
 
