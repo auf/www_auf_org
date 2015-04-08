@@ -35,7 +35,7 @@ $(function () {
     {% if p.bureau.all %}
       <div class="mini-estampilles">
       {% for b in p.bureau.all %}
-          <i class="fa fa-circle {{b.code}}>" data-toggle="popover" data-content="Amériques" data-placement="top" data-trigger="focus" tabindex="0">-{{b.code}}</i>
+          <i class="fa fa-circle {{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-{{b.code}}</i>
       {% endfor %}
       </div>
 
