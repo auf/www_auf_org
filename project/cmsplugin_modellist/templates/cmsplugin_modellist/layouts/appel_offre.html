@@ -19,9 +19,9 @@ $(function () {
 <div class="thumbnail thumbnail-appels">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
-    <img class="img-thumbnail  pull-right" src="{% thumbnail p.image 220x180 upscale %}"/>
+    <img class="img-thumbnail pull-left" src="{% thumbnail p.image 220x180 upscale %}"/>
     {% else %}
-    <img class="img-thumbnail pull-right" src="http://www.auf.org/static/logodefaut.jpg" width="180px" height="180px">
+    <img class="img-thumbnail pull-left" src="http://www.auf.org/static/logodefaut.jpg" width="180px" height="180px">
     {% endif %}
     <div class="title-date">
       <h4>{{ p.titre }}</h4>
