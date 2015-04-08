@@ -4,7 +4,18 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
 
-from .models import ModelList, TEMPLATE_PATH, MODEL_LIST
+from .models import ModelList, TEMPLATE_PATH
+
+FACETS = {
+    'Actualite': 'Actualité',
+    'Publication': 'Publication',
+    'Appel_Offre': 'Appel d\'offre',
+    'Bourse': 'Bourse',
+    'Evenement': 'Événements',
+    'Partenaire': 'Partenaires',
+    'Comares': 'Comares',
+    'Veille': 'Veilles',
+}
 
 
 class ModelListCMSPlugin(CMSPluginBase):
@@ -25,7 +36,7 @@ class ModelListCMSPlugin(CMSPluginBase):
             ctx['object_list'] = obj.objects.all()[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
-        ctx['voir_plus'] = "/recherche/?selected_facets=section__" + MODEL_LIST[instance.modele]
+        ctx['voir_plus'] = "/recherche/?selected_facets=section__" + FACETS[instance.modele]
 
         return ctx
 
