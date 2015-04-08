@@ -48,7 +48,9 @@
         <img class="hidden-sm hidden-xs" align="right" src="{% static "img/logo-droite.png" %}" />
         <ul id="NavFixe">
 
+{% block menu_haut %}
           <li class="MenuLangue">
+
             <!-- Afficher la langue sélectionnée dans le premier lien -->
             <a href="/international/" class="LangueSelectionnee">Français</a>
             <!-- Afficher les autres choix de langues ci-dessous et diriger l'utilisateur vers les bonnes pages -->
@@ -82,6 +84,7 @@
               </svg></i>
             </div>
           </li>
+{% endblock %}
 
         </ul>
       <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#MenuPrincipal-collapse">

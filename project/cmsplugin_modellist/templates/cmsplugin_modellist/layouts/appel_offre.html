@@ -1,11 +1,22 @@
-{% load menu_tags cms_tags %}
+{% load menu_tags cms_tags sekizai_tags %}
 {% load thumbnail %}
+
+
+{% addtoblock js %}
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+{% endaddtoblock %}
+
+
 <div id="cms-menu-{{ plugin.id }}"
      class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
      data-plugin-position="{{ plugin.position }}">
 
 {% for p in object_list %}
-<div class="thumbnail thumbnail-appel">
+<div class="thumbnail thumbnail-appels">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
     <img class="img-thumbnail  pull-right" src="{% thumbnail p.image 180x230 crop %}"/>
@@ -22,11 +33,11 @@
   </a>
   <hr>
     {% if p.bureau.all %}
-      <ul>
+      <div class="mini-estampilles">
       {% for b in p.bureau.all %}
-          <li><span class="TexteRegion">{{b.code}}</span></li>
+          <i class="fa fa-circle {{b.code}}>" data-toggle="popover" data-content="Amériques" data-placement="top" data-trigger="focus" tabindex="0">-{{b.code}}</i>
       {% endfor %}
-      </ul>
+      </div>
 
     {% endif %}
 </div>

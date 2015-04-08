@@ -1,11 +1,34 @@
 {% extends 'base.html' %}
 {% load static i18n cms_tags menu_tags sekizai_tags %}
 
+{% block menu_haut %}
+{% if request.current_page.reverse_id == "accueil"%}
+            {{ block.super }}
+{% else %}
+          <li class="MenuLangue">
+            <a href="/"><i class="fa fa-home"></i> Retour au site principal</a>
+          </li>
+          <li class="MenuContact">
+            <a href="#"></a>
+          </li>
+          <li class="MenuEmploi">
+            <a href="#"></a>
+          </li>
+          <li class="MenuPresse">
+            <a href="#"></a>
+          </li>
+          <li class="MenuRSS">
+            <a href="#"></a>
+          </li>
+
+{% endif %}
+{% endblock %}
+
+
 {% block menu %}
     {% if request.current_page.reverse_id == "accueil"%}
             {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
     {% else %}
-            <li><a href="/"><i class="fa fa-twitter-square fa-2x BA"></i> Retour au site principal</a></li>
             {% show_sub_menu 2 2 3 "bootstrap/menu/navbar.html" %}
     {% endif %}
 {% endblock %}
