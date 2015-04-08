@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from django.db.models import get_model
 
 from cms.plugin_base import CMSPluginBase
