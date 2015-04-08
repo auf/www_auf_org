@@ -26,10 +26,10 @@ $(function () {
     <div class="title-date">
       <h4>{{ p.titre }}</h4>
       {% if p.date_pub %}
-      <p class="text-muted">Date:<strong>{{p.date_pub|date:"j F Y"}}</strong></p>
+      <p class="text-muted">Date de publication:<strong>{{p.date_pub|date:"j F Y"}}</strong></p>
       {% endif %}
       {% if p.date_debut %}
-      <p class="text-muted">Date:<strong>{{p.date_debut|date:"j F Y"}}</strong></p>
+      <p class="text-muted">Date de début:<strong>{{p.date_debut|date:"j F Y"}}</strong></p>
       {% endif %}
       {% if p.date_fin %}
       <p class="text-muted">Date limite:<strong>{{p.date_fin|date:"j F Y"}}</strong></p>
