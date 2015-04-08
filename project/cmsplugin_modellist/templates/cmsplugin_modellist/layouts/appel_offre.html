@@ -10,16 +10,18 @@
 <div class="thumbnail thumbnail-appel">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
-    <img class="img-thumbnail" src="{% thumbnail p.image 180x80 crop %}"/>
+    <img class="img-thumbnail  pull-right" src="{% thumbnail p.image 180x180 crop %}"/>
     {% else %}
-    <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="160px" height="160px">
+    <img class="img-thumbnail pull-right" src="http://www.auf.org/static/logodefaut.jpg" width="180px" height="180px">
     {% endif %}
-    <h4 class="page_title">{{ p.titre }}</h4>
-  </a>
+    <div class="title-date">
+      <h4>{{ p.titre }}</h4>
+      <p class="text-muted">Date limite:<strong>{{p.date_fin|date:"j F Y"}}</strong></p>
+    </div>
   <div class="caption">
-    <p class="text-muted  pull-right">Date limite:<strong>{{p.date_fin|date:"j F Y"}}</strong></p>
-    <hr>
-    <a class="btn btn-default pull-right" href="{{p.get_absolute_url}}">Lire plus</a>
+      <p>{{ p.resume }}</p>
+  </div>
+  </a>
 {% comment %}
     {% if p.bureau.all %}
       <ul>
@@ -30,7 +32,6 @@
 
     {% endif %}
 {% endcomment %}
-  </div>
 </div>
 {% endfor %}
 </div>
