@@ -3469,3 +3469,128 @@ div.thumbnail-appels > a > div.caption {
 div.thumbnail-appels > a > div.caption > p {
   min-height: 62px;
 }
+
+
+
+#MenuSecondaire {
+width: 184px;
+background: #D9D9D9;
+padding: 3px 0 0px 0;
+margin-bottom: 35px;
+margin-top: 25px;
+zoom: 108%;
+}
+
+#MenuSecondaire a {
+color: #000;
+display: inline-block;
+}
+
+#MenuSecondaire a:hover {
+  color: #1D9DD9;
+}
+
+#MenuSecondaire li {
+font-size: 11px;
+font-weight: bold;
+position: relative;
+border-bottom: 1px solid #c6c6c6;
+padding: 10px 30px 10px 22px;
+background:none; 
+}
+
+
+#MenuSecondaire li.Selection a, #MenuSecondaire li.ancestor a {
+color: #EEE;
+width: 135px;
+padding: 7px 32px 10px 32px;
+background: #AA0A2F;
+border-radius: 4px;
+}
+
+#MenuSecondaire li.ancestor ul {
+background-color: #FDFDFD;
+border-left: 2px solid #1D9DD9;
+}
+
+#MenuSecondaire li.Selection ul {
+margin: -4px 0px 5px 14px;
+background-color: #FFF;
+width: 173px;
+}
+
+#MenuSecondaire li.Selection li a {
+font-weight: normal;
+color: #000;
+}
+
+#MenuSecondaire li.ancestor ul li {
+left: 0px;
+border-bottom: 1px solid #B6B6B7;
+}
+
+
+#MenuSecondaire li.ancestor ul li.Selection a {
+color: #000;
+}
+
+#MenuSecondaire li.ancestor ul li a:hover {
+color: #1D9DD9;
+}
+
+#MenuSecondaire li.ancestor ul li.Selection a:hover {
+color: #1D9DD9;
+}
+
+#MenuSecondaire li.ancestor ul ul {
+background-color: #FFFFFF;
+width: 140px;
+margin: 8px 0px -1px 26px;
+}
+
+#MenuSecondaire .menu a::before{
+  content: "\f101";
+    font-family: FontAwesome; 
+  color:Red;
+  margin-right:5px;
+  font-size:1.3em;
+}
+
+#MenuSecondaire .Selection a::before {
+  content:"\f103";
+  color:#1D9DD9;
+}
+
+#MenuSecondaire .Selection li a::before {
+  content:"\f101";
+  color:#E52727;
+}
+
+
+#MenuSecondaire .Selection .Selection a::before {
+  content:"\f103";
+  color:#E52727;
+}
+
+#MenuSecondaire .Selection .Selection li a::before {
+  content:"\f068\f068";
+  color:#1D9DD9;
+  font-size:0.6em;
+  font-weight:bold;
+  MARGIN-LEFT:-17PX;
+}
+
+.menu .Selection .Selection .menu a {
+    background: white;
+  padding: 6px 6px 6px 13px;
+  margin-left: 5px;
+  margin-bottom: -10px;
+  border: 2px solid #1D9DD9;
+}
+
+#MenuSecondaire > li.menu.ancestor.Selection > ul > li.menu.Selection > a {
+  padding: 6px 6px 7px 13px;
+margin-left: 14px;
+margin-bottom: -11px;
+border: 1px solid #1D9DD9;
+}
