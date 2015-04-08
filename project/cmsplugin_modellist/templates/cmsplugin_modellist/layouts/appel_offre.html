@@ -10,9 +10,9 @@
 <div class="thumbnail thumbnail-appel">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
-    <img class="img-thumbnail" src="{% thumbnail p.image 360x360 crop %}"/>
+    <img class="img-thumbnail" src="{% thumbnail p.image 180x80 crop %}"/>
     {% else %}
-    <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="360px" height="360px">
+    <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="160px" height="160px">
     {% endif %}
     <h4 class="page_title">{{ p.titre }}</h4>
   </a>
