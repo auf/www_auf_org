@@ -71,14 +71,13 @@
 
 {% block contenu %}
 <div class="row" id="content">
-<div class="col-md-9" style="background-color: white;">
+<div class="col-md-9">
     {% placeholder texte %}
 </div>
 
 <div class="col-md-3">
     {% placeholder colonne_droite %}
     {% if request.current_page.reverse_id == "accueil"%}
-     <h2>Vous êtes:</h2>
      <div class="rouge">
      <div class="panel-body">
      Étudiants

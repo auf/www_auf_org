@@ -4,8 +4,6 @@
      class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
      data-plugin-position="{{ plugin.position }}">
 
-    <h3 class="page_title">{{ title }}</h3>
-
 {% for p in object_list %}
 <div class="thumbnail thumbnail-appel">
   <a class="" href="{{p.get_absolute_url}}">
