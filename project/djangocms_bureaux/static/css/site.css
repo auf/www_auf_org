@@ -3445,3 +3445,7 @@ margin-left: 12px;
 #content > div > div.tab-content {
   background-color: white;
 }
+
+div.thumbnail-appels > a > div.caption > p {
+  min-height: 300px;
+}
