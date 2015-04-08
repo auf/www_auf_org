@@ -3446,6 +3446,10 @@ margin-left: 12px;
   background-color: white;
 }
 
+div.thumbnail-appels > a > div.caption {
+  overflow: hidden;
+}
+
 div.thumbnail-appels > a > div.caption > p {
   min-height: 62px;
 }
