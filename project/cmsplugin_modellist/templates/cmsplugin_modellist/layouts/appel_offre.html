@@ -22,16 +22,15 @@
       <p>{{ p.resume }}</p>
   </div>
   </a>
-{% comment %}
+  </hr>
     {% if p.bureau.all %}
       <ul>
       {% for b in p.bureau.all %}
-          <li><span class="TexteRegion">{{b.nom}}</span></li>
+          <li><span class="TexteRegion">{{b.code}}</span></li>
       {% endfor %}
       </ul>
 
     {% endif %}
-{% endcomment %}
 </div>
 {% endfor %}
 </div>
