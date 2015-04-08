@@ -3445,6 +3445,13 @@ margin-left: 12px;
 #content > div > div.tab-content {
   background-color: white;
   padding: 15px;
+background-color: white;
+padding: 15px;
+border-left: 1px solid #AAA;
+border-right: 1px solid #AAA;
+border-bottom: 1px solid #AAA;
+border-radius: 8px;
+box-shadow: 0px 0px 0px 2px #D4D4D4;
 }
 
 div.thumbnail-appels > a > div.caption {
