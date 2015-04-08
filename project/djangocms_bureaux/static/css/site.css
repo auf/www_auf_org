@@ -3445,6 +3445,11 @@ margin-top: -15px;
 margin-left: 12px;
 }
 
+#content > div > div > ul.nav-tabs > li.active > a {
+  top: 1px;
+  position: relative;
+}
+
 #content > div > div.tab-content {
   background-color: white;
   padding: 15px;
