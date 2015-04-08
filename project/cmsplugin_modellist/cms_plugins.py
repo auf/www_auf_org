@@ -4,10 +4,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
 
-from .models import (
-  ModelList,
-  TEMPLATE_PATH,
-)
+from .models import ModelList, TEMPLATE_PATH, MODEL_LIST
 
 
 class ModelListCMSPlugin(CMSPluginBase):
@@ -28,6 +25,7 @@ class ModelListCMSPlugin(CMSPluginBase):
             ctx['object_list'] = obj.objects.all()[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
+        ctx['voir_plus'] = "/recherche/?selected_facets=section__" + MODEL_LIST[instance.modele]
 
         return ctx
 
