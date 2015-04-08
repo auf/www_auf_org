@@ -56,6 +56,7 @@ INSTALLED_APPS += (
     'cmsplugin_filer_video',
 
     'cmsplugin_embeddedmenu',
+    'cmsplugin_tabs',
 
     'djangocms_inherit',
     'djangocms_style',
