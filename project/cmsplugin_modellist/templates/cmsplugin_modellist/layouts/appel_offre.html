@@ -19,13 +19,18 @@ $(function () {
 <div class="thumbnail thumbnail-appels">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
-    <img class="img-thumbnail  pull-right" src="{% thumbnail p.image 180x230 crop %}"/>
+    <img class="img-thumbnail  pull-right" src="{% thumbnail p.image 240x200 crop %}"/>
     {% else %}
     <img class="img-thumbnail pull-right" src="http://www.auf.org/static/logodefaut.jpg" width="180px" height="180px">
     {% endif %}
     <div class="title-date">
       <h4>{{ p.titre }}</h4>
+      {% if p.date_debut %}
+      <p class="text-muted">Date:<strong>{{p.date_debut|date:"j F Y"}}</strong></p>
+      {% endif %}
+      {% if p.date_fin %}
       <p class="text-muted">Date limite:<strong>{{p.date_fin|date:"j F Y"}}</strong></p>
+      {% endif %}
     </div>
   <div class="caption">
       <p>{{ p.resume }}</p>
@@ -35,7 +40,11 @@ $(function () {
     {% if p.bureau.all %}
       <div class="mini-estampilles">
       {% for b in p.bureau.all %}
+          {% if b.nom == "-International" %}
+            <i class="fa fa-globe">-International</i>
+          {% else %}
           <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+          {% endif %}
       {% endfor %}
       </div>
 
