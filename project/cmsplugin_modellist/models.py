@@ -5,6 +5,8 @@ import os
 from django.db import models
 from cms.models.pluginmodel import CMSPlugin
 
+from auf.django.references.models import Region
+
 from .lib.choices import DynamicTemplateChoices
 
 TEMPLATE_PATH = os.path.join("cmsplugin_modellist", "layouts")
@@ -22,6 +24,8 @@ MODEL_LIST = (
 
 class ModelList(CMSPlugin):
     title = models.CharField("Titre", max_length="256")
+
+    bureau = models.ManyToManyField(Region, related_name="cmsplugin_modellist_bureau")
 
     layout_template = \
         models.CharField("Template utilisé pour l'affichage",

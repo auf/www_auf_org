@@ -20,7 +20,12 @@ class ModelListCMSPlugin(CMSPluginBase):
         ctx = super(ModelListCMSPlugin, self).render(context, instance, placeholder)
 
         obj = get_model('auf_site_institutionnel', instance.modele)
-        ctx['object_list'] = obj.objects.all()[:instance.nbelements]
+        bureau = instance.bureau.all()
+
+        if bureau:
+            ctx['object_list'] = obj.objects.filter(bureau=bureau)[:instance.nbelements]
+        else:
+            ctx['object_list'] = obj.objects.all()[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
 
