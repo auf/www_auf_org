@@ -3308,3 +3308,109 @@ float:right;
 #EncartSousMenu .stuff {
 margin-left:130px
 }
+
+ul.nav.nav-tabs a {
+margin-left:10px;
+color:black;
+}
+
+ul.nav.nav-tabs a:hover {
+  color:black;
+}
+
+/*--------TAB Actualité---------*/
+
+#tab-47262 > li:nth-child(1) a {
+  background-color: rgba(29, 157, 217, 0.26);
+}
+
+#tab-47262 > li:nth-child(1) > a:hover {
+background-color: rgba(29, 157, 217, 0.49);
+}
+
+#tab-47262 > li.active:nth-child(1) > a {
+  background: -moz-linear-gradient(#1D9DD9, rgba(255, 255, 255, 0)); /* FF 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1D9DD9), color-stop(100%, rgba(255, 255, 255, 0))); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#1D9DD9, rgba(255, 255, 255, 0)); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#1D9DD9, rgba(255, 255, 255, 0)); /* Opera 11.10 */
+    background: linear-gradient(#1D9DD9, rgba(255, 255, 255, 0)); /* the standard */
+  border-bottom:1px solid #E5E5E5;
+}
+
+/*--------TAB Appels d'offres---------*/
+
+
+#tab-47262 > li:nth-child(2) a {
+  background-color: rgba(255, 213, 0, 0.26);
+}
+
+#tab-47262 > li:nth-child(2) > a:hover {
+background-color: rgba(255, 213, 0, 0.49);
+}
+
+#tab-47262 > li.active:nth-child(2) > a {
+  background: -moz-linear-gradient(#FFD500, rgba(255, 255, 255, 0)); /* FF 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFD500), color-stop(100%, rgba(255, 255, 255, 0))); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#FFD500, rgba(255, 255, 255, 0)); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#FFD500, rgba(255, 255, 255, 0)); /* Opera 11.10 */
+    background: linear-gradient(#FFD500, rgba(255, 255, 255, 0)); /* the standard */
+  border-bottom:1px solid #E5E5E5;
+}
+
+/*--------TAB Publications---------*/
+
+#tab-47262 > li:nth-child(3) a {
+  background-color: rgba(141, 190, 35, 0.26);
+}
+
+#tab-47262 > li:nth-child(3) > a:hover {
+background-color: rgba(141, 190, 35, 0.49);
+}
+
+#tab-47262 > li.active:nth-child(3) > a {
+  background: -moz-linear-gradient(#8DBE23, rgba(255, 255, 255, 0)); /* FF 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8DBE23), color-stop(100%, rgba(255, 255, 255, 0))); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#8DBE23, rgba(255, 255, 255, 0)); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#8DBE23, rgba(255, 255, 255, 0)); /* Opera 11.10 */
+    background: linear-gradient(#8DBE23, rgba(255, 255, 255, 0)); /* the standard */
+  border-bottom:1px solid #E5E5E5;
+}
+
+/*--------TAB Allocations---------*/
+
+#tab-47262 > li:nth-child(4) a {
+  background-color: rgba(112, 34, 131, 0.26);
+}
+
+#tab-47262 > li:nth-child(4) > a:hover {
+background-color: rgba(112, 34, 131, 0.49);
+}
+
+#tab-47262 > li.active:nth-child(4) > a {
+  background: -moz-linear-gradient(#702283, rgba(255, 255, 255, 0)); /* FF 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #702283), color-stop(100%, rgba(255, 255, 255, 0))); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#702283, rgba(255, 255, 255, 0)); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#702283, rgba(255, 255, 255, 0)); /* Opera 11.10 */
+    background: linear-gradient(#702283, rgba(255, 255, 255, 0)); /* the standard */
+  border-bottom:1px solid #E5E5E5;
+}
+
+/*--------TAB Évenements---------*/
+
+#tab-47262 > li:nth-child(5) a {
+  background-color: rgba(229, 39, 39, 0.26);
+}
+
+#tab-47262 > li:nth-child(5) > a:hover {
+background-color: rgba(229, 39, 39, 0.49);
+}
+
+#tab-47262 > li.active:nth-child(5) > a {
+  background: -moz-linear-gradient(#E52727, rgba(255, 255, 255, 0)); /* FF 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E52727), color-stop(100%, rgba(255, 255, 255, 0))); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(#E52727, rgba(255, 255, 255, 0)); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(#E52727, rgba(255, 255, 255, 0)); /* Opera 11.10 */
+    background: linear-gradient(#E52727, rgba(255, 255, 255, 0)); /* the standard */
+  border-bottom:1px solid #e5e5e5;
+}
+
