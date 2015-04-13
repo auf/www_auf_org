@@ -6,10 +6,17 @@
     {{ block.super }}
 {% else %}
           <li class="MenuLangue">
-            <a href="/"><i class="fa fa-home"></i> Retour au site principal</a>
+            <a href="#"></a>
           </li>
           <li class="MenuContact">
-            <a href="#"></a>
+            <div class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Régions<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="/">International</a></li>
+                {% show_menu_below_id "bureaux" 0 0 %}
+            </ul>
+            </div>
           </li>
           <li class="MenuEmploi">
             <a href="#"></a>
