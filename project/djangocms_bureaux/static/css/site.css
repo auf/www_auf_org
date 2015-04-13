@@ -134,7 +134,7 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   color: #0098E9;
   background-color: transparent;
 }
-#NavFixe li {
+#NavFixe > li {
   float: right;
   margin-top: 10px;
   padding: 1px 0 0 0;
@@ -143,27 +143,27 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   width: 20%;
   text-align: right;
 }
-#NavFixe li.MenuRSS {
+#NavFixe > li.MenuRSS {
   border-top: 9px solid #1D9DD9;
   font-size: 14px;
 }
-#NavFixe li.MenuPresse {
+#NavFixe > li.MenuPresse {
   border-top: 9px solid #FFD500;
 }
-#NavFixe li.MenuEmploi {
+#NavFixe > li.MenuEmploi {
   border-top: 9px solid #8DBE23;
 }
-#NavFixe li.MenuContact {
+#NavFixe > li.MenuContact {
   border-top: 9px solid #702283;
 }
-#NavFixe li.MenuLangue {
+#NavFixe > li.MenuLangue {
   border-top: 9px solid #E52727;
 }
-#NavFixe li.MenuLangue a {
+#NavFixe > li.MenuLangue a {
   outline: none;
   color: #474747;
 }
-#NavFixe li.MenuLangue a.LangueSelectionnee {
+#NavFixe > li.MenuLangue a.LangueSelectionnee {
   width: 92px;
   height: 20px;
   line-height: 20px;
