@@ -50,16 +50,17 @@
 
 {% block menu_haut %}
           <li class="MenuLangue">
-
-            <!-- Afficher la langue sélectionnée dans le premier lien -->
-            <a href="/international/" class="LangueSelectionnee">Français</a>
-            <!-- Afficher les autres choix de langues ci-dessous et diriger l'utilisateur vers les bonnes pages -->
-            <ul id="ChoixLangue">
-              <li><a href="/anglais/">English</a></li>
-                          <li><a href="/espanol/">Español</a></li>
-                          <li><a href="/arabe/auf-brief/">العربية</a></li>
-                          <li><a href="/portugais/portugais/">Português</a></li>
+            <div class="dropdown">
+             <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-language"></i> Langues<span class="caret"></span>
+            </button>
+            <ul id="ChoixLangue" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a href="{% page_url "anglais" %}">English</a></li>
+              <li><a href="{% page_url "espanol" %}">Español</a></li>
+              <li><a href="{% page_url "arabe" %}">العربية</a></li>
+              <li><a href="{% page_url "portugais" %}">Português</a></li>
             </ul>
+            </div>
           </li>
           <li class="MenuContact"><a href="/auf/contact/">Contact</a></li>
           <li class="MenuEmploi"><a href="/offres_emploi/">Offres d'emploi</a></li>
