@@ -47,7 +47,6 @@
       <div class="nav">
         <img class="hidden-sm hidden-xs" align="right" src="{% static "img/logo-droite.png" %}" />
         <ul id="NavFixe">
-
 {% block menu_haut %}
           <li class="MenuLangue">
             <div class="dropdown">
@@ -61,9 +60,17 @@
             </ul>
             </div>
           </li>
-          <li class="MenuContact"><a href="/auf/contact/">Contact</a></li>
-          <li class="MenuEmploi"><a href="/offres_emploi/">Offres d'emploi</a></li>
-          <li class="MenuPresse"><a href="/autres-pages/salle-de-presse/">Salle de presse</a></li>
+          <li class="MenuContact">
+            <div class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Régions<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                {% show_menu_below_id "bureaux" 0 1 0 0 %}
+            </ul>
+            </div>
+          </li>
+          <li class="MenuEmploiMenuContact"><a href="/auf/contact/">Contact</a></li>
+          <li class="MenuPresse"><a href="/offres_emploi/">Offres d'emploi</a></li>
 {% endblock %}
           <li class="MenuRSS">
             <div class="ReseauxSociaux pull-right">
