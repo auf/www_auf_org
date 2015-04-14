@@ -5,30 +5,37 @@
 <div class="col-md-12" id="content" style="background-color: white;">
     <h1>Flux RSS</h1>
 
-   <p>Le <a href="http://fr.wikipedia.org/wiki/Really_Simple_Syndication">Fil RSS</a>, sigle de &laquo;&nbsp;Really Simple <a href="http://fr.wikipedia.org/wiki/Syndication#Internet">Syndication</a>&nbsp;&raquo;  (syndication vraiment simple) est un format de description de donn&eacute;es  qui facilite la diffusion de fils d&rsquo;informations, de fa&ccedil;on automatis&eacute;e, &agrave;  l&rsquo;intention des internautes, et qui favorise la syndication de contenus  en permettant &agrave; d&rsquo;autres sites de republier facilement tout ou partie  de ces donn&eacute;es.</p>
-<p>Ainsi, en r&eacute;cup&eacute;rant le fil d&rsquo;informations l&rsquo;Agence  universitaire de la Francophonie (AUF), vous pouvez prendre connaissance  des derni&egrave;res <a href="/international/actualites/">actualit&eacute;s</a> publi&eacute;es sur notre site, sans pour autant avoir &agrave; vous connecter sur notre page d&rsquo;accueil.</p>
-<p><strong>Comment l&rsquo;utiliser&nbsp;?</strong></p>
-<p>Tout d&rsquo;abord, pour r&eacute;cup&eacute;rer automatiquement et en temps  r&eacute;el le dernier fil RSS, vous devez &ecirc;tre &eacute;quip&eacute; d&rsquo;un logiciel de  lecture sp&eacute;cifique. Les plus connus sont : <a href="http://www.google.fr/reader/" target="_blank">Google Reader</a> ou <a href="http://www.netvibes.com/laetitia-paris#General" target="_blank">NetVibes</a>.</p>
-<p>Ensuite, vous devez rechercher sur la page d&rsquo;accueil du site qui vous int&eacute;resse, le  bouton du flux RSS ou XML. En cliquant sur ce  bouton, vous obtiendrez le lien du flux RSS &agrave; entrer sur votre  agr&eacute;gateur &agrave; la place pr&eacute;vue &agrave; cet effet.&nbsp;</p>
-<p>Une fois ces &eacute;tapes franchies, vous pouvez d&eacute;sormais commencer &agrave; lire le flux RSS provenant du site qui vous int&eacute;resse. Les nouveaux  articles apparaissent presque aussit&ocirc;t qu&rsquo;ils sont publi&eacute;s sur le site  source.</p>
-<p><strong>Agr&eacute;gateurs en ligne</strong></p>
-<p><a href="http://www.google.com/ig/adde?moduleurl=http://hosting.gmodules.com/ig/gadgets/file/103090713326122431023/auf-gadget-v1.xml"><img style="width: 104px; height: 17px; border: 0px none;" src="http://buttons.googlesyndication.com/fusion/add.gif" alt="Add to iGoogle" /></a></p>
+   <p>Le <a href="http://fr.wikipedia.org/wiki/Really_Simple_Syndication">Fil
+RSS</a>, sigle de &laquo;&nbsp;Really Simple <a
+href="http://fr.wikipedia.org/wiki/Syndication#Internet">Syndication</a>&nbsp;&raquo;
+(syndication vraiment simple) est un format de description de donn&eacute;es
+qui facilite la diffusion de fils d&rsquo;informations, de fa&ccedil;on
+automatis&eacute;e, &agrave;  l&rsquo;intention des internautes, et qui
+favorise la syndication de contenus  en permettant &agrave; d&rsquo;autres
+sites de republier facilement tout ou partie  de ces donn&eacute;es.</p>
+<p>Ainsi, en r&eacute;cup&eacute;rant le fil d&rsquo;informations
+l&rsquo;Agence  universitaire de la Francophonie (AUF), vous pouvez prendre
+connaissance  des derni&egrave;res <a
+href="/international/actualites/">actualit&eacute;s</a> publi&eacute;es sur
+notre site, sans pour autant avoir &agrave; vous connecter sur notre page
+d&rsquo;accueil.</p>
+
 <p><strong>Fils RSS</strong></p>
- <div id="tabonglet">
 
-            <ul class="tabs">
-                <li><a href="#tab1">Actualit&eacute;</a></li>
-                <li><a href="#tab2">Appel d'offre</a></li>
-                <li><a href="#tab3">Allocations</a></li>
-                <li><a href="#tab4">Evenement</a></li>
-                <li><a href="#tab5">Publication</a></li>
-            </ul>
-            <span class="clear"></span>
+<div role="tabpanel">
+
+  <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation"><a aria-controls="tab1" role="tab" data-toggle="tab" href="#tab1">Actualit&eacute;</a></li>
+      <li role="presentation"><a aria-controls="tab2" role="tab" data-toggle="tab" href="#tab2">Appel d'offre</a></li>
+      <li role="presentation"><a aria-controls="tab3" role="tab" data-toggle="tab" href="#tab3">Allocations</a></li>
+      <li role="presentation"><a aria-controls="tab4" role="tab" data-toggle="tab" href="#tab4">Evenement</a></li>
+      <li role="presentation"><a aria-controls="tab5" role="tab" data-toggle="tab" href="#tab5">Publication</a></li>
+  </ul>
 
 
-                <div class="tab_container">
+  <div class="tab-content">
 
-                <div id="tab1" class="tab_content">
+                <div id="tab1" role="tabpanel" class="tab-pane">
                         <ul>
                             <li><a href="/flux/actualite/?region_actuel=International" target="_blank">International</a></li>
                             <li><a href="/flux/actualite/?region_actuel=Afrique-Centrale" target="_blank">Bureau Afrique centrale</a></li>
@@ -44,7 +51,7 @@
                         </ul>
                 </div>
 
-                <div id="tab2" class="tab_content">
+                <div id="tab2" role="tabpanel" class="tab-pane">
                         <ul>
                             <li><a href="/flux/appel_offre/?region_actuel=International" target="_blank">International</a></li>
                             <li><a href="/flux/appel_offre/?region_actuel=Afrique-Centrale" target="_blank">Bureau Afrique centrale</a></li>
@@ -60,7 +67,7 @@
                         </ul>
                 </div>
 
-                <div id="tab3" class="tab_content">
+                <div id="tab3" role="tabpanel" class="tab-pane">
                         <ul>
                             <li><a href="/flux/allocations/?region_actuel=International" target="_blank">International</a></li>
                             <li><a href="/flux/allocations/?region_actuel=Afrique-Centrale" target="_blank">Bureau Afrique centrale</a></li>
@@ -76,7 +83,7 @@
                         </ul>
                 </div>
 
-                <div id="tab4" class="tab_content">
+                <div id="tab4" role="tabpanel" class="tab-pane">
                         <ul>
                             <li><a href="/flux/evenement/?region_actuel=International" target="_blank">International</a></li>
                             <li><a href="/flux/evenement/?region_actuel=Afrique-Centrale" target="_blank">Bureau Afrique centrale</a></li>
@@ -92,7 +99,7 @@
                         </ul>
                 </div>
 
-                <div id="tab5" class="tab_content">
+                <div id="tab5" role="tabpanel" class="tab-pane">
                         <ul>
                             <li><a href="/flux/publication/?region_actuel=International" target="_blank">International</a></li>
                             <li><a href="/flux/publication/?region_actuel=Afrique-Centrale" target="_blank">Bureau Afrique centrale</a></li>
@@ -111,6 +118,7 @@
                 </div>
 
     </div>
+
 <div style="clear:both; margin-bottom: 26px;"></div>
 <p><strong>Version utilis&eacute;e </strong><a href="http://www.rssboard.org/rss-2-0">RSS 2.0</a></p>
 </div>
