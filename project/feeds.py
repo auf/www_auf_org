@@ -6,13 +6,26 @@ from auf.django.references.models import Region
 from itertools import chain
 from django.utils.text import Truncator
 
+REGION = {
+    'Afrique-Centrale': 'ACGL',
+    'Ameriques': 'A',
+    'Afrique-de-l-ouest': 'AO',
+    'Asie-Pacifique': 'AP',
+    'Caraibe': 'C',
+    'Europe-centrale-et-orientale': 'ECO',
+    'Moyen-Orient': 'MO',
+    'Europe-de-l-Ouest': 'EO',
+    'Maghreb': 'M',
+    'Ocean-Indien': 'OI',
+}
+
 
 class ArticleFeed(Feed):
     def get_object(self, request):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
         if (self.region_actuel != '' and self.region_actuel != 'International'):
-            return Region.objects.get(nom=region_actuel)
+            return Region.objects.get(code=REGION[region_actuel])
         elif (self.region_actuel == 'International'):
             return Region.objects.all()
         else:
