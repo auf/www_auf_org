@@ -399,7 +399,7 @@ def membre(request, slugRegion=''):
     #if request.method == 'GET': # If the form has been submitted...
     item_list = MembreFilter(request.GET or None, queryset = Etablissement.objects.filter(**dictFilter))
 
-    item_list2 = item_list2.filter(status=3).order_by('-date_maj')
+    item_list = item_list.filter(status=3).order_by('-date_maj')
 
     return render_to_response('article.html', {'form': item_list.form, 'membre_list': item_list, 'page_title': 'Liste des membres'}, context_instance = RequestContext(request))
 
