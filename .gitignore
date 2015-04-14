@@ -53,6 +53,7 @@ db.sqlite
 /lib
 /local
 /share
+/env
 
 # django-jenkins
 /reports
