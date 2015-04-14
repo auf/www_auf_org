@@ -398,7 +398,7 @@ def membre(request, slugRegion=''):
     dictFilter['membre'] = True
     item_list = MembreFilter(request.GET or None, queryset = Etablissement.objects.filter(**dictFilter))
 
-    return render_to_response('article.html', {'form': item_list.form, 'membre_list': item_list, 'page_title': 'Liste des membres'}, context_instance = RequestContext(request))
+    return render_to_response('auf_site_institutionnel/membre.html', {'form': item_list.form, 'membre_list': item_list, 'page_title': 'Liste des membres'}, context_instance = RequestContext(request))
 
 
 def implantation(request):
