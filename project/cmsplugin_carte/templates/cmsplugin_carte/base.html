@@ -8,8 +8,6 @@
     var map = new Datamap({
     element: document.getElementById("carte"),
     responsive: true,          //Responsive
-    width:117,                 //Longueur de la carte
-    height:61,                //Hauteur de la carte
     dataUrl: '{% static "js/cities.geojson" %}', //Fichier JSON personalisé
     data: {},
 
@@ -42,6 +40,10 @@
               'BOI': '#EE79AD',
                defaultFill: '#AAA'
             }
+    });
+
+    window.addEventListener('resize', function() {
+        map.resize();
     });
 
  $.getJSON("{% static "js/cities.geojson" %}", function(points) {
