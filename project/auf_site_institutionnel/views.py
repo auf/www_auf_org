@@ -392,7 +392,6 @@ def contacter_employe(request, employe_id=None):
 
 def membre(request, slugRegion=''):
     context = RequestContext(request)
-    region_actuel = context['region_actuel']
     dictFilter = {}
     if (slugRegion!=''):
         dictFilter['bureau__slug'] = slugRegion
