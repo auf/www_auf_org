@@ -7,8 +7,8 @@
 <script>
     var map = new Datamap({
     element: document.getElementById("carte"),
-    responsive: true,          //Responsive
-    dataUrl: '{% static "js/cities.geojson" %}', //Fichier JSON personalisé
+    responsive: true,
+    dataUrl: '/cmsplugin_carte/pays.json',
     data: {},
 
     done: function(datamap) {
@@ -46,6 +46,7 @@
         map.resize();
     });
 
+/*
  $.getJSON("{% static "js/cities.geojson" %}", function(points) {
         map.bubbles(points, {
             borderWidth: 1,
@@ -60,11 +61,6 @@
     var err = textStatus + ", " + error;
     console.log( "Request Failed: " + err );
 });
-/*
-//Responsive
-    window.addEventListener('resize', function() {
-        map.resize();
-    });
 */
 
 //Legende
@@ -76,6 +72,6 @@
 
 <h3 class="page_title">L'AUF dans le monde</h3>
 
-<div id="carte">
+<div id="carte" style="position: relative; width: 500px; height: 300px;">
 
 </div>
