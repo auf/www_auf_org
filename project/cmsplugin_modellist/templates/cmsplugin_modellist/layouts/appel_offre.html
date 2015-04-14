@@ -23,8 +23,11 @@ $(function () {
     {% else %}
     <img class="img-thumbnail pull-left" src="http://www.auf.org/static/logodefaut.jpg" width="180px" height="180px">
     {% endif %}
+   </a>
     <div class="title-date">
+      <a href="{{p.get_absolute_url}}">
       <h4>{{ p.titre }}</h4>
+      </a>
       {% if p.date_pub %}
       <p class="text-muted">Date de publication: <strong>{{p.date_pub|date:"j F Y"}}</strong></p>
       {% endif %}
@@ -38,7 +41,6 @@ $(function () {
   <div class="caption">
       <p>{{ p.resume }}</p>
   </div>
-  </a>
   <hr>
     {% if p.bureau.all %}
       <div class="mini-estampilles">
