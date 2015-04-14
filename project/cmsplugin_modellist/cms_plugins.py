@@ -30,12 +30,13 @@ class ModelListCMSPlugin(CMSPluginBase):
         ctx = super(ModelListCMSPlugin, self).render(context, instance, placeholder)
 
         obj = get_model('auf_site_institutionnel', instance.modele)
+        obj_query = obj.objects.filter(status=3).order_by('-date_pub')
         bureau = instance.bureau.all()
 
         if bureau:
-            ctx['object_list'] = obj.objects.filter(bureau=bureau)[:instance.nbelements]
+            ctx['object_list'] = obj_query.filter(bureau=bureau)[:instance.nbelements]
         else:
-            ctx['object_list'] = obj.objects.all()[:instance.nbelements]
+            ctx['object_list'] = obj_query[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
         ctx['voir_plus'] = "/recherche/?selected_facets=section__" + FACETS[instance.modele]
