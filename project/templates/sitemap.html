@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n cms_tags menu_tags %}
+
+{% block Contenu %}
+      <div id="article">
+      <h1>Plan du site</h1>
+        <ul id="sitemap">
+            {% with "2" as column %}
+            {% show_menu 0 100 100 100 %}
+            {% endwith %}
+        </ul>
+      </div>
+{% endblock %}
