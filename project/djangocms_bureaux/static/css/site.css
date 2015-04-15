@@ -239,7 +239,7 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   text-transform: uppercase;
 }
 #MenuPrincipal li a {
-  color: #4B4B4B;
+  color: #AA0A2F;
 }
 
 #MenuPrincipal li ul li {
@@ -269,7 +269,7 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 
 #EnteteSecondaire {
   height: 340px;
-  background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url() no-repeat 502px 0;
+  background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url() no-repeat 502px 0;
   /* Safari */
   background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url() no-repeat 502px 0;
   /* For Opera 11.6 to 12.0 */
@@ -2840,29 +2840,70 @@ iframe #afficher {
 }
 
 .vert, .rouge, .bleu {
-  color: #FFF;
   margin-bottom: 20px;
-  height: 280px;
   font-size: 1.5em;
 }
 
+/*-----------Carré Énseignants-----------*/
+
 .vert {
-  background-color: #8DBE23;
-  background: #8DBE23 url(/static/img/Coinvert.png) no-repeat;
-  background-position: bottom right;
+  border: 3px solid rgb(141, 190, 35);
 }
+
+.vert h4 {
+background: white;
+margin-top: -27px;
+color:rgb(141, 190, 35);
+font-size: 1.9rem;
+font-weight: bold;
+text-align: center;
+}
+
+.vert li {
+background: rgb(141, 190, 35);
+}
+
+/*-----------Carré étudiants-----------*/
 
 .rouge {
-  margin-top: 43px;
-  background: #E52727 url(/static/img/Coinrouge.png) no-repeat;
-  background-position: bottom right;
+margin-top: 49px;
+border: 3px solid rgb(229, 39, 39);
 }
 
-.bleu {
-  background-color: #702283;
-  background: #702283 url(/static/img/Coinmauve.png) no-repeat;
-  background-position: bottom right;
+.rouge h3 {
+margin-top: -31px;
+background: white;
+width: 124px;
+text-align: center;
+font-weight: bold;
+color: rgb(229, 39, 39);
 }
+
+.rouge li {
+background: rgb(229, 39, 39);
+}
+
+/*-----------Carré Responsable d'établissement-----------*/
+
+.bleu {
+border: 3px solid rgb(112, 34, 131);
+}
+
+.bleu h4 {
+background: white;
+color: rgb(112, 34, 131);
+margin-top: -23px;
+font-size: 1.65rem;
+text-align: center;
+font-weight: bold;
+width: 233px;
+}
+
+.bleu li {
+background: rgb(112, 34, 131);
+}
+
+/*--------------------------------------*/
 
 .navbar-default {
   margin-bottom: 20px;
@@ -2876,7 +2917,19 @@ iframe #afficher {
 .navbar-toggle {
     margin-top: 22px;
 }
-#BlocPresentation h1 {font-size: 16px;line-height: 20px;color: #F00;margin-bottom: 19px !important;text-transform:uppercase;}
+#BlocPresentation h1 {
+  font-size: 16px;
+line-height: 20px;
+color: rgb(255, 0, 0);
+margin-bottom: 10px;
+text-transform: uppercase;
+font-weight: bold;
+margin-top: 16px;
+text-shadow: rgb(197, 197, 197) 1px 0px;}
+
+#BlocPresentation a {
+  border-bottom: 1px solid rgb(185, 185, 185);
+}
 
 h2 {
   margin-top: 30px;
@@ -3102,12 +3155,6 @@ background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255
     color: #EE79AD !important;
 }
 
-
-  .datamaps-legend {
-   top:255px;
-   position:absolute;
-}
-
   .datamaps-legend dl dd {
   width: 16px;
    margin-right: 18px;
@@ -3131,9 +3178,13 @@ background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255
 }
 
 .transluscide {
-  background: rgba(255, 255, 255, 0.44);
-  border-radius: 10px;
-  top: 16px;
+  background: radial-gradient(rgb(255, 255, 255) 45%, rgb(219, 219, 219) 110%);
+  top: 16px; 
+  border: 7px solid rgb(255, 255, 255); 
+  border-image-source: url(/static/img/bande-couleurs.png); 
+  border-image-slice: 7 77;    
+  width: 306px;
+  box-shadow: rgb(107, 107, 107) 0px 0px 4px 2px;
 }
 
 .carrousel {
@@ -3198,8 +3249,11 @@ border: 1px solid;
 }
 
 #content {
-  margin-top: 20px;
-  padding-bottom: 37px;
+margin-top: 5px;
+padding-bottom: 37px;
+background: white;
+margin-left: 0px;
+margin-right: 0px;
 }
 
 .fa-rss {
@@ -3229,26 +3283,64 @@ a:after >  img{
 }
 */
 
+
+/*--------Boite lettre d'information--------*/
+
 .boite-lettre {
- background:#1D9DD9;
-  box-shadow:0px 0px 1px 2px #AAA;
-  color: #fff;
+ border: 3px solid rgb(29, 157, 217);
+
 }
+
+.boite-lettre h4 {
+  margin-top: -27px;
+background: white;
+width: 185px;
+text-align: center;
+color: rgb(29, 157, 217);
+}
+
+.boite-lettre p {
+background: rgb(29, 157, 217);
+color: white;
+text-align: center;
+font-weight: bold;
+border: 1px solid black;
+}
+
+/*--------Boite Temoignages--------*/
 
 .boite-temoignages {
-  background:#FFD500;
-  box-shadow:0px 0px 1px 2px #AAA;
+ border: 3px solid rgb(255, 213, 0);
 }
 
+.boite-temoignages h4 {
+margin-top: -26px;
+background: white;
+width: 125px;
+text-align: center;
+color: rgb(66, 66, 66);
+}
+
+.boite-temoignages p {
+background: rgb(255, 213, 0);
+padding: 8px 10px 7px 8px;
+text-align: center;
+font-weight: bold;
+border: 1px solid black;
+}
+
+/*--------------------------------*/
+
 .liste-carres ul li {
-  margin-top:7px;
-  font-size:1.3rem;
-  margin-left: 25px;
-  list-style-type: circle;
+margin-top: 7px;
+font-size: 1.3rem;
+padding: 5px;
+border: 1px solid black;
 }
 
 .liste-carres a {
     color:white;
+    font-weight:bold;
 }
 
 .texte h3 {
@@ -3308,6 +3400,10 @@ float:right;
 margin-left:130px
 }
 
+.nav-tabs {
+  margin-top:10px;
+}
+
 ul.nav.nav-tabs a {
 margin-left:10px;
 color:black;
@@ -3320,6 +3416,12 @@ ul.nav.nav-tabs a:hover {
 ul.nav.nav-tabs a {
 margin-left:10px;
 color:black;
+}
+
+.nav-tabs > li {
+width: 12.37em;
+margin-left: -10px;
+margin-right: 6px;
 }
 
 ul.nav.nav-tabs > li.active a {
@@ -3333,7 +3435,9 @@ ul.nav.nav-tabs a:hover {
 /*--------TAB Actualité---------*/
 
 ul.nav.nav-tabs > li:nth-child(1) a {
-  background-color: rgba(29, 157, 217, 0.26);
+  background-color: #1D9DD9;
+  color:white;
+  border:none;
 }
 
 ul.nav.nav-tabs > li:nth-child(1) > a:hover {
@@ -3341,13 +3445,11 @@ background-color: rgba(29, 157, 217, 0.49);
 }
 
 ul.nav.nav-tabs > li.active:nth-child(1) > a {
-  background: -moz-linear-gradient(#1D9DD9, #FFF); /* FF 3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1D9DD9), color-stop(100%, #FFF)); /* Safari 4+, Chrome 2+ */
-    background: -webkit-linear-gradient(#1D9DD9, #FFF); /* Safari 5.1+, Chrome 10+ */
-    background: -o-linear-gradient(#1D9DD9, #FFF); /* Opera 11.10 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1D9DD9', endColorstr='#FFF'); /* IE6 & IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#1D9DD90', endColorstr='#FFF')"; /* IE8+ */
-    background: linear-gradient(#1D9DD9, #FFF); /* the standard */
+background: white;
+border: 3px solid #1D9DD9;
+color:#1D9DD9;
+  border-bottom:none; 
+  margin-bottom: -1px;
 
 }
 
@@ -3355,7 +3457,8 @@ ul.nav.nav-tabs > li.active:nth-child(1) > a {
 
 
 ul.nav.nav-tabs > li:nth-child(2) a {
-  background-color: rgba(255, 213, 0, 0.26);
+  background-color: #FFD500;
+    border:none;
 }
 
 ul.nav.nav-tabs > li:nth-child(2) > a:hover {
@@ -3363,19 +3466,19 @@ background-color: rgba(255, 213, 0, 0.49);
 }
 
 ul.nav.nav-tabs > li.active:nth-child(2) > a {
-  background: -moz-linear-gradient(#FFD500, #FFF); /* FF 3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFD500), color-stop(100%, #FFF)); /* Safari 4+, Chrome 2+ */
-    background: -webkit-linear-gradient(#FFD500, #FFF); /* Safari 5.1+, Chrome 10+ */
-    background: -o-linear-gradient(#FFD500, #FFF); /* Opera 11.10 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD500', endColorstr='#FFF'); /* IE6 & IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD500', endColorstr='#FFF')"; /* IE8+ */
-    background: linear-gradient(#FFD500, #FFF); /* the standard */
+background: white;
+border: 3px solid #FFD500;
+color: #8B7400;
+border-bottom:none; 
+margin-bottom: -1px;
 }
 
-/*--------TAB Publications---------*/
+/*--------TAB Allocations---------*/
 
 ul.nav.nav-tabs > li:nth-child(3) a {
-  background-color: rgba(141, 190, 35, 0.26);
+  background-color: #8DBE23;
+   color:white;
+     border:none;
 }
 
 ul.nav.nav-tabs > li:nth-child(3) > a:hover {
@@ -3383,19 +3486,19 @@ background-color: rgba(141, 190, 35, 0.49);
 }
 
 ul.nav.nav-tabs > li.active:nth-child(3) > a {
-  background: -moz-linear-gradient(#8DBE23, #FFF); /* FF 3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8DBE23), color-stop(100%, #FFF)); /* Safari 4+, Chrome 2+ */
-    background: -webkit-linear-gradient(#8DBE23, #FFF); /* Safari 5.1+, Chrome 10+ */
-    background: -o-linear-gradient(#8DBE23, #FFF); /* Opera 11.10 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8DBE23', endColorstr='#FFF'); /* IE6 & IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#8DBE23', endColorstr='#FFF')"; /* IE8+ */
-    background: linear-gradient(#8DBE23, #FFF); /* the standard */
+background: white;
+border: 3px solid #8DBE23;
+color:#8DBE23;
+ border-bottom:none; 
+  margin-bottom: -1px;
 }
 
-/*--------TAB Allocations---------*/
+/*--------TAB Publications---------*/
 
 ul.nav.nav-tabs > li:nth-child(4) a {
-  background-color: rgba(112, 34, 131, 0.26);
+  background-color: #702283;
+   color:white;
+     border:none;
 }
 
 ul.nav.nav-tabs > li:nth-child(4) > a:hover {
@@ -3403,19 +3506,20 @@ background-color: rgba(112, 34, 131, 0.49);
 }
 
 ul.nav.nav-tabs > li.active:nth-child(4) > a {
-  background: -moz-linear-gradient(#702283, #FFF); /* FF 3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #702283), color-stop(100%, #FFF)); /* Safari 4+, Chrome 2+ */
-    background: -webkit-linear-gradient(#702283, #FFF); /* Safari 5.1+, Chrome 10+ */
-    background: -o-linear-gradient(#702283, #FFF); /* Opera 11.10 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#702283', endColorstr='#FFF'); /* IE6 & IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#702283', endColorstr='#FFF')"; /* IE8+ */
-    background: linear-gradient(#702283, #FFF); /* the standard */
+  background: white;
+  border: 3px solid #702283;
+  color:#702283;
+    border-bottom:none; 
+    margin-bottom: -1px;
 }
 
 /*--------TAB Évenements---------*/
 
 ul.nav.nav-tabs > li:nth-child(5) a {
-  background-color: rgba(229, 39, 39, 0.26);
+  background-color: #E52727;
+   color:white;
+  margin-right: -7px;
+    border:none;
 }
 
 ul.nav.nav-tabs > li:nth-child(5) > a:hover {
@@ -3423,14 +3527,43 @@ background-color: rgba(229, 39, 39, 0.49);
 }
 
 ul.nav.nav-tabs > li.active:nth-child(5) > a {
-  background: -moz-linear-gradient(#E52727, #FFF); /* FF 3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E52727), color-stop(100%, #FFF)); /* Safari 4+, Chrome 2+ */
-    background: -webkit-linear-gradient(#E52727, #FFF); /* Safari 5.1+, Chrome 10+ */
-    background: -o-linear-gradient(#E52727, #FFF); /* Opera 11.10 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E52727', endColorstr='#FFF'); /* IE6 & IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#E52727', endColorstr='#FFF')"; /* IE8+ */
-    background: linear-gradient(#E52727, #FFF); /* the standard */
+   background: white;
+  border: 3px solid #E52727;
+  color:#E52727;
+  border-bottom:none;
+  margin-right:-8px;
+  margin-bottom: -1px;
 }
+
+
+/*---------------Contenu Actif des TABS-----------------*/
+
+.tab-content > .tab-pane.active {
+ margin-top:-2px;
+ border-radius: 0px 0px 8px 8px;
+}
+
+.tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #1D9DD9;
+}
+
+.tab-content > .tab-pane.active:nth-child(2) {
+  border:3px solid #FFD500;
+}
+
+.tab-content > .tab-pane.active:nth-child(3) {
+  border:3px solid #8DBE23;
+}
+
+.tab-content > .tab-pane.active:nth-child(4) {
+  border:3px solid #702283;
+}
+
+.tab-content > .tab-pane.active:nth-child(5) {
+  border:3px solid #E52727;
+}
+
+
 
 .mini-estampilles .fa-circle {
   cursor:pointer;
@@ -3451,16 +3584,13 @@ margin-left: 12px;
 }
 
 #content > div > div.tab-content {
-  background-color: white;
-  padding: 15px;
-background-color: white;
-padding: 15px;
-border-left: 1px solid #AAA;
-border-right: 1px solid #AAA;
-border-bottom: 1px solid #AAA;
-border-radius: 8px;
-box-shadow: 0px 0px 0px 2px #D4D4D4;
+  border-radius: 0px 0px 8px 8px; 
+  box-shadow: 1px -6px 19px 2px #D4D4D4;
 }
+
+.tab-content > .tab-pane {
+  padding: 14px;
+  }
 
 div.thumbnail-appels > a > div.caption {
   overflow: hidden;
@@ -3595,4 +3725,47 @@ margin-bottom: -11px;
 border: 1px solid #1D9DD9;
 }
 
-.datamaps-legend { top: 500px; }
+#sitemap {
+  background:white;
+}
+
+ul#sitemap * {
+  border:none;
+  background:none;
+  
+}
+
+ul#sitemap .Selection a  {
+color:#1D9DD9;
+}
+
+ul#sitemap .Selection a::before  {
+content:'\f111';
+font-family:fontAwesome;
+margin-right:5px;
+font-size:12px;
+}
+
+
+ul#sitemap ul .menu  {
+padding: 7px 0px 3px 8px;
+color:#1D9DD9;
+margin-left:20px;
+}
+
+ul#sitemap ul .menu a {
+border-bottom:1px dotted grey;
+}
+
+ul#sitemap ul .menu a::before {
+content:'\f142';
+color:#AA0A2F;
+}
+
+ul#sitemap li {
+  margin-left:10px;
+  margin-top:1px;
+}
+
+
+
