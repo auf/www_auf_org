@@ -3360,6 +3360,7 @@ border: 1px solid black;
 }
 
 .texte ul li {
+  margin-left: 38px;
   list-style-type:circle;
   padding-top:9px;
 }
