@@ -18,12 +18,12 @@ class ContactEmployeForm(forms.Form):
     courriel = forms.CharField(max_length=255,label=u"Courriel")
     message = forms.CharField(label=u"Message", widget=forms.Textarea)
     #captcha = CaptchaField()
-    
+
 
 class RechercheEmployeForm(forms.Form):
     implantation = forms.ModelChoiceField(queryset=Implantation.ouvertes.all(), required=False)
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False)
-    service = forms.ModelChoiceField(queryset=Service.objects.all(), required=False)
+    service = forms.ModelChoiceField(queryset=Service.objects.filter(actif=True), required=False)
     mots = forms.CharField(max_length=100, required=False)
 
     def get_results(self):
@@ -55,12 +55,12 @@ class RechercheEmployeForm(forms.Form):
 
 
 class EtablissementSearchForm(forms.Form):
-    
+
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes",
                                     help_text="")
     pays = forms.ModelChoiceField(queryset=Pays.objects.all(), required=False, label="Pays", empty_label="Tous",
                                     help_text="")
-    
+
     def get_query_set(self):
 
         etablissements = Etablissement.objects
@@ -90,26 +90,26 @@ class EtablissementSearchForm(forms.Form):
 
 
 class ActuSearchForm(forms.Form):
-    
+
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
     titre = forms.CharField(max_length=255, required=False, label="Par titre")
     date_pub = forms.DateField(widget = forms.DateTimeInput(attrs={'class': 'datepicker'}), required=False, label="Par date de publication")
-    
-    
+
+
 class EventSearchForm(forms.Form):
-    
+
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
     date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(('1', 'Événements à venir'), ('2', 'Événements passés')))
     titre = forms.CharField(max_length=255, required=False)
-    
-class BourseSearchForm(forms.Form): 
+
+class BourseSearchForm(forms.Form):
 
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
     date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(('1', 'Allocations en cours'), ('2', 'Allocations cloturées')))
     personna = forms.ModelChoiceField(label="Par public cible", required=False, empty_label="Sélectionnez un public...", help_text="", queryset= Personna.objects.all())
     titre = forms.CharField(max_length=255, required=False, label="Par titre")
-    
-class AppelSearchForm(forms.Form): 
+
+class AppelSearchForm(forms.Form):
 
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
     date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(('1', 'Appels d\'offres en cours'), ('2', 'Appels d\'offres clôturés')))
@@ -118,5 +118,5 @@ class AppelSearchForm(forms.Form):
 
 
 class AdressForm(forms.Form):
-    
+
     email = forms.EmailField(label='email')
