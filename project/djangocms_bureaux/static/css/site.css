@@ -3359,10 +3359,14 @@ border: 1px solid black;
   margin-left:6px;
 }
 
-.texte ul li , :not(.Organigramme  ul li) {
+.texte ul li {
   margin-left: 38px;
   list-style-type:circle;
   padding-top:9px;
+}
+
+.Organigramme  ul li {
+  margin-left: 0px;
 }
 
 .texte img{
