@@ -3422,10 +3422,13 @@ margin-left:10px;
 color:black;
 }
 
+.nav > li > a {
+  padding: 9px 9px;
+}
+
 .nav-tabs > li {
-width: 12.37em;
+width: 21%;
 margin-left: -10px;
-margin-right: 6px;
 }
 
 ul.nav.nav-tabs > li.active a {
