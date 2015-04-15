@@ -1,0 +1,1294 @@
+/* Initialisation */
+* { margin: 0; padding: 0; border: none; }
+/* Style global */
+html { font-size: 100%;} /* IE hack */
+body { background-color: #fff; font-family:Arial, Helvetica, sans-serif; padding-top: 8px;}
+
+/* Classes communes */
+/* puce verte */
+ul
+{
+	list-style-type: none;
+}
+ul.fiche-liste
+{
+	margin:16px 0 0 9px;
+}
+ul.fiche-liste li
+{
+	margin-top:10px;
+	font-size:0.55em;
+	font-family:Verdana;
+}
+a
+{
+	color:#000;
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover
+{
+	color:#db002b;
+	text-decoration:underline;
+}
+li
+{
+	font-size:0.70em;
+	padding-left:20px;
+}
+li.puce-verte
+{
+	background: url('../../images/organigramme/puce-verte.gif') 6px 3px no-repeat;
+}
+li.puce-bleu
+{
+	background: url('../../images/organigramme/puce-bleu.gif') 6px 3px no-repeat;
+}
+li.puce-verte-small
+{
+	background: url('../../images/organigramme/puce-verte.gif') 6px 2px no-repeat;
+}
+li.puce-verte-large
+{
+	background: url('../../images/organigramme/puce-verte-large.gif') 2px 2px no-repeat;
+}
+li.puce-verte-bg-jaune
+{
+	background: url('../../images/organigramme/puce-verte-bg-jaune.gif') 6px 1px no-repeat;
+}
+li.puce-verte-bg-gris
+{
+	background: url('../../images/organigramme/puce-verte-bg-gris.gif') 6px 1px no-repeat;
+}
+li.puce-verte-bg-gris2
+{
+	background: url('../../images/organigramme/puce-verte-bg-gris2.gif') 0px 1px no-repeat;
+}
+/* puce rouge */
+li.puce-rouge
+{
+	background: url('../../images/organigramme/puce-rouge.gif') 6px 3px no-repeat;
+}
+li.puce-rouge-small
+{
+	background: url('../../images/organigramme/puce-rouge.gif') 6px 2px no-repeat;
+}
+li.puce-rouge-large
+{
+	background: url('../../images/organigramme/puce-rouge-large.gif') 2px 2px no-repeat;
+}
+li.puce-rouge-bg-gris
+{
+	background: url('../../images/organigramme/puce-rouge-bg-gris.gif') 6px 1px no-repeat;
+}
+/*Bleu*/
+li.puce-rouge-bg-bleu
+{
+	background: url('../../images/organigramme/puce-rouge-bg-bleu.gif') 6px 1px no-repeat;
+}
+li.puce-rouge-bg-jaune
+{
+	background: url('../../images/organigramme/puce-rouge-bg-jaune.gif') 6px 1px no-repeat;
+}
+/* puce mauve */
+li.puce-mauve
+{
+	background: url('../../images/organigramme/puce-mauve.gif') 6px 3px no-repeat;
+}
+li.puce-mauve-bg-gris
+{
+	background: url('../../images/organigramme/puce-mauve-bg-gris.gif') 6px 1px no-repeat;
+}
+/* puce grise */
+li.puce-grise
+{
+	background: url('../../images/organigramme/puce-grise.gif') 6px 3px no-repeat;
+}
+li.puce-grise-bg-gris
+{
+	background: url('../../images/organigramme/puce-grise-bg-gris.gif') 6px 1px no-repeat;
+}
+/* legende 1 ligne */
+div.fiche-legende-large
+{
+	clear:left;
+	width:730px;
+	height:20px;
+	margin-left:26px;
+}
+div.fiche-legende-large li
+{
+	float:left;
+	display:inline;
+	height:17px;
+	margin-right:30px;
+}
+div.fiche-legende-large p
+{
+	clear:left;
+	font-size:0.70em;
+	margin-left:7px;
+}
+/* Fin Classes communes */
+
+/* Fiche recteur */
+div#fiche-recteur
+{
+	width:510px;
+	height:590px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/recteur.gif') 10px 10px no-repeat;
+}
+/* Fiche vice recteur 1 */
+div#fiche-vice-recteur-1
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-vice-recteur-1.gif') 10px 10px no-repeat;
+}
+/* Fiche vice recteur 2 */
+div#fiche-vice-recteur-2
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-vice-recteur-2.gif') 10px 10px no-repeat;
+}
+/* Fiche vice recteur 3 */
+div#fiche-vice-recteur-3
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-vice-recteur-3.gif') 10px 10px no-repeat;
+}
+/* Fiche secretaire generale */
+div#fiche-secretaire
+{
+	width:610px;
+	height:524px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-secretaire.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 1 */
+div#fiche-directeur-1
+{
+	width:610px;
+	height:524px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-1.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 2 */
+div#fiche-directeur-2
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-2.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 3 */
+div#fiche-directeur-3
+{
+	width:610px;
+	height:612px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-3.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 4 */
+div#fiche-directeur-4
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-4.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 5 */
+div#fiche-directeur-5
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-5.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 6 */
+div#fiche-directeur-6
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-6.gif') 10px 10px no-repeat;
+}
+/* Fiche Directeur taille 7 */
+div#fiche-directeur-7
+{
+	width:610px;
+	height:520px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/fiche-directeur-7.gif') 10px 10px no-repeat;
+}
+div.fiche-photos
+{
+	float:left;
+	width:220px;
+	height:458px;
+}
+div.fiche-photos p
+{
+	margin:23px 0 0 48px;
+}
+div.fiche-photos p.nom
+{
+	margin:50px 0 0 48px;
+	font-weight:bold;
+	font-family:"Times New Roman", Times, serif;
+	font-size:1.3em;
+	color:#50504f;
+}
+div.fiche-photos-2
+{
+	float:left;
+	width:220px;
+	height:400px;
+}
+div.fiche-photos-2 p
+{
+	margin:23px 0 0 48px;
+}
+div.fiche-photos-2 p.nom
+{
+	margin:50px 0 0 48px;
+	font-weight:bold;
+	font-family:"Times New Roman", Times, serif;
+	font-size:1.3em;
+	color:#50504f;
+}
+div.fiche-photos-3
+{
+	float:left;
+	width:220px;
+	height:222px;
+}
+div.fiche-photos-3 p
+{
+	margin:23px 0 0 48px;
+}
+div.fiche-nom-3
+{
+	clear:left;
+	width:400px;
+	height:50px;
+}
+div.fiche-nom-3 p.nom
+{
+	margin:0 0 0 48px;
+	font-weight:bold;
+	font-family:"Times New Roman", Times, serif;
+	font-size:1.3em;
+	color:#50504f;
+}
+div.fiche-desc
+{
+	float:left;
+	width:220px;
+	height:405px;
+	margin:18px 0 0 12px;
+}
+div.fiche-desc-2
+{
+	float:left;
+	width:310px;
+	height:405px;
+	margin:18px 0 0 8px;
+}
+div.fiche-desc-3
+{
+	float:left;
+	width:320px;
+	height:405px;
+	margin:18px 0 0 8px;
+}
+div.fiche-desc-4
+{
+	float:left;
+	width:220px;
+	height:200px;
+	margin:18px 0 0 8px;
+}
+div.fiche-desc h1
+{
+	color:#fff;
+	font-size:1.1em;
+	text-align:right;
+}
+div.fiche-desc p
+{
+	margin:23px 0 0 0;
+	font-size:0.7em;
+	line-height:15px;
+}
+div.fiche-desc-2 h1
+{
+	color:#fff;
+	font-size:1.1em;
+	text-align:right;
+}
+div.fiche-desc-2 p
+{
+	margin:18px 0 0 0;
+	font-size:0.68em;
+}
+div.fiche-desc-3 p
+{
+	margin:18px 0 0 0;
+	font-size:0.7em;
+}
+div.fiche-desc-3 h1
+{
+	color:#fff;
+	font-size:1.1em;
+	text-align:right;
+}
+div.fiche-desc-4 p
+{
+	margin:18px 0 0 0;
+	font-size:0.6em;
+	line-height:13px;
+}
+div.fiche-desc-4 h1
+{
+	color:#fff;
+	font-size:1.1em;
+	text-align:right;
+}
+div.fiche-legende-1
+{
+	clear:left;
+	width:355px;
+	height:46px;
+	margin-left:107px;
+}
+div.fiche-legende-1 li
+{
+	float:left;
+	display:inline;
+	width:154px;
+	height:40px;
+}
+div.fiche-legende-2
+{
+	clear:left;
+	width:400px;
+	height:20px;
+	margin:55px 0 0 33px;
+}
+div.fiche-legende-2 li
+{
+	float:left;
+	display:inline;
+	width:165px;
+	height:20px;
+}
+/* Fiche vice-recteurs */
+div#fiche-vice-recteurs
+{
+	width:762px;
+	height:532px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/vice-recteurs.gif') 10px 10px no-repeat;
+}
+div#vice-recteurs-1
+{
+	float:left;
+	width:180px;
+	height:140px;
+	margin:50px 0 0 70px;
+}
+div#vice-recteurs-2
+{
+	float:left;
+	width:195px;
+	height:290px;
+	margin:50px 0 160px 80px;
+}
+div#vice-recteurs-3
+{
+	float:left;
+	width:180px;
+	height:142px;
+	margin:50px 0 0 43px;
+}
+/* Fiche secrétaire générale */
+div#fiche-secretaire-generale
+{
+	width:762px;
+	height:532px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/secretaire-generale.gif') 10px 10px no-repeat;
+}
+div#secretaire-generale-1
+{
+	float:left;
+	width:180px;
+	height:212px;
+	margin:67px 0 202px 85px;
+}
+/* Fiche Directions scientifiques */
+div#fiche-directions-scientifiques
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/directions-scientifiques.gif') 10px 10px no-repeat;
+}
+div#directions-titre
+{
+	float:left;
+	width:750px;
+	height:20px;
+	margin:18px 0 0 78px;
+}
+div#directions-titre p
+{
+	color:#fff;
+	font-size:0.85em;
+}
+div#directions-titre p a
+{
+	color:#fff;
+}
+div#directions-titre p a:hover
+{
+	color:#db002b;
+	text-decoration:underline;
+}
+div#directions-scientifiques-2
+{
+	float:left;
+	width:150px;
+	height:320px;
+	margin:40px 0 0 88px;
+}
+div#directions-scientifiques-2 ul
+{
+	line-height:13px;
+}
+div#directions-scientifiques-2 ul.fiche-liste
+{
+	line-height:10px;
+	margin:46px 0 0 13px;
+}
+div#directions-scientifiques-2 ul.fiche-liste li
+{
+	margin-top:6px;
+}
+div#directions-scientifiques-3
+{
+	float:left;
+	width:155px;
+	height:440px;
+	margin:40px 0 37px 38px;
+}
+div#directions-scientifiques-3 ul
+{
+	line-height:13px;
+}
+div#directions-scientifiques-3 ul.fiche-liste
+{
+	line-height:10px;
+	margin:60px 0 0 13px;
+}
+div#directions-scientifiques-3 ul.fiche-liste li
+{
+	margin-top:6px;
+}
+div#directions-scientifiques-3 ul.fiche-liste-2, div#directions-scientifiques-2 ul.fiche-liste-2
+{
+	line-height:13px;
+	margin:14px 0 0 5px;
+}
+div#directions-scientifiques-3 ul.fiche-liste-2 li
+{
+	margin-top:6px;
+}
+div#directions-scientifiques-4
+{
+	float:left;
+	width:150px;
+	height:440px;
+	margin:40px 0 37px 33px;
+}
+div#directions-scientifiques-4 ul
+{
+	line-height:13px;
+}
+div#directions-scientifiques-4 ul.fiche-liste
+{
+	line-height:10px;
+	margin:46px 0 0 13px;
+}
+div#directions-scientifiques-4 ul.fiche-liste li
+{
+	margin-top:6px;
+}
+div#directions-scientifiques-4 ul.fiche-liste-2
+{
+	line-height:13px;
+	margin:15px 0 0 8px;
+}
+div#directions-scientifiques-4 ul.fiche-liste-2 li
+{
+	margin-top:6px;
+}
+/* Fiche Direction thematique */
+div#fiche-direction-thematique
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/direction-thematique.gif') 10px 10px no-repeat;
+}
+div#direction-thematique-2
+{
+	float:left;
+	width:165px;
+	height:260px;
+	margin:40px 0 215px 95px;
+}
+div#direction-thematique-2 ul
+{
+	line-height:13px;
+}
+div#direction-thematique-2 ul.fiche-liste
+{
+	line-height:10px;
+	margin:66px 0 0 13px;
+}
+div#direction-thematique-2 ul.fiche-liste li
+{
+	margin-top:15px;
+}
+div#direction-thematique-2 ul.fiche-liste-2
+{
+	line-height:13px;
+	margin:15px 0 0 8px;
+}
+div#direction-thematique-2 ul.fiche-liste-2 li
+{
+	margin-top:6px;
+}
+/* Fiche Pôle finances */
+div#fiche-pole-finances
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/pole-finances.gif') 10px 10px no-repeat;
+	position: relative;
+}
+div#pole-titre
+{
+	float:left;
+	width:750px;
+	height:20px;
+	margin:18px 0 0 78px;
+}
+div#pole-titre p
+{
+	color:#000;
+	font-weight:bold;
+	font-size:0.85em;
+}
+div#pole-titre p span.informatique
+{
+	font-weight:normal;
+	font-size:0.85em;
+	padding-left:30px;
+}
+div#pole-titre p span.finances
+{
+	font-weight:normal;
+	font-size:0.85em;
+	padding-left:70px;
+}
+div#pole-titre p span.institutionnel
+{
+	font-weight:normal;
+	font-size:0.85em;
+	padding-left:63px;
+}
+div#pole-titre p span.logistique
+{
+	font-weight:normal;
+	font-size:0.85em;
+	padding-left:90px;
+}
+div#pole-titre p span.rh
+{
+	font-weight:normal;
+	font-size:0.85em;
+	padding-left:22px;
+}
+div#pole-finances-2
+{
+	float:left;
+	width:155px;
+	height:235px;
+	margin:170px 0 0 72px;
+}
+div#pole-finances-2 ul.fiche-liste
+{
+	line-height:10px;
+	margin:0 0 0 13px;
+}
+div#pole-finances-2 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-finances-3
+{
+	float:left;
+	width:172px;
+	height:380px;
+	margin:20px 0 35px 16px;
+}
+div#pole-finances-3 ul
+{
+	line-height:13px;
+}
+div#pole-finances-3 ul.fiche-liste
+{
+	line-height:10px;
+	margin:103px 0 0 13px;
+}
+div#pole-finances-3 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-finances-3 ul.fiche-liste-2
+{
+	line-height:13px;
+	margin:15px 0 0 8px;
+}
+div#pole-finances-3 ul.fiche-liste-2 li
+{
+	margin-top:6px;
+}
+div#pole-finances-4
+{
+	float:left;
+	width:170px;
+	height:200px;
+	margin:20px 0 0 70px;
+}
+div#pole-finances-4 ul
+{
+	line-height:13px;
+}
+div#pole-finances-4 ul.fiche-liste
+{
+	line-height:10px;
+	margin:117px 0 0 13px;
+}
+div#pole-finances-4 ul.fiche-liste li
+{
+	margin-top:0px;
+}
+
+div#pole-finances-1
+{
+	float: none;
+	width:170px;
+	height:40px;
+	margin: 34px 0 0 362px;
+}
+div#pole-finances-1 ul
+{
+	line-height:13px;
+}
+div#pole-finances-1 ul.fiche-liste
+{
+	line-height:10px;
+	margin:0px 0 0 13px;
+}
+div#pole-finances-1 ul.fiche-liste li
+{
+	margin-top:6px;
+	font-size: 0.66em !important;
+}
+
+div#pole-finances-5
+{
+	position: absolute;
+	width:132px;
+	height:40px;
+	top: 125px;
+}
+div#pole-finances-5 ul
+{
+	line-height:13px;
+}
+div#pole-finances-5 ul.fiche-liste
+{
+	line-height:10px;
+	margin:0px 0 0 13px;
+}
+div#pole-finances-5 ul.fiche-liste li
+{
+	margin-top:6px;
+}
+/* Fiche Pôle Ressources humaines */
+div#fiche-pole-ressources-humaines
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/pole-ressources-humaines.gif') 10px 10px no-repeat;
+}
+div#pole-ressources-humaines
+{
+	float:left;
+	width:172px;
+	height:320px;
+	margin:46px 0 140px 20px;
+}
+div#pole-ressources-humaines2
+{
+	float:left;
+	width:172px;
+	height:265px;
+	margin:188px 0 55px 255px;
+}
+div#pole-ressources-humaines ul
+{
+	line-height:13px;
+}
+div#pole-ressources-humaines ul.fiche-liste
+{
+	line-height:10px;
+	margin:112px 0 0 13px;
+}
+div#pole-ressources-humaines ul.fiche-liste li
+{
+	margin-top:15px;
+}
+div#pole-ressources-humaines ul.fiche-liste-2
+{
+	line-height:13px;
+	margin:15px 0 0 8px;
+}
+div#pole-ressources-humaines ul.fiche-liste-2 li
+{
+	margin-top:6px;
+}
+/* Fiche Pôle Informatique */
+div#fiche-pole-informatique
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/pole-informatique.gif') 10px 10px no-repeat;
+}
+div#pole-informatique-2
+{
+	float:left;
+	width:160px;
+	height:245px;
+	margin:211px 0 0 150px;
+}
+div#pole-informatique-2 ul.fiche-liste
+{
+	line-height:10px;
+	margin:0 0 0 13px;
+}
+div#pole-informatique-2 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-informatique-3
+{
+	float:left;
+	width:172px;
+	height:480px;
+	margin:35px 0 0px 28px;
+}
+div#pole-informatique-3 ul
+{
+	line-height:13px;
+}
+div#pole-informatique-3 ul.fiche-liste
+{
+	line-height:10px;
+	margin:142px 0 0 13px;
+}
+div#pole-informatique-3 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-informatique-3 ul.fiche-liste-2
+{
+	line-height:13px;
+	margin:12px 0 0 8px;
+}
+div#pole-informatique-3 ul.fiche-liste-2 li
+{
+	margin-top:6px;
+}
+/* Fiche Pôle Institutionnel */
+div#fiche-pole-institutionnel
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/pole-institutionnel.gif') 10px 10px no-repeat;
+}
+div#pole-institutionnel-2
+{
+	float:left;
+	width:170px;
+	height:245px;
+	margin: 92px 0 0 176px;
+}
+div#pole-institutionnel-2 ul.fiche-liste
+{
+	line-height:11px;
+	margin:64px 0 0 13px;
+}
+div#pole-institutionnel-2 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-institutionnel-3
+{
+	float:left;
+	width:172px;
+	height:350px;
+	margin:45px 0 123px 30px;
+}
+div#pole-institutionnel-3 ul
+{
+	line-height:13px;
+}
+div#pole-institutionnel-3 ul.fiche-liste
+{
+	line-height:11px;
+	margin:110px 0 0 13px;
+}
+div#pole-institutionnel-3 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-institutionnel-4
+{
+	float:left;
+	width:170px;
+	height:180px;
+	margin:42px 0 0 60px;
+}
+div#pole-institutionnel-4 ul
+{
+	line-height:13px;
+}
+div#pole-institutionnel-4 ul.fiche-liste
+{
+	line-height:11px;
+	margin:87px 0 0 13px;
+}
+div#pole-institutionnel-4 ul.fiche-liste li
+{
+	margin-top:6px;
+}
+/* Fiche Pôle Logistique */
+div#fiche-pole-logistique
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/pole-logistique.gif') 10px 10px no-repeat;
+}
+div#pole-logistique-2
+{
+	float:left;
+	width:170px;
+	height:350px;
+	margin:160px 0 0 50px;
+}
+div#pole-logistique-2 ul.fiche-liste
+{
+	line-height:11px;
+	margin:81px 0 0 13px;
+}
+div#pole-logistique-2 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+div#pole-logistique-3
+{
+	float:left;
+	width:172px;
+	height:210px;
+	margin:60px 0 250px 130px;
+}
+div#pole-logistique-3 ul
+{
+	line-height:13px;
+}
+div#pole-logistique-3 ul.fiche-liste
+{
+	line-height:11px;
+	margin:75px 0 0 13px;
+}
+div#pole-logistique-3 ul.fiche-liste li
+{
+	margin-top:8px;
+}
+/* Fiche Bureau Afrique centrale */
+div#fiche-bureau-afrique-centrale
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-afrique-centrale.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Afrique ouest */
+div#fiche-bureau-afrique-ouest
+{
+	width:962px;
+	height:671px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-afrique-ouest.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Asie*/
+div#fiche-bureau-asie
+{
+	width:1112px;
+	height:932px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-asie.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Ameriques */
+div#fiche-bureau-ameriques
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-ameriques.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Europe Ouest */
+div#fiche-bureau-europe-ouest
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-europe-ouest.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Maghreb */
+div#fiche-bureau-maghreb
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-maghreb.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Europe Ouest */
+div#fiche-bureau-moyen-orient
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-moyen-orient.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Ocean Indien */
+div#fiche-bureau-ocean-indien
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-ocean-indien.gif') 10px 10px no-repeat;
+}
+/* Fiche Bureau Caraibe */
+div#fiche-bureau-caraibe
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-caraibe.gif') 10px 10px no-repeat;
+}
+div#fiche-bureau-caraibe li.titre-2
+{
+	font-size:0.75em;
+	font-family:arial;
+	font-weight:bold;
+	line-height:15px;
+	margin:19px 0 13px 0;
+}
+/* Fiche Bureau Europe centrale */
+div#fiche-bureau-europe-centrale
+{
+	width:862px;
+	height:602px;
+	color:#000;
+	background: url('../../images/organigramme/fiches/bureau-europe-centrale.gif') 10px 10px no-repeat;
+}
+div#fiche-bureau-europe-centrale li.titre-2
+{
+	font-size:0.75em;
+	font-family:arial;
+	font-weight:bold;
+	line-height:15px;
+	margin:23px 0 13px 0;
+}
+/* Classes communes bureaux */
+div#bureau-titre
+{
+	float:left;
+	width:750px;
+	height:20px;
+	margin:18px 0 0 78px;
+}
+div#bureau-titre-large
+{
+	float:left;
+	width:950px;
+	height:20px;
+	margin:18px 0 0 78px;
+}
+div#bureau-titre p
+{
+	color:#fff;
+	font-size:0.85em;
+}
+div#bureau-titre p a
+{
+	color:#fff;
+}
+div#bureau-titre p a:hover
+{
+	color:#db002b;
+	text-decoration:underline;
+}
+div#bureau-titre-large p span
+{
+	color:#000;
+	font-family:Verdana;
+	font-size:0.65em;
+}
+div#bureau-titre-large p
+{
+	color:#fff;
+	font-size:0.85em;
+}
+div#bureau-titre-large p a
+{
+	color:#fff;
+}
+div#bureau-titre-large p a:hover
+{
+	color:#db002b;
+	text-decoration:underline;
+}
+div#bureau-titre p span
+{
+	color:#000;
+	font-family:Verdana;
+	font-size:0.65em;
+}
+div#bureau-2
+{
+	float:left;
+	width:183px;
+	height:478px;
+	margin:29px 0 0 75px;
+}
+div#bureau-2-small
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 73px;
+}
+div#bureau-2-small-bis
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 66px;
+}
+div#bureau-3
+{
+	float:left;
+	width:183px;
+	height:476px;
+	margin:29px 0 0 5px;
+}
+div#bureau-3-small
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 2px;
+}
+div#bureau-4
+{
+	float:left;
+	width:183px;
+	height:460px;
+	margin:35px 0 0 4px;
+}
+div#bureau-4-small
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 2px;
+}
+div#bureau-4-bis
+{
+	float:left;
+	width:183px;
+	height:500px;
+	margin:29px 0 0 4px;
+}
+div#bureau-5
+{
+	float:left;
+	width:183px;
+	height:500px;
+	margin:35px 0 0 6px;
+}
+div#bureau-5-small
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 2px;
+}
+div#bureau-5-bis
+{
+	float:left;
+	width:183px;
+	height:500px;
+	margin:29px 0 0 6px;
+}
+div#bureau-6-small
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 2px;
+}
+div#bureau-7-small
+{
+	float:left;
+	width:166px;
+	height:530px;
+	margin:23px 0 0 3px;
+}
+div#fiche-bureau ul
+{
+	line-height:13px;
+}
+div#fiche-bureau li
+{
+	margin-bottom:5px;
+	font-size:0.55em;
+	font-family:Verdana;
+	line-height:11px;
+}
+div#fiche-bureau li.titre
+{
+	font-size:0.75em;
+	font-family:arial;
+	font-weight:bold;
+	line-height:15px;
+	margin-bottom:6px;
+}
+div#fiche-bureau li.bureau-espacement
+{
+	height:16px;
+}
+div#fiche-bureau li.sous-titre
+{
+	background: url('../../images/organigramme/bg-sous-titre.gif') 10px 2px no-repeat;
+	height:17px;
+	color:#fec900;
+	font-weight:bold;
+	font-size:0.7em;
+	padding-top:4px;
+}
+div#fiche-bureau li.sous-titre-2
+{
+	background: url('../../images/organigramme/bg-sous-titre-2.gif') 10px 2px no-repeat;
+	height:27px;
+	color:#fec900;
+	font-weight:bold;
+	font-size:0.7em;
+	padding-top:3px;
+}
+div#fiche-bureau-small li.sous-titre-small
+{
+	background: url('../../images/organigramme/bg-sous-titre-small.gif') 10px 2px no-repeat;
+	height:16px;
+	color:#fec900;
+	font-weight:bold;
+	font-size:0.7em;
+	padding-top:4px;
+}
+div#fiche-bureau li.sous-titre-2 span
+{
+	font-size:0.8em;
+}
+div#fiche-bureau-europe-centrale li
+{
+	margin-bottom:5px;
+	font-size:0.55em;
+	font-family:Verdana;
+	line-height:10px;
+}
+div#fiche-bureau-small ul
+{
+	line-height:13px;
+}
+div#fiche-bureau-small li
+{
+	margin-bottom:4px;
+	font-size:0.55em;
+	font-family:Verdana;
+	line-height:10px;
+}
+div#fiche-bureau-small li.titre
+{
+	font-size:0.75em;
+	font-family:arial;
+	font-weight:bold;
+	line-height:14px;
+	margin-bottom:10px;
+}
+div#fiche-bureau-small-2 li.sous-titre-small
+{
+	background: url('../../images/organigramme/bg-sous-titre-small.gif') 10px 2px no-repeat;
+	height:16px;
+	color:#fec900;
+	font-weight:bold;
+	font-size:0.7em;
+	padding-top:4px;
+}
+div#fiche-bureau-small-2 ul
+{
+	line-height:13px;
+}
+div#fiche-bureau-small-2 li
+{
+	margin-bottom:4px;
+	font-size:0.55em;
+	font-family:Verdana;
+	line-height:10px;
+}
+div#fiche-bureau-small-2 li.titre
+{
+	font-size:0.75em;
+	font-family:arial;
+	font-weight:bold;
+	line-height:14px;
+	margin-bottom:10px;
+}

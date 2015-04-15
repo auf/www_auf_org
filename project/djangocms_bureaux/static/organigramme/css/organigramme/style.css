@@ -1,0 +1,175 @@
+/* Organigramme Home */
+div#organigramme
+{
+	float:left;
+	width:438px;
+	height:491px;
+	left: -6px;
+	margin:0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	text-align:center;
+	background: url('../../images/organigramme/organigramme.gif') no-repeat;
+    position:relative;
+}
+
+div#organigramme a
+{
+	color: #fff !important;
+	text-decoration: none;
+}
+div#organigramme a:hover
+{
+	text-decoration: none;
+	color:#db002b;
+}
+
+div#organigramme p
+{
+	font-weight:bold;
+	font-size:1.05em !important;
+	margin-top:8px;
+}
+div#organigramme ul
+{
+	float:left;
+	list-style-type: none;
+	margin: 0px !important;
+}
+div#organigramme h1
+{
+	font-size:1.3em;
+	margin-top:18px;
+}
+div#recteur
+{
+	float:left;
+	width:246px;
+	height:72px;
+	margin:20px 0 87px 110px;
+}
+div#vice-recteurs
+{
+	float:left;
+	width:182px;
+	height:39px;
+	margin-left:20px;
+}
+div#secretaire-generale
+{
+	float:left;
+	width:182px;
+	height:39px;
+	margin:0 0 113px 49px;
+	
+}
+/* Organigramme bottom */
+div#organigramme-bottom
+{
+	clear:left;
+	width:498px;
+	height:92px;
+	margin-left:7px;
+}
+div#organigramme-bottom li
+{
+	float:left;
+	width:100px;
+	height:60px;
+	display:inline;
+	padding: 0px !important;
+	background: none !important;
+	font-size: 15px !important;
+}
+div#organigramme-bottom li a
+{
+	font-size:0.95em;
+	color:#5d0073;
+}
+div#organigramme-bottom li.organigramme-regions
+{
+	margin-left:43px;
+}
+div#organigramme-bottom li.organigramme-support
+{
+	margin-left:70px;
+}
+/* Organigramme legende */
+div#organigramme-legende
+{
+	clear:left;
+	width:498px;
+	height:25px;
+	margin:9px 0 0 50px;
+}
+div#organigramme-legende li
+{
+	background: none !important;
+	padding: 0px !important;
+	float:left;
+	width:166px;
+	height:25px;
+	display:inline;
+	font-size:0.95em !important;
+	text-align:left;
+}
+div#organigramme #menu-3, div#organigramme #menu-2, div#organigramme #menu-1
+{
+	position: absolute;
+	visibility: hidden;
+	width:155px;
+	background-color: #aaa;
+	z-index:10;
+	margin-top:10px !important;
+	padding: 6px 4px 6px 4px;
+}
+div#organigramme #menu li ul li
+{
+	float: none;
+	display: inline;
+	text-align:left;
+	font-size: 12px !important;
+	padding: 3px 0px 3px 0px !important;
+}
+div#organigramme #menu li ul li a
+{
+	display: block;
+	/*background: #db002b;*/
+	color: #fff;
+	/*padding:4px;*/
+	padding:5px 3px 5px 5px;
+	margin-bottom:2px;
+	line-height:15px;
+}
+div#organigramme #menu li ul li a:hover
+{
+	background: #B386B3;
+	color: #fff;
+}
+
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+
+#cboxOverlay{background:#000;}
+
+#colorbox{}
+    #cboxContent{margin-top:2px;}
+        #cboxLoadedContent{background:#fff; padding:0; margin:0;}
+        #cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
+        #cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
+        #cboxSlideshow{position:absolute; top:-20px; right:90px; color:#fff;}
+        #cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(../../images/organigramme/controls.png) top left no-repeat; width:28px; height:65px; text-indent:-9999px;}
+        #cboxPrevious.hover{background-position:bottom left;}
+        #cboxNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(../../images/organigramme/controls.png) top right no-repeat; width:28px; height:65px; text-indent:-9999px;}
+        #cboxNext.hover{background-position:bottom right;}
+        #cboxLoadingOverlay{background:#000;}
+        #cboxLoadingGraphic{background:url(../../images/organigramme/loading.gif) center center no-repeat;}
+        #cboxClose{position:absolute; top:0; right:1px; display:block; background:url(../../images/organigramme/controls.png) top center no-repeat; width:38px; height:19px; text-indent:-9999px;}
+        #cboxClose.hover{background-position:bottom center;}
