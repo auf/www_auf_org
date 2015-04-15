@@ -3779,3 +3779,9 @@ border: 3px solid grey;
   width:150px;
 }
 
+.boite-partenaires img {
+  margin-left: 21px;
+  margin-bottom: 11px;
+  border: 1px solid lightgrey;
+  padding: 6px;
+}
