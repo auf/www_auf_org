@@ -93,7 +93,7 @@ def newsletter_confirmation(request, slugRegion=''):
     request.session['Region'] = slugRegion
     slugRegionContext = slugRegion
     context = RequestContext(request)
-    list_news = Newsletter.objects.filter(bureau__slug=region_actuel).filter(status='3').order_by('-date')[:20]
+    list_news = Newsletter.objects.filter(status='3').order_by('-date')[:20]
     return render_to_response('newsletter/confirmation.html', {'page_title': 'Confirmation inscription', 'list_news': list_news}, context_instance = RequestContext(request))
 
 
