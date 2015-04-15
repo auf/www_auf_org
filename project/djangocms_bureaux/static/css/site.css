@@ -269,13 +269,13 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 
 #EnteteSecondaire {
   height: 340px;
-  background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/cartedumonde.png') no-repeat 502px 0;
+  background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 502px 0;
   /* Safari */
-  background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/cartedumonde.png') no-repeat 502px 0;
+  background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 502px 0;
   /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/cartedumonde.png') no-repeat 502px 0;
+  background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 502px 0;
   /* For Fx 3.6 to 15 */
-  background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/cartedumonde.png') no-repeat 502px 0;
+  background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 502px 0;
   /* Standard syntax (must be last) */
 }
 #EnteteSecondaire .ContenuEntete {
