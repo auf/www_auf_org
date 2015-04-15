@@ -131,6 +131,7 @@ CMS_TEMPLATES = (
     ('content_menu.html', gettext('Page du section-menu')),
     ('trois_colonnes.html', gettext('Trois colonnes')),
     ('deux_colonnes.html', gettext('Deux colonnes')),
+    ('une_colonne.html', gettext('Une colonne')),
     ('article.html', "Article"),
     ('accueil.html', gettext('Accueil')),
 )
