@@ -3017,73 +3017,73 @@ h2 {
 }
 
 #EnteteSecondaire.BA  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BACGL  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BAO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BAP  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BC  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BECO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BEO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BM  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BMO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
 }
 
 #EnteteSecondaire.BOI  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url() no-repeat 502px 0;
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
 }
 
 
