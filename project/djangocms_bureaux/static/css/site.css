@@ -3767,5 +3767,15 @@ ul#sitemap li {
   margin-top:1px;
 }
 
+.boite-partenaires {
+border: 3px solid grey;
+}
 
+.boite-partenaires h4 {
+  color:grey;
+  margin-top:-26px;
+  background:white;
+  text-align:center;
+  width:150px;
+}
 
