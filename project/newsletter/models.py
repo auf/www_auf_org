@@ -30,7 +30,7 @@ class Abonne(models.Model):
     adresse = models.EmailField(max_length=75, verbose_name='Adresse')
     date = models.DateField(auto_now_add=True)
     bureau = models.ManyToManyField(Region)
-    valide = models.BooleanField()
+    valide = models.BooleanField(default=True)
     
 class Fil(models.Model):
     numero = models.IntegerField(max_length=11,default=0)
