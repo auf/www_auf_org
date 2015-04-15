@@ -139,4 +139,5 @@ CMS_TEMPLATES = (
 FILER_ENABLE_PERMISSIONS = True
 FILER_FILE_MODELS = (
     "project.djangocms_bureaux.models.AufFile",
+    'filer.models.imagemodels.Image',
 )
