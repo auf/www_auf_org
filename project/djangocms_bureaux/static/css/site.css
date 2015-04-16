@@ -2956,24 +2956,40 @@ float: left;
 }
 
 /*-----Style pour contenu dans les carrés----*/
-
 .thumbnail-bureau {
-  margin-top:10px;
-  font-size:12px;
-  padding:2px;
+font-size: 1.2rem;
+margin: 0px -12px 8px -11px;
 }
 
 .thumbnail-bureau img {
  width:80px;
 }
 
-.thumbnail-bureau .title-date {
-  margin-top:9px;
-  font-size:1.3em;
+.thumbnail-bureau span {
+margin: -1px;
+ font-weight: bold;
 }
 
 .thumbnail-bureau .text-muted {
-font-size:0.8em;
+margin-top: 11px;
+margin-bottom: -14px;
+  color: #AA0A2F;
+  margin-left: 5px;
+}
+
+.rouge a.btn.btn-info {
+background: #E52727;
+border: none;
+}
+
+.vert a.btn.btn-info {
+background: rgb(141, 190, 35);
+border: none;
+}
+
+.bleu a.btn.btn-info {
+background: rgb(112, 34, 131);
+border: none;
 }
 
 /*--Box shadow--*/
