@@ -2987,8 +2987,7 @@ h2 {
 
 /*--Style pour la description--*/
 .thumbnail-appels .caption {
-  padding-bottom: 23px;
-  margin-top: 28px;
+  padding-bottom: 52px;
 }
 
 /*--Couleur de la description--*/
@@ -3557,7 +3556,31 @@ ul.nav.nav-tabs > li.active:nth-child(5) > a {
 .tab-content > .tab-pane.active:nth-child(5) {
   border:3px solid #E52727;
 }
+.tab-content > .tab-pane.active:nth-child(1) .btn-info {
+  background:#1D9DD9;
+  border-color:white;
+}
 
+.tab-content > .tab-pane.active:nth-child(2) .btn-info {
+  background:#FFD500;
+  color:black;
+  border-color:white;
+}
+
+.tab-content > .tab-pane.active:nth-child(3) .btn-info {
+  background:#8DBE23;
+  border-color:white;
+}
+
+.tab-content > .tab-pane.active:nth-child(4) .btn-info {
+  background:#702283;
+  border-color:white;
+}
+
+.tab-content > .tab-pane.active:nth-child(5) .btn-info {
+  background:#E52727;
+  border-color:white;
+}
 
 
 .mini-estampilles .fa-circle {
@@ -3594,6 +3617,7 @@ div.thumbnail-appels > a > div.caption {
 div.thumbnail-appels > a > div.caption > p {
   min-height: 62px;
 }
+
 
 
 
@@ -3783,3 +3807,76 @@ border: 3px solid grey;
   margin: 10px 14px 10px 0px;
   display: block;
 }
+
+.afrique-centrale-et-des-grands-lacs .col-md-9 {
+  border: 3px solid #F7AB00;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-maghreb .col-md-9 {
+  border: 3px solid #B49B5A;
+margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-moyen-orient .col-md-9 {
+  border: 3px solid #387DC0;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-afrique-de-l-ouest .col-md-9 {
+  border: 3px solid #65B22E;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-ameriques .col-md-9 {
+  border: 3px solid #34AB92;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-caraibe .col-md-9 {
+  border: 3px solid #601D52;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-asie-pacifique .col-md-9 {
+  border: 3px solid #9F72AE;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-europe-centrale-et-orientale .col-md-9{
+  border: 3px solid #73D0F5;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
+.bureau-europe-de-l-ouest .col-md-9 {
+  border: 3px solid #EA560D;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
+
