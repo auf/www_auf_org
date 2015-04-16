@@ -21,7 +21,7 @@ $(function () {
 <div class="thumbnail thumbnail-bureau">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
-    <img class="img-thumbnail pull-right" src="{% thumbnail p.image 80x80 crop %}"/>
+    <img class="img-thumbnail pull-right" src="{% thumbnail p.image 80x80 scale %}"/>
     {% else %}
     <img class="img-thumbnail pull-right" src="http://www.auf.org/static/logodefaut.jpg" width="80px" height="80px">
     {% endif %}
