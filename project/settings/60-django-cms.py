@@ -128,7 +128,6 @@ THUMBNAIL_PROCESSORS = (
 
 CMS_TEMPLATES = (
     ('cms.html', gettext('Page du cms avec menu')),
-    ('content_menu.html', gettext('Page du section-menu')),
     ('trois_colonnes.html', gettext('Trois colonnes')),
     ('deux_colonnes.html', gettext('Deux colonnes')),
     ('une_colonne.html', gettext('Une colonne')),
