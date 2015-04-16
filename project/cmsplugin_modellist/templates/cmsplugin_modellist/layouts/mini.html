@@ -10,11 +10,12 @@ $(function () {
 </script>
 {% endaddtoblock %}
 
+<h4 class="page_title">{{ title }}</h4>
+
 <div id="cms-menu-{{ plugin.id }}"
      class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
      data-plugin-position="{{ plugin.position }}">
 
-    <h4 class="page_title">{{ title }}</h4>
 
 {% for p in object_list %}
 <div class="thumbnail thumbnail-bureau">
