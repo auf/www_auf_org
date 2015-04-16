@@ -10,7 +10,7 @@
 <div class="thumbnail thumbnail-actu">
   <a class="" href="{{p.get_absolute_url}}">
     {% if p.image %}
-    <img class="img-thumbnail" src="{% thumbnail p.image 360x360 scale %}"/>
+    <img class="img-thumbnail" src="{% thumbnail p.image 360x360 upscale %}"/>
     {% else %}
     <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="360px" height="360px">
     {% endif %}
