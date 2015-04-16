@@ -151,9 +151,10 @@
     </div>
     </div>
 
-    {% if request.current_page.reverse_id == "accueil"%}
     <div class="panel boite-lettre">
     <div class="panel-body">
+
+    {% if request.current_page.reverse_id == "accueil"%}
         <h4>Lettre d'information</h4>
         <p style="margin-bottom:8px;">Restez informé grâce à notre lettre d'information</p>
         <form class="form-group" action="/lettre-information/" method="post">{% csrf_token %}
@@ -164,9 +165,14 @@
            </span>
        </div>
        </form>
+    {% else %}
+      {% placeholder bleu_ciel %}
+    {% endif %}
+
        </div>
        </div>
 
+    {% if request.current_page.reverse_id == "accueil"%}
         <div class="panel boite-temoignages">
         <div class="panel-body">
             <h4>Témoignages</h4>
@@ -195,7 +201,6 @@
 
         </div>
         </div>
-
     {% endif %}
 
 </div>
