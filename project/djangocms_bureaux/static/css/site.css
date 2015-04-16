@@ -512,14 +512,6 @@ CORPS + CONTENU ----------------------------------------------------------------
   color: #616161;
   margin-bottom: 16px;
 }
-#BlocContenu .Contenu p img {
-  padding: 5px;
-  border: 1px solid #DFDFDF;
-  margin: 10px 14px 10px 0px;
-  display: block;
-  max-width: 380px !important;
-  max-height: 560px !important;
-}
 #BlocContenu .Contenu p label {
   display: inline-block;
   width: 150px;
@@ -3783,4 +3775,11 @@ border: 3px solid grey;
   margin-bottom: 11px;
   border: 1px solid lightgrey;
   padding: 6px;
+}
+
+.Contenu p img {
+  padding: 5px;
+  border: 1px solid #DFDFDF;
+  margin: 10px 14px 10px 0px;
+  display: block;
 }
