@@ -3328,14 +3328,6 @@ a:after >  img{
 
 }
 
-.boite-lettre h4 {
-  margin-top: -27px;
-background: white;
-width: 185px;
-text-align: center;
-color: rgb(29, 157, 217);
-}
-
 .boite-lettre p {
 background: rgb(29, 157, 217);
 color: white;
@@ -3348,14 +3340,6 @@ border: 1px solid black;
 
 .boite-temoignages {
  border: 3px solid rgb(255, 213, 0);
-}
-
-.boite-temoignages h4 {
-margin-top: -26px;
-background: white;
-width: 125px;
-text-align: center;
-color: rgb(66, 66, 66);
 }
 
 .boite-temoignages p {
@@ -3830,14 +3814,6 @@ ul#sitemap li {
 
 .boite-partenaires {
 border: 3px solid grey;
-}
-
-.boite-partenaires h4 {
-  color:grey;
-  margin-top:-26px;
-  background:white;
-  text-align:center;
-  width:150px;
 }
 
 .boite-partenaires img {
