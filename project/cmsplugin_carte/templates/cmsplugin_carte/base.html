@@ -8,7 +8,7 @@
     var map = new Datamap({
     element: document.getElementById("carte"),
     responsive: true,
-    dataUrl: '/cmsplugin_carte/pays.json',
+    dataUrl: '{% url "cmsplugin_carte-pays_json" %}',
     data: {},
 
     done: function(datamap) {
@@ -43,22 +43,20 @@
         map.resize();
     });
 
-/*
- $.getJSON("{% static "js/cities.geojson" %}", function(points) {
+ $.getJSON('{% url "cmsplugin_carte-bureaux_json" %}', function(points) {
         map.bubbles(points, {
             borderWidth: 1,
             popupOnHover: true,
             highlightOnHover: true,
             borderColor: '#000',
             popupTemplate: function (geo, data) {
-              return '<div class="hoverinfo"><strong>' +  data.name  + '</strong></div>';
+              return '<div class="hoverinfo"><strong>' +  data.nom  + '</strong></div>';
             }
-        })
+        });
  }).fail(function( jqxhr, textStatus, error ) {
     var err = textStatus + ", " + error;
     console.log( "Request Failed: " + err );
 });
-*/
 
 //Legende
     map.legend();
