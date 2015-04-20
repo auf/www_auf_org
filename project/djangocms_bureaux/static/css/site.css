@@ -3925,3 +3925,40 @@ margin-top: 20px;
   box-shadow: 3px -2px 12px -4px #B0B0B0;
   border-radius: 9px 9px 11px 11px;
 }
+
+.BlocEmploi {
+border: 1px solid #D7D7D7;
+padding: 0px 7px 10px 7px;
+background: url('/static/img/Bg_Enc.png?79652420884f') bottom repeat-x;
+color: #616161;
+margin-bottom: 13px;
+}
+
+.postuler {
+margin: 22px 0px 9px 0px;
+border: 1px solid #DEDEDE;
+background: url('/static/img/Bg_Enc.png?79652420884f') bottom repeat-x;
+color: #616161;
+font-weight: bold;
+padding: 10px;
+text-align: center;
+}
+
+.tabpostuler {
+border-spacing: 15pt;
+}
+
+.tabtr {
+padding: 10px 5px 10px 5px;
+}
+
+.tabtd {
+width: 130px;
+font-weight: bold;
+display: inline-block;
+}
+
+.tabtd2 {
+display: inline-block;
+width: 423px;
+}
