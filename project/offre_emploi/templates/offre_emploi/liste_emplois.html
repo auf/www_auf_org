@@ -13,10 +13,9 @@
 
     {% for offre in offres_emploi %}
     <div class="BlocEmploi">
-        <fieldset>
             <h2>{{ offre.titre_poste }}</h2>
             	<div class="postuler">
-                    <a href="https://recrutement.auf.org/?page=advertisement_display&rrid={{ offre.id }}" />POSTULER A CETTE OFFRE EN LIGNE</a>
+                    <a href="https://recrutement.auf.org/?page=advertisement_display&id={{ offre.id }}" />POSTULER A CETTE OFFRE EN LIGNE</a>
                     </div>
                 <div class="tabpostuler">
                     <div class="tabtr">
@@ -32,7 +31,6 @@
                         <span class="tabtd2">{{ offre.lieu }}</span>
                     </div>
                 </div>
-        </fieldset>
     </div>
     {% empty %}
         <p>Aucune offre d'emploi disponible</p>
