@@ -3918,3 +3918,10 @@ margin-top: 20px;
   border-radius: 9px 9px 11px 11px;
 }
 
+.bureau-ocean-indien .col-md-9 {
+  border: 3px solid #EE79AD;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 3px -2px 12px -4px #B0B0B0;
+  border-radius: 9px 9px 11px 11px;
+}
