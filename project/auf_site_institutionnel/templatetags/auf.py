@@ -38,16 +38,20 @@ def do_show_facet(context, facet_name):
     html = ""
     facets = context['facets']['fields'][facet_name]
     selected_facets = context['selected_facets']
-    get_full_path = context['request'].get_full_path()
+    path = context['request'].path
 
     for f in facets:
         long_facet_name = "__".join([facet_name, urlquote(f[0])])
 
         if urlunquote(long_facet_name) in selected_facets:
             html += "<dd><a href='%s'>(-) %s</a> (%s)</dd>"\
-                % (get_full_path.replace("&selected_facets=" + long_facet_name,""),
+                % (path.replace("&selected_facets=" + long_facet_name,""),
                    f[0], f[1])
         else:
-            html += "<dd><a href='%s?&selected_facets=%s'>%s</a> (%s)</dd>"\
-                % (get_full_path, long_facet_name, f[0], f[1])
+            if path.endswith('/'):
+                html += "<dd><a href='%s?selected_facets=%s'>%s</a> (%s)</dd>"\
+                    % (path, long_facet_name, f[0], f[1])
+            else:
+                html += "<dd><a href='%s&selected_facets=%s'>%s</a> (%s)</dd>"\
+                    % (path, long_facet_name, f[0], f[1])
     return html
