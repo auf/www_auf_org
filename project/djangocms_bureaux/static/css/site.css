@@ -2844,6 +2844,7 @@ iframe #afficher {
 .vert h4 {
 background: white;
 margin-top: -27px;
+margin-bottom: 0px;
 color: rgb(141, 190, 35);
 font-size: 1.9rem;
 font-weight: bold;
@@ -2864,6 +2865,7 @@ border: 3px solid rgb(229, 39, 39);
 
 .rouge h4 {
 margin-top: -27px;
+margin-bottom: 0px;
 background: white;
 font-weight: bold;
 color: rgb(229, 39, 39);
@@ -2885,6 +2887,7 @@ border: 3px solid rgb(112, 34, 131);
 background: white;
 color: rgb(112, 34, 131);
 margin-top: -27px;
+margin-bottom: 0px;
 font-size: 1.65rem;
 font-weight: bold;
 float: left;
