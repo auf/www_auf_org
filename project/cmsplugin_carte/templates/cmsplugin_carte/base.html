@@ -13,15 +13,19 @@
 
     done: function(datamap) {
         datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-            window.open('http://www.auf.org/' + datamap.options.data[geography.id].fillKey.toLowerCase())
+            alert(datamap.options.data[geography.id].adresse_physique);
+//            window.open('http://www.auf.org/' + datamap.options.data[geography.id].fillKey.toLowerCase())
         });
     },
 
     geographyConfig: {
-      highlightOnHover: false,
-      popupOnHover: false,
+      highlightOnHover: true,
+      popupOnHover: true,
       borderColor:'#FFF',
       borderWidth: 0.5,
+      popupTemplate: function(geo, data) {
+          return ['<div class="hoverinfo"><strong>', datamap.options.data[geography.id].fillKey.toLowerCase(), '</strong></div>'].join('');
+      }
    },
 
    fills: {
