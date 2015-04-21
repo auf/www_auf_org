@@ -23,7 +23,7 @@
       borderColor:'#FFF',
       borderWidth: 0.5,
       popupTemplate: function(geo, data) {
-          $('#adresse').html(datamap.options.data[geography.id].adresse_physique);
+          $('#adresse').html(data.options.data[geography.id].adresse_physique);
           return ['<div class="hoverinfo"><strong>', data.options.data[geography.id].fillKey.toLowerCase(), '</strong></div>'].join('');
       }
    },
