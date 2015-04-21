@@ -23,8 +23,9 @@
       borderColor:'#FFF',
       borderWidth: 0.5,
       popupTemplate: function(geo, data) {
-          $('#adresse').html(data[geography.id].adresse_physique);
-          return ['<div class="hoverinfo"><strong>', data[geography.id].fillKey.toLowerCase(), '</strong></div>'].join('');
+          $('#adresse_physique').html(data['adresse_physique']);
+          $('#adresse_postale').html(data['adresse_postale']);
+          return ['<div class="hoverinfo"><strong>', data.fillKey, '</strong></div>'].join('');
       }
    },
 
@@ -72,4 +73,36 @@
 <h3 class="page_title">L'AUF dans le monde</h3>
 
 <div id="carte"></div>
-<div id="adresse"></div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3>Adresse physique</h3>
+      <div id="adresse_physique">
+        <strong>Rectorat et Siège</strong><br/>
+        Pavillon Jean-Marc Léger<br/>
+        3034, Boul. Edouard-Montpetit<br/>
+        Montréal, (Québec) H3T 1J7 Canada
+        <hr/>
+        <strong>Rectorat et Services centraux</strong><br/>
+        4, place de la Sorbonne<br/>
+        75005 Paris<br/>
+        France<br/>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Adresse postale</h3>
+      <div id="adresse_postale">
+        <strong>Rectorat et Siège</strong><br/>
+        BP 49714 Csp du Musée<br/>
+        Montréal (Québec) H3T 2A5<br/>
+        Canada
+        <hr/>
+        <strong>Rectorat et Services centraux</strong><br/>
+        4, place de la Sorbonne<br/>
+        75005 Paris<br/>
+        France
+      </div>
+    </div>
+  </div>
+</div>
+
