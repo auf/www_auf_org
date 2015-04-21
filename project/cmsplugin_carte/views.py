@@ -23,33 +23,31 @@ LAT_LONG = {
 def pays_json(request):
     data = {}
     for pays in Pays.objects.all():
-        implantations = pays.region.implantation_set.filter(actif=True, type__in=["Bureau",  u'Siège'])
-        adresse_physique = ''
-        adresse_postale = ''
-        for implantation in implantations:
-            try:
-                adresse_physique += "<br/>".join([
-                    "<strong>" + implantation.nom + "</strong>",
-                    implantation.adresse_physique_bureau,
-                    " ".join([implantation.adresse_physique_no,
-                            implantation.adresse_physique_rue]),
-                    " ".join([implantation.adresse_physique_ville,
-                            implantation.adresse_physique_region,
-                            implantation.adresse_physique_code_postal,
-                            unicode(implantation.adresse_physique_pays)])
-                ])
-                adresse_postale += "<br/>".join([
-                    "<strong>" + implantation.nom + "</strong>",
-                    implantation.adresse_postale_bureau,
-                    " ".join([implantation.adresse_postale_no,
-                            implantation.adresse_postale_rue]),
-                    " ".join([implantation.adresse_postale_ville,
-                            implantation.adresse_postale_region,
-                            implantation.adresse_postale_code_postal,
-                            unicode(implantation.adresse_postale_pays.nom)])
-                ])
-            except:
-                pass
+        implantation = pays.region.implantation_set.filter(actif=True, type="Bureau")[0]
+        try:
+            adresse_physique = "<br/>".join([
+                "<strong>" + implantation.nom + "</strong>",
+                implantation.adresse_physique_bureau,
+                " ".join([implantation.adresse_physique_no,
+                          implantation.adresse_physique_rue]),
+                " ".join([implantation.adresse_physique_ville,
+                          implantation.adresse_physique_region,
+                          implantation.adresse_physique_code_postal,
+                          unicode(implantation.adresse_physique_pays)])
+            ])
+            adresse_postale = "<br/>".join([
+                "<strong>" + implantation.nom + "</strong>",
+                implantation.adresse_postale_bureau,
+                " ".join([implantation.adresse_postale_no,
+                          implantation.adresse_postale_rue]),
+                " ".join([implantation.adresse_postale_ville,
+                          implantation.adresse_postale_region,
+                          implantation.adresse_postale_code_postal,
+                          unicode(implantation.adresse_postale_pays.nom)])
+            ])
+        except:
+            adresse_physique =''
+            adresse_postale = ''
         data[pays.code_iso3] = {
             'id': pays.code_iso3,
             'name': pays.nom,
