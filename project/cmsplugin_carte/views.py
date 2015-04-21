@@ -23,7 +23,7 @@ LAT_LONG = {
 def pays_json(request):
     data = {}
     for pays in Pays.objects.all():
-        implantation = pays.region.implantation_set.all()[0]
+        implantation = pays.region.implantation_set.filter(actif=True)[0]
         adresse_physique = "<br/>".join([
             implantation.nom,
             implantation.adresse_physique_bureau,
