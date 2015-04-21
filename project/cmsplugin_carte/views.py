@@ -23,27 +23,27 @@ LAT_LONG = {
 def pays_json(request):
     data = {}
     for pays in Pays.objects.all():
-        implantation = pays.region.implantation_set.filter(actif=True)[0]
+        implantation = pays.region.implantation_set.filter(actif=True, type="Bureau")[0]
         try:
             adresse_physique = "<br/>".join([
-                implantation.nom,
+                "<strong>" + implantation.nom + "</strong>",
                 implantation.adresse_physique_bureau,
                 " ".join([implantation.adresse_physique_no,
-                        implantation.adresse_physique_rue]),
+                          implantation.adresse_physique_rue]),
                 " ".join([implantation.adresse_physique_ville,
-                        implantation.adresse_physique_region,
-                        implantation.adresse_physique_code_postal,
-                        unicode(implantation.adresse_physique_pays)])
+                          implantation.adresse_physique_region,
+                          implantation.adresse_physique_code_postal,
+                          unicode(implantation.adresse_physique_pays)])
             ])
             adresse_postale = "<br/>".join([
-                implantation.nom,
+                "<strong>" + implantation.nom + "</strong>",
                 implantation.adresse_postale_bureau,
                 " ".join([implantation.adresse_postale_no,
-                        implantation.adresse_postale_rue]),
+                          implantation.adresse_postale_rue]),
                 " ".join([implantation.adresse_postale_ville,
-                        implantation.adresse_postale_region,
-                        implantation.adresse_postale_code_postal,
-                        unicode(implantation.adresse_postale_pays.nom)])
+                          implantation.adresse_postale_region,
+                          implantation.adresse_postale_code_postal,
+                          unicode(implantation.adresse_postale_pays.nom)])
             ])
         except:
             adresse_physique =''
