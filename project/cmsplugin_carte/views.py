@@ -19,13 +19,37 @@ LAT_LONG = {
     'OI': (-18.933, 47.517),
 }
 
+
 def pays_json(request):
     data = {}
     for pays in Pays.objects.all():
+        implantation = pays.region.implantation_set.all()[0]
+        adresse_physique = "<br/>".join([
+            implantation.nom,
+            implantation.adresse_physique_bureau,
+            " ".join([implantation.adresse_physique_no,
+                      implantation.adresse_physique_rue]),
+            " ".join([implantation.adresse_physique_ville,
+                      implantation.adresse_physique_region,
+                      implantation.adresse_physique_code_postal,
+                      implantation.adresse_physique_pays])
+        ])
+        adresse_postale = "<br/>".join([
+            implantation.nom,
+            implantation.adresse_postale_bureau,
+            " ".join([implantation.adresse_postale_no,
+                      implantation.adresse_postale_rue]),
+            " ".join([implantation.adresse_postale_ville,
+                      implantation.adresse_postale_region,
+                      implantation.adresse_postale_code_postal,
+                      implantation.adresse_postale_pays])
+        ])
         data[pays.code_iso3] = {
             'id': pays.code_iso3,
             'name': pays.nom,
-            'fillKey': 'B' + pays.region.code
+            'fillKey': 'B' + pays.region.code,
+            'adresse_physique': adresse_physique,
+            'adresse_postale': adresse_postale,
         }
     return HttpResponse(json.dumps(data), mimetype='application/json')
 
