@@ -271,11 +271,11 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   height: 340px;
   background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
   /* Safari */
-  background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
+  background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
   /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
+  background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
   /* For Fx 3.6 to 15 */
-  background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(85, 170, 228, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
+  background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
   /* Standard syntax (must be last) */
 }
 #EnteteSecondaire .ContenuEntete {
@@ -2846,7 +2846,7 @@ background: white;
 margin-top: -27px;
 margin-bottom: 0px;
 color: rgb(141, 190, 35);
-font-size: 1.9rem;
+font-size: 17px;
 font-weight: bold;
 float: left;
 }
@@ -2888,7 +2888,7 @@ background: white;
 color: rgb(112, 34, 131);
 margin-top: -27px;
 margin-bottom: 0px;
-font-size: 1.65rem;
+font-size: 1.5rem;
 font-weight: bold;
 float: left;
 }
@@ -2943,7 +2943,7 @@ float: left;
 /*-----Boite lettre d'info----*/
 
 .boite-lettre h4 {
-margin-top: -28px;
+margin-top: -29px;
 background: white;
 color: rgb(29, 157, 217);
 float: left;
@@ -2974,10 +2974,10 @@ margin: -1px;
 }
 
 .thumbnail-bureau .text-muted {
-margin-top: 11px;
-margin-bottom: -14px;
-  color: #AA0A2F;
-  margin-left: 5px;
+margin-top: -15px;
+margin-bottom: 0px;
+color: #AA0A2F;
+margin-left: 5px;
 }
 
 .rouge a.btn.btn-info {
