@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static cms_tags sekizai_tags menu_tags %}
 
+{% block menu %}
+    {% show_menu 0 2 2 2 "bootstrap/menu/navbar.html" %}
+{% endblock %}
+
 {% block contenu %}
 <div class="col-md-12" id="content" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
