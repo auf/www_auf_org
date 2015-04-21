@@ -23,8 +23,8 @@
       borderColor:'#FFF',
       borderWidth: 0.5,
       popupTemplate: function(geo, data) {
-          $('#adresse').html(data.options.data[geography.id].adresse_physique);
-          return ['<div class="hoverinfo"><strong>', data.options.data[geography.id].fillKey.toLowerCase(), '</strong></div>'].join('');
+          $('#adresse').html(data[geography.id].adresse_physique);
+          return ['<div class="hoverinfo"><strong>', data[geography.id].fillKey.toLowerCase(), '</strong></div>'].join('');
       }
    },
 
