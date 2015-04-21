@@ -65,7 +65,10 @@ class TitleIndex(get_index_base()):
         return clean_join(' ', text_bits)
 
     def get_plugin_search_text(self, base_plugin, request):
-        plugin_content_bits = get_plugin_index_data(base_plugin, request)
+        try:
+            plugin_content_bits = get_plugin_index_data(base_plugin, request)
+        except:
+            pass
         return clean_join(' ', plugin_content_bits)
 
     def get_model(self):
