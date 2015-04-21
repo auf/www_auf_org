@@ -32,7 +32,7 @@ def pays_json(request):
             " ".join([implantation.adresse_physique_ville,
                       implantation.adresse_physique_region,
                       implantation.adresse_physique_code_postal,
-                      implantation.adresse_physique_pays.nom])
+                      unicode(implantation.adresse_physique_pays)])
         ])
         adresse_postale = "<br/>".join([
             implantation.nom,
@@ -42,7 +42,7 @@ def pays_json(request):
             " ".join([implantation.adresse_postale_ville,
                       implantation.adresse_postale_region,
                       implantation.adresse_postale_code_postal,
-                      implantation.adresse_postale_pays.nom])
+                      unicode(implantation.adresse_postale_pays.nom)])
         ])
         data[pays.code_iso3] = {
             'id': pays.code_iso3,
