@@ -16,15 +16,16 @@ class AufIndex(indexes.SearchIndex):
     text = indexes.NgramField(document=True, use_template=True)
     title = indexes.NgramField(model_attr='titre')
     bureaux = indexes.FacetMultiValueField(null=True, stored=True)
-    annee = indexes.CharField(faceted=True, stored=True, null=True)
-    section = indexes.CharField(faceted=True, stored=True, null=True)
+    annee = indexes.FacetField(stored=True, null=True)
+    section = indexes.FacetField(stored=True, null=True)
+    partenaire = indexes.FacetField(stored=True, null=True)
 
     def prepare_bureaux(self, obj):
         try:
             return [b.nom for b in obj.bureau.all()]
         except ObjectDoesNotExist, e:
             print(e)
-            return 'Non précisé'
+            return [u'Non précisé']
 
     def prepare_annee(self, obj):
         if obj.date_pub is not None:
@@ -37,7 +38,7 @@ class BourseIndex(AufIndex, indexes.Indexable):
         return Bourse
 
     def prepare_section(self, obj):
-        return ["Bourse"]
+        return u"Bourse"
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
@@ -50,7 +51,7 @@ class ActualiteIndex(AufIndex, indexes.Indexable):
         return Actualite
 
     def prepare_section(self, obj):
-        return ["Actualité"]
+        return u"Actualité"
 
     def index_queryset(self,using=None):
         return Actualite.objects.filter(status='3')
@@ -63,13 +64,13 @@ class AppelOffreIndex(AufIndex, indexes.Indexable):
         return Appel_Offre
 
     def prepare_section(self, obj):
-        return ["Appel d\'offre"]
+        return u"Appel d\'offre"
 
     def prepare_partenaire(self, obj):
         if not obj.auf:
-            return 'Partenaire'
+            return u'Partenaire'
         else:
-            return 'AUF'
+            return u'AUF'
 
     def index_queryset(self, using=None):
         return Appel_Offre.objects.filter(status='3')
@@ -81,7 +82,7 @@ class EvenementIndex(AufIndex, indexes.Indexable):
         return Evenement
 
     def prepare_section(self, obj):
-        return ["Événements"]
+        return u"Événements"
 
     def index_queryset(self, using=None):
         return Evenement.objects.filter(status='3')
@@ -93,7 +94,7 @@ class PublicationIndex(AufIndex, indexes.Indexable):
         return Publication
 
     def prepare_section(self, obj):
-        return ["Publication"]
+        return u"Publication"
 
     def index_queryset(self, using=None):
         return Publication.objects.filter(status='3')

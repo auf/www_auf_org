@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 from django.utils.http import urlunquote, urlquote
+from django.utils.encoding import smart_text
 from django import template
 
 register = template.Library()
@@ -38,7 +39,7 @@ def do_show_facet(context, facet_name):
     html = ""
     facets = context['facets']['fields'][facet_name]
     selected_facets = context['selected_facets']
-    path = context['request'].path
+    path = context['request'].get_full_path()
 
     for f in facets:
         long_facet_name = "__".join([facet_name, urlquote(f[0])])
@@ -46,12 +47,12 @@ def do_show_facet(context, facet_name):
         if urlunquote(long_facet_name) in selected_facets:
             html += "<dd><a href='%s'>(-) %s</a> (%s)</dd>"\
                 % (path.replace("&selected_facets=" + long_facet_name,""),
-                   f[0], f[1])
+                   smart_text(f[0]), f[1])
         else:
             if path.endswith('/'):
                 html += "<dd><a href='%s?selected_facets=%s'>%s</a> (%s)</dd>"\
-                    % (path, long_facet_name, f[0], f[1])
+                    % (path, long_facet_name, smart_text(f[0]), f[1])
             else:
                 html += "<dd><a href='%s&selected_facets=%s'>%s</a> (%s)</dd>"\
-                    % (path, long_facet_name, f[0], f[1])
+                    % (path, long_facet_name, smart_text(f[0]), f[1])
     return html

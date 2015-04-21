@@ -40,7 +40,10 @@ db.sqlite
 /project/settings/20-secret.py
 /project/settings/*-prod.py
 /project/urls/*-prod.py
-/project/whoosh_index/
+
+# Search index
+project/whoosh_index/
+project/xapian_index/
 
 #mac
 .DS_Store

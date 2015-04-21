@@ -6,11 +6,12 @@ INSTALLED_APPS += (
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(PROJECT_ROOT, 'whoosh_index'),
-        'INCLUDE_SPELLING': True,
+        'ENGINE': 'xapian_backend.XapianEngine',
+        'PATH': os.path.join(PROJECT_ROOT, 'xapian_index')
     },
 }
+
+HAYSTACK_XAPIAN_LANGUAGE="french"
 
 #HAYSTACK_ROUTERS = ['project.aldryn_search.router.LanguageRouter',]
 ALDRYN_SEARCH_INDEX_BASE_CLASS= 'project.djangocms_bureaux.search_indexes.AufIndex'

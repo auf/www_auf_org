@@ -1,36 +1,32 @@
 # -*- coding: utf-8 -*-
-import re
 
-from django.utils.translation import get_language_from_request
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
 
 from django import forms
 
-from haystack.forms import ModelSearchForm
-from haystack.forms import FacetedSearchForm
+from haystack.forms import SearchForm
 from haystack.query import SearchQuerySet
 
 
 from aldryn_common.paginator import DiggPaginator
 
 from .conf import settings
-from .utils import alias_from_language, get_model_path
 
 
-class AldrynFacetedSearchForm(FacetedSearchForm):
+class AldrynFacetedSearchForm(SearchForm):
     selected_facets = forms.CharField(required=False, widget=forms.HiddenInput)
 
     def search(self):
-        if self.is_valid():
-            if self.cleaned_data.get('q', ''):
-                sqs = SearchQuerySet().auto_query(self.cleaned_data['q'])
-            else:
-                sqs = SearchQuerySet().exclude(content='cettechaineneserapastrouve')
-        else:
-            sqs = SearchQuerySet().exclude(content='cettechaineneserapastrouve')
-
+        sqs = SearchQuerySet()
         sqs = sqs.facet('bureaux').facet('section').facet('annee')
+
+        if self.is_valid():
+            q = self.cleaned_data.get('q', '')
+            if q: sqs = sqs.auto_query(q)
+
+        for facet in self.selected_facets_get:
+            if "__" not in facet: continue
 
         for facet in self.selected_facets:
             if "__" not in facet:
@@ -53,25 +49,23 @@ class AldrynSearchView(FormMixin, ListView):
     template_name = 'aldryn_search/search_results.html'
 
     def get(self, request, *args, **kwargs):
-        form_class = self.get_form_class()
-        self.form = self.get_form(form_class)
+        self.form = AldrynFacetedSearchForm(self.request.GET)
+        self.form.selected_facets = self.request.GET.get('selected_facets', '')
+        self.form.selected_facets_get = self.request.GET.getlist('selected_facets', [])
         return super(AldrynSearchView, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
         self.queryset = self.form.search()
         if not self.request.user.is_authenticated():
             self.queryset = self.queryset.exclude(login_required=True)
+        self.facet_counts = self.queryset.facet_counts()
         return self.queryset
 
     def get_context_data(self, **kwargs):
         context = super(AldrynSearchView, self).get_context_data(**kwargs)
 
-        q = self.form.search()
-        if not self.request.user.is_authenticated():
-            q = q.exclude(login_required=True)
-
         context['form'] = self.form
-        context['facets'] = self.queryset.facet_counts()
+        context['facets'] = self.facet_counts
         context['selected_facets'] = self.request.GET.getlist('selected_facets', [])
         if self.object_list.query.backend.include_spelling:
             context['suggestion'] = self.form.get_suggestion()

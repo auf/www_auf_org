@@ -6,16 +6,16 @@ from project.aldryn_search.base import AldrynIndexBase
 from haystack import indexes
 
 BUREAU_SLUGS = {
-    '/bureau-ameriques/': 'Amériques',
-    '/bureau-afrique-centrale-et-des-grands-lacs/': 'Afrique centrale et des Grands-Lacs',
-    '/bureau-afrique-de-l-ouest/': 'Afrique de l\'Ouest',
-    '/bureau-asie-pacifique/': 'Asie-Pacifique',
-    '/bureau-caraibe/': 'Caraïbe',
-    '/bureau-europe-centrale-et-orientale/': 'Europe centrale et orientale',
-    '/bureau-europe-de-l-ouest/': 'Europe de l\'Ouest',
-    '/bureau-moyen-orient/': 'Moyen-Orient',
-    '/bureau-maghreb/': 'Maghreb',
-    '/bureau-ocean-indien/': 'Océan Indien',
+    '/bureau-ameriques/': u'Amériques',
+    '/bureau-afrique-centrale-et-des-grands-lacs/': u'Afrique centrale et des Grands-Lacs',
+    '/bureau-afrique-de-l-ouest/': u'Afrique de l\'Ouest',
+    '/bureau-asie-pacifique/': u'Asie-Pacifique',
+    '/bureau-caraibe/': u'Caraïbe',
+    '/bureau-europe-centrale-et-orientale/': u'Europe centrale et orientale',
+    '/bureau-europe-de-l-ouest/': u'Europe de l\'Ouest',
+    '/bureau-moyen-orient/': u'Moyen-Orient',
+    '/bureau-maghreb/': u'Maghreb',
+    '/bureau-ocean-indien/': u'Océan Indien',
 }
 
 
@@ -25,8 +25,8 @@ class AufIndex(AldrynIndexBase):
     title = indexes.NgramField(stored=True, indexed=False)
     description = indexes.NgramField(indexed=False, stored=True)
     bureaux = indexes.FacetMultiValueField(stored=True, null=True)
-    annee = indexes.CharField(faceted=True, stored=True, null=True)
-    section = indexes.FacetMultiValueField(stored=True)
+    annee = indexes.FacetField(stored=True, null=True)
+    section = indexes.FacetField(stored=True, null=True)
 
     def prepare_bureaux(self, obj):
         try:
@@ -35,11 +35,11 @@ class AufIndex(AldrynIndexBase):
             for path in BUREAU_SLUGS.keys():
                 if path in obj.page.get_absolute_url():
                     return BUREAU_SLUGS[path]
-            return 'Non précisé'
+            return [u'Non précisé']
 
     def prepare_annee(self, obj):
         if obj.page.publication_date:
             return str(obj.page.publication_date.year)
 
     def prepare_section(self, obj):
-        return [obj.page.get_root().get_title()]
+        return obj.page.get_root().get_title()
