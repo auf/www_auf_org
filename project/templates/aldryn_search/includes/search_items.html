@@ -2,7 +2,7 @@
 
 {% for result in page_obj.object_list %}
 <li>
-	<h3><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a></h3>
+	<h3><a href="{{ result.object.get_absolute_url }}{{ result.url }}">{{ result.title }}</a></h3>
 	{% if result.text %}
   {% if request.GET.q %}
 	<p>{% highlight result.text with request.GET.q %}</p>
@@ -10,7 +10,7 @@
   <p>{{ result.text }}</p>
 	{% endif %}
 	{% endif %}
-	<p><a href="{{ result.object.get_absolute_url }}">{{ result.object.get_absolute_url }}</a></p>
+	<p><a href="{{ result.object.get_absolute_url }}{{ result.url }}">{{ result.object.get_absolute_url }}{{ result.url }}</a></p>
 </li>
 {% empty %}
 <li>{% trans "Aucun résultat pour la recherche" %} "{{ request.GET.q }}"</li>

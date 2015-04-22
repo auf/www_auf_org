@@ -68,7 +68,7 @@ class TitleIndex(get_index_base()):
         try:
             plugin_content_bits = get_plugin_index_data(base_plugin, request)
         except:
-            pass
+            return ''
         return clean_join(' ', plugin_content_bits)
 
     def get_model(self):
