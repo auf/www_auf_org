@@ -10,7 +10,7 @@ BUREAU_SLUGS = {
     u'/bureau/bureau-ameriques': ('BA', 'Bureaux des Amériques'),
     u'/bureau/bureau-afrique-centrale-et-des-grands-lacs': ('BACGL', 'Bureau Afrique centrale et des Grands-Lacs'),
     u'/bureau/bureau-afrique-de-l-ouest': ('BAO', 'Bureau Afrique de l\'Ouest'),
-    u'/bureau/bureau-asie-pacifique': ('BAP', 'Asie-Pacifique'),
+    u'/bureau/bureau-asie-pacifique': ('BAP', 'Bureau Asie-Pacifique'),
     u'/bureau/bureau-caraibe': ('BC', 'Bureau Caraïbe'),
     u'/bureau/bureau-europe-centrale-et-orientale': ('BECO', 'Bureau Europe centrale et orientale'),
     u'/bureau/bureau-europe-de-l-ouest': ('BEO', 'Bureau Europe de l\'Ouest'),
