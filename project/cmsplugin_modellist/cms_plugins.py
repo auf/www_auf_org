@@ -42,7 +42,7 @@ class ModelListCMSPlugin(CMSPluginBase):
 
         # FIXME Flux RSS par bureau
         ctx['voir_plus'] = "/recherche/?selected_facets=section__" + FACETS[instance.modele]
-        ctx['lien_rss'] = "/rss/" + instance.modele.lower() + "/?region_actuel=International"
+        ctx['lien_rss'] = "/flux/" + instance.modele.lower() + "/?region_actuel=International"
 
         return ctx
 
