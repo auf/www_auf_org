@@ -3035,32 +3035,22 @@ border: none;
 
 /*--Styles pour intérieur des cartes, section "APPELS D'OFFRE"--*/
 
-/*--Box shadow--*/
 .thumbnail-appels {
   box-shadow: 0px 0px 2px 0px #B0B0B0;
 }
 
-/*--Couleur du H4 dans la carte--*/
 .thumbnail-appels h4 {
   color: #1D9DD9;
 }
 
-/*--Redimension de l'image et margin--*/
 .thumbnail-appels .img-thumbnail {
     margin: 10px;
 }
 
-/*--Style pour la description--*/
-.thumbnail-appels .caption {
-  padding-bottom: 52px;
-}
-
-/*--Couleur de la description--*/
 .thumbnail-appels .caption a {
     color: #616161;
 }
 
-/*--Style pour le bouton de la carte--*/
 .thumbnail-appels .btn-default {
     margin-top: 10px;
     border-top: 2px solid #1D9DD9;
