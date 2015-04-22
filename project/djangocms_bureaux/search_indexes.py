@@ -34,7 +34,7 @@ class AufIndex(AldrynIndexBase):
         except ObjectDoesNotExist, e:
             for path in BUREAU_SLUGS.keys():
                 if path in obj.page.get_absolute_url():
-                    return BUREAU_SLUGS[path]
+                    return [BUREAU_SLUGS[path]]
             return [u'Non précisé']
 
     def prepare_annee(self, obj):
