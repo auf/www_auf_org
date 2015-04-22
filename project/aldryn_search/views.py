@@ -23,10 +23,12 @@ class AldrynFacetedSearchForm(SearchForm):
 
         if self.is_valid():
             q = self.cleaned_data.get('q', '')
-            if q: sqs = sqs.auto_query(q)
+            if q: sqs = sqs.filter(content=sqs.query.clean(q))
 
-        for facet in self.selected_facets_get:
-            if "__" not in facet: continue
+        if not self.selected_facets:
+            self.selected_facets == self.selected_facets_get
+        else:
+            self.selected_facets = [self.selected_facets]
 
         for facet in self.selected_facets:
             if "__" not in facet:
