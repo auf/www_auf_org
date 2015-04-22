@@ -39,7 +39,10 @@ class ModelListCMSPlugin(CMSPluginBase):
             ctx['object_list'] = obj_query[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
+
+        # FIXME Flux RSS par bureau
         ctx['voir_plus'] = "/recherche/?selected_facets=section__" + FACETS[instance.modele]
+        ctx['lien_rss'] = "/rss/" + instance.modele + "/?region_actuel=International"
 
         return ctx
 
