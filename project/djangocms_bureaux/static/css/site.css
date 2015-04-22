@@ -3152,52 +3152,52 @@ background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255
 }
 
 .BA , .BA .circle1, .BA rect, .BA #dailymotion {
-   color: #34AB92;
+   color: #34AB92 !important;
    fill: #34AB92 !important;
 }
 
 .BACGL, .BACGL .circle1, .BACGL rect, .BACGL #dailymotion {
-   fill: #F7AB00;
+   fill: #F7AB00 !important;
     color: #F7AB00 !important;
 }
 
 .BAO, .BAO .circle1, .BAO rect, .BAO #dailymotion {
-   fill: #65B22E;
+   fill: #65B22E !important;
     color: #65B22E !important;
 }
 
 .BAP, .BAP .circle1, .BAP rect, .BAP #dailymotion {
-   fill: #9F72AE;
+   fill: #9F72AE !important;
     color: #9F72AE !important;
 }
 
 .BC, .BC .circle1, .BC rect, .BC #dailymotion {
-   fill: #601D52;
+   fill: #601D52 !important;
     color: #601D52 !important;
 }
 
 .BECO, .BECO .circle1, .BECO rect, .BECO #dailymotion {
-   fill: #73D0F5;
+   fill: #73D0F5 !important;
     color: #73D0F5 !important;
 }
 
 .BEO, .BEO .circle1, .BEO rect, .BEO #dailymotion {
-   fill: #EA560D;
+   fill: #EA560D !important;
     color: #EA560D !important;
 }
 
 .BM, .BM .circle1, .BM rect, .BM #dailymotion {
-   fill: #B49B5A;
+   fill: #B49B5A !important;
     color: #B49B5A !important;
 }
 
 .BMO, .BMO .circle1, .BMO rect, .BMO #dailymotion {
-   fill: #387DC0;
+   fill: #387DC0 !important;
     color: #387DC0 !important;
 }
 
 .BOI, .BOI .circle1, .BOI rect, .BOI #dailymotion {
-   fill: #EE79AD;
+   fill: #EE79AD !important;
     color: #EE79AD !important;
 }
 
