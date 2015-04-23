@@ -75,7 +75,7 @@ class CMSEmployePlugin(CMSPluginBase):
         ctx['object_list'] = item_list
         return ctx
 
-plugin_pool.register_plugin(CMSPartenairePlugin)
+plugin_pool.register_plugin(CMSEmployePlugin)
 
 
 #class CMSLettrePlugin(CMSPluginBase):
