@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 from cms.models.fields import PlaceholderField
+from cms.models.pluginmodel import CMSPlugin
 
 from auf.django.references.models import Employe, Region, Service
 
@@ -248,5 +249,5 @@ class Partenaire(models.Model):
         return "/partenaire/%s/" %self.slug
 
 
-class EmployePlugin(models.Model):
+class EmployePlugin(CMSPlugin):
     service = models.ForeignKey(Service, related_name="employe_plugin_service")
