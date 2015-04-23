@@ -8,12 +8,10 @@
 <table>
     <tr style="background:#E6B804 !important; font-weight: bold; text-align: center;">
         <td width="12%" style="color: #fff !important;">{% trans "Employe" %}</td>
-        <td width="24%" style="color: #fff !important;">{% trans "Service" %}</td>
         <td width="10%" style="color: #fff !important;">{% trans "Envoi courriel" %}</td>
     </tr>
     <tr>
         <td>{{ object.nom.upper }} {{ object.prenom }}</td>
-        <td>{{ object.service.nom }}</td>
         <td align="center" valign="middle"><a href="{% url "contacter_employe" object.id %}"><img src="{{ STATIC_URL }}img/contact_letttre.gif"</a></td>
     </tr>
 </table>
