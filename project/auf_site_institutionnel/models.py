@@ -11,7 +11,7 @@ from cms.models.pluginmodel import CMSPlugin
 
 from auf.django.references.models import Employe, Region, Service
 
-from project.project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
+from project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
 
 TEMPLATE_PATH = os.path.join("auf_site_institutionnel/employe", "layouts")
 
