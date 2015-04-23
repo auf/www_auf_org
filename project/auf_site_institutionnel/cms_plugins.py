@@ -77,9 +77,10 @@ class CMSEmployePlugin(CMSPluginBase):
             ctx['object_list'] = qs
         if instance.fonction:
             qs = qs.filter(fonction=instance.fonction)
-            ctx['object'] = qs.get()
         if instance.region:
             qs = qs.filter(implantation__region=instance.region)
+
+        if instance.fonction or instance.region:
             ctx['object'] = qs.get()
 
         ctx['layout_template'] = instance.layout_template
