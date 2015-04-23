@@ -3466,17 +3466,17 @@ ul.nav.nav-tabs a:hover {
 
 /*--------TAB Actualité---------*/
 
-ul.nav.nav-tabs > li:nth-child(1) a {
+ul.nav.nav-tabs > li:nth-last-child(5) a {
   background-color: #1D9DD9;
   color:white;
   border:none;
 }
 
-ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+ul.nav.nav-tabs > li:nth-last-child(5) > a:hover {
 background-color: rgba(29, 157, 217, 0.49);
 }
 
-ul.nav.nav-tabs > li.active:nth-child(1) > a {
+ul.nav.nav-tabs > li.active:nth-last-child(5) > a {
 background: white;
 border: 3px solid #1D9DD9;
 color:#1D9DD9;
@@ -3488,16 +3488,16 @@ color:#1D9DD9;
 /*--------TAB Appels d'offres---------*/
 
 
-ul.nav.nav-tabs > li:nth-child(2) a {
+ul.nav.nav-tabs > li:nth-last-child(4) a {
   background-color: #FFD500;
     border:none;
 }
 
-ul.nav.nav-tabs > li:nth-child(2) > a:hover {
+ul.nav.nav-tabs > li:nth-last-child(4) > a:hover {
 background-color: rgba(255, 213, 0, 0.49);
 }
 
-ul.nav.nav-tabs > li.active:nth-child(2) > a {
+ul.nav.nav-tabs > li.active:nth-last-child(4) > a {
 background: white;
 border: 3px solid #FFD500;
 color: #8B7400;
@@ -3507,17 +3507,17 @@ margin-bottom: -1px;
 
 /*--------TAB Allocations---------*/
 
-ul.nav.nav-tabs > li:nth-child(3) a {
+ul.nav.nav-tabs > li:nth-last-child(3) a {
   background-color: #8DBE23;
    color:white;
      border:none;
 }
 
-ul.nav.nav-tabs > li:nth-child(3) > a:hover {
+ul.nav.nav-tabs > li:nth-last-child(3) > a:hover {
 background-color: rgba(141, 190, 35, 0.49);
 }
 
-ul.nav.nav-tabs > li.active:nth-child(3) > a {
+ul.nav.nav-tabs > li.active:nth-last-child(3) > a {
 background: white;
 border: 3px solid #8DBE23;
 color:#8DBE23;
@@ -3527,17 +3527,17 @@ color:#8DBE23;
 
 /*--------TAB Publications---------*/
 
-ul.nav.nav-tabs > li:nth-child(4) a {
+ul.nav.nav-tabs > li:nth-last-child(2) a {
   background-color: #702283;
    color:white;
      border:none;
 }
 
-ul.nav.nav-tabs > li:nth-child(4) > a:hover {
+ul.nav.nav-tabs > li:nth-last-child(2)> a:hover {
 background-color: rgba(112, 34, 131, 0.49);
 }
 
-ul.nav.nav-tabs > li.active:nth-child(4) > a {
+ul.nav.nav-tabs > li.active:nth-last-child(2) > a {
   background: white;
   border: 3px solid #702283;
   color:#702283;
@@ -3547,18 +3547,18 @@ ul.nav.nav-tabs > li.active:nth-child(4) > a {
 
 /*--------TAB Évenements---------*/
 
-ul.nav.nav-tabs > li:nth-child(5) a {
+ul.nav.nav-tabs > li:nth-last-child(1) a {
   background-color: #E52727;
    color:white;
   margin-right: -7px;
     border:none;
 }
 
-ul.nav.nav-tabs > li:nth-child(5) > a:hover {
+ul.nav.nav-tabs > li:nth-last-child(1) > a:hover {
 background-color: rgba(229, 39, 39, 0.49);
 }
 
-ul.nav.nav-tabs > li.active:nth-child(5) > a {
+ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
    background: white;
   border: 3px solid #E52727;
   color:#E52727;
@@ -3567,7 +3567,6 @@ ul.nav.nav-tabs > li.active:nth-child(5) > a {
   margin-bottom: -1px;
 }
 
-
 /*---------------Contenu Actif des TABS-----------------*/
 
 .tab-content > .tab-pane.active {
@@ -3575,49 +3574,289 @@ ul.nav.nav-tabs > li.active:nth-child(5) > a {
  border-radius: 0px 0px 8px 8px;
 }
 
-.tab-content > .tab-pane.active:nth-child(1) {
+.tab-content > .tab-pane.active:nth-last-child(5) {
   border:3px solid #1D9DD9;
 }
 
-.tab-content > .tab-pane.active:nth-child(2) {
+.tab-content > .tab-pane.active:nth-last-child(4) {
   border:3px solid #FFD500;
 }
 
-.tab-content > .tab-pane.active:nth-child(3) {
+.tab-content > .tab-pane.active:nth-last-child(3) {
   border:3px solid #8DBE23;
 }
 
-.tab-content > .tab-pane.active:nth-child(4) {
+.tab-content > .tab-pane.active:nth-last-child(2) {
   border:3px solid #702283;
 }
 
-.tab-content > .tab-pane.active:nth-child(5) {
+.tab-content > .tab-pane.active:nth-last-child(1) {
   border:3px solid #E52727;
 }
-.tab-content > .tab-pane.active:nth-child(1) .btn-info {
+.tab-content > .tab-pane.active:nth-last-child(5) .btn-info {
   background:#1D9DD9;
   border-color:white;
 }
 
-.tab-content > .tab-pane.active:nth-child(2) .btn-info {
+.tab-content > .tab-pane.active:nth-last-child(4) .btn-info {
   background:#FFD500;
   color:black;
   border-color:white;
 }
 
-.tab-content > .tab-pane.active:nth-child(3) .btn-info {
+.tab-content > .tab-pane.active:nth-last-child(3) .btn-info {
   background:#8DBE23;
   border-color:white;
 }
 
-.tab-content > .tab-pane.active:nth-child(4) .btn-info {
+.tab-content > .tab-pane.active:nth-last-child(2) .btn-info {
   background:#702283;
   border-color:white;
 }
 
-.tab-content > .tab-pane.active:nth-child(5) .btn-info {
+.tab-content > .tab-pane.active:nth-last-child(1) .btn-info {
   background:#E52727;
   border-color:white;
+}
+
+/*--------TAB Bureaux "À propos" (BA)---------*/
+
+.bureau-ameriques ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #34AB92;
+  color:white;
+  border:none;
+}
+
+.bureau-ameriques ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(52, 171, 146, 0.49);
+}
+
+.bureau-ameriques ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #34AB92;
+color:#34AB92;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-ameriques .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #34AB92;
+}
+
+/*--------TAB Bureaux "À propos" (BACGL)---------*/
+
+.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #F7AB00;
+  color:white;
+  border:none;
+}
+
+.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(247, 171, 0, 0.49);
+}
+
+.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #F7AB00;
+color:#F7AB00;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.afrique-centrale-et-des-grands-lacs .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #F7AB00;
+}
+
+/*--------TAB Bureaux "À propos" (BAO)---------*/
+
+.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #65B22E;
+  color:white;
+  border:none;
+}
+
+.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(101, 178, 46, 0.49);
+}
+
+.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #65B22E;
+color:#65B22E;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-afrique-de-l-ouest .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #65B22E;
+}
+
+/*--------TAB Bureaux "À propos" (BAP)---------*/
+
+.bureau-asie-pacifique ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #9F72AE;
+  color:white;
+  border:none;
+}
+
+.bureau-asie-pacifique ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(159, 114, 174, 0.49);
+}
+
+.bureau-asie-pacifique ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #9F72AE;
+color:#9F72AE;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-asie-pacifique .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #9F72AE;
+}
+
+/*--------TAB Bureaux "À propos" (BC)---------*/
+
+.bureau-caraibe ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #601D52;
+  color:white;
+  border:none;
+}
+
+.bureau-caraibe ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(96, 29, 82, 0.49);
+}
+
+.bureau-caraibe ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #601D52;
+color:#601D52;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-caraibe .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #601D52;
+}
+
+/*--------TAB Bureaux "À propos" (BECO)---------*/
+
+.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #73D0F5;
+  color:white;
+  border:none;
+}
+
+.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(115, 208, 245, 0.49);
+}
+
+.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #73D0F5;
+color:#73D0F5;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-europe-centrale-et-orientale .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #73D0F5;
+}
+
+/*--------TAB Bureaux "À propos" (BEO)---------*/
+
+.bureau-europe-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #EA560D;
+  color:white;
+  border:none;
+}
+
+.bureau-europe-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(234, 86, 13, 0.49);
+}
+
+.bureau-europe-de-l-ouest ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #EA560D;
+color:#EA560D;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-europe-de-l-ouest .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #EA560D;
+}
+
+/*--------TAB Bureaux "À propos" (BM)---------*/
+
+.bureau-maghreb ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #B49B5A;
+  color:white;
+  border:none;
+}
+
+.bureau-maghreb ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(180, 155, 90, 0.49);
+}
+
+.bureau-maghreb ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #B49B5A;
+color:#B49B5A;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-maghreb .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #B49B5A;
+}
+
+/*--------TAB Bureaux "À propos" (BMO)---------*/
+
+.bureau-moyen-orient ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #387DC0;
+  color:white;
+  border:none;
+}
+
+.bureau-moyen-orient ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(56, 125, 192, 0.49);
+}
+
+.bureau-moyen-orient ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #387DC0;
+color:#387DC0;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-moyen-orient .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #387DC0;
+}
+
+/*--------TAB Bureaux "À propos" (BOI)---------*/
+
+.bureau-ocean-indien ul.nav.nav-tabs > li:nth-last-child(6) a {
+  background-color: #EE79AD;
+  color:white;
+  border:none;
+}
+
+.bureau-ocean-indien ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
+background-color: rgba(238, 121, 173, 0.49);
+}
+
+.bureau-ocean-indien ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
+background: white;
+border: 3px solid #EE79AD;
+color:#EE79AD;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-ocean-indien .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #EE79AD;
 }
 
 
@@ -3836,86 +4075,6 @@ border: 3px solid grey;
   border: 1px solid #DFDFDF;
   margin: 10px 14px 10px 0px;
   display: block;
-}
-
-.afrique-centrale-et-des-grands-lacs .col-md-9 {
-  border: 3px solid #F7AB00;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-maghreb .col-md-9 {
-  border: 3px solid #B49B5A;
-margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-moyen-orient .col-md-9 {
-  border: 3px solid #387DC0;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-afrique-de-l-ouest .col-md-9 {
-  border: 3px solid #65B22E;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-ameriques .col-md-9 {
-  border: 3px solid #34AB92;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-caraibe .col-md-9 {
-  border: 3px solid #601D52;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-asie-pacifique .col-md-9 {
-  border: 3px solid #9F72AE;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-europe-centrale-et-orientale .col-md-9{
-  border: 3px solid #73D0F5;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-europe-de-l-ouest .col-md-9 {
-  border: 3px solid #EA560D;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
-}
-
-.bureau-ocean-indien .col-md-9 {
-  border: 3px solid #EE79AD;
-  margin-top: 20px;
-  padding: 20px;
-  box-shadow: 3px -2px 12px -4px #B0B0B0;
-  border-radius: 9px 9px 11px 11px;
 }
 
 .BlocEmploi {
