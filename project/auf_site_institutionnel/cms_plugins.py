@@ -70,7 +70,12 @@ class CMSEmployePlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         ctx = super(CMSEmployePlugin, self).render(context, instance, placeholder)
-        item_list = Employe.objects.filter(actif=True, service=instance.service)
+        if instance.service:
+            item_list = Employe.objects.filter(actif=True, service=instance.service)
+        elif instance.fonction:
+            item_list = Employe.objects.filter(actif=True, fonction=instance.fonction)
+        elif instance.region:
+            item_list = Employe.objects.filter(actif=True, implantation__region=instance.region)
 
         ctx['object_list'] = item_list
         return ctx

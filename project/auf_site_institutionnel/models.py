@@ -250,4 +250,10 @@ class Partenaire(models.Model):
 
 
 class EmployePlugin(CMSPlugin):
-    service = models.ForeignKey(Service, related_name="employe_plugin_service")
+    service = models.ForeignKey(Service, related_name="employe_plugin_service", null=True, blank=True)
+    fonction = models.CharField(max_length=255,
+                                choices=(
+                                    ((e.fonction, e.fonction) for e in Employe.objects.filter(actif=True))
+                                )
+               )
+    region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
