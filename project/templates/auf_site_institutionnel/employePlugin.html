@@ -1,0 +1,28 @@
+{% load i18n cms_tags %}
+
+
+{% block Contenu %}
+<div id="tabemploye">
+<table>
+    <tr style="background:#E6B804 !important; font-weight: bold; text-align: center;">
+        <td width="12%" style="color: #fff !important;">{% trans "Employe" %}</td>
+        <td width="12%" style="color: #fff !important;">{% trans "Implantation" %}</td>
+        <td width="18%" style="color: #fff !important;">{% trans "Région" %}</td>
+        <td width="24%" style="color: #fff !important;">{% trans "Service" %}</td>
+        <td width="24%" style="color: #fff !important;">{% trans "Fonction" %}</td>
+        <td width="10%" style="color: #fff !important;">{% trans "Envoi courriel" %}</td>
+    </tr>
+{% for employe in object_list %}
+    <tr>
+        <td>{{ employe.nom.upper }} {{ employe.prenom }}</td>
+        <td>{{ employe.implantation.nom }}</td>
+        <td>{{ employe.implantation.region.nom }}</td>
+        <td>{{ employe.service.nom }}</td>
+        <td>{{ employe.fonction }}</td>
+        <td align="center" valign="middle"><a href="{% url "contacter_employe" employe.id %}"><img src="{{ STATIC_URL }}img/contact_letttre.gif"</a></td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}

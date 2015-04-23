@@ -7,7 +7,7 @@ from django.conf import settings
 
 from cms.models.fields import PlaceholderField
 
-from auf.django.references.models import Employe, Region
+from auf.django.references.models import Employe, Region, Service
 
 
 def association_employe_avec_django_user(sender, **kwargs):
@@ -246,3 +246,7 @@ class Partenaire(models.Model):
 
     def get_absolute_url(self):
         return "/partenaire/%s/" %self.slug
+
+
+class EmployePlugin(models.Model):
+    service = models.ForeignKey(Service, related_name="employe_plugin_service")

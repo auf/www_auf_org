@@ -2,14 +2,15 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext as _
 
-from auf.django.references.models import Etablissement, Pays, Implantation
+from auf.django.references.models import Etablissement, Pays, Implantation, Employe
 from django.template import Context, RequestContext
 
 from project.auf_site_institutionnel.filters import MembreFilter
 from project.auf_site_institutionnel.filters import ImplantationFilter
 from project.auf_site_institutionnel.models import Partenaire
-#from newsletter.models import *
 
+#from newsletter.models import *
+from .models import EmployePlugin
 
 class CMSMembrePlugin(CMSPluginBase):
     name = _("Membre")
@@ -58,6 +59,21 @@ class CMSPartenairePlugin(CMSPluginBase):
                         'form':item_list,
                         'placeholder':placeholder})
         return context
+
+plugin_pool.register_plugin(CMSPartenairePlugin)
+
+
+class CMSEmployePlugin(CMSPluginBase):
+    name = _("Employe")
+    model = EmployePlugin
+    render_template = "auf_site_institutionnel/employePlugin.html"
+
+    def render(self, context, instance, placeholder):
+        ctx = super(CMSEmployePlugin, self).render(context, instance, placeholder)
+        item_list = Employe.objects.filter(actif=True, service=instance.service)
+
+        ctx['object_list'] = item_list
+        return ctx
 
 plugin_pool.register_plugin(CMSPartenairePlugin)
 
