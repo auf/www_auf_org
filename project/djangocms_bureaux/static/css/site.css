@@ -3390,7 +3390,6 @@ border: 1px solid black;
 }
 
 .texte ul li {
-  margin-left: 38px;
   list-style-type:circle;
   padding-top:9px;
 }
@@ -3453,7 +3452,6 @@ color:black;
 }
 
 .nav-tabs > li {
-width: 20%;
 margin-left: -10px;
 }
 
