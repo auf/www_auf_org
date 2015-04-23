@@ -1,4 +1,5 @@
 # coding: utf8
+import os
 
 from django.db import models
 from django.db.models.signals import post_init
@@ -9,6 +10,10 @@ from cms.models.fields import PlaceholderField
 from cms.models.pluginmodel import CMSPlugin
 
 from auf.django.references.models import Employe, Region, Service
+
+from project.project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
+
+TEMPLATE_PATH = os.path.join("auf_site_institutionnel/employe", "layouts")
 
 
 def association_employe_avec_django_user(sender, **kwargs):
@@ -257,3 +262,12 @@ class EmployePlugin(CMSPlugin):
                                 )
                )
     region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
+    layout_template = \
+        models.CharField("Template utilisé pour l'affichage",
+            choices = DynamicTemplateChoices(
+                path=TEMPLATE_PATH,
+                include='.html',
+                exclude='default'),
+            max_length=256,
+            help_text="""Utiliser le template pour afficher le contenu de la liste""")
+

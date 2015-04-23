@@ -9,6 +9,7 @@ from project.auf_site_institutionnel.filters import MembreFilter
 from project.auf_site_institutionnel.filters import ImplantationFilter
 from project.auf_site_institutionnel.models import Partenaire
 
+
 #from newsletter.models import *
 from .models import EmployePlugin
 
@@ -66,18 +67,22 @@ plugin_pool.register_plugin(CMSPartenairePlugin)
 class CMSEmployePlugin(CMSPluginBase):
     name = _("Employe")
     model = EmployePlugin
-    render_template = "auf_site_institutionnel/employePlugin.html"
+    render_template = "auf_site_institutionnel/employe/base.html"
 
     def render(self, context, instance, placeholder):
         ctx = super(CMSEmployePlugin, self).render(context, instance, placeholder)
+        qs = Employe.objects.filter(actif=True)
         if instance.service:
-            item_list = Employe.objects.filter(actif=True, service=instance.service)
-        elif instance.fonction:
-            item_list = Employe.objects.filter(actif=True, fonction=instance.fonction)
-        elif instance.region:
-            item_list = Employe.objects.filter(actif=True, implantation__region=instance.region)
+            qs = qs.filter(service=instance.service)
+            ctx['object_list'] = qs
+        if instance.fonction:
+            qs = qs.filter(fonction=instance.fonction)
+            ctx['object'] = qs.get()
+        if instance.region:
+            qs = qs.filter(implantation__region=instance.region)
+            ctx['object'] = qs.get()
 
-        ctx['object_list'] = item_list
+        ctx['layout_template'] = instance.layout_template
         return ctx
 
 plugin_pool.register_plugin(CMSEmployePlugin)
