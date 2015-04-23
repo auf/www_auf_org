@@ -7,7 +7,7 @@ from django import template
 register = template.Library()
 
 BUREAU_SLUGS = {
-    u'/bureau/bureau-ameriques': ('BA', 'Bureaux des Amériques'),
+    u'/bureau/bureau-ameriques': ('BA', 'Bureau des Amériques'),
     u'/bureau/bureau-afrique-centrale-et-des-grands-lacs': ('BACGL', 'Bureau Afrique centrale et des Grands-Lacs'),
     u'/bureau/bureau-afrique-de-l-ouest': ('BAO', 'Bureau Afrique de l\'Ouest'),
     u'/bureau/bureau-asie-pacifique': ('BAP', 'Bureau Asie-Pacifique'),
