@@ -41,3 +41,6 @@ class ModelList(CMSPlugin):
 
     nbelements = models.IntegerField(default=6,
       help_text="""Le nombre d'éléments à afficher ?""")
+
+    def copy_relations(self, oldinstance):
+        self.bureau = oldinstance.bureau.all()
