@@ -2599,8 +2599,8 @@ body.ListeActualites #BlocContenu #sitemap li {
   color: #474747;
 }
 #cartebas h2 {
-  margin: 0px 0px 12px 0px;
-  font-size: 1.75em;
+  margin: -10px 0px 12px 0px;
+  font-size: 14px;
 }
 #cartebas .noBord {
   border-right: none !important;
@@ -2611,7 +2611,8 @@ body.ListeActualites #BlocContenu #sitemap li {
 }
 #cartebas h3 {
   font-weight: bold;
-  margin: 0px 0px 4px 0px;
+  margin: -6px 0px 4px 0px;
+  font-size: 12px;
 }
 #cartebas .carteBL {
   width: 270px;
@@ -2635,6 +2636,8 @@ body.ListeActualites #BlocContenu #sitemap li {
   -ms-filter: ”alpha(opacity=0) ”;
   filter: alpha(opacity=0);
   opacity: .0;
+  left: -1px;
+  top: -1px;
 }
 
 #Corps2 ul {
