@@ -1,108 +1,224 @@
 {% load sekizai_tags staticfiles %}
 
 {% addtoblock "js" %}
-<script type="text/javascript" src="{% static "js/d3.v3.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/topojson.v1.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/datamaps.world.min.js" %}"></script>
-<script>
-    var map = new Datamap({
-    element: document.getElementById("carte"),
-    responsive: true,
-    dataUrl: '{% url "cmsplugin_carte-pays_json" %}',
-    data: {},
-
-    done: function(datamap) {
-        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-            window.open('http://www.auf.org/' + datamap.options.data[geography.id].fillKey.toLowerCase())
-        });
-    },
-
-    geographyConfig: {
-      highlightOnHover: true,
-      popupOnHover: true,
-      borderColor:'#FFF',
-      borderWidth: 0.5,
-      popupTemplate: function(geo, data) {
-          $('#adresse_physique').html(data['adresse_physique']);
-          $('#adresse_postale').html(data['adresse_postale']);
-          return ['<div class="hoverinfo"><strong>', data.fillKey, '</strong></div>'].join('');
-      }
-   },
-
-   fills: {
-              'BA':'#34AB92',
-              'BACGL':'#F7AB00',
-              'BAO': '#65B22E',
-              'BAP': '#9F72AE',
-              'BC': '#601D52',
-              'BECO': '#73D0F5',
-              'BEO': '#EA560D',
-              'BM': '#B49B5A',
-              'BMO': '#387DC0',
-              'BOI': '#EE79AD',
-               defaultFill: '#AAA'
-            }
-    });
-
-    window.addEventListener('resize', function() {
-        map.resize();
-    });
-
- $.getJSON('{% url "cmsplugin_carte-bureaux_json" %}', function(points) {
-        map.bubbles(points, {
-            borderWidth: 1,
-            popupOnHover: true,
-            highlightOnHover: true,
-            borderColor: '#000',
-            popupTemplate: function (geo, data) {
-              return '<div class="hoverinfo"><strong>' +  data.nom  + '</strong></div>';
-            }
-        });
- }).fail(function( jqxhr, textStatus, error ) {
-    var err = textStatus + ", " + error;
-    console.log( "Request Failed: " + err );
-});
-
-//Legende
-    map.legend();
-</script>
-
 {% endaddtoblock %}
 
 
-<h3 class="page_title">L'AUF dans le monde</h3>
+<div id="carte">
 
-<div id="carte"></div>
+  <div class="carteBoite2"><strong>Légende:</strong>&nbsp;&nbsp;&nbsp;<span class="rectorat">Rectorat et siège</span><span class="siege">Rectorat et services centraux</span><span class="bureau">Bureau régional</span></div>
+    <div class="carteBoite bucarest"><div class="bureau">Bucarest</div></div>
+    <div class="carteBoite paris"><div class="siege">Paris</div></div>
+    <div class="carteBoite bruxelles"><div class="bureau">Bruxelles</div></div>
+    <div class="carteBoite montreal"><div class="siegebureau">Montréal</div></div>
+    <div class="carteBoite port"><div class="bureau">Port-au-Prince</div></div>
+    <div class="carteBoite dakar"><div class="bureau">Dakar</div></div>
+    <div class="carteBoite yaounde"><div class="bureau">Yaoundé</div></div>
+    <div class="carteBoite anta"><div class="bureau">Antananarivo</div></div>
+    <div class="carteBoite beyrouth"><div class="bureau">Beyrouth</div></div>
+    <div class="carteBoite rabat"><div class="bureau">Rabat</div></div>
+    <div class="carteBoite hanoi"><div class="bureau">Hanoï</div></div>
+    <img src="../../../static/img/carte/fond10.png" border="0" id="ba-map" style="opacity: 0;">
+    <img src="../../../static/img/carte/fond9.png" border="0" id="bc-map">
+    <img src="../../../static/img/carte/fond8.png" border="0" id="beo-map" style="opacity: 0;">
+    <img src="../../../static/img/carte/fond7.png" border="0" id="bm-map">
+    <img src="../../../static/img/carte/fond6.png" border="0" id="bao-map" style="opacity: 0;">
+    <img src="../../../static/img/carte/fond5.png" border="0" id="boi-map">
+    <img src="../../../static/img/carte/fond4.png" border="0" id="bacgl-map" style="opacity: 0;">
+    <img src="../../../static/img/carte/fond3.png" border="0" id="bmo-map">
+    <img src="../../../static/img/carte/fond2.png" border="0" id="bap-map">
+    <img src="../../../static/img/carte/fond1.png" border="0" id="beco-map" style="opacity: 0;">
+  <img src="../../../static/img/carte/trans.png" border="0" id="trans" usemap="#Map">
+  <map name="Map" id="Map">
+    <area shape="poly" coords="466,177,479,197,495,193,502,207,540,204,552,197,550,180,559,191,566,201,585,208,613,202,630,177,642,169,662,187,685,190,707,179,721,171,727,155,748,172,748,187,776,175,777,151,769,139,802,136,803,160,783,186,824,146,829,130,853,127,887,109,863,83,807,87,791,83,793,67,759,67,760,85,735,78,701,75,703,64,664,40,648,44,662,62,615,78,587,35,541,42,557,94,532,103,501,94,499,129,478,146,467,156" href="/bureau-europe-centrale-et-orientale/" id="beco">
+    <area shape="poly" coords="641,168,625,181,621,189,608,196,618,211,610,211,611,222,599,231,598,247,607,251,619,284,628,289,626,263,645,248,658,258,660,288,686,321,718,331,729,330,732,342,704,364,711,396,746,390,771,406,785,425,796,396,838,423,832,432,841,433,860,407,846,397,838,421,798,395,799,371,778,335,798,331,811,328,831,348,826,359,852,356,801,311,785,313,751,302,736,289,735,268,726,250,729,232,726,208,729,199,736,214,748,222,772,210,783,180,772,176,765,185,762,197,747,205,746,193,756,169,739,163,727,153,713,166,713,175,700,181,683,187,665,185,652,179" href="/bureau-asie-pacifique/" id="bap">
+    <area shape="poly" coords="492,219,516,218,520,204,538,201,539,195,549,195,557,203,564,200,575,200,584,209,593,202,604,198,618,208,614,218,604,238,582,238,556,227,559,237,569,240,576,245,561,262,538,271,524,244,516,227,514,247,490,246" href="href/bureau-moyen-orient/" id="bmo">
+    <area shape="poly" coords="464,213,480,220,488,213,496,218,496,244,521,242,541,273,557,273,548,292,533,306,529,294,519,294,515,306,509,309,509,324,520,331,518,347,510,344,514,352,512,362,510,376,502,386,491,374,477,379,467,366,462,349,469,328,456,306,455,287,467,273,466,261,471,246,453,234" href="/bureau-afrique-centrale-et-des-grands-lacs/" id="bacgl">
+    <area shape="poly" coords="519,291,533,291,535,308,530,318,531,332,532,340,544,340,552,333,612,365,549,373,533,369,536,351,526,349,521,359,519,368,500,395,477,397,470,380,479,377,481,369,489,372,503,361,510,360,513,349,506,343,509,339,517,337,513,327,503,314,507,303,517,303" href="/bureau-ocean-indien/" id="boi">
+    <area shape="poly" coords="410,230,445,252,463,239,473,242,473,255,468,265,471,272,462,287,456,288,449,293,442,287,431,290,417,294,402,279,394,269,395,252,396,246,404,250" href="/bureau-afrique-de-l-ouest/" id="bao">
+    <area shape="poly" coords="443,253,411,229,403,251,394,246,413,214,421,207,438,203,461,202,462,214,460,222,458,234,464,243" href="/bureau-maghreb/" id="bm">
+    <area shape="poly" coords="303,288,302,300,313,294,305,285,411,206,421,209,442,198,449,188,454,199,471,207,480,197,491,210,507,205,494,188,476,192,464,181,475,170,465,162,470,156,467,147,480,132,502,129,510,120,504,98,507,90,499,87,493,61,515,48,482,44,459,48,457,54,472,66,480,58,487,63,493,88,468,98,465,106,456,117,445,122,447,137,454,142,452,153,439,158,427,132,416,137,401,116,403,108,392,105,376,108,380,119,391,119,395,117,415,141,410,150,410,158,419,159,423,164,424,171,430,183,412,184,412,202" href="/bureau-europe-de-l-ouest" id="beo">
+    <area shape="poly" coords="229,247,245,233,315,262,248,262" href="/bureau-caraibe/" id="bc">
+    <area shape="poly" coords="132,85,140,64,226,33,267,31,287,36,251,59,244,74,272,90,287,107,281,128,309,173,277,186,256,199,252,209,240,222,242,239,226,225,209,227,202,245,208,255,218,249,226,248,223,259,232,264,235,278,251,280,262,272,283,278,303,290,338,313,352,323,341,342,334,366,319,373,305,399,283,418,274,432,272,451,277,461,252,456,255,412,265,355,253,344,240,321,241,303,244,284,219,269,201,261,181,252,139,201,131,166,104,137,74,132,32,156,46,135,34,126,32,108,47,88,105,96" href="/bureau-ameriques/" id="ba">
+  </map>
 
-<div class="row" style="margin-top: -100px;">
-  <div class="col-md-6">
-    <h3>Adresse physique</h3>
-      <div id="adresse_physique">
-        <strong>Rectorat et Siège</strong><br/>
-        Pavillon Jean-Marc Léger<br/>
-        3034, Boul. Edouard-Montpetit<br/>
-        Montréal, (Québec) H3T 1J7 Canada
-        <hr/>
-        <strong>Rectorat et Services centraux</strong><br/>
-        4, place de la Sorbonne<br/>
-        75005 Paris<br/>
-        France<br/>
+<div id="cartebas">
+
+<div class="cartebas2" id="inter" style="opacity: 1;">
+        <h2>L'AUF dans le monde</h2>
+        <div class="carteBL">
+            <h3 class="rectorat">Rectorat et Siège à Montréal</h3>
+            Pavillon Jean-Marc Léger<br>3034, boul. Edouard-Montpetit,<br>Montréal, (Québec) H3T 1J7 - Canada<br>
+      </div>
+        <div class="carteBL">
+            <h3 class="siege">Rectorat et Services centraux à Paris</h3>
+            4, place de la Sorbonne<br>75005 Paris<br>France<br>
+      </div>
+        <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Montréal: +1 514 343 66 30<br>Paris: +33 1 44 41 18 18<br>
       </div>
     </div>
-    <div class="col-md-6">
-      <h3>Adresse postale</h3>
-      <div id="adresse_postale">
-        <strong>Rectorat et Siège</strong><br/>
-        BP 49714 Csp du Musée<br/>
-        Montréal (Québec) H3T 2A5<br/>
-        Canada
-        <hr/>
-        <strong>Rectorat et Services centraux</strong><br/>
-        4, place de la Sorbonne<br/>
-        75005 Paris<br/>
-        France
+
+    <div class="cartebas2" id="beco-desc" style="opacity: 0;">
+        <h2>Bureau Europe Centrale et Orientale<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            1, Boulevard Schitu Magureanu<br>Mezzanine 050025 Bucarest<br>Roumanie
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            1, Boulevard Schitu Magureanu<br>Mezzanine 050025 Bucarest<br>Roumanie
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +40 21 312 12 76<br>Télécopie: +40 21 312 16 66
       </div>
     </div>
+
+    <div class="cartebas2" id="bap-desc">
+        <h2>Bureau Asie et Pacifique<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            21, rue Lê Thanh Tông<br>Hanoi<br>Viet Nam
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            21, rue Lê Thanh Tông<br>Hanoi<br>Viet Nam
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +84 (4) 3 824 73 82<br>Télécopie: +84 (4) 3 824 73 83
+      </div>
+    </div>
+
+    <div class="cartebas2" id="bmo-desc">
+        <h2>Bureau Moyen-Orient - <span>Directrice: Madame NACOUZI Salwa</span></h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            B.P. 11-9082 - Riad El Solh<br>Beyrouth 1107 2280<br>Liban
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            Rue de Damas  Villa F, Cité Bounoure Centre culturel français de Beyrouth<br>Liban
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +961 1 420 270<br>Télécopie: +961 1 615 884
+      </div>
+    </div>
+
+    <div class="cartebas2" id="bacgl-desc" style="opacity: 0;">
+        <h2>Bureau Afrique Centrale et des Grands Lacs<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            Université de Yaoundé I  Faculté des lettres et sciences humaines  B.P. 8114<br>Yaoundé - Cameroun
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            Université de Yaoundé I  Boulevard de la Réunification, Ngoa-Ekellé  Annexe Faculté des lettres et sciences humaines - Yaoundé - Cameroun
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +237 22 23 97 45<br>Télécopie: +237 22 22 87 59
+      </div>
+    </div>
+
+    <div class="cartebas2" id="boi-desc">
+        <h2>Bureau Océan Indien - <span>Directrice: Madame RAMAROSOA Liliane</span></h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            7, rue Joël Rakotomalala Faravohitra <br>B.P. 8349  101 Antananarivo<br>  Madagascar
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            7, rue Joël Rakotomalala Faravohitra <br>101 Antananarivo<br>  Madagascar
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +261 20 22 318 04<br>Télécopie: +261 20 22 318 15
+      </div>
+    </div>
+
+    <div class="cartebas2" id="bao-desc" style="opacity: 0;">
+        <h2>Bureau Afrique de l'Ouest<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            B.P. 10017<br>Dakar-Liberté<br>Sénégal
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            Université Cheikh Anta Diop de Dakar  Corniche Ouest  En face de la résidence de l'Ambassade du Brésil - Dakar - Sénégal
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +221 33 824 29 27<br>Télécopie: +221 33 825 34 58
+      </div>
+    </div>
+
+    <div class="cartebas2" id="bm-desc">
+        <h2>Bureau Maghreb - <span>Directrice: Madame ROBALO-CORDEIRO Cristina</span></h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            B.P. 8962<br>Agdal 10100 Rabat<br>Maroc
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            Annexe 2 de la Faculté des Sciences de l'Université Mohammed V Agdal - Avenue Ibn Rochd - 10.100 Rabat - Maroc
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +212 5 37 77 85 48<br>Télécopie: +212 5 37 68 67 22
+      </div>
+    </div>
+
+    <div class="cartebas2" id="beo-desc" style="opacity: 0;">
+        <h2>Bureau Europe de l'Ouest - Pôle de développement<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            Boulevard Baudouin, 12 - 6ème étage C/O Espace Wallonie - Bruxelles International1000 - Bruxelles - Belgique
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            Boulevard Baudouin, 12 - 6ème étage C/O Espace Wallonie - Bruxelles International1000 - Bruxelles - Belgique
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +32 2 290 93 52<br>Télécopie: +32 2 290 93 50
+      </div>
+    </div>
+
+    <div class="cartebas2" id="bc-desc">
+        <h2>Bureau Caraïbes<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+           51, rue Dufort, Bois Verna<br>HT-6114 Port-au-Prince<br>Haïti
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+           51, rue Dufort, Bois Verna<br>HT-6114 Port-au-Prince<br>Haïti
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +509 29 42 67 80<br>Courriel : <a href="mailto:caraibe@auf.org">caraibe@auf.org</a>
+      </div>
+    </div>
+
+    <div class="cartebas2" id="ba-desc" style="opacity: 0;">
+        <h2>Bureau des Amériques<span>/h2>
+        <div class="carteBL">
+          <h3 class="bureau">Adresse postale</h3>
+            BP 49714 Csp du Musée<br>Montréal (Québec) H3T 2A5<br>Canada
+        </div>
+      <div class="carteBL">
+        <h3 class="bureau">Adresse physique</h3>
+            Pavillon Jean-Marc Léger<br>3034, Boul. Edouard-Montpetit<br>Montréal, (Québec) H3T 1J7 - Canada
+      </div>
+       <div class="carteBL noBord">
+            <h3>Coordonnées</h3>
+            Téléphone: +1 514 343 7241<br>Télécopie: +1 514 343 6558
+      </div>
+    </div>
+
   </div>
 </div>
-
