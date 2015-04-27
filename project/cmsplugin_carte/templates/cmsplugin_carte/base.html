@@ -22,10 +22,6 @@ var selectedRegion = "International"
 
 $(document).ready(function(){
 
-    $( ".datepicker" ).datepicker({
-            inline: true
-    });
-
     /*CARTE MARC*/
     jQuery("#carte AREA").hover(
 
@@ -43,8 +39,8 @@ $(document).ready(function(){
             $(regionDesc).stop().animate({"opacity": "0"}, "fast");
             $("#inter").stop().animate({"opacity": "1"}, "slow");
         });
+    });
 
-    InitOldBrowser();
    // -----------------------------------------------------------------------------------------------------------------
     // PrÃ©chargement des images de la carte ----------------------------------------------------------------------------
     // -----------------------------------------------------------------------------------------------------------------
