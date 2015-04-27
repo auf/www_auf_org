@@ -70,7 +70,7 @@ $(document).ready(function(){
         jQuery("#Carte").css("background-image","url(" + window.__media_prefix__ + "img/carte/Zone"+ mapZones[zoneHighlight] +".png)");
         jQuery(this).click(function(){
             setRegion(jQuery("a.SelectionBureau"), jQuery(this).text(), mapZones[zoneHighlight]);
-            setRegion(jQuery("span.RegionSelectionnee"), jQuery(this).text(), mapZones[zoneHighlight])
+            setRegion(jQuery("span.RegionSelectionnee"), jQuery(this).text(), mapZones[zoneHighlight]);
         });
     });
 
