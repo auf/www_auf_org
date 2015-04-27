@@ -3485,6 +3485,149 @@ color:#1D9DD9;
 
 }
 
+/*Carte*/
+#carte{
+width: 910px;
+height: 540px;
+background: url(../img/carte/map1.jpg) no-repeat center;
+margin: 30px  auto;
+padding: 5px;
+border: 1px solid #DCDCDC;
+position: relative;
+}
+
+#carte2{
+width: 732px;
+height: 385px;
+margin: 30px  auto;
+padding: 5px;
+border: 1px solid #DCDCDC;
+position: relative;
+}
+
+#carte img{
+	position: absolute;
+	}
+
+#carte .carteBoite{
+	position: absolute;
+	padding: 0px 3px 0px 3px;
+	display: inline-block;
+	color: #272727;
+	/*font-weight: bold;*/
+	line-height: 13px;
+	background-color: rgba(255, 255, 255, 0.65);
+	z-index: 100;
+}
+
+#carte .carteBoite2{
+	position: absolute;
+	padding: 3px 0px 3px 17px;
+	/*width: 100%;*/
+	display: inline-block;
+	color: #474747;
+	/*font-weight: bold;*/
+	line-height: 14px;
+	background-color: rgba(255, 255, 255, 0.68);
+	z-index: 100;
+	font-size: 11px;
+}
+
+#carte .carteBoite2 span{
+	margin-right: 13px;
+}
+
+#carte .bucarest{
+	top: 179px;
+	left: 493px;
+}
+
+#carte .paris{
+	top: 169px;
+	left: 437px;
+}
+
+#carte .bruxelles{
+	top: 155px;
+	left: 443px;
+}
+
+#carte .montreal{
+	top: 170px;
+	left: 264px;
+}
+
+#carte .port{
+	top: 253px;
+	left: 253px;
+}
+
+#carte .dakar{
+	top: 254px;
+	left: 397px;
+}
+
+#carte .yaounde{
+	top: 288px;
+	left: 456px;
+}
+
+#carte .anta{
+	top: 348px;
+	left: 543px;
+}
+
+#carte .beyrouth{
+	top: 212px;
+	left: 518px;
+}
+
+#carte .rabat{
+	top: 215px;
+	left: 413px;
+}
+
+#carte .hanoi{
+	top: 249px;
+	left: 685px;
+}
+
+#carte .bureau{
+background: url(../img/carte/bureau.png) no-repeat center left;
+padding-left: 12px;
+}
+
+#carte .siege{
+background: url(../img/carte/siege.png) no-repeat center left;
+padding-left: 12px;
+}
+
+#carte .rectorat{
+background: url(../img/carte/rectorat.png) no-repeat center left;
+padding-left: 12px;
+}
+
+#carte .siegebureau{
+background: url(../img/carte/rectorat2.png) no-repeat center left;
+padding-left: 20px;
+}
+
+.bur{ -moz-opacity:.0; -ms-filter:”alpha(opacity=0)”; filter:alpha(opacity=0); opacity:.0; }
+
+#cartebas{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	padding: 12px 20px 12px 20px;
+	height: 95px;
+	background: url(../img/carte/blanc.png) repeat;
+	color: #474747;
+}
+
+.cartebas2{
+	position: absolute;
+}
+
 /*--------TAB Appels d'offres---------*/
 
 
