@@ -1,6 +1,90 @@
 {% load sekizai_tags staticfiles %}
 
 {% addtoblock "js" %}
+<script>
+var menuTotalWidth = 0;
+var menuWidth = 0;
+var menuPosition = 0;
+var infoItem = 0;
+var mapZones = new Array(
+    zone0 = "Afrique-Centrale",
+    zone1 = "Afrique-de-l-Ouest",
+    zone2 = "Ameriques",
+    zone3 = "Asie-Pacifique",
+    zone4 = "Caraibes",
+    zone5 = "Europe-centrale-et-orientale",
+    zone6 = "Moyen-Orient",
+    zone7 = "Ocean-Indien",
+    zone8 = "Maghreb",
+    zone9 = "Europe-de-l-Ouest"
+);
+var selectedRegion = "International"
+
+$(document).ready(function(){
+
+    $( ".datepicker" ).datepicker({
+            inline: true
+    });
+
+    /*CARTE MARC*/
+    jQuery("#carte AREA").hover(
+
+        function() {
+            var regionMap = '#'+$(this).attr('id')+'-map';
+            var regionDesc = '#'+$(this).attr('id')+'-desc';
+            $(regionMap).stop().animate({"opacity": "1"}, "slow");
+            $(regionDesc).stop().animate({"opacity": "1"}, "slow");
+            $("#inter").stop().animate({"opacity": "0"}, "slow");
+        },
+        function() {
+            var regionMap = '#'+$(this).attr('id')+'-map';
+            var regionDesc = '#'+$(this).attr('id')+'-desc';
+            $(regionMap).stop().animate({"opacity": "0"}, "slow");
+            $(regionDesc).stop().animate({"opacity": "0"}, "fast");
+            $("#inter").stop().animate({"opacity": "1"}, "slow");
+        });
+
+    InitOldBrowser();
+   // -----------------------------------------------------------------------------------------------------------------
+    // PrÃ©chargement des images de la carte ----------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneAfrique-Centrale.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneAfrique-de-l-Ouest.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneAmeriques.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneAsie-Pacifique.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneCaraibes.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneEurope-centrale-et-orientale.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneEurope-de-l-Ouest.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneMoyen-Orient.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneOcean-Indien.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneMaghreb.png");
+    jQuery.preLoadImages(window.__media_prefix__ + "img/carte/ZoneMonde.png");
+
+    // Tooltip
+    $("#Carte").children("a").tooltip({
+        track: true,
+        delay: 0,
+        showURL: false,
+        showBody: " - ",
+        fade: 250
+    });
+    // Affichage des rÃ©gions sur la carte + action sur le clic
+    jQuery("#Carte").children("a").mouseover(function(){
+        var zoneHighlight = jQuery(this).attr("class").substr(4);
+        jQuery("#Carte").css("background-image","url(" + window.__media_prefix__ + "img/carte/Zone"+ mapZones[zoneHighlight] +".png)");
+        jQuery(this).click(function(){
+            setRegion(jQuery("a.SelectionBureau"), jQuery(this).text(), mapZones[zoneHighlight]);
+            setRegion(jQuery("span.RegionSelectionnee"), jQuery(this).text(), mapZones[zoneHighlight])
+        });
+    });
+
+    // RÃ©initialisation de la carte sur le mouseout
+    jQuery("#Carte").children("a").mouseout(function(){
+        jQuery("#Carte").css("background-image","url(" + window.__media_prefix__ + "img/Img_CarteMonde.png)");
+    });
+});
+
+</script>
 {% endaddtoblock %}
 
 
