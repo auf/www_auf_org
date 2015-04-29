@@ -37,7 +37,7 @@ INSTALLED_APPS = ('djangocms_admin_style',) + INSTALLED_APPS
 INSTALLED_APPS += (
     # CMS related apps
     'cms',
-    'mptt',
+    'treebeard',
     'menus',
     'django_extensions',
 
@@ -55,7 +55,7 @@ INSTALLED_APPS += (
     'cmsplugin_filer_utils',
     'cmsplugin_filer_video',
 
-    'cmsplugin_embeddedmenu',
+    #'cmsplugin_embeddedmenu',
     'cmsplugin_tabs',
 
     'djangocms_inherit',
@@ -83,7 +83,7 @@ CMS_LANGUAGES = {
     1: [
         {
             'code': 'fr',
-            'name': gettext('French'),
+            'name': gettext('Francais'),
             'public': True,
         },
     ],
