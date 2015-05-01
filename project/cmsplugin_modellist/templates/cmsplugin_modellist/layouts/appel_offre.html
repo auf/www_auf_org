@@ -17,29 +17,33 @@ $(function () {
 
 {% for p in object_list %}
 <div class="thumbnail thumbnail-appels">
-  <a class="" href="{{p.get_absolute_url}}">
-    {% if p.image %}
-    <img class="img-thumbnail pull-left" src="{% thumbnail p.image 130x90 upscale %}"/>
-    {% else %}
-    <img class="img-thumbnail pull-left" src="http://www.auf.org/static/logodefaut.jpg" width="130px" height="130px">
-    {% endif %}
-   </a>
-    <div class="title-date">
-      <a href="{{p.get_absolute_url}}">
-      <h4>{{ p.titre }}</h4>
-      </a>
-      {% if p.date_pub %}
-      <p class="text-muted">Date de publication: <strong>{{p.date_pub|date:"j F Y"}}</strong></p>
-      {% endif %}
-      {% if p.date_debut %}
-      <p class="text-muted">Date de début: <strong>{{p.date_debut|date:"j F Y"}}</strong></p>
-      {% endif %}
-      {% if p.date_fin %}
-      <p class="text-muted">Date limite: <strong>{{p.date_fin|date:"j F Y"}}</strong></p>
-      {% endif %}
+  <div class="media">
+    <a class="pull-left" href="{{p.get_absolute_url}}">
+        {% if p.image %}
+        <img class="img-thumbnail" src="{% thumbnail p.image 130x90 upscale %}"/>
+        {% else %}
+        <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="130px" height="130px">
+        {% endif %}
+    </a>
+    <div class="media-body">
+        <h4 class="title-date">
+        <a href="{{p.get_absolute_url}}">
+        {{ p.titre }}
+        </a>
+        </h4>
+        {% if p.date_pub %}
+        <p class="text-muted">Date de publication: <strong>{{p.date_pub|date:"j F Y"}}</strong></p>
+        {% endif %}
+        {% if p.date_debut %}
+        <p class="text-muted">Date de début: <strong>{{p.date_debut|date:"j F Y"}}</strong></p>
+        {% endif %}
+        {% if p.date_fin %}
+        <p class="text-muted">Date limite: <strong>{{p.date_fin|date:"j F Y"}}</strong></p>
+        {% endif %}
+        <div class="caption">
+            <p>{{ p.resume }}</p>
+        </div>
     </div>
-  <div class="caption">
-      <p>{{ p.resume }}</p>
   </div>
   <hr>
     {% if p.bureau.all %}
