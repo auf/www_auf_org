@@ -21,7 +21,6 @@
     <link href="{% static "css/site.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static "organigramme/css/organigramme/style.css" %}" rel="stylesheet" type="text/css" />
 
-    <script>CKEDITOR.dtd.$removeEmpty['span'] = false;</script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -186,6 +185,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     {% render_block "js" %}
+    <script>CKEDITOR.dtd.$removeEmpty['span'] = false;</script>
 </body>
 </html>
 
