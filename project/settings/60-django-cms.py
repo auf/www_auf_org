@@ -98,6 +98,8 @@ CMS_SOFTROOT = True
 CMS_SHOW_START_DATE = True
 CMS_SHOW_END_DATE = True
 CMS_SEO_FIELDS = True
+CMS_PERMISSION = True
+CMS_PUBLIC_FOR = 'all'
 
 TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
 
