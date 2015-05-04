@@ -179,6 +179,6 @@ CKEDITOR_SETTINGS = {
     ],
 
     'allowedContent': True,
-    'toolbarCanCollapse': Talse,
+    'toolbarCanCollapse': False,
     'extraPlugins': 'cmsplugins',
 }
