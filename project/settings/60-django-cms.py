@@ -144,10 +144,41 @@ CMS_TEMPLATES = (
 #)
 
 CKEDITOR_SETTINGS = {
-    'language': '{{ language }}',
-    'toolbar': 'CMS',
-    'skin': 'moono',
-    'toolbarCanCollapse': False,
+    'contentsCss': '/static/css/font-awesome.min.css',
     'extraPlugins': 'fontawesome',
     'allowedContent': True,
+
+    'language': '{{ language }}',
+    'skin': 'moono',
+    'toolbar_CMS': [
+        ['Undo', 'Redo'],
+        ['cmsplugins', '-', 'ShowBlocks'],
+        ['Format', 'Styles'],
+        ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
+        ['Maximize', ''],
+        '/',
+        ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+        ['HorizontalRule'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table', 'FontAwesome'],
+        ['Source']
+    ],
+    'toolbar_HTMLField': [
+        ['Undo', 'Redo'],
+        ['ShowBlocks'],
+        ['Format', 'Styles'],
+        ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
+        ['Maximize', ''],
+        '/',
+        ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+        ['HorizontalRule'],
+        ['Link', 'Unlink'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'],
+        ['Source']
+    ],
+
+    'allowedContent': true,
+    'toolbarCanCollapse': false,
+    'extraPlugins': 'cmsplugins',
 }

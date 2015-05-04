@@ -1,6 +1,811 @@
 /*
 	Author	: Michael Janea (https://facebook.com/mbjanea)
-	Version	: 1.1
+	Version	: 1.0
 */
 
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('u 1f=\'\';u b=c();b[0]=c(\'fa-7p\',\'7C\');b[1]=c(\'fa-e3\',\'A.D.N.\');b[2]=c(\'fa-2N-7s\',\'2M 7Q\');b[3]=c(\'fa-2N-9j\',\'2M 9k\');b[4]=c(\'fa-2N-E\',\'2M F\');b[5]=c(\'fa-2N-G\',\'2M I\');b[6]=c(\'fa-gv\',\'iL\');b[7]=c(\'fa-mO\',\'mS\');b[8]=c(\'fa-n6\',\'6K\');b[9]=c(\'fa-1g-2J-t\',\'1b 2A z\');b[10]=c(\'fa-1g-2J-E\',\'1b 2A F\');b[11]=c(\'fa-1g-2J-G\',\'1b 2A I\');b[12]=c(\'fa-1g-2J-y\',\'1b 2A C\');b[13]=c(\'fa-1g-t\',\'1b z\');b[14]=c(\'fa-1g-E\',\'1b F\');b[15]=c(\'fa-1g-G\',\'1b I\');b[16]=c(\'fa-1g-y\',\'1b C\');b[17]=c(\'fa-cG\',\'cH\');b[18]=c(\'fa-5K\',\'5F\');b[19]=c(\'fa-B-l-t\',\'w k z\');b[20]=c(\'fa-B-l-E\',\'w k F\');b[21]=c(\'fa-B-l-o-t\',\'w k z (j)\');b[22]=c(\'fa-B-l-o-E\',\'w k F (j)\');b[23]=c(\'fa-B-l-o-G\',\'w k I (j)\');b[24]=c(\'fa-B-l-o-y\',\'w k C (j)\');b[25]=c(\'fa-B-l-G\',\'w k I\');b[26]=c(\'fa-B-l-y\',\'w k C\');b[27]=c(\'fa-B-t\',\'w z\');b[28]=c(\'fa-B-E\',\'w F\');b[29]=c(\'fa-B-G\',\'w I\');b[30]=c(\'fa-2r\',\'2o\');b[31]=c(\'fa-2r-1p\',\'2o (1i)\');b[32]=c(\'fa-2r-h\',\'2o (3f)\');b[33]=c(\'fa-2r-v\',\'2o (2l)\');b[34]=c(\'fa-B-y\',\'w C\');b[35]=c(\'fa-7c\',\'7e\');b[36]=c(\'fa-7n\',\'7o\');b[37]=c(\'fa-2Y\',\'4a\');b[38]=c(\'fa-7u\',\'7v\');b[39]=c(\'fa-7w\',\'7x\');b[40]=c(\'fa-7A-2e-o\',\'7D 2a\');b[41]=c(\'fa-8a\',\'8b\');b[42]=c(\'fa-8k\',\'8m\');b[43]=c(\'fa-8t\',\'8x\');b[44]=c(\'fa-6p\',\'6o\');b[45]=c(\'fa-6p-g\',\'6o f\');b[46]=c(\'fa-2y\',\'2s\');b[47]=c(\'fa-2y-o\',\'2s (j)\');b[48]=c(\'fa-5H\',\'5s\');b[49]=c(\'fa-5H-g\',\'5s f\');b[50]=c(\'fa-9S\',\'9T\');b[51]=c(\'fa-a7\',\'a9\');b[52]=c(\'fa-ap\',\'aq\');b[53]=c(\'fa-aF\',\'aP\');b[54]=c(\'fa-b2\',\'bQ\');b[55]=c(\'fa-6f\',\'6m\');b[56]=c(\'fa-6f-o\',\'6m (j)\');b[57]=c(\'fa-ca\',\'cb\');b[58]=c(\'fa-cq\',\'cr\');b[59]=c(\'fa-cC\',\'cE\');b[60]=c(\'fa-4f\',\'4g\');b[61]=c(\'fa-4f-o\',\'4g (j)\');b[62]=c(\'fa-d3\',\'d4\');b[63]=c(\'fa-d9\',\'db\');b[64]=c(\'fa-dG\',\'dH\');b[65]=c(\'fa-4t\',\'5o\');b[66]=c(\'fa-4t-o\',\'5o (j)\');b[67]=c(\'fa-3v\',\'3p\');b[68]=c(\'fa-3v-e7\',\'3p e8\');b[69]=c(\'fa-ec\',\'em\');b[70]=c(\'fa-1l-t\',\'1j z\');b[71]=c(\'fa-1l-E\',\'1j F\');b[72]=c(\'fa-1l-G\',\'1j I\');b[73]=c(\'fa-1l-g-o-t\',\'1j f z\');b[74]=c(\'fa-1l-g-o-E\',\'1j f F\');b[75]=c(\'fa-1l-g-o-G\',\'1j f I\');b[76]=c(\'fa-1l-g-o-y\',\'1j f C\');b[77]=c(\'fa-1l-y\',\'1j C\');b[78]=c(\'fa-fJ\',\'fK\');b[79]=c(\'fa-4v\',\'5n\');b[80]=c(\'fa-4v-g6\',\'5n g7\');b[81]=c(\'fa-1U\',\'1T\');b[82]=c(\'fa-1U-l\',\'1T k\');b[83]=c(\'fa-1U-l-o\',\'1T k (j)\');b[84]=c(\'fa-1U-g\',\'1T f\');b[85]=c(\'fa-1U-g-o\',\'1T f (j)\');b[86]=c(\'fa-1d-l-t\',\'1e k z\');b[87]=c(\'fa-1d-l-E\',\'1e k F\');b[88]=c(\'fa-1d-l-G\',\'1e k I\');b[89]=c(\'fa-1d-l-y\',\'1e k C\');b[90]=c(\'fa-1d-t\',\'1e z\');b[91]=c(\'fa-1d-E\',\'1e F\');b[92]=c(\'fa-1d-G\',\'1e I\');b[93]=c(\'fa-1d-y\',\'1e C\');b[94]=c(\'fa-h2\',\'h3\');b[95]=c(\'fa-l\',\'k\');b[96]=c(\'fa-l-o\',\'k (j)\');b[97]=c(\'fa-l-o-hf\',\'k hr\');b[98]=c(\'fa-l-hJ\',\'k i4\');b[99]=c(\'fa-ig\',\'ii\');b[ij]=c(\'fa-iq-o\',\'ir\');b[iE]=c(\'fa-3m\',\'3n\');b[iM]=c(\'fa-3m-4V\',\'3n 5a\');b[j7]=c(\'fa-3m-5b\',\'3n 5c\');b[jf]=c(\'fa-jx\',\'jy\');b[jI]=c(\'fa-3o\',\'2q\');b[jZ]=c(\'fa-3o-ks\',\'2q kt\');b[kC]=c(\'fa-kD\',\'l8\');b[lk]=c(\'fa-ll\',\'lM\');b[lN]=c(\'fa-lO\',\'mG\');b[mH]=c(\'fa-mI\',\'mJ\');b[mK]=c(\'fa-mL\',\'mM\');b[mN]=c(\'fa-5r\',\'5G\');b[mP]=c(\'fa-5r-o\',\'5G (j)\');b[mR]=c(\'fa-5M\',\'5Y\');b[mT]=c(\'fa-5M-o\',\'5Y (j)\');b[mU]=c(\'fa-mV\',\'mW\');b[mX]=c(\'fa-mY\',\'mZ\');b[n0]=c(\'fa-n1\',\'n2\');b[n3]=c(\'fa-n4-n5\',\'6e 3s\');b[n8]=c(\'fa-n9\',\'na\');b[nb]=c(\'fa-nc\',\'nd\');b[ne]=c(\'fa-nf\',\'ng\');b[nh]=c(\'fa-ni\',\'nl\');b[nm]=c(\'fa-nn\',\'np\');b[nq]=c(\'fa-nr\',\'ns\');b[nt]=c(\'fa-nu\',\'nv\');b[nw]=c(\'fa-nx\',\'ny\');b[nA]=c(\'fa-nB\',\'nC\');b[nD]=c(\'fa-nE\',\'nI\');b[nQ]=c(\'fa-nR\',\'nS\');b[nU]=c(\'fa-nV\',\'nW\');b[nX]=c(\'fa-nY\',\'o0 o1\');b[o2]=c(\'fa-o3\',\'o4\');b[o5]=c(\'fa-o7\',\'o8\');b[o9]=c(\'fa-oa-l-o\',\'og k\');b[oi]=c(\'fa-4V\',\'5a\');b[ok]=c(\'fa-om\',\'ow\');b[ox]=c(\'fa-oy\',\'oz\');b[oB]=c(\'fa-oD\',\'oG\');b[oJ]=c(\'fa-oM\',\'6F\');b[6G]=c(\'fa-6H\',\'6I\');b[6J]=c(\'fa-6i-h\',\'6r (3f)\');b[6L]=c(\'fa-6i-v\',\'6r (6t)\');b[6M]=c(\'fa-6N\',\'6O\');b[6P]=c(\'fa-3t\',\'3u\');b[6Q]=c(\'fa-3t-o\',\'3u (j)\');b[6R]=c(\'fa-3t-g\',\'3u f\');b[6S]=c(\'fa-6T\',\'6U\');b[6V]=c(\'fa-6W\',\'6X\');b[6Y]=c(\'fa-6Z\',\'7a\');b[7b]=c(\'fa-4h\',\'4s\');b[7d]=c(\'fa-3O\',\'3Q\');b[7f]=c(\'fa-3O-l\',\'3Q k\');b[7g]=c(\'fa-3O-7h\',\'3Q 7i\');b[7j]=c(\'fa-7k\',\'7l\');b[7m]=c(\'fa-4u-2W\',\'4P 3k\');b[7q]=c(\'fa-4u-2W-g\',\'4P 3k f\');b[7r]=c(\'fa-4Y\',\'4Z\');b[7t]=c(\'fa-4Y-1X\',\'4Z 2b\');b[oN]=c(\'fa-5d\',\'5e\');b[7y]=c(\'fa-5d-g\',\'5e f\');b[7z]=c(\'fa-5h-2Y\',\'5i 4a\');b[7B]=c(\'fa-5h-2f\',\'5i 2n\');b[7E]=c(\'fa-7F\',\'7G\');b[7H]=c(\'fa-7I\',\'7J\');b[7K]=c(\'fa-7L-7M\',\'7N 7O\');b[7P]=c(\'fa-q\',\'r\');b[7R]=c(\'fa-q-5K-o\',\'r 5F\');b[7S]=c(\'fa-q-7T-o\',\'r 7U\');b[7V]=c(\'fa-q-3o-o\',\'r 2q\');b[7W]=c(\'fa-q-7X-o\',\'r 7Y\');b[7Z]=c(\'fa-q-5u-o\',\'r 5w\');b[8c]=c(\'fa-q-8d-o\',\'r 8e\');b[8f]=c(\'fa-q-o\',\'r\');b[8g]=c(\'fa-q-8h-o\',\'r 8i\');b[8j]=c(\'fa-q-5A-o\',\'r 5C\');b[8l]=c(\'fa-q-5D-o\',\'r 5E\');b[8n]=c(\'fa-q-8o-o\',\'r 8p\');b[8q]=c(\'fa-8r-o\',\'8s\');b[1S]=c(\'fa-q-8u-o\',\'r 8v\');b[8w]=c(\'fa-q-Y\',\'r 2z\');b[8y]=c(\'fa-q-Y-o\',\'r 2z (j)\');b[8z]=c(\'fa-q-5N-o\',\'r 5O\');b[8B]=c(\'fa-q-8C-o\',\'r 8D\');b[8E]=c(\'fa-q-8F-o\',\'r 8G\');b[8H]=c(\'fa-8I\',\'8J\');b[8K]=c(\'fa-8L\',\'8M\');b[8N]=c(\'fa-5P\',\'5X\');b[8O]=c(\'fa-5P-8P\',\'5X 8Q\');b[8R]=c(\'fa-3y\',\'3F\');b[8S]=c(\'fa-3y-8T\',\'3F 8U\');b[8V]=c(\'fa-3y-o\',\'3F (j)\');b[8W]=c(\'fa-8X\',\'8Y\');b[8Z]=c(\'fa-9a\',\'9b\');b[9c]=c(\'fa-9d\',\'9e\');b[9f]=c(\'fa-9g-o\',\'9h\');b[9i]=c(\'fa-2C\',\'2D\');b[9l]=c(\'fa-2C-o\',\'2D (j)\');b[9m]=c(\'fa-2C-6k\',\'2D 3R\');b[9n]=c(\'fa-2C-6k-o\',\'2D 3R (j)\');b[9o]=c(\'fa-3a\',\'6u\');b[9p]=c(\'fa-2f\',\'2n\');b[9q]=c(\'fa-9r\',\'9s f\');b[9t]=c(\'fa-9u-o\',\'9v\');b[9w]=c(\'fa-9x\',\'9y\');b[9z]=c(\'fa-9A\',\'9B\');b[9C]=c(\'fa-9D\',\'9E\');b[9F]=c(\'fa-ge\',\'9G\');b[9H]=c(\'fa-9I\',\'9J\');b[9K]=c(\'fa-9L\',\'9M\');b[9N]=c(\'fa-9O\',\'9P\');b[9Q]=c(\'fa-6v\',\'4e\');b[9R]=c(\'fa-3d\',\'3e\');b[9U]=c(\'fa-3d-1p\',\'3e (1i)\');b[9V]=c(\'fa-3d-g\',\'3e f\');b[9W]=c(\'fa-6v-g\',\'4e f\');b[9X]=c(\'fa-9Y\',\'9Z\');b[a0]=c(\'fa-a1\',\'a2\');b[a3]=c(\'fa-a4\',\'a5\');b[a6]=c(\'fa-2I\',\'2K\');b[a8]=c(\'fa-2I-1t\',\'2K 1u\');b[aa]=c(\'fa-2I-1t-g\',\'2K 1u f\');b[ab]=c(\'fa-ac-ad\',\'ae af\');b[ag]=c(\'fa-ah\',\'ai\');b[aj]=c(\'fa-ak-al\',\'am an\');b[ao]=c(\'fa-1Y-o-t\',\'1Z z\');b[ar]=c(\'fa-1Y-o-E\',\'1Z F\');b[as]=c(\'fa-1Y-o-G\',\'1Z I\');b[au]=c(\'fa-1Y-o-y\',\'1Z C\');b[av]=c(\'fa-aw-o\',\'ax\');b[ay]=c(\'fa-az\',\'aA\');b[aB]=c(\'fa-aC\',\'aD\');b[aE]=c(\'fa-4w\',\'4x\');b[aG]=c(\'fa-4w-o\',\'4x (j)\');b[aH]=c(\'fa-aI\',\'aJ\');b[aK]=c(\'fa-aL\',\'aM\');b[aN]=c(\'fa-aO-o\',\'4y\');b[aQ]=c(\'fa-h-g\',\'4y f\');b[aR]=c(\'fa-aS\',\'aT\');b[aU]=c(\'fa-5u\',\'5w\');b[aV]=c(\'fa-aW\',\'aX\');b[aY]=c(\'fa-aZ\',\'b0\');b[b1]=c(\'fa-4J\',\'4K\');b[b3]=c(\'fa-4J-l\',\'4K k\');b[b4]=c(\'fa-b5\',\'b6\');b[b7]=c(\'fa-b8\',\'b9\');b[ba]=c(\'fa-bb\',\'bc\');b[bd]=c(\'fa-be\',\'bf\');b[bg]=c(\'fa-bh\',\'bi\');b[bj]=c(\'fa-bk\',\'bl\');b[bm]=c(\'fa-bn\',\'bo bp\');b[bq]=c(\'fa-bs\',\'bt\');b[bu]=c(\'fa-bv-o\',\'bw\');b[bx]=c(\'fa-by\',\'bz\');b[bA]=c(\'fa-bB\',\'bC\');b[bD]=c(\'fa-bE\',\'bF\');b[bG]=c(\'fa-bH\',\'bI\');b[bJ]=c(\'fa-bK\',\'bL\');b[bM]=c(\'fa-bN-o\',\'bO\');b[bP]=c(\'fa-4N-t\',\'4O z\');b[bR]=c(\'fa-4N-y\',\'4O C\');b[bS]=c(\'fa-3q-bT\',\'3r bU\');b[bV]=c(\'fa-3q-bW\',\'3r bX\');b[bY]=c(\'fa-3q-bZ\',\'3r c0\');b[c1]=c(\'fa-c2-o\',\'c3\');b[c4]=c(\'fa-2W\',\'3k\');b[c5]=c(\'fa-4W\',\'4X\');b[c6]=c(\'fa-4W-g\',\'4X f\');b[c7]=c(\'fa-c8\',\'c9\');b[1R]=c(\'fa-1K\',\'1v\');b[cd]=c(\'fa-1K-1p\',\'1v (1i)\');b[ce]=c(\'fa-1K-ol\',\'cf 1v\');b[cg]=c(\'fa-1K-ch\',\'ci 1v\');b[cj]=c(\'fa-ck-B\',\'cl w\');b[cm]=c(\'fa-cn\',\'co\');b[cp]=c(\'fa-2h-B-t\',\'2i w z\');b[cs]=c(\'fa-2h-B-E\',\'2i w F\');b[ct]=c(\'fa-2h-B-G\',\'2i w I\');b[cu]=c(\'fa-2h-B-y\',\'2i w C\');b[cv]=c(\'fa-cw\',\'cx\');b[cy]=c(\'fa-cz\',\'cA\');b[cB]=c(\'fa-3z-2f\',\'3E 2n\');b[cD]=c(\'fa-3z-2j\',\'3E 2m\');b[cF]=c(\'fa-3z-2j-5j\',\'3E 2m 5k\');b[cI]=c(\'fa-cJ\',\'cK\');b[cL]=c(\'fa-cM-cN\',\'cO cP\');b[cQ]=c(\'fa-cR\',\'cS cT\');b[cU]=c(\'fa-cV\',\'cW\');b[cX]=c(\'fa-cY-o\',\'cZ\');b[d0]=c(\'fa-5l\',\'5m\');b[d1]=c(\'fa-5l-1X\',\'5m 2b\');b[d2]=c(\'fa-1F\',\'1O\');b[d5]=c(\'fa-1F-l\',\'1O k\');b[d6]=c(\'fa-1F-g\',\'1O f\');b[d7]=c(\'fa-1F-g-o\',\'1O f (j)\');b[d8]=c(\'fa-5p\',\'5q\');b[da]=c(\'fa-5p-3S\',\'5q 3T\');b[dc]=c(\'fa-dd\',\'de\');b[df]=c(\'fa-dg-o\',\'dh\');b[di]=c(\'fa-dj-dk\',\'dl dm\');b[dn]=c(\'fa-do\',\'dp\');b[dq]=c(\'fa-dr\',\'ds\');b[dt]=c(\'fa-du\',\'3R dv\');b[dw]=c(\'fa-dx\',\'dy\');b[dz]=c(\'fa-dA\',\'dB\');b[dC]=c(\'fa-dD\',\'dE\');b[dF]=c(\'fa-5t-3U\',\'5v 3W\');b[dI]=c(\'fa-5t-3U-o\',\'5v 3W (j)\');b[dJ]=c(\'fa-dK\',\'dL\');b[dM]=c(\'fa-dN\',\'dO\');b[dP]=c(\'fa-dQ\',\'dR\');b[dS]=c(\'fa-dT\',\'dU\');b[dV]=c(\'fa-3X\',\'3Z\');b[dW]=c(\'fa-3X-g\',\'3Z f\');b[dX]=c(\'fa-3X-g-o\',\'3Z f (j)\');b[dY]=c(\'fa-3S\',\'3T\');b[dZ]=c(\'fa-3S-g\',\'3T f\');b[e0]=c(\'fa-5A\',\'5C\');b[e1]=c(\'fa-5D-o\',\'5E\');b[e2]=c(\'fa-2Z-3j\',\'3b 3c\');b[e4]=c(\'fa-2Z-3j-1p\',\'3b 3c (1i)\');b[e5]=c(\'fa-2Z-3j-g\',\'3b 3c f\');b[e6]=c(\'fa-5J\',\'5L\');b[e9]=c(\'fa-5J-g\',\'5L f\');b[ea]=c(\'fa-3U\',\'3W\');b[eb]=c(\'fa-2t\',\'2v\');b[ed]=c(\'fa-2t-l\',\'2v k\');b[ee]=c(\'fa-2t-l-o\',\'2v k (j)\');b[ef]=c(\'fa-1t\',\'1u\');b[eg]=c(\'fa-1t-l\',\'1u k\');b[eh]=c(\'fa-1t-g\',\'1u f\');b[ei]=c(\'fa-1t-g-o\',\'1u f\');b[ej]=c(\'fa-ek-3h\',\'en 3i\');b[eo]=c(\'fa-ep\',\'eq\');b[er]=c(\'fa-es-et\',\'eu ev\');b[ew]=c(\'fa-ex\',\'ey\');b[ez]=c(\'fa-eA\',\'eB 2q\');b[eC]=c(\'fa-5Q\',\'5R\');b[eD]=c(\'fa-5Q-l\',\'5R k\');b[eE]=c(\'fa-5S-E\',\'5T F\');b[eF]=c(\'fa-5S-G\',\'5T I\');b[eG]=c(\'fa-eH\',\'eI\');b[eJ]=c(\'fa-eK\',\'eL\');b[eM]=c(\'fa-eN\',\'eO\');b[eP]=c(\'fa-eQ\',\'eR\');b[eS]=c(\'fa-5U\',\'5V\');b[eT]=c(\'fa-5U-g\',\'5V f\');b[eU]=c(\'fa-eV\',\'eW\');b[eX]=c(\'fa-eY\',\'eZ\');b[f0]=c(\'fa-f1\',\'f2\');b[f3]=c(\'fa-f4\',\'f5\');b[f6]=c(\'fa-2j\',\'2m\');b[f7]=c(\'fa-2j-5j\',\'2m 5k\');b[f8]=c(\'fa-f9\',\'fb\');b[fc]=c(\'fa-fd\',\'fe\');b[ff]=c(\'fa-fg\',\'fh\');b[fi]=c(\'fa-fj\',\'fk\');b[fl]=c(\'fa-S-E\',\'1E F\');b[fm]=c(\'fa-S-G\',\'1E I\');b[fn]=c(\'fa-fo\',\'fp\');b[fq]=c(\'fa-6b\',\'6d\');b[fr]=c(\'fa-6b-g\',\'6d f\');b[fs]=c(\'fa-ft\',\'fu\');b[fv]=c(\'fa-fx\',\'fy\');b[fz]=c(\'fa-fA\',\'fB\');b[fC]=c(\'fa-fD\',\'fE\');b[fF]=c(\'fa-fG\',\'fH\');b[fI]=c(\'fa-3l\',\'2B\');b[fL]=c(\'fa-3l-1F\',\'2B 1O\');b[fM]=c(\'fa-3l-1t\',\'2B 1u\');b[fN]=c(\'fa-6g\',\'6h\');b[fO]=c(\'fa-6g-o\',\'6h (j)\');b[fP]=c(\'fa-1W\',\'1z\');b[fQ]=c(\'fa-1W-1p\',\'1z (1i)\');b[fR]=c(\'fa-1W-1p-g\',\'1z f (1i)\');b[fS]=c(\'fa-1W-g\',\'1z f\');b[fT]=c(\'fa-1W-g-o\',\'1z f (j)\');b[fU]=c(\'fa-fV\',\'fW\');b[fX]=c(\'fa-fY-fZ\',\'g0 g1\');b[g2]=c(\'fa-g3\',\'g4\');b[g5]=c(\'fa-6E-in\',\'6n g8\');b[g9]=c(\'fa-6E-ga\',\'6n gb\');b[gc]=c(\'fa-gd\',\'gf\');b[gg]=c(\'fa-gh\',\'gi\');b[gj]=c(\'fa-gk\',\'gl\');b[gm]=c(\'fa-gn\',\'go\');b[gp]=c(\'fa-gq-o\',\'gr\');b[gs]=c(\'fa-O\',\'Q\');b[gt]=c(\'fa-O-6q-2E\',\'Q 6s 2F\');b[gu]=c(\'fa-O-6q-2G\',\'Q 6s 2H\');b[gw]=c(\'fa-O-6x-2E\',\'Q 6y 2F\');b[gx]=c(\'fa-O-6x-2G\',\'Q 6y 2H\');b[gy]=c(\'fa-O-2E\',\'Q 2F\');b[gz]=c(\'fa-O-2G\',\'Q 2H\');b[gA]=c(\'fa-O-t\',\'Q z\');b[gB]=c(\'fa-O-6A-2E\',\'Q 6B 2F\');b[gC]=c(\'fa-O-6A-2G\',\'Q 6B 2H\');b[gD]=c(\'fa-O-y\',\'Q C\');b[gE]=c(\'fa-gF\',\'gG\');b[6C]=c(\'fa-gH-gI\',\'gJ gK\');b[gL]=c(\'fa-gM\',\'gN\');b[gO]=c(\'fa-gP\',\'gQ\');b[gR]=c(\'fa-gS\',\'gT\');b[gU]=c(\'fa-g\',\'f\');b[gV]=c(\'fa-g-o\',\'f (j)\');b[gW]=c(\'fa-4c-4h\',\'4d 4s\');b[gX]=c(\'fa-4c-gY\',\'4d gZ\');b[h0]=c(\'fa-1y\',\'1x\');b[h1]=c(\'fa-1y-2L\',\'1x 2d\');b[h4]=c(\'fa-1y-2L-h5\',\'1x 2d h6\');b[h7]=c(\'fa-1y-2L-h8\',\'1x 2d h9\');b[ha]=c(\'fa-1y-2L-o\',\'1x 2d (j)\');b[hb]=c(\'fa-1y-o\',\'1x (j)\');b[hc]=c(\'fa-4i\',\'4j\');b[hd]=c(\'fa-4i-g\',\'4j f\');b[he]=c(\'fa-4k-2Y\',\'4l 4a\');b[hg]=c(\'fa-4k-2f\',\'4l 2n\');b[hh]=c(\'fa-hi\',\'hj\');b[hk]=c(\'fa-hl\',\'hm\');b[hn]=c(\'fa-ho\',\'hp\');b[hq]=c(\'fa-4m\',\'4n\');b[hs]=c(\'fa-4m-l\',\'4n k\');b[ht]=c(\'fa-hu\',\'hv\');b[hw]=c(\'fa-hx\',\'hy\');b[hz]=c(\'fa-hA-o\',\'hB\');b[hC]=c(\'fa-hD\',\'hE\');b[hF]=c(\'fa-hG\',\'hH\');b[hI]=c(\'fa-4o\',\'4o\');b[hK]=c(\'fa-hL\',\'hM\');b[hN]=c(\'fa-hO\',\'hP\');b[hQ]=c(\'fa-hR\',\'hS\');b[hT]=c(\'fa-hU\',\'hV\');b[hW]=c(\'fa-hX\',\'hY\');b[hZ]=c(\'fa-i0\',\'i1\');b[i2]=c(\'fa-i3-4p\',\'i5 4q\');b[i6]=c(\'fa-i7\',\'i8\');b[i9]=c(\'fa-Y-ia\',\'2z ib\');b[ic]=c(\'fa-Y-ie\',\'2z 4r\');b[ih]=c(\'fa-3w\',\'3x\');b[ik]=c(\'fa-3w-il\',\'3x im\');b[io]=c(\'fa-3w-1K\',\'3x 1v\');b[ip]=c(\'fa-2S-t\',\'2V z\');b[is]=c(\'fa-2S-o-t\',\'2V z (j)\');b[it]=c(\'fa-2S-o-y\',\'2V C (j)\');b[iu]=c(\'fa-2S-y\',\'2V C\');b[iv]=c(\'fa-iw-ix\',\'iy iz\');b[iA]=c(\'fa-iB\',\'iC\');b[iD]=c(\'fa-3A\',\'3C\');b[iF]=c(\'fa-3A-l\',\'3C k\');b[iG]=c(\'fa-3A-l-o\',\'3C k (j)\');b[iH]=c(\'fa-iI\',\'iJ\');b[iK]=c(\'fa-1w-t\',\'1B z\');b[iN]=c(\'fa-1w-E\',\'1B F\');b[iO]=c(\'fa-1w-G\',\'1B I\');b[iP]=c(\'fa-1w-y\',\'1B C\');b[iQ]=c(\'fa-4z-o\',\'4A\');b[iR]=c(\'fa-iS\',\'iT\');b[iU]=c(\'fa-iV\',\'iW\');b[iX]=c(\'fa-iY\',\'iZ\');b[j0]=c(\'fa-j1\',\'j2\');b[j3]=c(\'fa-j4\',\'j5\');b[j6]=c(\'fa-4B\',\'4C\');b[j8]=c(\'fa-4B-g\',\'4C f\');b[j9]=c(\'fa-ja-jb\',\'jc jd\');b[je]=c(\'fa-4D\',\'4E\');b[jg]=c(\'fa-4D-g\',\'4E f\');b[jh]=c(\'fa-ji\',\'jj\');b[jk]=c(\'fa-jl\',\'jm\');b[jn]=c(\'fa-jo\',\'jp\');b[jq]=c(\'fa-jr\',\'js\');b[jt]=c(\'fa-ju\',\'jv\');b[jw]=c(\'fa-4F\',\'4G\');b[jz]=c(\'fa-4F-1p\',\'4G (1i)\');b[jA]=c(\'fa-jB\',\'jC\');b[jD]=c(\'fa-5b\',\'5c\');b[jE]=c(\'fa-jF\',\'jG\');b[jH]=c(\'fa-4H\',\'4I\');b[jJ]=c(\'fa-4H-md\',\'4I jK\');b[jL]=c(\'fa-jM\',\'jN\');b[jO]=c(\'fa-5N-3v\',\'5O 3p\');b[jP]=c(\'fa-jQ-g\',\'jR f\');b[jS]=c(\'fa-jT\',\'jU\');b[jV]=c(\'fa-jW\',\'jX\');b[jY]=c(\'fa-3G-t\',\'3L z\');b[k0]=c(\'fa-3G-3h\',\'3L 3i\');b[k1]=c(\'fa-3G-y\',\'3L C\');b[k2]=c(\'fa-k3\',\'k4\');b[k5]=c(\'fa-k6\',\'k7\');b[k8]=c(\'fa-4p\',\'4q\');b[k9]=c(\'fa-ka\',\'kb\');b[kc]=c(\'fa-kd\',\'ke\');b[kf]=c(\'fa-kg\',\'kh\');b[ki]=c(\'fa-kj\',\'kk\');b[kl]=c(\'fa-km\',\'kn\');b[ko]=c(\'fa-kp\',\'kq\');b[kr]=c(\'fa-4L\',\'4M\');b[ku]=c(\'fa-4L-g\',\'4M f\');b[kv]=c(\'fa-kw\',\'kx\');b[ky]=c(\'fa-kz\',\'kA\');b[kB]=c(\'fa-3M\',\'3N\');b[kE]=c(\'fa-3M-2t\',\'3N 2v\');b[kF]=c(\'fa-3M-g\',\'3N f\');b[kG]=c(\'fa-kH\',\'kI 1v\');b[kJ]=c(\'fa-kK-2e\',\'kL 2a\');b[kM]=c(\'fa-at\',\'kN\');b[kO]=c(\'fa-2y-1X\',\'2s 2b\');b[kP]=c(\'fa-2y-1X-o\',\'2s 2b (1i)\');b[kQ]=c(\'fa-kR\',\'kS\');b[kT]=c(\'fa-kU\',\'kV\');b[kW]=c(\'fa-kX-kY\',\'kZ l0\');b[l1]=c(\'fa-l2\',\'l3\');b[l4]=c(\'fa-l5\',\'l6\');b[l7]=c(\'fa-cc\',\'6e 3s\');b[l9]=c(\'fa-cc-la\',\'lb lc\');b[ld]=c(\'fa-cc-le\',\'lf\');b[lg]=c(\'fa-cc-lh\',\'li 3s\');b[lj]=c(\'fa-cc-4Q\',\'4R\');b[lm]=c(\'fa-cc-ln\',\'lo\');b[lp]=c(\'fa-cc-lq\',\'lr\');b[ls]=c(\'fa-lt\',\'lu\');b[lv]=c(\'fa-lw\',\'lx\');b[ly]=c(\'fa-lz-o\',\'lA\');b[lB]=c(\'fa-2I-lC\',\'2K lD\');b[lE]=c(\'fa-lF\',\'lG\');b[lH]=c(\'fa-lI\',\'lJ lK\');b[lL]=c(\'fa-4S\',\'4T 4U\');b[lP]=c(\'fa-4S-g\',\'4T 4U f\');b[lQ]=c(\'fa-lR-2e\',\'lS 2a\');b[lT]=c(\'fa-lU\',\'lV\');b[lW]=c(\'fa-lX-o\',\'lY\');b[lZ]=c(\'fa-m0-m1\',\'m2 m3\');b[m4]=c(\'fa-4Q\',\'4R\');b[m5]=c(\'fa-m6-2e\',\'m7 2a\');b[m8]=c(\'fa-m9\',\'ma\');b[mb]=c(\'fa-mc\',\'me\');b[mf]=c(\'fa-mg\',\'mh\');b[mi]=c(\'fa-mj\',\'mk 1z\');b[ml]=c(\'fa-mm-mn-o\',\'mo mp\');b[mq]=c(\'fa-1w-3h\',\'1B 3i\');b[mr]=c(\'fa-1w-on\',\'1B ms\');b[mt]=c(\'fa-4z\',\'4A\');b[mu]=c(\'fa-mv\',\'mw\');b[mx]=c(\'fa-my\',\'mz\');b[mA]=c(\'fa-mB\',\'mC\');b[mD]=c(\'fa-mE\',\'mF\');u 3P=\'\';1k(u i=0;i<b.1s;i++){u 2c=\'\';u 1D=0;u R=b[i][1];R=R.1J(\' \');1k(u x=0;x<R.1s;x++){1D++;2c+=1D==3?\'<br />\':\'\';2c+=R[x]+\' \';1D=1D==3?0:1D}3P+=\'<a 5f="#" mQ="5g(U);2g 1C;" R="fa \'+b[i][0]+\'"><1H 1r="fa \'+b[i][0]+\'"></1H><2k>\'+2c+\'</2k></a>\'};m 5g(el){s.J(\'3g\')[0].p(\'P\')[0].W=el.2p(\'R\');a=s.1G(\'1f\');a=a.p(\'a\');1k(i=0;i<a.1s;i++){a[i].L=\'\'}el.L+=\'n7\'};m 5x(5y){u 5z=s.1G(\'1f\');u d=5z.p(\'a\');1k(u i=0,5B=d.1s,1I,2u;i<5B;i++){1I=d[i];2u=1I.2p(\'R\');if(2u&&2u.V(5y)>=0){1I.1o.2w=\'nj\'}nk{1I.1o.2w=\'5I\'}}};m 2x(K){el=s.1G(\'1f\');el=el.p(\'1H\');1k(i=0;i<el.1s;i++){el[i].no(\'1o\',\'K:\'+K)}};m 1h(){d=\'\';d+=s.J(\'1L\')[0].p(\'P\')[0].Z?\' fa-1M\':d;d+=s.J(\'1N\')[0].p(\'P\')[0].Z?\' fa-fw\':d;d+=s.J(\'1P\')[0].p(\'P\')[0].Z?\' fa-1Q\':d;d+=\' \'+s.J(\'1m\')[0].p(\'3B\')[0].W;el=s.1G(\'1f\');el=el.p(\'1H\');1k(i=0;i<el.1s;i++){el[i].L=el[i].nz.2p(\'R\')+d}};m M(5W,3D){1k(u i in 3D){if(3D[i]==5W)2g 1n}2g 1C};5Z.nF.nG(\'nH\',m(6a){2g{R:\'nJ 6u nK\',nL:nM,nN:6C,nO:1C,nP:[{id:\'6c\',1a:\'6c\',nT:[{H:\'3H\',3I:[\'50%\',\'50%\'],3J:[{H:\'3H\',3I:[\'75%\',\'25%\'],3J:[{H:\'Y\',id:\'3K\',L:\'3K\',1a:\'nZ\',6j:m(e){2x(e.6l.$.W)},1q:m(n){K=n.T.K!=\'\'?n.T.K:\'#o6\';U.2O(K);2x(K)},2P:m(n){n.2Q(\'K\',U.2R())}},{H:\'ob\',1a:\'oc\',1o:\'od-oe:1.of\',1V:m(){6a.oh(m(K){s.J(\'3K\')[0].p(\'P\')[0].W=K;2x(K)},U)}}]},{H:\'Y\',id:\'2T\',L:\'2T\',1a:\'oj\',1q:m(n){U.2O(n.T.2T)},2P:m(n){n.2Q(\'2T\',U.2R())}}]},{H:\'3H\',3I:[\'25%\',\'25%\',\'25%\',\'25%\'],3J:[{H:\'3V\',id:\'1L\',L:\'1L 2U\',1a:\'oo\',W:\'1n\',1q:m(n){u d=n.T.1r;d=d.1J(\' \');s.J(\'1L\')[0].p(\'P\')[0].Z=M(\'fa-1M\',d)?1n:1C;1h()},1V:m(){1h()}},{H:\'3V\',id:\'1N\',L:\'1N 2U\',1a:\'op 4r\',W:\'1n\',1q:m(n){u d=n.T.1r;d=d.1J(\' \');s.J(\'1N\')[0].p(\'P\')[0].Z=M(\'fa-fw\',d)?1n:1C;1h()},1V:m(){1h()}},{H:\'3V\',id:\'1P\',L:\'1P 2U\',1a:\'oq\',W:\'1n\',1q:m(n){u d=n.T.1r;d=d.1J(\' \');s.J(\'1P\')[0].p(\'P\')[0].Z=M(\'fa-1Q\',d)?1n:1C;1h()},1V:m(){1h()}},{H:\'3B\',id:\'1m\',L:\'1m 2U\',1a:\'or os ot\',ou:[[\'ov\',\'\'],[\'1E 90\',\'fa-S-90\'],[\'1E 1S\',\'fa-S-1S\'],[\'1E 1R\',\'fa-S-1R\'],[\'6w 3f\',\'fa-1A-3Y\'],[\'6w 6t\',\'fa-1A-2l\']],1q:m(n){U.2O(n.T.1m?n.T.1m:\'\')},2P:m(n){n.2Q(\'1m\',U.2R())},1V:m(){1h()}}]},{H:\'Y\',id:\'6z\',L:\'6z oA\',1a:\'2B\',6j:m(e){5x(e.6l.$.W)}},{H:\'Y\',id:\'3g\',L:\'3g\',1o:\'2w:5I\',1q:m(n){u d=\'\';if(n.T.1r!=\'\'){d=n.T.1r;d=d.1J(\' \');M(\'fa-1Q\',d)?d.1c(d.V(\'fa-1Q\'),1):\'\';M(\'fa-fw\',d)?d.1c(d.V(\'fa-fw\'),1):\'\';M(\'fa-1M\',d)?d.1c(d.V(\'fa-1M\'),1):\'\';M(\'fa-S-90\',d)?d.1c(d.V(\'fa-S-90\'),1):\'\';M(\'fa-S-1S\',d)?d.1c(d.V(\'fa-S-1S\'),1):\'\';M(\'fa-S-1R\',d)?d.1c(d.V(\'fa-S-1R\'),1):\'\';M(\'fa-1A-3Y\',d)?d.1c(d.V(\'fa-1A-3Y\'),1):\'\';M(\'fa-1A-2l\',d)?d.1c(d.V(\'fa-1A-2l\'),1):\'\';d=d.oC(\' \')}U.2O(d)},2P:m(n){u d=\'\';d+=s.J(\'1L\')[0].p(\'P\')[0].Z?\' fa-1M\':d;d+=s.J(\'1N\')[0].p(\'P\')[0].Z?\' fa-fw\':d;d+=s.J(\'1P\')[0].p(\'P\')[0].Z?\' fa-1Q\':d;d+=\' \'+s.J(\'1m\')[0].p(\'3B\')[0].W;n.2Q(\'1r\',U.2R()+d)}},{H:\'2X\',2X:\'<2W oE="oF" H="Y/4b" 5f="\'+5Z.oH+\'oI/1f/3a-6D/4b/3a-6D.oK.4b" />\'},{H:\'2X\',2X:\'<2k id="1f">\'+3P+\'</2k>\'}]}],oL:m(){X=s.1G(\'1f\');X=X.p(\'a\');1k(i=0;i<X.1s;i++){X[i].8A.L=X[i].2p(\'R\');X[i].L=\'\';X[i].1o.2w=\'\';X[i].p(\'1H\')[0].1o.K=\'\'}}}});',62,1538,'|||||||||||icons|Array|klases||Square|square|||Inverted|Circle|circle|function|widget||getElementsByTagName|file|File|document|down|var||Arrow||up|Down||arrow|Up||left|Left|right|type|Right|getElementsByClassName|color|className|in_array||sort|input|Sort|title|rotate|data|this|indexOf|value|glyphs|text|checked|||||||||||label|Angle|splice|chevron|Chevron|fontawesome|angle|setCheckboxes|Alt|Caret|for|caret|flippedRotation|true|style|alt|setup|class|length|plus|Plus|List|toggle|Star|star|Share|flip|Toggle|false|ctr|Rotate|minus|getElementById|span|klas|split|list|spinning|spin|fixedWidth|Minus|bordered|border|270|180|Check|check|onClick|share|slash|hand|Hand|||||||||||Chart|Slash|newTitle|Half|chart|forward|return|long|Long|reply|div|vertical|Reply|Forward|Arrows|getAttribute|Code|arrows|Bell|play|klasNeym|Play|display|setSpanColor|bell|Text|Double|Search|folder|Folder|asc|Ascending|desc|Descending|google|double|Google|half|Align|align|setValue|commit|setData|getValue|thumbs|size|cke_dialog_ui_checkbox_input|Thumbs|link|html|backward|pied|||||||||||font|Pied|Piper|github|Github|Horizontal|fontawesomeClass|off|Off|piper|Link|search|cloud|Cloud|code|Camera|life|Life|Card|envelope|Envelope|camera|th|TH|flag|mail|times|select|Times|haystack|Mail|Flag|volume|hbox|widths|children|colorChooser|Volume|youtube|Youtube|exclamation|fontawesomeIcons|Exclamation|Open|phone|Phone|plane|checkbox|Plane|pencil|horizontal|Pencil|||||||||||Backward|css|stack|Stack|Git|building|Building|exchange|steam|Steam|step|Step|stumbleupon|Stumbleupon|table|weibo|Weibo|Width|Exchange|calendar|external|chain|heart|Heart|Hospital|trash|Trash|tumblr|Tumblr|twitter|Twitter|unlock|Unlock|user|User|info|Info|xing|Xing|level|Level|External|paypal|PayPal|lastfm|Last|FM|download|linkedin|LinkedIn|eye|Eye|||||||||||Download|upload|Upload|facebook|Facebook|href|klik|fast|Fast|all|All|microphone|Microphone|Chain|Calendar|mobile|Mobile|comment|Bitbucket|paper|image|Paper|Image|searchIcon|val|aydi|photo|len|Photo|picture|Picture|Archive|Comment|bitbucket|none|pinterest|archive|Pinterest|comments|video|Video|fire|question|Question|quote|Quote|reddit|Reddit|needle|Fire|Comments|CKEDITOR|||||||||||editor|rss|insertFontawesome|RSS|Credit|bookmark|send|Send|ellipsis|onKeyUp|open|sender|Bookmark|Sign|Behance|behance|alpha|Ellipsis|Alpha|Vertical|Font|git|Flip|amount|Amount|fontawesomeSearch|numeric|Numberic|400|awesome|sign|Edit|141|eject|Eject|142|Android|143|144|empire|Empire|145|146|147|148|eraser|Eraser|149|eur|EUR|150|euro|||||||||||Euro|151|asterisk|152|Asterisk|153|154|triangle|Triangle|155|expand|Expand|156|automobile|Automobile|adjust|157|158|center|159|ban|Ban|bank|Bank|161|162|bar|163|Adjust|Bar|164|fax|Fax|165|female|Female|166|fighter|jet|Fighter|Jet|167|Center|168|169|audio|Audio|170|171|excel|Excel|172|||||||||||barcode|Barcode|173|movie|Movie|174|175|pdf|PDF|176|bars|177|Bars|178|powerpoint|Powerpoint|179|files|Files|beer|sound|Sound|181|Beer|182|183|firstChild|184|word|Word|185|zip|Zip|186|film|Film|187|filter|Filter|188|189|extinguisher|Extinguisher|190|191|checkered|Checkered|192|193|flash|Flash|194|||||||||||flask|Flask|195|flickr|Flickr|196|floppy|Floppy|197|justify|Justify|198|199|200|201|202|203|foursquare|Four|204|frown|Frown|205|gamepad|Gamepad|206|gavel|Gavel|207|gbp|GBP|208|GE|209|gear|Gear|210|gears|Gears|211|gift|Gift|212|213|bitcoin|Bitcoin|214|215|216|217|gittip|Gittip|218|glass|Glass|219|globe|Globe|220|bold|221|Bold|222|223|graduation|cap|Graduation|Cap|224|group|Group|225|hacker|news|Hacker|News|226|bolt|Bolt|227|228||229|230|hdd|HDD|231|header|Header|232|headphones|Headphones|233|bomb|234|235|history|History|236|home|Home|237|hospital|Bomb|238|239|html5|HTML5|240|241|inbox|Inbox|242|indent|Indent|243|book|244|245|inr|INR|246|instagram|Instagram|247|institution|Institution|248|italic|Italic|249|joomla|Joomla|250|jpy|JPY|251|jsfiddle|JS|Fiddle|252||key|Key|253|keyboard|Keyboard|254|krw|KRW|255|language|Language|256|laptop|Laptop|257|leaf|Leaf|258|legal|Legal|259|lemon|Lemon|260|Book|261|262|bouy|Bouy|263|ring|Ring|264|saver|Saver|265|lightbulb|Lightbulb|266|267|268|269|linux|Linux|briefcase|Briefcase||271|272|Ordered|273|ul|Unordered|274|location|Location|275|lock|Lock|276|btc|BTC|277|278|279|280|magic|Magic|281|magnet|Magnet|282|bug|283|Bug|284|apple|Apple|285|male|Male|286|map|marker|Map|Marker|287|maxcdn|Max|CDN|288|medkit|Medkit|289|meh|Meh|290|291|292|bullhorn|Bullhorn|293|294|295|296|bullseye|297|Bullseye|298|money|Money|299|moon|Moon|300|mortar|board|Mortar|Board|301|music|Music|302|navicon|Navicon|303|openid|Id|304|outdent|Outdent|305|pagelines|Pageliens|306|paperclip|Paperclip|307|cab|Cab|308|309|paragraph|Paragraph|310|paste|Paste|311|pause|Pause|312|paw|Paw|313|314|315|316|317|318|319|320|adn|321|322|323|retro|Retro|324|325|326|car|327|328|329|330|331|332|333|power||Car|Power|334|print|Print|335|puzzle|piece|Puzzle|Piece|336|qq|QQ|337|qrcode|QR|338|339|340|341|342|ra|RA|343|random|Random|344|rebel|Rebel|345|recycle|Recycle|346|347|348|refresh|Refresh|349|renren|Renren|350|reorder|Reorder|351|repeat|Repeat|352|353|354|retweet||Retweet|355|rmb|RMB|356|road|Road|357|rocket|Rocket|358|359|360|rouble|Rouble|361|362|363|rub|Rub|364||ruble|Ruble|365|rupee|Rupee|366|save|Save|367|scissors|Scissors|368|certificate|Certificate|369|370|371|372|373|374|375|376|377|378|shield|Shield|379|shopping|cart|Shopping|Cart|380|signal|Signal|381|broken|Broken|In|382|out|Out|383|sitemap||Sitemap|384|skype|Skype|385|slack|Slack|386|sliders|Slider|387|smile|Smile|388|389|390|ambulance|391|392|393|394|395|396|397|398|399|soundcloud|Soundcloud|space|shuttle|Space|Shuttle|401|spinner|Spinner|402|spoon|Spoon|403|spotify|Spotify|404|405|406|407|overflow|Overflow|408|409|child|Child|410|empty|Empty|411|full|Full|412|413|414|415|416|notch|417|418|stethoscope|Stethoscope|419|stop|Stop|420|strikethrough|Strikethrough|421|Notch|422|423|subscript|Subscript|424|suitcase|Suitcase|425|sun|Sun|426|superscript|Superscript|427|support|Support|428|thin|429|tablet|Tablet|430|tachometer|Tachometer|431|tag|Tag|432|tags|Tags|433|tasks|Tasks|434|taxi|Taxi|435|tencent|Thin|Tencent|436|terminal|Terminal|437|height|Height|438||width||clipboard|439|Clipboard|100|440|large|Large||441|442|clock|Clock|443|444|445|446|thumb|tack|Thumb|Tack|447|ticket|Ticket|448|101|449|450|451|tint|Tint|452|Ambulance|102|453|454|455|456|457|tree|Tree|458|trello|Trello|459|trophy|Trophy|460|truck|Truck|461|try|Try|462|103|463|464|turkish|lira|Turkish|Lira|465|104|466|467|umbrella|Umbrella|468|underline|Underline|469|undo|Undo|470|university|University|471|unlink|Unlink|472|cny|CNY|473|474|unsorted|Unsorted|475|476|usd|USD|477|105|478|MD|479|users|Users|480|481|vimeo|Vimeo|482|vine|Vine|483|vk|VK|484|106|485|486|487|warning|Warning|488|wechat|Wechat|489|490|weixin|Weixin|491|wheelchair|Wheelchair|492|windows|Windows|493|won|Won|494|wordpress|Wordpress|495|wrench|Wrench|496|fork|Fork|497|498|yahoo|Yahoo|499|yen|Yen|500|107|codepen|501|502|503|angellist|Angel|504|area|Area|505|At|506|507|508|bicycle|Bicycle|509|binoculars|Binoculars|510|birthday|cake|Brithday|Cake|511|bus|Bus|512|calculator|Calculator|513|Codepen|514|amex|American|Express|515|discover|Discover|516|mastercard|Master|517|108|coffee|518|stripe|Stripe|519|visa|Visa|520|copyright|Copyright|521|eyedropper|Eyedropper|522|futbol|Football|523|wallet|Wallet|524|ils|ILS|525|ioxhost|Iox|Host|526|Coffee|109|cog|527|528|line|Line|529|meanpath|Meanpath|530|newspaper|Newspaper|531|pain|brush|Pain|Brush|532|533|pie|Pie|534|plug|Plug|535|shekel||Shekel|536|sheqel|Sheqel|537|slideshare|Slide|538|soccer|ball|Soccer|Ball|539|540|On|541|542|tty|TTY|543|twitch|Twitch|544|wifi|Wifi|545|yelp|Yelp|Cog|110|cogs|Cogs|111|columns|Columns|112|anchor|113|onclick|114|Anchor|115|116|compass|Compass|117|compress|Compress|118|copy|Copy|119|credit|card|android|active|120|crop|Crop|121|crosshairs|Crosshairs|122|css3|CSS3|123|cube|block|else|Cube|124|cubes|setAttribute|Cubes|125|cut|Cut|126|cutlery|Cutlery|127|dashboard|Dashboard|parentNode|128|database|Database|129|dedent|dialog|add|fontawesomeDialog|Dedent|Insert|Awesome|minWidth|600|minHeight|resizable|contents|130|delicious|Delicious|elements|131|desktop|Desktop|132|deviantart|Color|Deviant|Art|133|digg|Digg|134|000000|dollar|Dollar|135|dot|button|Select|margin|top|35em|Dot|getColorFromDialog|136|Size|137||dribbble||Spinning|Fixed|Bordered|Flipping|and|Rotating|items|Normal|Dribble|138|dropbox|Dropbox|cke_dialog_ui_input_text|139|join|drupal|rel|stylesheet|Drupal|basePath|plugins|140|min|onOk|edit|160'.split('|'),0,{}))
+var fontawesome = '';
+var icons = Array();
+icons[0] = Array('fa-adjust', 'Adjust');
+icons[1] = Array('fa-adn', 'A.D.N.');
+icons[2] = Array('fa-align-center', 'Align Center');
+icons[3] = Array('fa-align-justify', 'Align Justify');
+icons[4] = Array('fa-align-left', 'Align Left');
+icons[5] = Array('fa-align-right', 'Align Right');
+icons[6] = Array('fa-ambulance', 'Ambulance');
+icons[7] = Array('fa-anchor', 'Anchor');
+icons[8] = Array('fa-android', 'Android');
+icons[9] = Array('fa-angle-double-down', 'Angle Double Down');
+icons[10] = Array('fa-angle-double-left', 'Angle Double Left');
+icons[11] = Array('fa-angle-double-right', 'Angle Double Right');
+icons[12] = Array('fa-angle-double-up', 'Angle Double Up');
+icons[13] = Array('fa-angle-down', 'Angle Down');
+icons[14] = Array('fa-angle-left', 'Angle Left');
+icons[15] = Array('fa-angle-right', 'Angle Right');
+icons[16] = Array('fa-angle-up', 'Angle Up');
+icons[17] = Array('fa-apple', 'Apple');
+icons[18] = Array('fa-archive', 'Archive');
+icons[19] = Array('fa-arrow-circle-down', 'Arrow Circle Down');
+icons[20] = Array('fa-arrow-circle-left', 'Arrow Circle Left');
+icons[21] = Array('fa-arrow-circle-o-down', 'Arrow Circle Down (Inverted)');
+icons[22] = Array('fa-arrow-circle-o-left', 'Arrow Circle Left (Inverted)');
+icons[23] = Array('fa-arrow-circle-o-right', 'Arrow Circle Right (Inverted)');
+icons[24] = Array('fa-arrow-circle-o-up', 'Arrow Circle Up (Inverted)');
+icons[25] = Array('fa-arrow-circle-right', 'Arrow Circle Right');
+icons[26] = Array('fa-arrow-circle-up', 'Arrow Circle Up');
+icons[27] = Array('fa-arrow-down', 'Arrow Down');
+icons[28] = Array('fa-arrow-left', 'Arrow Left');
+icons[29] = Array('fa-arrow-right', 'Arrow Right');
+icons[30] = Array('fa-arrows', 'Arrows');
+icons[31] = Array('fa-arrows-alt', 'Arrows (Alt)');
+icons[32] = Array('fa-arrows-h', 'Arrows (Horizontal)');
+icons[33] = Array('fa-arrows-v', 'Arrows (vertical)');
+icons[34] = Array('fa-arrow-up', 'Arrow Up');
+icons[35] = Array('fa-asterisk', 'Asterisk');
+icons[36] = Array('fa-automobile', 'Automobile');
+icons[37] = Array('fa-backward', 'Backward');
+icons[38] = Array('fa-ban', 'Ban');
+icons[39] = Array('fa-bank', 'Bank');
+icons[40] = Array('fa-bar-chart-o', 'Bar Chart');
+icons[41] = Array('fa-barcode', 'Barcode');
+icons[42] = Array('fa-bars', 'Bars');
+icons[43] = Array('fa-beer', 'Beer');
+icons[44] = Array('fa-behance', 'Behance');
+icons[45] = Array('fa-behance-square', 'Behance Square');
+icons[46] = Array('fa-bell', 'Bell');
+icons[47] = Array('fa-bell-o', 'Bell (Inverted)');
+icons[48] = Array('fa-bitbucket', 'Bitbucket');
+icons[49] = Array('fa-bitbucket-square', 'Bitbucket Square');
+icons[50] = Array('fa-bitcoin', 'Bitcoin');
+icons[51] = Array('fa-bold', 'Bold');
+icons[52] = Array('fa-bolt', 'Bolt');
+icons[53] = Array('fa-bomb', 'Bomb');
+icons[54] = Array('fa-book', 'Book');
+icons[55] = Array('fa-bookmark', 'Bookmark');
+icons[56] = Array('fa-bookmark-o', 'Bookmark (Inverted)');
+icons[57] = Array('fa-briefcase', 'Briefcase');
+icons[58] = Array('fa-btc', 'BTC');
+icons[59] = Array('fa-bug', 'Bug');
+icons[60] = Array('fa-building', 'Building');
+icons[61] = Array('fa-building-o', 'Building (Inverted)');
+icons[62] = Array('fa-bullhorn', 'Bullhorn');
+icons[63] = Array('fa-bullseye', 'Bullseye');
+icons[64] = Array('fa-cab', 'Cab');
+icons[65] = Array('fa-calendar', 'Calendar');
+icons[66] = Array('fa-calendar-o', 'Calendar (Inverted)');
+icons[67] = Array('fa-camera', 'Camera');
+icons[68] = Array('fa-camera-retro', 'Camera Retro');
+icons[69] = Array('fa-car', 'Car');
+icons[70] = Array('fa-caret-down', 'Caret Down');
+icons[71] = Array('fa-caret-left', 'Caret Left');
+icons[72] = Array('fa-caret-right', 'Caret Right');
+icons[73] = Array('fa-caret-square-o-down', 'Caret Square Down');
+icons[74] = Array('fa-caret-square-o-left', 'Caret Square Left');
+icons[75] = Array('fa-caret-square-o-right', 'Caret Square Right');
+icons[76] = Array('fa-caret-square-o-up', 'Caret Square Up');
+icons[77] = Array('fa-caret-up', 'Caret Up');
+icons[78] = Array('fa-certificate', 'Certificate');
+icons[79] = Array('fa-chain', 'Chain');
+icons[80] = Array('fa-chain-broken', 'Chain Broken');
+icons[81] = Array('fa-check', 'Check');
+icons[82] = Array('fa-check-circle', 'Check Circle');
+icons[83] = Array('fa-check-circle-o', 'Check Circle (Inverted)');
+icons[84] = Array('fa-check-square', 'Check Square');
+icons[85] = Array('fa-check-square-o', 'Check Square (Inverted)');
+icons[86] = Array('fa-chevron-circle-down', 'Chevron Circle Down');
+icons[87] = Array('fa-chevron-circle-left', 'Chevron Circle Left');
+icons[88] = Array('fa-chevron-circle-right', 'Chevron Circle Right');
+icons[89] = Array('fa-chevron-circle-up', 'Chevron Circle Up');
+icons[90] = Array('fa-chevron-down', 'Chevron Down');
+icons[91] = Array('fa-chevron-left', 'Chevron Left');
+icons[92] = Array('fa-chevron-right', 'Chevron Right');
+icons[93] = Array('fa-chevron-up', 'Chevron Up');
+icons[94] = Array('fa-child', 'Child');
+icons[95] = Array('fa-circle', 'Circle');
+icons[96] = Array('fa-circle-o', 'Circle (Inverted)');
+icons[97] = Array('fa-circle-o-notch', 'Circle Notch');
+icons[98] = Array('fa-circle-thin', 'Circle Thin');
+icons[99] = Array('fa-clipboard', 'Clipboard');
+icons[100] = Array('fa-clock-o', 'Clock');
+icons[101] = Array('fa-cloud', 'Cloud');
+icons[102] = Array('fa-cloud-download', 'Cloud Download');
+icons[103] = Array('fa-cloud-upload', 'Cloud Upload');
+icons[104] = Array('fa-cny', 'CNY');
+icons[105] = Array('fa-code', 'Code');
+icons[106] = Array('fa-code-fork', 'Code Fork');
+icons[107] = Array('fa-codepen', 'Codepen');
+icons[108] = Array('fa-coffee', 'Coffee');
+icons[109] = Array('fa-cog', 'Cog');
+icons[110] = Array('fa-cogs', 'Cogs');
+icons[111] = Array('fa-columns', 'Columns');
+icons[112] = Array('fa-comment', 'Comment');
+icons[113] = Array('fa-comment-o', 'Comment (Inverted)');
+icons[114] = Array('fa-comments', 'Comments');
+icons[115] = Array('fa-comments-o', 'Comments (Inverted)');
+icons[116] = Array('fa-compass', 'Compass');
+icons[117] = Array('fa-compress', 'Compress');
+icons[118] = Array('fa-copy', 'Copy');
+icons[119] = Array('fa-credit-card', 'Credit Card');
+icons[120] = Array('fa-crop', 'Crop');
+icons[121] = Array('fa-crosshairs', 'Crosshairs');
+icons[122] = Array('fa-css3', 'CSS3');
+icons[123] = Array('fa-cube', 'Cube');
+icons[124] = Array('fa-cubes', 'Cubes');
+icons[125] = Array('fa-cut', 'Cut');
+icons[126] = Array('fa-cutlery', 'Cutlery');
+icons[127] = Array('fa-dashboard', 'Dashboard');
+icons[128] = Array('fa-database', 'Database');
+icons[129] = Array('fa-dedent', 'Dedent');
+icons[130] = Array('fa-delicious', 'Delicious');
+icons[131] = Array('fa-desktop', 'Desktop');
+icons[132] = Array('fa-deviantart', 'Deviant Art');
+icons[133] = Array('fa-digg', 'Digg');
+icons[134] = Array('fa-dollar', 'Dollar');
+icons[135] = Array('fa-dot-circle-o', 'Dot Circle');
+icons[136] = Array('fa-download', 'Download');
+icons[137] = Array('fa-dribbble', 'Dribble');
+icons[138] = Array('fa-dropbox', 'Dropbox');
+icons[139] = Array('fa-drupal', 'Drupal');
+icons[140] = Array('fa-edit', 'Edit');
+icons[141] = Array('fa-eject', 'Eject');
+icons[142] = Array('fa-ellipsis-h', 'Ellipsis (Horizontal)');
+icons[143] = Array('fa-ellipsis-v', 'Ellipsis (Vertical)');
+icons[144] = Array('fa-empire', 'Empire');
+icons[145] = Array('fa-envelope', 'Envelope');
+icons[146] = Array('fa-envelope-o', 'Envelope (Inverted)');
+icons[147] = Array('fa-envelope-square', 'Envelope Square');
+icons[148] = Array('fa-eraser', 'Eraser');
+icons[149] = Array('fa-eur', 'EUR');
+icons[150] = Array('fa-euro', 'Euro');
+icons[151] = Array('fa-exchange', 'Exchange');
+icons[152] = Array('fa-exclamation', 'Exclamation');
+icons[153] = Array('fa-exclamation-circle', 'Exclamation Circle');
+icons[154] = Array('fa-exclamation-triangle', 'Exclamation Triangle');
+icons[155] = Array('fa-expand', 'Expand');
+icons[156] = Array('fa-external-link', 'External Link');
+icons[157] = Array('fa-external-link-square', 'External Link Square');
+icons[158] = Array('fa-eye', 'Eye');
+icons[159] = Array('fa-eye-slash', 'Eye Slash');
+icons[160] = Array('fa-facebook', 'Facebook');
+icons[161] = Array('fa-facebook-square', 'Facebook Square');
+icons[162] = Array('fa-fast-backward', 'Fast Backward');
+icons[163] = Array('fa-fast-forward', 'Fast Forward');
+icons[164] = Array('fa-fax', 'Fax');
+icons[165] = Array('fa-female', 'Female');
+icons[166] = Array('fa-fighter-jet', 'Fighter Jet');
+icons[167] = Array('fa-file', 'File');
+icons[168] = Array('fa-file-archive-o', 'File Archive');
+icons[169] = Array('fa-file-audio-o', 'File Audio');
+icons[170] = Array('fa-file-code-o', 'File Code');
+icons[171] = Array('fa-file-excel-o', 'File Excel');
+icons[172] = Array('fa-file-image-o', 'File Image');
+icons[173] = Array('fa-file-movie-o', 'File Movie');
+icons[174] = Array('fa-file-o', 'File');
+icons[175] = Array('fa-file-pdf-o', 'File PDF');
+icons[176] = Array('fa-file-photo-o', 'File Photo');
+icons[177] = Array('fa-file-picture-o', 'File Picture');
+icons[178] = Array('fa-file-powerpoint-o', 'File Powerpoint');
+icons[179] = Array('fa-files-o', 'Files');
+icons[180] = Array('fa-file-sound-o', 'File Sound');
+icons[181] = Array('fa-file-text', 'File Text');
+icons[182] = Array('fa-file-text-o', 'File Text (Inverted)');
+icons[183] = Array('fa-file-video-o', 'File Video');
+icons[184] = Array('fa-file-word-o', 'File Word');
+icons[185] = Array('fa-file-zip-o', 'File Zip');
+icons[186] = Array('fa-film', 'Film');
+icons[187] = Array('fa-filter', 'Filter');
+icons[188] = Array('fa-fire', 'Fire');
+icons[189] = Array('fa-fire-extinguisher', 'Fire Extinguisher');
+icons[190] = Array('fa-flag', 'Flag');
+icons[191] = Array('fa-flag-checkered', 'Flag Checkered');
+icons[192] = Array('fa-flag-o', 'Flag (Inverted)');
+icons[193] = Array('fa-flash', 'Flash');
+icons[194] = Array('fa-flask', 'Flask');
+icons[195] = Array('fa-flickr', 'Flickr');
+icons[196] = Array('fa-floppy-o', 'Floppy');
+icons[197] = Array('fa-folder', 'Folder');
+icons[198] = Array('fa-folder-o', 'Folder (Inverted)');
+icons[199] = Array('fa-folder-open', 'Folder Open');
+icons[200] = Array('fa-folder-open-o', 'Folder Open (Inverted)');
+icons[201] = Array('fa-font', 'Font');
+icons[202] = Array('fa-forward', 'Forward');
+icons[203] = Array('fa-foursquare', 'Four Square');
+icons[204] = Array('fa-frown-o', 'Frown');
+icons[205] = Array('fa-gamepad', 'Gamepad');
+icons[206] = Array('fa-gavel', 'Gavel');
+icons[207] = Array('fa-gbp', 'GBP');
+icons[208] = Array('fa-ge', 'GE');
+icons[209] = Array('fa-gear', 'Gear');
+icons[210] = Array('fa-gears', 'Gears');
+icons[211] = Array('fa-gift', 'Gift');
+icons[212] = Array('fa-git', 'Git');
+icons[213] = Array('fa-github', 'Github');
+icons[214] = Array('fa-github-alt', 'Github (Alt)');
+icons[215] = Array('fa-github-square', 'Github Square');
+icons[216] = Array('fa-git-square', 'Git Square');
+icons[217] = Array('fa-gittip', 'Gittip');
+icons[218] = Array('fa-glass', 'Glass');
+icons[219] = Array('fa-globe', 'Globe');
+icons[220] = Array('fa-google', 'Google');
+icons[221] = Array('fa-google-plus', 'Google Plus');
+icons[222] = Array('fa-google-plus-square', 'Google Plus Square');
+icons[223] = Array('fa-graduation-cap', 'Graduation Cap');
+icons[224] = Array('fa-group', 'Group');
+icons[225] = Array('fa-hacker-news', 'Hacker News');
+icons[226] = Array('fa-hand-o-down', 'Hand Down');
+icons[227] = Array('fa-hand-o-left', 'Hand Left');
+icons[228] = Array('fa-hand-o-right', 'Hand Right');
+icons[229] = Array('fa-hand-o-up', 'Hand Up');
+icons[230] = Array('fa-hdd-o', 'HDD');
+icons[231] = Array('fa-header', 'Header');
+icons[232] = Array('fa-headphones', 'Headphones');
+icons[233] = Array('fa-heart', 'Heart');
+icons[234] = Array('fa-heart-o', 'Heart (Inverted)');
+icons[235] = Array('fa-history', 'History');
+icons[236] = Array('fa-home', 'Home');
+icons[237] = Array('fa-hospital-o', 'Hospital');
+icons[238] = Array('fa-h-square', 'Hospital Square');
+icons[239] = Array('fa-html5', 'HTML5');
+icons[240] = Array('fa-image', 'Image');
+icons[241] = Array('fa-inbox', 'Inbox');
+icons[242] = Array('fa-indent', 'Indent');
+icons[243] = Array('fa-info', 'Info');
+icons[244] = Array('fa-info-circle', 'Info Circle');
+icons[245] = Array('fa-inr', 'INR');
+icons[246] = Array('fa-instagram', 'Instagram');
+icons[247] = Array('fa-institution', 'Institution');
+icons[248] = Array('fa-italic', 'Italic');
+icons[249] = Array('fa-joomla', 'Joomla');
+icons[250] = Array('fa-jpy', 'JPY');
+icons[251] = Array('fa-jsfiddle', 'JS Fiddle');
+icons[252] = Array('fa-key', 'Key');
+icons[253] = Array('fa-keyboard-o', 'Keyboard');
+icons[254] = Array('fa-krw', 'KRW');
+icons[255] = Array('fa-language', 'Language');
+icons[256] = Array('fa-laptop', 'Laptop');
+icons[257] = Array('fa-leaf', 'Leaf');
+icons[258] = Array('fa-legal', 'Legal');
+icons[259] = Array('fa-lemon-o', 'Lemon');
+icons[260] = Array('fa-level-down', 'Level Down');
+icons[261] = Array('fa-level-up', 'Level Up');
+icons[262] = Array('fa-life-bouy', 'Life Bouy');
+icons[263] = Array('fa-life-ring', 'Life Ring');
+icons[264] = Array('fa-life-saver', 'Life Saver');
+icons[265] = Array('fa-lightbulb-o', 'Lightbulb');
+icons[266] = Array('fa-link', 'Link');
+icons[267] = Array('fa-linkedin', 'LinkedIn');
+icons[268] = Array('fa-linkedin-square', 'LinkedIn Square');
+icons[269] = Array('fa-linux', 'Linux');
+icons[270] = Array('fa-list', 'List');
+icons[271] = Array('fa-list-alt', 'List (Alt)');
+icons[272] = Array('fa-list-ol', 'Ordered List');
+icons[273] = Array('fa-list-ul', 'Unordered List');
+icons[274] = Array('fa-location-arrow', 'Location Arrow');
+icons[275] = Array('fa-lock', 'Lock');
+icons[276] = Array('fa-long-arrow-down', 'Long Arrow Down');
+icons[277] = Array('fa-long-arrow-left', 'Long Arrow Left');
+icons[278] = Array('fa-long-arrow-right', 'Long Arrow Right');
+icons[279] = Array('fa-long-arrow-up', 'Long Arrow Up');
+icons[280] = Array('fa-magic', 'Magic');
+icons[281] = Array('fa-magnet', 'Magnet');
+icons[282] = Array('fa-mail-forward', 'Mail Forward');
+icons[283] = Array('fa-mail-reply', 'Mail Reply');
+icons[284] = Array('fa-mail-reply-all', 'Mail Reply All');
+icons[285] = Array('fa-male', 'Male');
+icons[286] = Array('fa-map-marker', 'Map Marker');
+icons[287] = Array('fa-maxcdn', 'Max CDN');
+icons[288] = Array('fa-medkit', 'Medkit');
+icons[289] = Array('fa-meh-o', 'Meh');
+icons[290] = Array('fa-microphone', 'Microphone');
+icons[291] = Array('fa-microphone-slash', 'Microphone Slash');
+icons[292] = Array('fa-minus', 'Minus');
+icons[293] = Array('fa-minus-circle', 'Minus Circle');
+icons[294] = Array('fa-minus-square', 'Minus Square');
+icons[295] = Array('fa-minus-square-o', 'Minus Square (Inverted)');
+icons[296] = Array('fa-mobile', 'Mobile');
+icons[297] = Array('fa-mobile-phone', 'Mobile Phone');
+icons[298] = Array('fa-money', 'Money');
+icons[299] = Array('fa-moon-o', 'Moon');
+icons[300] = Array('fa-mortar-board', 'Mortar Board');
+icons[301] = Array('fa-music', 'Music');
+icons[302] = Array('fa-navicon', 'Navicon');
+icons[303] = Array('fa-openid', 'Open Id');
+icons[304] = Array('fa-outdent', 'Outdent');
+icons[305] = Array('fa-pagelines', 'Pageliens');
+icons[306] = Array('fa-paperclip', 'Paperclip');
+icons[307] = Array('fa-paper-plane', 'Paper Plane');
+icons[308] = Array('fa-paper-plane-o', 'Paper Plane (Inverted)');
+icons[309] = Array('fa-paragraph', 'Paragraph');
+icons[310] = Array('fa-paste', 'Paste');
+icons[311] = Array('fa-pause', 'Pause');
+icons[312] = Array('fa-paw', 'Paw');
+icons[313] = Array('fa-pencil', 'Pencil');
+icons[314] = Array('fa-pencil-square', 'Pencil Square');
+icons[315] = Array('fa-pencil-square-o', 'Pencil Square (Inverted)');
+icons[316] = Array('fa-phone', 'Phone');
+icons[317] = Array('fa-phone-square', 'Phone Square');
+icons[318] = Array('fa-photo', 'Photo');
+icons[319] = Array('fa-picture-o', 'Picture');
+icons[320] = Array('fa-pied-piper', 'Pied Piper');
+icons[321] = Array('fa-pied-piper-alt', 'Pied Piper (Alt)');
+icons[322] = Array('fa-pied-piper-square', 'Pied Piper Square');
+icons[323] = Array('fa-pinterest', 'Pinterest');
+icons[324] = Array('fa-pinterest-square', 'Pinterest Square');
+icons[325] = Array('fa-plane', 'Plane');
+icons[326] = Array('fa-play', 'Play');
+icons[327] = Array('fa-play-circle', 'Play Circle');
+icons[328] = Array('fa-play-circle-o', 'Play Circle (Inverted)');
+icons[329] = Array('fa-plus', 'Plus');
+icons[330] = Array('fa-plus-circle', 'Plus Circle');
+icons[331] = Array('fa-plus-square', 'Plus Square');
+icons[332] = Array('fa-plus-square-o', 'Plus Square');
+icons[333] = Array('fa-power-off', 'Power Off');
+icons[334] = Array('fa-print', 'Print');
+icons[335] = Array('fa-puzzle-piece', 'Puzzle Piece');
+icons[336] = Array('fa-qq', 'QQ');
+icons[337] = Array('fa-qrcode', 'QR Code');
+icons[338] = Array('fa-question', 'Question');
+icons[339] = Array('fa-question-circle', 'Question Circle');
+icons[340] = Array('fa-quote-left', 'Quote Left');
+icons[341] = Array('fa-quote-right', 'Quote Right');
+icons[342] = Array('fa-ra', 'RA');
+icons[343] = Array('fa-random', 'Random');
+icons[344] = Array('fa-rebel', 'Rebel');
+icons[345] = Array('fa-recycle', 'Recycle');
+icons[346] = Array('fa-reddit', 'Reddit');
+icons[347] = Array('fa-reddit-square', 'Reddit Square');
+icons[348] = Array('fa-refresh', 'Refresh');
+icons[349] = Array('fa-renren', 'Renren');
+icons[350] = Array('fa-reorder', 'Reorder');
+icons[351] = Array('fa-repeat', 'Repeat');
+icons[352] = Array('fa-reply', 'Reply');
+icons[353] = Array('fa-reply-all', 'Reply All');
+icons[354] = Array('fa-retweet', 'Retweet');
+icons[355] = Array('fa-rmb', 'RMB');
+icons[356] = Array('fa-road', 'Road');
+icons[357] = Array('fa-rocket', 'Rocket');
+icons[358] = Array('fa-rotate-left', 'Rotate Left');
+icons[359] = Array('fa-rotate-right', 'Rotate Right');
+icons[360] = Array('fa-rouble', 'Rouble');
+icons[361] = Array('fa-rss', 'RSS');
+icons[362] = Array('fa-rss-square', 'RSS Square');
+icons[363] = Array('fa-rub', 'Rub');
+icons[364] = Array('fa-ruble', 'Ruble');
+icons[365] = Array('fa-rupee', 'Rupee');
+icons[366] = Array('fa-save', 'Save');
+icons[367] = Array('fa-scissors', 'Scissors');
+icons[368] = Array('fa-search', 'Search');
+icons[369] = Array('fa-search-minus', 'Search Minus');
+icons[370] = Array('fa-search-plus', 'Search Plus');
+icons[371] = Array('fa-send', 'Send');
+icons[372] = Array('fa-send-o', 'Send (Inverted)');
+icons[373] = Array('fa-share', 'Share');
+icons[374] = Array('fa-share-alt', 'Share (Alt)');
+icons[375] = Array('fa-share-alt-square', 'Share Square (Alt)');
+icons[376] = Array('fa-share-square', 'Share Square');
+icons[377] = Array('fa-share-square-o', 'Share Square (Inverted)');
+icons[378] = Array('fa-shield', 'Shield');
+icons[379] = Array('fa-shopping-cart', 'Shopping Cart');
+icons[380] = Array('fa-signal', 'Signal');
+icons[381] = Array('fa-sign-in', 'Sign In');
+icons[382] = Array('fa-sign-out', 'Sign Out');
+icons[383] = Array('fa-sitemap', 'Sitemap');
+icons[384] = Array('fa-skype', 'Skype');
+icons[385] = Array('fa-slack', 'Slack');
+icons[386] = Array('fa-sliders', 'Slider');
+icons[387] = Array('fa-smile-o', 'Smile');
+icons[388] = Array('fa-sort', 'Sort');
+icons[389] = Array('fa-sort-alpha-asc', 'Sort Alpha Ascending');
+icons[390] = Array('fa-sort-alpha-desc', 'Sort Alpha Descending');
+icons[391] = Array('fa-sort-amount-asc', 'Sort Amount Ascending');
+icons[392] = Array('fa-sort-amount-desc', 'Sort Amount Descending');
+icons[393] = Array('fa-sort-asc', 'Sort Ascending');
+icons[394] = Array('fa-sort-desc', 'Sort Descending');
+icons[395] = Array('fa-sort-down', 'Sort Down');
+icons[396] = Array('fa-sort-numeric-asc', 'Sort Numberic Ascending');
+icons[397] = Array('fa-sort-numeric-desc', 'Sort Numberic Descending');
+icons[398] = Array('fa-sort-up', 'Sort Up');
+icons[399] = Array('fa-soundcloud', 'Soundcloud');
+icons[400] = Array('fa-space-shuttle', 'Space Shuttle');
+icons[401] = Array('fa-spinner', 'Spinner');
+icons[402] = Array('fa-spoon', 'Spoon');
+icons[403] = Array('fa-spotify', 'Spotify');
+icons[404] = Array('fa-square', 'Square');
+icons[405] = Array('fa-square-o', 'Square (Inverted)');
+icons[406] = Array('fa-stack-exchange', 'Stack Exchange');
+icons[407] = Array('fa-stack-overflow', 'Stack Overflow');
+icons[408] = Array('fa-star', 'Star');
+icons[409] = Array('fa-star-half', 'Star Half');
+icons[410] = Array('fa-star-half-empty', 'Star Half Empty');
+icons[411] = Array('fa-star-half-full', 'Star Half Full');
+icons[412] = Array('fa-star-half-o', 'Star Half (Inverted)');
+icons[413] = Array('fa-star-o', 'Star (Inverted)');
+icons[414] = Array('fa-steam', 'Steam');
+icons[415] = Array('fa-steam-square', 'Steam Square');
+icons[416] = Array('fa-step-backward', 'Step Backward');
+icons[417] = Array('fa-step-forward', 'Step Forward');
+icons[418] = Array('fa-stethoscope', 'Stethoscope');
+icons[419] = Array('fa-stop', 'Stop');
+icons[420] = Array('fa-strikethrough', 'Strikethrough');
+icons[421] = Array('fa-stumbleupon', 'Stumbleupon');
+icons[422] = Array('fa-stumbleupon-circle', 'Stumbleupon Circle');
+icons[423] = Array('fa-subscript', 'Subscript');
+icons[424] = Array('fa-suitcase', 'Suitcase');
+icons[425] = Array('fa-sun-o', 'Sun');
+icons[426] = Array('fa-superscript', 'Superscript');
+icons[427] = Array('fa-support', 'Support');
+icons[428] = Array('fa-table', 'table');
+icons[429] = Array('fa-tablet', 'Tablet');
+icons[430] = Array('fa-tachometer', 'Tachometer');
+icons[431] = Array('fa-tag', 'Tag');
+icons[432] = Array('fa-tags', 'Tags');
+icons[433] = Array('fa-tasks', 'Tasks');
+icons[434] = Array('fa-taxi', 'Taxi');
+icons[435] = Array('fa-tencent-weibo', 'Tencent Weibo');
+icons[436] = Array('fa-terminal', 'Terminal');
+icons[437] = Array('fa-text-height', 'Text Height');
+icons[438] = Array('fa-text-width', 'Text Width');
+icons[439] = Array('fa-th', 'TH');
+icons[440] = Array('fa-th-large', 'TH Large');
+icons[441] = Array('fa-th-list', 'TH List');
+icons[442] = Array('fa-thumbs-down', 'Thumbs Down');
+icons[443] = Array('fa-thumbs-o-down', 'Thumbs Down (Inverted)');
+icons[444] = Array('fa-thumbs-o-up', 'Thumbs Up (Inverted)');
+icons[445] = Array('fa-thumbs-up', 'Thumbs Up');
+icons[446] = Array('fa-thumb-tack', 'Thumb Tack');
+icons[447] = Array('fa-ticket', 'Ticket');
+icons[448] = Array('fa-times', 'Times');
+icons[449] = Array('fa-times-circle', 'Times Circle');
+icons[450] = Array('fa-times-circle-o', 'Times Circle (Inverted)');
+icons[451] = Array('fa-tint', 'Tint');
+icons[452] = Array('fa-toggle-down', 'Toggle Down');
+icons[453] = Array('fa-toggle-left', 'Toggle Left');
+icons[454] = Array('fa-toggle-right', 'Toggle Right');
+icons[455] = Array('fa-toggle-up', 'Toggle Up');
+icons[456] = Array('fa-trash-o', 'Trash');
+icons[457] = Array('fa-tree', 'Tree');
+icons[458] = Array('fa-trello', 'Trello');
+icons[459] = Array('fa-trophy', 'Trophy');
+icons[460] = Array('fa-truck', 'Truck');
+icons[461] = Array('fa-try', 'Try');
+icons[462] = Array('fa-tumblr', 'Tumblr');
+icons[463] = Array('fa-tumblr-square', 'Tumblr Square');
+icons[464] = Array('fa-turkish-lira', 'Turkish Lira');
+icons[465] = Array('fa-twitter', 'Twitter');
+icons[466] = Array('fa-twitter-square', 'Twitter Square');
+icons[467] = Array('fa-umbrella', 'Umbrella');
+icons[468] = Array('fa-underline', 'Underline');
+icons[469] = Array('fa-undo', 'Undo');
+icons[470] = Array('fa-university', 'University');
+icons[471] = Array('fa-unlink', 'Unlink');
+icons[472] = Array('fa-unlock', 'Unlock');
+icons[473] = Array('fa-unlock-alt', 'Unlock (Alt)');
+icons[474] = Array('fa-unsorted', 'Unsorted');
+icons[475] = Array('fa-upload', 'Upload');
+icons[476] = Array('fa-usd', 'USD');
+icons[477] = Array('fa-user', 'User');
+icons[478] = Array('fa-user-md', 'User MD');
+icons[479] = Array('fa-users', 'Users');
+icons[480] = Array('fa-video-camera', 'Video Camera');
+icons[481] = Array('fa-vimeo-square', 'Vimeo Square');
+icons[482] = Array('fa-vine', 'Vine');
+icons[483] = Array('fa-vk', 'VK');
+icons[484] = Array('fa-volume-down', 'Volume Down');
+icons[485] = Array('fa-volume-off', 'Volume Off');
+icons[486] = Array('fa-volume-up', 'Volume Up');
+icons[487] = Array('fa-warning', 'Warning');
+icons[488] = Array('fa-wechat', 'Wechat');
+icons[489] = Array('fa-weibo', 'Weibo');
+icons[490] = Array('fa-weixin', 'Weixin');
+icons[491] = Array('fa-wheelchair', 'Wheelchair');
+icons[492] = Array('fa-windows', 'Windows');
+icons[493] = Array('fa-won', 'Won');
+icons[494] = Array('fa-wordpress', 'Wordpress');
+icons[495] = Array('fa-wrench', 'Wrench');
+icons[496] = Array('fa-xing', 'Xing');
+icons[497] = Array('fa-xing-square', 'Xing Square');
+icons[498] = Array('fa-yahoo', 'Yahoo');
+icons[499] = Array('fa-yen', 'Yen');
+icons[500] = Array('fa-youtube', 'Youtube');
+icons[501] = Array('fa-youtube-play', 'Youtube Play');
+icons[502] = Array('fa-youtube-square', 'Youtube Square');
+icons[503] = Array('fa-bed', 'Bed');
+icons[504] = Array('fa-buysellads', 'Buy / Sell Ads');
+icons[505] = Array('fa-cart-arrow-down', 'Cart Arrow Down');
+icons[506] = Array('fa-cart-plus', 'Cart Plus');
+icons[507] = Array('fa-connect-develop', 'Connect Develop');
+icons[508] = Array('fa-dashcube', 'Dash Cube');
+icons[509] = Array('fa-diamond', 'Diamond');
+icons[510] = Array('fa-facebook-official', 'Facebook Official');
+icons[511] = Array('fa-forumbee', 'Forum Bee');
+icons[512] = Array('fa-heartbeat', 'Heartbeat');
+icons[513] = Array('fa-hotel', 'Hotel');
+icons[514] = Array('fa-leanpub', 'Lean Pub');
+icons[515] = Array('fa-mars', 'Mars');
+icons[516] = Array('fa-mars-double', 'Mars Double');
+icons[517] = Array('fa-mars-stroke', 'Mars Stroke');
+icons[518] = Array('fa-mars-stroke-h', 'Mars Stroke Horizontal');
+icons[519] = Array('fa-mars-stroke-v', 'Mars Stroke Vertical');
+icons[520] = Array('fa-medium', 'Medium');
+icons[521] = Array('fa-mercury', 'Mercury');
+icons[522] = Array('fa-motorcycle', 'Motorcycle');
+icons[523] = Array('fa-neuter', 'Neuter');
+icons[524] = Array('fa-pinterest-p', 'Pinterest');
+icons[525] = Array('fa-sellsy', 'Sellsy');
+icons[526] = Array('fa-server', 'Server');
+icons[527] = Array('fa-ship', 'Ship');
+icons[528] = Array('fa-shirtsinbulk', 'Shirts in Bulk');
+icons[529] = Array('fa-simplybuilt', 'Simply Built');
+icons[530] = Array('fa-skyatlas', 'Sky Atlas');
+icons[531] = Array('fa-street-view', 'Street View');
+icons[532] = Array('fa-subway', 'Subway');
+icons[533] = Array('fa-train', 'Train');
+icons[534] = Array('fa-transgender', 'Transgender');
+icons[535] = Array('fa-transgender-alt', 'Transgender Alt');
+icons[536] = Array('fa-user-plus', 'User Plus');
+icons[537] = Array('fa-user-secret', 'User Secret');
+icons[538] = Array('fa-user-times', 'User Times');
+icons[539] = Array('fa-venus', 'Venus');
+icons[540] = Array('fa-venus-double', 'Venus Double');
+icons[541] = Array('fa-venus-mars', 'Venus Mars');
+icons[542] = Array('fa-viacoin', 'Via Coin');
+icons[543] = Array('fa-whatsapp', 'Whatsapp');
+icons.sort();
+var fontawesomeIcons = '';
+for(var i = 0; i < icons.length; i ++){
+	var newTitle = '';
+	var ctr = 0;
+	var title = icons[i][1];
+	title = title.split(' ');
+	for(var x = 0; x < title.length; x ++){
+		ctr++;
+		newTitle += ctr == 3 ? '<br />' : '';
+		newTitle += title[x] + ' ';
+		ctr = ctr == 3 ? 0 : ctr;
+	}
+	fontawesomeIcons += '<a href="#" onclick="klik(this);return false;" title="fa ' + icons[i][0] + '"><span class="fa ' + icons[i][0] + '"></span><div>' + newTitle + '</div></a>';
+};
+
+function klik(el){
+	document.getElementsByClassName('fontawesomeClass')[0].getElementsByTagName('input')[0].value = el.getAttribute('title');
+	a = document.getElementById('fontawesome');
+	a = a.getElementsByTagName('a');
+	for(i = 0; i < a.length; i ++){
+		a[i].className = '';
+	}
+	el.className += 'active';
+};
+
+function searchIcon(val){
+	var aydi = document.getElementById('fontawesome');
+	var klases = aydi.getElementsByTagName('a');
+	for(var i = 0, len = klases.length, klas, klasNeym; i < len; i ++){
+		klas = klases[i];
+		klasNeym = klas.getAttribute('title');
+		if(klasNeym && klasNeym.indexOf(val) >= 0){
+			klas.style.display = 'block';
+		}else{
+			klas.style.display = 'none';
+		}
+	}
+};
+
+function setSpanColor(color){
+	el = document.getElementById('fontawesome');
+	el = el.getElementsByTagName('span');
+	for(i = 0; i < el.length; i ++){
+		el[i].setAttribute('style', 'color:' + color);
+	}
+};
+
+function setCheckboxes(){
+	klases = '';
+	klases += document.getElementsByClassName('spinning')[0].getElementsByTagName('input')[0].checked ? ' fa-spin' : klases;
+	klases += document.getElementsByClassName('fixedWidth')[0].getElementsByTagName('input')[0].checked ? ' fa-fw' : klases;
+	klases += document.getElementsByClassName('bordered')[0].getElementsByTagName('input')[0].checked ? ' fa-border' : klases;
+	klases += ' ' + document.getElementsByClassName('flippedRotation')[0].getElementsByTagName('select')[0].value;
+	el = document.getElementById('fontawesome');
+	el = el.getElementsByTagName('span');
+	for(i = 0; i < el.length; i ++){
+		el[i].className = el[i].parentNode.getAttribute('title') + klases;
+	}
+};
+
+function in_array(needle, haystack){
+    for(var i in haystack){
+        if(haystack[i] == needle) return true;
+    }
+    return false;
+};
+
+CKEDITOR.dialog.add('fontawesomeDialog', function(editor){
+    return {
+        title		: 'Insert Font Awesome',
+        minWidth	: 600,
+        minHeight	: 400,
+		resizable	: false,
+        contents	: [
+            {
+               	id		: 'insertFontawesome',
+                label	: 'insertFontawesome',
+                elements: [
+					{
+						type	: 'hbox',
+						widths	: ['50%', '50%'],
+						children: [
+							{
+								type	: 'hbox',
+								widths	: ['75%', '25%'],
+								children: [
+									{
+										type		: 'text',
+										id			: 'colorChooser',
+										className	: 'colorChooser',
+										label		: 'Color',
+										onKeyUp		: function(e){
+											setSpanColor(e.sender.$.value);
+										},
+										setup		: function(widget){
+											color = widget.data.color != '' ? widget.data.color : '#000000';
+											this.setValue(color);
+											setSpanColor(color);
+										},
+										commit		: function(widget){
+											widget.setData('color', this.getValue());
+										}
+									},
+									{
+										type		: 'button',
+										label		: 'Select',
+										style		: 'margin-top:1.35em',
+										onClick		: function(){
+											editor.getColorFromDialog(function(color){
+												document.getElementsByClassName('colorChooser')[0].getElementsByTagName('input')[0].value = color;
+												setSpanColor(color);
+											}, this);
+										}
+									}
+								]
+							},
+							{
+								type		: 'text',
+								id			: 'size',
+								className	: 'size',
+								label		: 'Size',
+								setup		: function(widget){
+									this.setValue(widget.data.size);
+								},
+								commit		: function(widget){
+									widget.setData('size', this.getValue());
+								}
+							}
+						]
+					},
+					{
+						type	: 'hbox',
+						widths	: ['25%', '25%', '25%', '25%'],
+						children: [
+							{
+								type		: 'checkbox',
+								id			: 'spinning',
+								className	: 'spinning cke_dialog_ui_checkbox_input',
+								label		: 'Spinning',
+								value		: 'true',
+								setup		: function(widget){
+									var klases = widget.data.class;
+									klases = klases.split(' ');
+									document.getElementsByClassName('spinning')[0].getElementsByTagName('input')[0].checked = in_array('fa-spin', klases) ? true : false;
+									setCheckboxes();
+								},
+								onClick		: function(){
+									setCheckboxes();
+								}
+							},
+							{
+								type		: 'checkbox',
+								id			: 'fixedWidth',
+								className	: 'fixedWidth cke_dialog_ui_checkbox_input',
+								label		: 'Fixed Width',
+								value		: 'true',
+								setup		: function(widget){
+									var klases = widget.data.class;
+									klases = klases.split(' ');
+									document.getElementsByClassName('fixedWidth')[0].getElementsByTagName('input')[0].checked = in_array('fa-fw', klases) ? true : false;
+									setCheckboxes();
+								},
+								onClick		: function(){
+									setCheckboxes();
+								}
+							},
+							{
+								type		: 'checkbox',
+								id			: 'bordered',
+								className	: 'bordered cke_dialog_ui_checkbox_input',
+								label		: 'Bordered',
+								value		: 'true',
+								setup		: function(widget){
+									var klases = widget.data.class;
+									klases = klases.split(' ');
+									document.getElementsByClassName('bordered')[0].getElementsByTagName('input')[0].checked = in_array('fa-border', klases) ? true : false;
+									setCheckboxes();
+								},
+								onClick		: function(){
+									setCheckboxes();
+								}
+							},
+							{
+								type		: 'select',
+								id			: 'flippedRotation',
+								className	: 'flippedRotation cke_dialog_ui_checkbox_input',
+								label		: 'Flipping and Rotating',
+								items		: [['Normal', ''], ['Rotate 90', 'fa-rotate-90'], ['Rotate 180', 'fa-rotate-180'], ['Rotate 270', 'fa-rotate-270'], ['Flip Horizontal', 'fa-flip-horizontal'], ['Flip Vertical', 'fa-flip-vertical']],
+								setup		: function(widget){
+									this.setValue(widget.data.flippedRotation ? widget.data.flippedRotation : '');
+								},
+								commit		: function(widget){
+									widget.setData('flippedRotation', this.getValue());
+								},
+								onClick		: function(){
+									setCheckboxes();
+								}
+							}
+						]
+					},
+					{
+						type		: 'text',
+						id			: 'fontawesomeSearch',
+						className	: 'fontawesomeSearch cke_dialog_ui_input_text',
+						label		: 'Search',
+						onKeyUp		: function(e){
+							searchIcon(e.sender.$.value);
+						}
+					},
+					{
+						type		: 'text',
+						id			: 'fontawesomeClass',
+						className	: 'fontawesomeClass',
+						style		: 'display:none',
+						setup		: function(widget){
+							var klases = '';
+							if(widget.data.class != ''){
+								klases = widget.data.class;
+								klases = klases.split(' ');
+								in_array('fa-border', klases) ? klases.splice(klases.indexOf('fa-border'), 1) : '';
+								in_array('fa-fw', klases) ? klases.splice(klases.indexOf('fa-fw'), 1) : '';
+								in_array('fa-spin', klases) ? klases.splice(klases.indexOf('fa-spin'), 1) : '';
+								in_array('fa-rotate-90', klases) ? klases.splice(klases.indexOf('fa-rotate-90'), 1) : '';
+								in_array('fa-rotate-180', klases) ? klases.splice(klases.indexOf('fa-rotate-180'), 1) : '';
+								in_array('fa-rotate-270', klases) ? klases.splice(klases.indexOf('fa-rotate-270'), 1) : '';
+								in_array('fa-flip-horizontal', klases) ? klases.splice(klases.indexOf('fa-flip-horizontal'), 1) : '';
+								in_array('fa-flip-vertical', klases) ? klases.splice(klases.indexOf('fa-flip-vertical'), 1) : '';
+								klases = klases.join(' ');
+							}
+							this.setValue(klases);
+						},
+						commit		: function(widget){
+							var klases = '';
+							klases += document.getElementsByClassName('spinning')[0].getElementsByTagName('input')[0].checked ? ' fa-spin' : klases;
+							klases += document.getElementsByClassName('fixedWidth')[0].getElementsByTagName('input')[0].checked ? ' fa-fw' : klases;
+							klases += document.getElementsByClassName('bordered')[0].getElementsByTagName('input')[0].checked ? ' fa-border' : klases;
+							klases += ' ' + document.getElementsByClassName('flippedRotation')[0].getElementsByTagName('select')[0].value;
+							widget.setData('class', this.getValue() + klases);
+						}
+					},
+					{
+						type	: 'html',
+						html	: '<div id="fontawesome">' + fontawesomeIcons + '</div>'
+					}
+				]
+            }
+        ],
+		onOk	: function(){
+			glyphs = document.getElementById('fontawesome');
+			glyphs = glyphs.getElementsByTagName('a');
+			for(i = 0; i < glyphs.length; i ++){
+				glyphs[i].firstChild.className = glyphs[i].getAttribute('title');
+				glyphs[i].className = '';
+				glyphs[i].style.display = '';
+				glyphs[i].getElementsByTagName('span')[0].style.color = '';
+			}
+		}
+    };
+});
