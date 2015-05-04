@@ -1,0 +1,86 @@
+{% load sekizai_tags thumbnail %}
+{% spaceless %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+
+.carousel {
+  margin: auto;
+  max-width: {{ instance.width }}px;
+  max-height: {{ instance.height }}px;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.carousel-caption h4,
+.carousel-caption p {
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.carousel-caption h4 {
+  margin: 0 0 5px;
+}
+
+.carousel-caption p {
+  margin-bottom: 0;
+}
+</style>
+{% endaddtoblock %}
+
+
+<div id="{{ instance.domid }}" class="carousel slide" data-ride="carousel">
+  {% if instance.show_indicator %}
+  <ol class="carousel-indicators">
+    {% for item in instance.carouselitem_set.all %}
+    <li data-target="#{{ instance.domid }}" data-slide-to="{{ forloop.counter0 }}"
+      {% if forloop.first %}class="active">{% endif %}</li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+
+  <div class="carousel-inner">
+    {% for item in instance.carouselitem_set.all %}
+    <div class="{% if forloop.first %}active {% endif %}item">
+      {% if item.url %}
+        <a href="{{ item.url }}">
+      {% endif %}
+      {% if item.image %}
+        <img alt="" src="{% thumbnail item.image instance.size upscale %}">
+      {% endif %}
+      {% if item.url %}
+        </a>
+      {% endif %}
+      {% if instance.show_caption or instance.show_title %}
+        <div class="carousel-caption">
+        {% if instance.show_title %}
+          <h4>{{ item.caption_title }}</h4>
+        {% endif %}
+        {% if instance.show_caption %}
+          <p>{{ item.caption_content }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if instance.show_controls %}
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#{{ instance.domid }}" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="carousel-control right" href="#{{ instance.domid }}" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span></a>
+  {% endif %}
+</div>
+
+{% endspaceless %}

@@ -57,6 +57,7 @@ INSTALLED_APPS += (
 
     #'cmsplugin_embeddedmenu',
     'cmsplugin_tabs',
+    'cmsplugin_bootstrap_carousel',
 
     'djangocms_inherit',
     'djangocms_style',
