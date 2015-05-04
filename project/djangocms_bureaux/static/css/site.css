@@ -3264,6 +3264,7 @@ margin-left: -92px;
 #EnteteSecondaire .carousel-caption {
 background: rgba(244, 18, 18, 0.71);
 padding: 0px;
+bottom: 0px;
 right: 0%;
 left: 0%;
 }
