@@ -2,7 +2,7 @@
 import re
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cmsplugin_bootstrap_carousel.models import *
+from .models import *
 from django.utils.translation import ugettext as _
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
