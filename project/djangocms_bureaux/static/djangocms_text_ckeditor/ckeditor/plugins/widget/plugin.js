@@ -2505,10 +2505,6 @@
 							editables: {}
 						} );
 
-						// If widget did not have data-cke-widget attribute before upcasting remove it.
-						if ( widgetElement.attributes[ 'data-cke-widget-keep-attr' ] != '1' )
-							delete widgetElement.attributes[ 'data-widget' ];
-					}
 				}
 				// Nested editable.
 				else if ( 'data-cke-widget-editable' in attrs ) {
