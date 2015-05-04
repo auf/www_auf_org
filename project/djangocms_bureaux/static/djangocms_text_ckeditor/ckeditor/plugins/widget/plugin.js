@@ -2504,7 +2504,7 @@
 							widget: widget,
 							editables: {}
 						} );
-
+					}
 				}
 				// Nested editable.
 				else if ( 'data-cke-widget-editable' in attrs ) {
