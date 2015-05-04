@@ -137,8 +137,17 @@ CMS_TEMPLATES = (
     ('accueil.html', gettext('Accueil')),
 )
 
-FILER_ENABLE_PERMISSIONS = True
-FILER_FILE_MODELS = (
-    "project.djangocms_bureaux.models.AufFile",
-    'filer.models.imagemodels.Image',
-)
+#FILER_ENABLE_PERMISSIONS = False
+#FILER_FILE_MODELS = (
+#    "project.djangocms_bureaux.models.AufFile",
+#    'filer.models.imagemodels.Image',
+#)
+
+CKEDITOR_SETTINGS = {
+    'language': '{{ language }}',
+    'toolbar': 'CMS',
+    'skin': 'moono',
+    'toolbarCanCollapse': False,
+    'extraPlugins': 'fontawesome',
+    'allowedContent': True,
+}
