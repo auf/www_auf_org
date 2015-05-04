@@ -47,7 +47,7 @@
   </ol>
   {% endif %}
 
-  <div class="carousel-inner">
+  <div class="carousel-inner" role="listbox">
     {% for item in instance.carouselitem_set.all %}
     <div class="{% if forloop.first %}active {% endif %}item">
       {% if item.url %}
@@ -76,10 +76,13 @@
   {% if instance.show_controls %}
   <!-- Carousel nav -->
   <a class="carousel-control left" href="#{{ instance.domid }}" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+	                <i class="fa fa-chevron-circle-left"></i>
+	                <span class="sr-only">Précédent</span>
   </a>
   <a class="carousel-control right" href="#{{ instance.domid }}" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span></a>
+	                <i class="fa fa-chevron-circle-right"></i>
+	                <span class="sr-only">Suivant</span>
+  </a>
   {% endif %}
 </div>
 
