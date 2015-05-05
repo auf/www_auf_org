@@ -64,7 +64,7 @@
             </div>
           </li>
           <li class="MenuEmploi">
-            {% static_placeholder 'menu_contact' bureau.0 %}
+            {% static_placeholder bureau.0|add:"menu_contact" %}
           </li>
           <li class="MenuPresse">
             <a href="#"></a>
@@ -100,7 +100,7 @@
           <li class="MenuRSS">
             <div class="ReseauxSociaux pull-right">
 {% if bureau.0 %}
-          {% static_placeholder 'reseaux_sociaux' bureau.0 %}
+          {% static_placeholder bureau.0|add:"reseaux_sociaux" %}
 {% else %}
               <a href="/rss/">
                 <i class="fa fa-rss fa-2x {{ bureau.0 }}"></i>
@@ -194,7 +194,7 @@
       <div class="col-md-12">
         <footer id="PiedPage">
           <img width="170" height="121" src="/static/img/Logo_Auf_FR.png" alt="">
-          {% static_placeholder bureau.0 %}
+          {% static_placeholder bureau.0|add:"footer" %}
         </footer>
       </div>
     </div>
