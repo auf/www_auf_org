@@ -99,6 +99,9 @@
 {% endblock %}
           <li class="MenuRSS">
             <div class="ReseauxSociaux pull-right">
+{% if bureau.0 %}
+          {% placeholder reseaux_sociaux %}
+{% else %}
               <a href="/rss/">
                 <i class="fa fa-rss fa-2x {{ bureau.0 }}"></i>
               </a>
@@ -123,6 +126,7 @@
                 <line fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-miterlimit="10" x1="8.1" y1="15" x2="7.4" y2="19.2"></line>
               </g>
               </svg></i></a>
+{% endif %}
             </div>
           </li>
 
