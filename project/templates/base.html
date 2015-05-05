@@ -49,6 +49,27 @@
         <img class="hidden-sm hidden-xs" align="right" src="{% static "img/logo-droite.png" %}" />
         <ul id="NavFixe">
 {% block menu_haut %}
+{% if bureau.0 %}
+          <li class="MenuLangue">
+            <a href="/"><i class="fa fa-home"></i> Retour au site principal</a>
+          </li>
+          <li class="MenuContact">
+            <div class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Régions<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="/">International</a></li>
+                {% show_menu_below_id "bureaux" 0 0 %}
+            </ul>
+            </div>
+          </li>
+          <li class="MenuEmploi">
+            {% placeholder menu_contact %}
+          </li>
+          <li class="MenuPresse">
+            <a href="#"></a>
+          </li>
+{% else %}
           <li class="MenuLangue">
             <div class="dropdown">
              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -74,6 +95,7 @@
           </li>
           <li class="MenuEmploi"><a href="/auf/contact/">Contact</a></li>
           <li class="MenuPresse"><a href="/offres_emploi/">Offres d'emploi</a></li>
+{% endif %}
 {% endblock %}
           <li class="MenuRSS">
             <div class="ReseauxSociaux pull-right">
@@ -168,15 +190,7 @@
       <div class="col-md-12">
         <footer id="PiedPage">
           <img width="170" height="121" src="/static/img/Logo_Auf_FR.png" alt="">
-          <p>
-          <span>© AUF 2015 Tous droits réservés</span>
-          |
-          <a href="/autres-pages/mentions-legales/">Mentions légales</a>
-          |
-          <a href="/auf/contact/">Contact</a>
-          |
-          <a href="/plan-du-site/">Plan du site</a>
-          </p>
+          {% placeholder pied_de_page%}
         </footer>
       </div>
     </div>

@@ -1,33 +1,6 @@
 {% extends 'base.html' %}
 {% load static i18n cms_tags menu_tags sekizai_tags %}
 
-{% block menu_haut %}
-{% if request.current_page.reverse_id == "accueil" %}
-    {{ block.super }}
-{% else %}
-          <li class="MenuLangue">
-            <a href="/"><i class="fa fa-home"></i> Retour au site principal</a>
-          </li>
-          <li class="MenuContact">
-            <div class="dropdown">
-             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            Régions<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><a href="/">International</a></li>
-                {% show_menu_below_id "bureaux" 0 0 %}
-            </ul>
-            </div>
-          </li>
-          <li class="MenuEmploi">
-            <a href="#"></a>
-          </li>
-          <li class="MenuPresse">
-            <a href="#"></a>
-          </li>
-{% endif %}
-{% endblock %}
-
-
 {% block menu %}
     {% if request.current_page.reverse_id == "accueil"%}
             {% show_menu 0 2 2 2 "bootstrap/menu/navbar.html" %}
