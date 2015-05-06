@@ -1,8 +1,6 @@
 {% load i18n cms_tags %}
 
 {% for object in object_list %}
-<h3>{{ object.fonction }}</h3>
-
 <p>
 <strong>Responsable:</strong> {{ object.nom.upper }} {{ object.prenom }}, {{ object.service.nom }}
 </p>
