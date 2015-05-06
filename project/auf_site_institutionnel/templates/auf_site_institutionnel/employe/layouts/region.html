@@ -1,10 +1,10 @@
 {% load i18n cms_tags %}
 
 {% for object in object_list %}
-<h3>{{ object.fonction }} - {{ object.implantation.region.nom }}</h3>
+<h3>{{ object.implantation.region.nom }}</h3>
 
 <p>
-<strong>Responsable:</strong> {{ object.nom.upper }} {{ object.prenom }}
+<strong>Responsable:</strong> {{ object.nom.upper }} {{ object.prenom }}, {{ object.fonction }}
 </p>
 
 <a href="/employes/?region={{ object.implantation.region.id }}">Tous les employés de la région</a>
