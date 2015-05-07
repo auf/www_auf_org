@@ -31,24 +31,6 @@ class CMSMembrePlugin(CMSPluginBase):
 plugin_pool.register_plugin(CMSMembrePlugin)
 
 
-class CMSImplantationPlugin(CMSPluginBase):
-    name = _("Implantation")
-    render_template = "auf_site_institutionnel/implantationPlugin.html"
-
-    def render(self, context, instance, placeholder):
-        dictFilter = {}
-        #dictFilter['implantation'] = True
-        #if request.method == 'GET':
-        item_list = ImplantationFilter(context['request'].GET or None, queryset = Implantation.ouvertes.filter(**dictFilter))
-
-        context.update({'implantation_list':item_list,
-                        'form':item_list.form,
-                        'placeholder':placeholder})
-        return context
-
-plugin_pool.register_plugin(CMSImplantationPlugin)
-
-
 class CMSPartenairePlugin(CMSPluginBase):
     name = _("Partenaire")
     render_template = "auf_site_institutionnel/partenairePlugin.html"
