@@ -258,7 +258,7 @@ class EmployePlugin(CMSPlugin):
     service = models.ForeignKey(Service, related_name="employe_plugin_service", null=True, blank=True)
     # FIXME
     fonction = models.CharField(max_length=255, null=True, blank=True,
-                                choices=(
+                                choices=set(
                                     ((e.fonction, e.fonction) for e in Employe.objects.filter(actif=True))
                                 )
                )
