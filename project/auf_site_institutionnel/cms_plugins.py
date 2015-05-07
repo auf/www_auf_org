@@ -13,6 +13,7 @@ from project.auf_site_institutionnel.models import Partenaire
 #from newsletter.models import *
 from .models import EmployePlugin, ImplantationPlugin
 
+
 class CMSMembrePlugin(CMSPluginBase):
     name = _("Membre")
     render_template = "auf_site_institutionnel/membrePlugin.html"
@@ -28,7 +29,7 @@ class CMSMembrePlugin(CMSPluginBase):
                         'placeholder':placeholder})
         return context
 
-plugin_pool.register_plugin(CMSMembrePlugin)
+#plugin_pool.register_plugin(CMSMembrePlugin)
 
 
 class CMSImplantationPlugin(CMSPluginBase):
@@ -46,7 +47,7 @@ class CMSImplantationPlugin(CMSPluginBase):
                         'placeholder':placeholder})
         return context
 
-plugin_pool.register_plugin(CMSImplantationPlugin)
+#plugin_pool.register_plugin(CMSImplantationPlugin)
 
 
 class CMSPartenairePlugin(CMSPluginBase):
@@ -61,7 +62,7 @@ class CMSPartenairePlugin(CMSPluginBase):
                         'placeholder':placeholder})
         return context
 
-plugin_pool.register_plugin(CMSPartenairePlugin)
+#plugin_pool.register_plugin(CMSPartenairePlugin)
 
 
 class CMSEmployePlugin(CMSPluginBase):
@@ -83,7 +84,7 @@ class CMSEmployePlugin(CMSPluginBase):
         ctx['layout_template'] = instance.layout_template
         return ctx
 
-plugin_pool.register_plugin(CMSEmployePlugin)
+#plugin_pool.register_plugin(CMSEmployePlugin)
 
 
 class CMSImplantationPlugin(CMSPluginBase):
@@ -100,7 +101,7 @@ class CMSImplantationPlugin(CMSPluginBase):
         ctx['object_list'] = qs
         return ctx
 
-plugin_pool.register_plugin(CMSImplantationPlugin)
+#plugin_pool.register_plugin(CMSImplantationPlugin)
 
 #class CMSLettrePlugin(CMSPluginBase):
 #    name = _("Lettre")
