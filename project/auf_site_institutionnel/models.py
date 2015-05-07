@@ -274,4 +274,4 @@ class EmployePlugin(CMSPlugin):
 
 
 class ImplantationPlugin(CMSPlugin):
-    region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
+    region = models.ForeignKey(Region, related_name="implantation_plugin_region", null=True, blank=True)
