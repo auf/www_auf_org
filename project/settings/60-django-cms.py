@@ -161,7 +161,8 @@ CKEDITOR_SETTINGS = {
         ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
         ['HorizontalRule'],
-        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table', 'FontAwesome'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'],
+        ['FontAwesome'],
         ['Source']
     ],
     'toolbar_HTMLField': [
@@ -181,5 +182,5 @@ CKEDITOR_SETTINGS = {
 
     'allowedContent': True,
     'toolbarCanCollapse': False,
-    'extraPlugins': 'cmsplugins',
+    'extraPlugins': 'cmsplugins,fontawesome',
 }
