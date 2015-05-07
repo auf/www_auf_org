@@ -1,0 +1,46 @@
+{% load i18n cms_tags bootstrap3 %}
+
+{% addtoblock "js" %}
+<script>
+$("#myModal").on("show.bs.modal", function(e) {
+    var link = $(e.relatedTarget);
+    $(this).find(".modal-body").load(link.attr("href"));
+});
+</script>
+{% endaddtoblock %}
+
+<h1>Implantations</h1>
+
+<div id="tabemploye">
+    <table>
+        <tr style="background:#E6B804 !important; font-weight: bold;">
+            <td width="24%" style="color: #fff !important;">Nom</td>
+            <td width="4%" style="color: #fff !important;"></td>
+            <td width="18%" style="color: #fff !important;">Ville</td>
+            <td width="22%" style="color: #fff !important;">Pays</td>
+            <td width="22%" style="color: #fff !important;">Région</td>
+            <td width="8%" style="color: #fff !important; text-align: center">Site Web</td>
+        </tr>
+    {% for item in object_list %}
+        <tr>
+            <td>{{ item.nom}}</td>
+            <td><a href="/implantations/{{item.id}}/?height=602&width=604" data-toggle="modal" data-target="#myModal""><img src="{{ STATIC_URL }}img/fichepico.gif" title="Fiche descriptive"/></a></td>
+            <td>{% if item.adresse_physique_ville %}{{ item.adresse_physique_ville }}{% endif %}</td>
+            <td>{% if item.adresse_physique_pays %}{{ item.adresse_physique_pays }}{% endif %}</td>
+            <td>{{ item.region }}</td>
+            <td align="center" valign="middle">{% if item.url %}<a href="{{ item.url }}" target="_blank"><img src="{{ STATIC_URL }}img/contact_letttre.gif" /></a>{% endif %}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>

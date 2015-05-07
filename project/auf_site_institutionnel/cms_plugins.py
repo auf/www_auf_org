@@ -11,7 +11,7 @@ from project.auf_site_institutionnel.models import Partenaire
 
 
 #from newsletter.models import *
-from .models import EmployePlugin
+from .models import EmployePlugin, ImplantationPlugin
 
 class CMSMembrePlugin(CMSPluginBase):
     name = _("Membre")
@@ -85,6 +85,22 @@ class CMSEmployePlugin(CMSPluginBase):
 
 plugin_pool.register_plugin(CMSEmployePlugin)
 
+
+class CMSImplantationPlugin(CMSPluginBase):
+    name = _("Implantation")
+    model = ImplantationPlugin
+    render_template = "auf_site_institutionnel/_implantation.html"
+
+    def render(self, context, instance, placeholder):
+        ctx = super(CMSImplantationPlugin, self).render(context, instance, placeholder)
+        qs = Implantation.objects.filter(actif=True)
+        if instance.region:
+            qs = qs.filter(implantation__region=instance.region)
+
+        ctx['object_list'] = qs
+        return ctx
+
+plugin_pool.register_plugin(CMSImplantationPlugin)
 
 #class CMSLettrePlugin(CMSPluginBase):
 #    name = _("Lettre")

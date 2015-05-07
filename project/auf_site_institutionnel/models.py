@@ -256,6 +256,7 @@ class Partenaire(models.Model):
 
 class EmployePlugin(CMSPlugin):
     service = models.ForeignKey(Service, related_name="employe_plugin_service", null=True, blank=True)
+    # FIXME
     fonction = models.CharField(max_length=255, null=True, blank=True,
                                 choices=(
                                     ((e.fonction, e.fonction) for e in Employe.objects.filter(actif=True))
@@ -271,3 +272,6 @@ class EmployePlugin(CMSPlugin):
             max_length=256,
             help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
+
+class ImplantationPlugin(CMSPlugin):
+    region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
