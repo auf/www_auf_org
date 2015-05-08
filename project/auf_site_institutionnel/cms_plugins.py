@@ -61,7 +61,7 @@ class CMSEmployePlugin(CMSPluginBase):
         if instance.region:
             qs = qs.filter(implantation__region=instance.region)
 
-        ctx['object_list'] = qs.distinct()
+        ctx['object_list'] = qs
         ctx['layout_template'] = instance.layout_template
         return ctx
 
@@ -77,9 +77,9 @@ class CMSImplantationPlugin(CMSPluginBase):
         ctx = super(CMSImplantationPlugin, self).render(context, instance, placeholder)
         qs = Implantation.objects.filter(actif=True)
         if instance.region:
-            qs = qs.filter(implantation__region=instance.region)
+            qs = qs.filter(region=instance.region)
 
-        ctx['object_list'] = qs.distinct()
+        ctx['object_list'] = qs
         return ctx
 
 plugin_pool.register_plugin(CMSImplantationPlugin)
