@@ -4141,3 +4141,11 @@ width: 423px;
 #content {
   margin-top: 0px;
 }
+
+.texte {
+  min-height: 500px;
+}
+
+#myAffix.affix {
+   top: 40px;
+}
