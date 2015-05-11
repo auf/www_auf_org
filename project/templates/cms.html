@@ -17,7 +17,7 @@
 <div class="banniere">
 {% if bureau.0 %}
     {% static_placeholder bureau.0|add:"_banniere" %}
-{% else $}
+{% else %}
     {% placeholder banniere or %}<img class="img-responsive" src="/static/img/qui_sommes_nous.png" \>{% endplaceholder %}
 {% endif %}
 </div>
