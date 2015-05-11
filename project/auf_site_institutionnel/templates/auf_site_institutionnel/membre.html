@@ -23,10 +23,10 @@
 {% if membre_list %}
     {% with membre_list as item_list %}
 
+    	<div id="tabemploye">
+
     {% autopaginate item_list.qs 15 as filter_list %}
     {% paginate %}
-
-    	<div id="tabemploye">
             <table>
                 <tr style="background:#E6B804 !important; font-weight: bold;">
                     <td width="24%" style="color: #fff !important;">Nom</td>
