@@ -21,7 +21,7 @@
     {% paginate %}
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-{% for item in object_list %}
+{% for item in filter_list %}
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading{{ item.id }}">
       <h4 class="panel-title">
