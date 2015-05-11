@@ -6,10 +6,11 @@
     <p><img class="img-responsive" src="/media/adminfiles/quefaisonsnous2.png"></p>
 </div>
 <div class="col-md-12" id="content" style="background-color: white;">
+<div class="col-md-6 col-md-offset-2">
 <h1>Implantations</h1>
 
 <div class="row">
-<div class="fondform col-md-5">
+<div class="fondform">
 <form method="get" action="">
     <div class="form-group">
     {% bootstrap_form form %}
@@ -62,6 +63,7 @@
 {% else %}
     <p>{{ _('Aucune membre pour le moment') }}</p>
 {% endif %}
+</div>
 </div>
 
 {% endblock %}
