@@ -4263,5 +4263,10 @@ width: 423px;
 .banniere {
   position: relative;
   z-index: -2;
-  top: -30px;
+  top: -35px;
+  margin-bottom: -35px;
+}
+
+#content {
+  margin-top: 0px;
 }
