@@ -9,6 +9,7 @@
 <div class="col-md-12" id="content" style="background-color: white;">
 <h1>Annuaire des employés</h1>
 
+<div class="row">
 <div class="col-md-5">
 <form method="get" action="">
     <div class="form-group">
@@ -17,16 +18,16 @@
     <input type="submit" value="Rechercher"/>
 </form>
 </div>
+</div>
 
 
-
-<div id="tabemploye">
 <div class="pagination">
     {% if page.has_previous %}<a href="?page={{ page.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">&lt;</a>{% endif %}
     <span class="current">{{ page.number }} / {{ page.paginator.num_pages }}</span>
     {% if page.has_next %}<a href="?page={{ page.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">&gt;</a>{% endif %}
 </div>
 
+<div id="tabemploye">
 <table>
     <tr style="background:#E6B804 !important; font-weight: bold; text-align: center;">
         <td width="12%" style="color: #fff !important;">{% trans "Employe" %}</td>
