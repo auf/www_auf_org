@@ -16,7 +16,6 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-md-6">
-            Site web: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a><br\>
             <h3>Adresse physique</h3>
             <p>{{item.adresse_physique_bureau}}<br />
             {{item.adresse_physique_code_postal}}</br>
@@ -28,6 +27,7 @@
             <p>Téléphone : {{item.telephone}}<br />
             Télécopie : {{item.fax}}</p>
           </div>
+          Site web: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a>
         </div>
       </div>
     </div>
