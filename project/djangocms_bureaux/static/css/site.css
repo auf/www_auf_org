@@ -1793,7 +1793,7 @@ body.ListeActualites .ColonneGauche, body.ListeActualites .ColonneDroite {
 MENU PRINCIPAL + MENU SECONDAIRES ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------- */
 /*------------Menu secondaire--------------*/
-#MenuSecondaire li a {
+#ColonneMenuSecondaire li a {
   color: #AA0A2F;
   padding: 24px 0 0px 0;
 }
