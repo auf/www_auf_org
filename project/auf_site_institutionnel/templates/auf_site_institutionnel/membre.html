@@ -2,12 +2,16 @@
 {% load i18n cms_tags pagination_tags bootstrap3 %}
 
 {% block Contenu %}
+<div class="banniere">
+    <p><img class="img-responsive" src="/media/adminfiles/quefaisonsnous2.png"></p>
+</div>
+
 <div class="col-md-12" id="content" style="background-color: white;">
 <h1>Les &eacute;tablissements membres de l'AUF</h1>
 <p>L’Agence universitaire de la Francophonie compte <strong>786 institutions membres</strong> réparties dans <strong>98 pays</strong>, dont <strong>55</strong> sont membres de l’Organisation internationale de la Francophonie. Ce moteur de recherche vous permet de faire une recherche en croisant plusieurs champs de recherche. Vous recherchez, par exemple, une université membre de l’AUF, qui porte un nom X ou Y et qui est située dans le pays Z. Croiser plusieurs champs de recherche n’est pas obligatoire.</p>
 
 <h2>Critères de recherche</h2>
-<div class="fondform">
+<div class="fondform col-md-5">
 <form method="get" action="" class="">
     <div class="form-group">
     {% bootstrap_form form %}

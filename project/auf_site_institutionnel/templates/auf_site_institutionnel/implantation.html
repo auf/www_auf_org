@@ -2,11 +2,14 @@
 {% load i18n cms_tags pagination_tags bootstrap3 %}
 
 {% block Contenu %}
+<div class="banniere">
+    <p><img class="img-responsive" src="/media/adminfiles/quefaisonsnous2.png"></p>
+</div>
 <div class="col-md-12" id="content" style="background-color: white;">
 <h1>Implantations</h1>
 
 <div class="fondform">
-<form method="get" action="" class="">
+<form method="get" action="" class="col-md-5">
     <div class="form-group">
     {% bootstrap_form form %}
     </div>
