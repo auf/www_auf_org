@@ -12,15 +12,15 @@
         </a>
       </h4>
     </div>
-    <div id="collapse{{item.id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ item.id }}">
+    <div id="collapse{{item.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ item.id }}">
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             Site web: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a><br\>
-            <h3>ADRESSE</h3>
-            <p>{{item.adresse}}<br />
-            {{item.code_postal}}{{item.cedex}}</br>
-            {{item.adresse_physique_ville}}{{item.province}}<br />
+            <h3>Adresse physique</h3>
+            <p>{{item.adresse_physique_bureau}}<br />
+            {{item.adresse_physique_code_postal}}</br>
+            {{item.adresse_physique_ville}}{{item.adresse_physique_region}}<br />
             {{item.adresse_physique_pays}}</p>
           </div>
         </div>
