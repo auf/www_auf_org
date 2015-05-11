@@ -13,7 +13,6 @@
 
 
 {% block contenu %}
-
 <div class="banniere">
 {% if bureau.0 %}
     {% static_placeholder bureau.0|add:"_banniere" %}
@@ -25,17 +24,28 @@
     <ul id="FilAriane" class="hidden-sm hidden-xs">
       {% show_breadcrumb %}
     </ul>
+<div class= "col-md-6 col-md-offset-2 texte" style="background-color: white;">
+    <h2>{% page_attribute "title" %}</h2>
+    {% placeholder texte %}
+</div>
 <div class="col-md-2">
-  <div class="affix" data-spy="affix" data-offset-bottom="200">
+  <div id="myAffix" class="affix-top" data-spy="affix">
     <ul id="ColonneMenuSecondaire" class="nav nav-pills nav-stacked">
         {% show_sub_menu 1 None 0 "bootstrap/menu/navstacked.html" %}
     </ul>
     {% placeholder colonne_gauche %}
   </div>
 </div>
-<div class= "col-md-6 col-md-offset-2 texte" style="background-color: white;">
-    <h2>{% page_attribute "title" %}</h2>
-    {% placeholder texte %}
-</div>
 </div>
 {% endblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+$('#myAffix').affix({
+offset: {
+        top: 0,
+        bottom: $('footer').outerHeight(true);
+    }
+})
+</script>
+{% endaddtoblock %}
