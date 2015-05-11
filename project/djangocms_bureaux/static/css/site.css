@@ -4259,3 +4259,9 @@ display: inline-block;
 display: inline-block;
 width: 423px;
 }
+
+.banniere {
+  position: relative;
+  z-index: -2;
+  top: -30px;
+}

@@ -11,6 +11,9 @@
 
 
 {% block contenu %}
+<div class="banniere">
+{% placeholder banniere or %}<img class="img-responsive" src="/static/img/qui_sommes_nous.png" \>{% endplaceholder %}
+</div>
 <div class="col-md-12" id="content" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
       {% show_breadcrumb %}
