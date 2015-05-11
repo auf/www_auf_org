@@ -18,7 +18,7 @@
 {% if bureau.0 %}
     {% static_placeholder bureau.0|add:"_banniere" %}
 {% else %}
-    {% placeholder banniere or %}<img class="img-responsive" src="/static/img/qui_sommes_nous.png" \>{% endplaceholder %}
+    {% static_placeholder request.current_page.get_root.reverse_id|add:"_banniere" or %}<img class="img-responsive" src="/static/img/qui_sommes_nous.png" \>{% endplaceholder %}
 {% endif %}
 </div>
 <div class="col-md-12" id="content" style="background-color: white;">
