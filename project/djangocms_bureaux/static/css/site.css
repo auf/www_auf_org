@@ -7,9 +7,6 @@ ol, ul {
 list-style: none;
 padding: 0;
 }
-#MenuSecondaire > li.menu.Selection > a {
-box-sizing: content-box;
-}
 
 #container .wide label {
   width: 0px !important;
@@ -1796,136 +1793,11 @@ body.ListeActualites .ColonneGauche, body.ListeActualites .ColonneDroite {
 MENU PRINCIPAL + MENU SECONDAIRES ----------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------- */
 /*------------Menu secondaire--------------*/
-#ColonneMenuSecondaire {
-  float: right;
-  width: 184px;
-}
-
-#MenuSecondaire {
-  width: 184px;
-  background: #b6b6b7 url(../img/BG-menuG.png) no-repeat 0 0;
+#MenuSecondaire li a {
+  color: #AA0A2F;
   padding: 24px 0 0px 0;
-  margin-bottom: 35px;
 }
 
-#MenuSecondaireBas {
-  height: 23px;
-  background-color: #888889;
-}
-
-#MenuSecondaire li {
-  font-size: 11px;
-  font-weight: bold;
-  position: relative;
-  border-bottom: 1px solid #c6c6c6;
-  padding: 10px 30px 10px 22px;
-  background: url(../img/Bg_MenuG3.png) right no-repeat;
-}
-#MenuSecondaire li.DernierItem a {
-  border-bottom: none;
-}
-#MenuSecondaire li.Selection, #MenuSecondaire li.ancestor {
-  background: none;
-  border-bottom: none;
-  position: relative;
-  left: -8px;
-  _left: 0;
-  padding: 0px;
-}
-#MenuSecondaire li.Selection ul {
-  background-color: #9a9898;
-  width: 173px;
-  margin: -4px 0px 5px 14px;
-}
-#MenuSecondaire li.ancestor ul {
-  background-color: #9a9898;
-  width: 173px;
-  margin: -4px 0px 5px 14px;
-}
-#MenuSecondaire li.ancestor ul ul {
-  background-color: #9f9f9f;
-  width: 168px;
-  margin: 10px 0px 5px 8px;
-}
-#MenuSecondaire li.ancestor ul ul ul {
-  background-color: #B0B0B0;
-  width: 160px;
-  margin: 14px 0px 0px 9px;
-}
-#MenuSecondaire li.ancestor ul ul li {
-  border-bottom: none;
-}
-#MenuSecondaire li.ancestor ul ul li li {
-  padding: 3px 4px 4px 6px !important;
-}
-#MenuSecondaire li.ancestor ul ul li li a {
-  padding: 6px 7px 5px 7px !important;
-}
-#MenuSecondaire li.ancestor ul ul li a {
-  padding-left: 17px !important;
-}
-#MenuSecondaire li.Selection ul li {
-  border: 0px;
-  background: none;
-  border-bottom: 1px solid #B6B6B7;
-}
-#MenuSecondaire li.ancestor ul li {
-  font-weight: normal;
-  left: 0px;
-  color: #339933;
-  background: none;
-  border-bottom: 1px solid #B6B6B7;
-}
-#MenuSecondaire li.Selection ul li a {
-  border: 0px;
-  background: none;
-  height: auto;
-  line-height: normal;
-  padding: 0px 5px 0px 19px;
-}
-#MenuSecondaire li.ancestor ul li a {
-  border: 0px;
-  background: none;
-  height: auto;
-  line-height: normal;
-  padding: 0px 5px 0px 19px;
-}
-#MenuSecondaire li.ancestor .selected {
-  color: #FFDF49;
-}
-#MenuSecondaire li.Selection li, #MenuSecondaire li.ancestor li {
-  border: none;
-  padding: 12px 0 12px 0;
-}
-#MenuSecondaire a {
-  color: #FFF;
-  display: inline-block;
-}
-#MenuSecondaire a:hover {
-  color: #FFDF49;
-}
-#MenuSecondaire a.Selection:hover {
-  color: #FFF;
-}
-#MenuSecondaire li.Selection a, #MenuSecondaire li.ancestor a {
-  background: url(../img/Bg_MenuG2.png) bottom;
-  color: #EEE;
-  width: 135px;
-  padding: 16px 30px 22px 32px;
-}
-#MenuSecondaire li.Selection a:hover, #MenuSecondaire li.ancestor a:hover {
-  color: #FFDF49;
-}
-#MenuSecondaire li.Selection li a {
-  font-weight: normal;
-  color: #FFF;
-}
-#MenuSecondaire li.ancestor ul li.Selection a {
-  color: #ffdf49;
-}
-#MenuSecondaire li.Selection li a.On, #MenuSecondaire li.Selection li a:hover {
-  color: #ffdf49;
-}
 
 /*--------------Navigation Rapide--------------*/
 .NavigationRapide {
