@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% load static i18n cms_tags menu_tags sekizai_tags %}
+{% load static i18n cms_tags menu_tags sekizai_tags auf %}
+
+{% get_bureau as bureau %}
 
 {% block menu %}
     {% if request.current_page.get_root.reverse_id != "bureaux" %}
@@ -11,18 +13,25 @@
 
 
 {% block contenu %}
+
 <div class="banniere">
-{% placeholder banniere or %}<img class="img-responsive" src="/static/img/qui_sommes_nous.png" \>{% endplaceholder %}
+{% if bureau.0 %}
+    {% static_placeholder bureau.0|add:"_banniere" %}
+{% else $}
+    {% placeholder banniere or %}<img class="img-responsive" src="/static/img/qui_sommes_nous.png" \>{% endplaceholder %}
+{% endif %}
 </div>
 <div class="col-md-12" id="content" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
       {% show_breadcrumb %}
     </ul>
 <div class="col-md-2">
+  <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
     <ul id="ColonneMenuSecondaire" class="nav nav-pills nav-stacked">
         {% show_sub_menu 1 None 0 "bootstrap/menu/navstacked.html" %}
     </ul>
     {% placeholder colonne_gauche %}
+  </div>
 </div>
 <div class= "col-md-6 col-md-offset-2 texte" style="background-color: white;">
     <h2>{% page_attribute "title" %}</h2>

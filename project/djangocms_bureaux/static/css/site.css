@@ -1795,7 +1795,6 @@ MENU PRINCIPAL + MENU SECONDAIRES ----------------------------------------------
 /*------------Menu secondaire--------------*/
 #ColonneMenuSecondaire li a {
   color: #AA0A2F;
-  padding: 24px 0 0px 0;
 }
 
 
