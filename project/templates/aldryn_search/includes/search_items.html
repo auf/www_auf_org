@@ -3,16 +3,18 @@
 {% for result in page_obj.object_list %}
 <div class="thumbnail thumbnail-appels">
 <div class="media">
-	<a class="pull-left" href="{% if result.url %}{{ result.url }}{% else %}{{ result.object.get_absolute_url }}{% endif %}">{{ result.title }}</a></h3>
-  {% if result.text %}
-    <div class="media-body">
-    {% if request.GET.q %}
-    	<p>{% highlight result.text with request.GET.q %}</p>
-    {% else %}
-    <p>{{ result.text }}</p>
-	{% endif %}
-    </div>
-  {% endif %}
+  <div class="media-body">
+   <h4 class="title-date">
+     <a href="{% if result.url %}{{ result.url }}{% else %}{{ result.object.get_absolute_url }}{% endif %}">{{ result.title }}</a>
+    </h4>
+        {% if result.text %}
+            {% if request.GET.q %}
+                <p>{% highlight result.text with request.GET.q %}</p>
+            {% else %}
+            <p>{{ result.text }}</p>
+            {% endif %}
+        {% endif %}
+  </div>
 </div>
 </div>
 {% empty %}
