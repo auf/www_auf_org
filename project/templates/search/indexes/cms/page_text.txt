@@ -1,4 +1,4 @@
 {% if object.title  %}
 	{{ object.title }}
 {% endif %}
-{{ object.content }}
+{{ object.content|safe }}
