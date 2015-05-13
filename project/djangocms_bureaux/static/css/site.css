@@ -4138,6 +4138,10 @@ width: 423px;
   margin-bottom: -42px;
 }
 
+.banniere img {
+  display: inline;
+}
+
 #content {
   margin-top: 0px;
 }
