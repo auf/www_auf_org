@@ -45,14 +45,14 @@ def do_show_facet(context, facet_name):
         long_facet_name = "__".join([facet_name, urlquote(f[0])])
 
         if urlunquote(long_facet_name) in selected_facets:
-            html += "<dd><a href='%s'>(-) %s</a> (%s)</dd>"\
+            html += "<dd><a href='%s'><input type='checkbox' checked='checked'/> %s</a> (%s)</dd>"\
                 % (path.replace("&selected_facets=" + long_facet_name,""),
                    smart_text(f[0]), f[1])
         else:
             if path.endswith('/'):
-                html += "<dd><a href='%s?selected_facets=%s'>%s</a> (%s)</dd>"\
+                html += "<dd><a href='%s?selected_facets=%s'><input type='checkbox' />%s</a> (%s)</dd>"\
                     % (path, long_facet_name, smart_text(f[0]), f[1])
             else:
-                html += "<dd><a href='%s&selected_facets=%s'>%s</a> (%s)</dd>"\
+                html += "<dd><a href='%s&selected_facets=%s'><input type='checkbox' /> %s</a> (%s)</dd>"\
                     % (path, long_facet_name, smart_text(f[0]), f[1])
     return html
