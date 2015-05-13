@@ -1,5 +1,3 @@
-{{ object.titre|striptags }}
-{{ object.resume|striptags }}
-{{ object.texte|striptags }}
+{{ object.resume|safe|striptags }}
 {{ object.lieu|striptags }}
 {{ object.detail_horaire|striptags }}
