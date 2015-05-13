@@ -54,6 +54,6 @@ def do_show_facet(context, facet_name):
                 html += "<dd><a href='%s?selected_facets=%s'><input onclick='window.location=\"%s?selected_facets=%s\"; return true;'type='checkbox' />%s</a> (%s)</dd>"\
                     % (path, long_facet_name, path, long_facet_name, smart_text(f[0]), f[1])
             else:
-                html += "<dd><a href='%s&selected_facets=%s'><input onclick='window.location=\"%s%selected_facets=%s\"; return true;'type='checkbox' /> %s</a> (%s)</dd>"\
+                html += "<dd><a href='%s&selected_facets=%s'><input onclick='window.location=\"%s&selected_facets=%s\"; return true;'type='checkbox' /> %s</a> (%s)</dd>"\
                     % (path, long_facet_name, path, long_facet_name, smart_text(f[0]), f[1])
     return html
