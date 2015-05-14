@@ -36,7 +36,7 @@ class AldrynFacetedSearchForm(SearchForm):
             if value:
                 sqs = sqs.narrow(u'%s:"%s"' % (field, sqs.query.clean(value)))
 
-        return sqs
+        return sqs.order_by('-date_pub')
 
 
 class AldrynSearchView(FormMixin, ListView):
