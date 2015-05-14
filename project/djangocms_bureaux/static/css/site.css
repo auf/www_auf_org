@@ -4218,3 +4218,16 @@ background: rgb(224, 224, 224);
   font-weight:bold;
   box-shadow:inset 0px 0px 3px 2px rgb(103, 39, 119);
 }
+
+#ColonneMenuSecondaire {
+border-left: 1px solid #1D9DD9;
+}
+
+#ColonneMenuSecondaire li a::before {
+font-family: fontawesome;
+content: "\f054";
+color: #1D9DD9;
+margin-left: -10px;
+margin-right: 8px;
+  font-size:12px;
+}
