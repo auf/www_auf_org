@@ -15,7 +15,7 @@ class AufIndex(indexes.SearchIndex):
     partenaire = indexes.FacetField(stored=True, null=True)
     date_pub = indexes.DateTimeField(model_attr='date_pub', null=True)
     date_mob = indexes.DateTimeField(model_attr='date_mob', null=True)
-    date_fin = indexes.DateTimeField(model_attr='date_fin', null=True)
+    date_fin = indexes.DateField(model_attr='date_fin', null=True)
 
     def prepare_bureaux(self, obj):
         try:
