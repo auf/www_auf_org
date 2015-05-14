@@ -1,15 +1,9 @@
 # encoding: utf-8
 
-from bs4 import BeautifulSoup
-from cms.models.managers import PageManager
-from cms.models.pagemodel import Page
-from cms.models.pluginmodel import CMSPlugin
-from django.conf import settings
-from django.utils.translation import string_concat, ugettext_lazy
 from haystack import indexes
 
 from project.auf_site_institutionnel.models import \
-        Bourse, Actualite, Appel_Offre, Evenement, Publication
+    Bourse, Actualite, Appel_Offre, Evenement, Publication
 
 
 class AufIndex(indexes.SearchIndex):
@@ -19,6 +13,9 @@ class AufIndex(indexes.SearchIndex):
     annee = indexes.FacetField(stored=True, null=True)
     section = indexes.FacetField(stored=True, null=True)
     partenaire = indexes.FacetField(stored=True, null=True)
+    date_pub = indexes.DateTimeField(model_attr='date_pub')
+    date_mob = indexes.DateTimeField(model_attr='date_mob')
+    date_fin = indexes.DateTimeField(model_attr='date_fin')
 
     def prepare_bureaux(self, obj):
         try:
@@ -53,7 +50,7 @@ class ActualiteIndex(AufIndex, indexes.Indexable):
     def prepare_section(self, obj):
         return u"Actualité"
 
-    def index_queryset(self,using=None):
+    def index_queryset(self, using=None):
         return Actualite.objects.filter(status='3')
 
 
