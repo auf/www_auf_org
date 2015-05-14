@@ -7,13 +7,14 @@
    <h4 class="title-date">
      <a href="{% if result.url %}{{ result.url }}{% else %}{{ result.object.get_absolute_url }}{% endif %}">{{ result.title }}</a>
     </h4>
-        {% if result.text %}
-            {% if request.GET.q %}
-                <p>{% highlight result.text with request.GET.q %}</p>
-            {% else %}
-            <p>{{ result.text }}</p>
-            {% endif %}
+    {% if result.text %}
+        {% if request.GET.q %}
+            <p>{% highlight result.text with request.GET.q %}</p>
+        {% else %}
+        <p>{{ result.text }}</p>
         {% endif %}
+    {% endif %}
+    <div class="pull-right">date: {{ result.date_pub }}</div>
   </div>
 </div>
 </div>
