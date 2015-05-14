@@ -36,7 +36,7 @@ class AldrynFacetedSearchForm(SearchForm):
             if value:
                 sqs = sqs.narrow(u'%s:"%s"' % (field, sqs.query.clean(value)))
 
-        return sqs.order_by('-date_pub')
+        return sqs
 
 
 class AldrynSearchView(FormMixin, ListView):
@@ -58,7 +58,7 @@ class AldrynSearchView(FormMixin, ListView):
         if not self.request.user.is_authenticated():
             self.queryset = self.queryset.exclude(login_required=True)
         self.facet_counts = self.queryset.facet_counts()
-        return self.queryset
+        return self.queryset.order_by('-date_pub')
 
     def get_context_data(self, **kwargs):
         context = super(AldrynSearchView, self).get_context_data(**kwargs)
