@@ -13,9 +13,7 @@ class AufIndex(indexes.SearchIndex):
     annee = indexes.FacetField(stored=True, null=True)
     section = indexes.FacetField(stored=True, null=True)
     partenaire = indexes.FacetField(stored=True, null=True)
-    date_pub = indexes.DateTimeField(model_attr='date_pub', null=True)
-    date_mob = indexes.DateTimeField(model_attr='date_mob', null=True)
-    date_fin = indexes.DateField(model_attr='date_fin', null=True)
+    date_pub = indexes.DateField(model_attr='date_pub', null=True)
 
     def prepare_bureaux(self, obj):
         try:
@@ -36,6 +34,9 @@ class BourseIndex(AufIndex, indexes.Indexable):
 
     def prepare_section(self, obj):
         return u"Bourse"
+
+    def prepare_date_pub(self, obj):
+        return obj.date_pub.date()
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
@@ -69,6 +70,9 @@ class AppelOffreIndex(AufIndex, indexes.Indexable):
         else:
             return u'AUF'
 
+    def prepare_date_pub(self, obj):
+        return obj.date_pub.date()
+
     def index_queryset(self, using=None):
         return Appel_Offre.objects.filter(status='3')
 
@@ -80,6 +84,9 @@ class EvenementIndex(AufIndex, indexes.Indexable):
 
     def prepare_section(self, obj):
         return u"Événements"
+
+    def prepare_date_pub(self, obj):
+        return obj.date_pub.date()
 
     def index_queryset(self, using=None):
         return Evenement.objects.filter(status='3')
@@ -94,7 +101,7 @@ class PublicationIndex(AufIndex, indexes.Indexable):
         return u"Publication"
 
     def prepare_date_pub(self, obj):
-        return None
+        return obj.date_pub.date()
 
     def index_queryset(self, using=None):
         return Publication.objects.filter(status='3')
