@@ -32,40 +32,34 @@
     {% placeholder colonne_droite %}
 
      <div class="rouge">
-    {% if request.current_page.reverse_id == "accueil"%}
-    <div class="titre-boite">
-       <h4>Étudiants</h4>
-    </div>
      <div class="panel-body">
+
+    {% if request.current_page.reverse_id == "accueil"%}
+       <h4>Étudiants</h4>
        <div class="liste-carres">
        <ul>
          {% show_menu_below_id "etudiants" %}
         </ul>
       </div>
-    </div>
     {% else %}
-     <div class="panel-body">
       {% placeholder rouge %}
-    </div>
     {% endif %}
+
+    </div>
     </div>
 
      <div class="vert">
-    {% if request.current_page.reverse_id == "accueil"%}
-     <div class="titre-boite">
-      <h4>Enseignants/Chercheurs</h4>
-     </div>
      <div class="panel-body">
+
+    {% if request.current_page.reverse_id == "accueil"%}
+       <h4>Enseignants/Chercheurs</h4>
        <div class="liste-carres">
        <ul>
          {% show_menu_below_id "professeur-chercheur" %}
        </ul>
        </div>
-      </div>
     {% else %}
-     <div class="panel-body">
       {% placeholder vert %}
-    </div>
     {% endif %}
 
 
@@ -73,33 +67,27 @@
     </div>
 
      <div class="bleu">
-    {% if request.current_page.reverse_id == "accueil"%}
-     <div class="titre-boite">
-       <h4>Responsables d'établissement</h4>
-     </div>
      <div class="panel-body">
+
+    {% if request.current_page.reverse_id == "accueil"%}
+        <h4>Responsables d'établissement</h4>
         <div class="liste-carres">
         <ul>
           {% show_menu_below_id "responsable-d-etablissement" %}
         </ul>
         </div>
-      </div>
     {% else %}
-     <div class="panel-body">
       {% placeholder bleu %}
-    </div>
     {% endif %}
 
     </div>
     </div>
 
     <div class="panel boite-lettre">
+    <div class="panel-body">
 
     {% if request.current_page.reverse_id == "accueil"%}
-      <div class="titre-boite">
        <h4>Lettre d'information</h4>
-      </div>
-    <div class="panel-body">
        <p style="margin-bottom:8px;">Restez informé grâce à notre lettre d'information</p>
        <form class="form-group" action="/lettre-information/" method="post">{% csrf_token %}
        <div class="input-group">
@@ -109,11 +97,8 @@
            </span>
        </div>
        </form>
-    </div>
     {% else %}
-     <div class="panel-body">
       {% placeholder bleu_ciel %}
-    </div>
     {% endif %}
 
       </div>
