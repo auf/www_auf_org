@@ -14,6 +14,7 @@ class AufIndex(indexes.SearchIndex):
     section = indexes.FacetField(stored=True, null=True)
     partenaire = indexes.FacetField(stored=True, null=True)
     date_pub = indexes.DateField(model_attr='date_pub', null=True)
+    date_fin = indexes.DateField(model_attr='date_fin', null=True)
 
     def prepare_bureaux(self, obj):
         try:
@@ -99,6 +100,9 @@ class PublicationIndex(AufIndex, indexes.Indexable):
 
     def prepare_section(self, obj):
         return u"Publication"
+
+    def prepare_date_fin(self, obj):
+        return None
 
     def index_queryset(self, using=None):
         return Publication.objects.filter(status='3')
