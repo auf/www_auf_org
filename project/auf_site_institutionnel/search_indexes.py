@@ -101,9 +101,6 @@ class PublicationIndex(AufIndex, indexes.Indexable):
     def prepare_section(self, obj):
         return u"Publication"
 
-    def prepare_date_fin(self, obj):
-        return None
-
     def index_queryset(self, using=None):
         return Publication.objects.filter(status='3')
 

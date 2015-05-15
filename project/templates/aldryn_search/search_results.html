@@ -31,7 +31,7 @@
 
     <div class="titre-filtres">
     <h4><i class="fa fa-filter"></i> Filtres</h4>
-    </div> 
+    </div>
 
     {% if facets.fields.bureaux %}
     <div class="filtres">
@@ -64,7 +64,7 @@
     <div class="filtres">
         <dl>
                 <dt>Appel d'offre par:</dt>
-                {# show_facet "partenaire" #}
+                {% show_facet "partenaire" %}
         </dl>
     </div>
     {% endif %}
