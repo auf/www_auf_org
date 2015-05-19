@@ -21,7 +21,7 @@ class AldrynFacetedSearchForm(SearchForm):
 
     def search(self):
         sqs = SearchQuerySet()
-        sqs = sqs.facet('bureaux').facet('section').facet('annee')
+        sqs = sqs.facet('bureaux').facet('section').facet('annee').facet('partenaire')
 
         if self.is_valid():
             q = self.cleaned_data.get('q', '')
