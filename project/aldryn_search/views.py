@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
@@ -16,6 +17,7 @@ from .conf import settings
 
 class AldrynFacetedSearchForm(SearchForm):
     selected_facets = forms.CharField(required=False, widget=forms.HiddenInput)
+    courant = forms.BooleanField(required=False, widget=forms.HiddenInput)
 
     def search(self):
         sqs = SearchQuerySet()
@@ -24,6 +26,8 @@ class AldrynFacetedSearchForm(SearchForm):
         if self.is_valid():
             q = self.cleaned_data.get('q', '')
             if q: sqs = sqs.filter(content=sqs.query.clean(q))
+
+        if self.courant: sqs = sqs.filter(date_fin__gte=datetime.date.now())
 
         self.selected_facets = list(set(self.selected_facets.split('&') + self.selected_facets_get))
 
@@ -49,6 +53,7 @@ class AldrynSearchView(FormMixin, ListView):
 
     def get(self, request, *args, **kwargs):
         self.form = AldrynFacetedSearchForm(self.request.GET)
+        self.form.courant = self.request.GET.get('courant', '')
         self.form.selected_facets = self.request.GET.get('selected_facets', '')
         self.form.selected_facets_get = self.request.GET.getlist('selected_facets', [])
         return super(AldrynSearchView, self).get(request, *args, **kwargs)
