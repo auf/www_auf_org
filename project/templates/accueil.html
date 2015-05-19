@@ -35,7 +35,7 @@
      <div class="panel-body">
 
     {% if request.current_page.reverse_id == "accueil"%}
-       <h4>Étudiants</h4>
+       <div class="titre"><h4>Étudiants</h4></div>
        <div class="liste-carres">
        <ul>
          {% show_menu_below_id "etudiants" %}
@@ -52,7 +52,7 @@
      <div class="panel-body">
 
     {% if request.current_page.reverse_id == "accueil"%}
-       <h4>Enseignants/Chercheurs</h4>
+       <div class="titre"><h4>Enseignants/Chercheurs</h4></div>
        <div class="liste-carres">
        <ul>
          {% show_menu_below_id "professeur-chercheur" %}
@@ -70,7 +70,7 @@
      <div class="panel-body">
 
     {% if request.current_page.reverse_id == "accueil"%}
-        <h4>Responsables d'établissement</h4>
+        <div class="titre"><h4>Responsables d'établissement</h4></div>
         <div class="liste-carres">
         <ul>
           {% show_menu_below_id "responsable-d-etablissement" %}
@@ -87,7 +87,7 @@
     <div class="panel-body">
 
     {% if request.current_page.reverse_id == "accueil"%}
-       <h4>Lettre d'information</h4>
+       <div class="titre"><h4>Lettre d'information</h4></div>
        <p style="margin-bottom:8px;">Restez informé grâce à notre lettre d'information</p>
        <form class="form-group" action="/lettre-information/" method="post">{% csrf_token %}
        <div class="input-group">
