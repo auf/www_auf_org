@@ -4149,15 +4149,110 @@ padding: 0px; /*----À enlever---*/
 border: 1px solid silver;
 }
 
-.rouge li, .vert li, .bleu li {
+.rouge .titre {
+background: rgb(229, 39, 39);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.vert .titre {
+background: rgb(141, 190, 35);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.bleu .titre {
+background: rgb(112, 34, 131);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.boite-lettre .titre {
+background: rgb(29, 157, 217);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.boite-temoignages .titre {
+background: rgb(255, 213, 0);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.boite-partenaires .titre {
+background: grey;
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.rouge h3, .vert h3, .bleu h3, .boite-lettre h3, .boite-temoignages h3, .boite-partenaires h3 {
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+font-weight: bold;
+color: white;
+float: none;
+padding:7px;
+  text-align:Center;
+}
+
+
+.rouge h4, .vert h4, .bleu h4, .boite-lettre h4, .boite-temoignages h4, .boite-partenaires h4 {
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+font-weight: bold;
+color: white;
+float: none;
+padding:7px;
+  text-align:Center;
+}
+
+.rouge h5, .vert h5, .bleu h5, .boite-lettre h5, .boite-partenaires h5 {
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+font-weight: bold;
+color: white;
+float: none;
+padding:7px;
+text-align:Center;
+}
+
+.boite-temoignages h4, .boite-temoignages h5 
+{
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+font-weight: bold;
+color: rgb(54,54,54);
+float: none;
+padding:7px;
+  text-align:center;
+}
+
+
+
+.liste-carres ul li {
+margin-top: 7px;
+font-size: 1.3rem;
+padding: 0px; /*----À enlever---*/
+border:none;
+}
+
+.rouge li, .vert li, .bleu li,.boite-lettre li, .boite-temoignages li, .boite-partenaires li {
 background: rgb(224, 224, 224);
-box-shadow:0px 1px 0px 0px silver;
- border-radius:3px;
+box-shadow:none;
+ border-radius:0px;
 }
 
 /*------Rouge----*/
-
-
 
 .rouge ul li a {
   color:#333;
@@ -4165,7 +4260,7 @@ box-shadow:0px 1px 0px 0px silver;
   padding:5px;
   font-weight:500;
   text-align:center;
-  border-radius:3px;
+  border-radius:0px;
 }
 
 .rouge ul li a:hover {
@@ -4177,17 +4272,13 @@ box-shadow:0px 1px 0px 0px silver;
 
 /*------Vert----*/
 
-.vert li, .vert li, .bleu li {
-background: rgb(224, 224, 224);
-}
-
 .vert ul li a {
     color:#333;
   display:block;
   padding:5px;
   font-weight:500;
   text-align:center;
-  border-radius:3px;
+  border-radius:0px;
 }
 
 .vert ul li a:hover {
@@ -4199,17 +4290,13 @@ background: rgb(224, 224, 224);
 
 /*------Bleu----*/
 
-.bleu li, .vert li, .bleu li {
-background: rgb(224, 224, 224);
-}
-
 .bleu ul li a {
   color:#333;
   display:block;
     padding:5px;
    font-weight:500;
   text-align:center;
-  border-radius:3px;
+  border-radius:0px;
 }
 
 .bleu ul li a:hover {
@@ -4218,6 +4305,67 @@ background: rgb(224, 224, 224);
   font-weight:bold;
   box-shadow:inset 0px 0px 3px 2px rgb(103, 39, 119);
 }
+
+/*------Boite lettre----*/
+
+.boite-lettre ul li a{
+  color:#333;
+  display:block;
+    padding:5px;
+   font-weight:500;
+  text-align:center;
+  border-radius:3px;
+  border:1px solid silver;
+  background:none;
+}
+
+.boite-lettre ul li a:hover {
+  background:rgb(29, 157, 217);
+  color:white;
+  font-weight:bold;
+  box-shadow:inset 0px 0px 3px 2px rgb(36, 145, 196);
+}
+
+/*------Boite temoignage----*/
+
+.boite-temoignages ul li a {
+  color:#333;
+  display:block;
+    padding:10px;
+   font-weight:500;
+  text-align:center;
+  border-radius:0px;
+  margin-bottom:-10px;
+}
+
+.boite-temoignages ul li a:hover {
+  background:rgb(255, 213, 0);
+  color:rgb(54, 54, 54);
+  font-weight:bold;
+  box-shadow:inset 0px 0px 3px 2px rgb(229, 202, 63);
+}
+
+/*------Boite partenaires----*/
+
+.boite-partenaires ul li a{
+  color:#333;
+  display:block;
+    padding:5px;
+   font-weight:500;
+  text-align:center;
+  border-radius:3px;
+  border:1px solid silver;
+  background:none;
+}
+
+.boite-partenaires ul li a:hover {
+  background:grey;
+  color:white;
+  font-weight:bold;
+  box-shadow:inset 0px 0px 3px 2px #888;
+}
+
+
 
 #ColonneMenuSecondaire {
 border-left: 1px solid #1D9DD9;
