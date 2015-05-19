@@ -4149,6 +4149,7 @@ padding: 0px; /*----À enlever---*/
 border: 1px solid silver;
 }
 
+
 .rouge .titre {
 background: rgb(229, 39, 39);
 margin-bottom: 24px;
@@ -4214,23 +4215,12 @@ padding:7px;
   text-align:Center;
 }
 
-.rouge h5, .vert h5, .bleu h5, .boite-lettre h5, .boite-partenaires h5 {
-margin-top: -15px;
-margin-bottom: -10px;
-background: none;
-font-weight: bold;
-color: white;
-float: none;
-padding:7px;
-text-align:Center;
-}
 
 .boite-temoignages h4, .boite-temoignages h5 
 {
 margin-top: -15px;
 margin-bottom: -10px;
 background: none;
-font-weight: bold;
 color: rgb(54,54,54);
 float: none;
 padding:7px;
