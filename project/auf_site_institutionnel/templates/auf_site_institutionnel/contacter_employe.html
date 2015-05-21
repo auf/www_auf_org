@@ -2,6 +2,8 @@
 {% load i18n cms_tags bootstrap3 %}
 
 {% block Contenu %}
+<div class="col-md-12" id="content" style="background-color: white;">
+<div class="col-md-6 col-md-offset-2">
 <h1>Envoyer un courriel à {{ employe.nom.upper }} {{ employe.prenom }}</h1>
 
 <form action="" method="post">
@@ -9,5 +11,6 @@
     {% bootstrap_form form %}
     <input type="submit" value="{% trans "Envoyer" %}" />
 </form>
-
+</div>
+</div>
 {% endblock %}
