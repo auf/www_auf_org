@@ -21,8 +21,6 @@ $(function () {
     <a class="pull-left" href="{{p.get_absolute_url}}">
         {% if p.image %}
         <img class="img-thumbnail" src="{% thumbnail p.image 130x90 upscale %}"/>
-        {% else %}
-        <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="130px" height="130px">
         {% endif %}
     </a>
     <div class="media-body">
