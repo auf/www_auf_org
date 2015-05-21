@@ -940,7 +940,7 @@ BLOC DE BAS DE PAGE ------------------------------------------------------------
 PIED DE PAGE -------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------- */
 #PiedPage {
-  background: #1C1C1C;
+  background: #707070;
   color: white;
   margin-bottom: -16px;
   height: 124px;
@@ -970,7 +970,7 @@ PIED DE PAGE -------------------------------------------------------------------
   padding-right: 0;
 }
 #PiedPage a {
-  color: #a3a4a7;
+  color: #FFFFFF;
   text-decoration: none;
 }
 #PiedPage a:hover {
@@ -2708,6 +2708,7 @@ iframe #afficher {
 .vert, .rouge, .bleu {
   margin-bottom: 20px;
   font-size: 1.5em;
+  border-radius:3px;
 }
 
 
@@ -2784,7 +2785,9 @@ background: rgb(112, 34, 131);
 
 .navbar-toggle {
     margin-top: 22px;
+    margin-left: 10px;
 }
+
 #BlocPresentation h1 {
   font-size: 16px;
 line-height: 20px;
@@ -4140,6 +4143,7 @@ width: 423px;
 
 #myAffix.affix {
    top: 40px;
+   width: 347px;
 }
 
 .liste-carres ul li {
@@ -4199,7 +4203,7 @@ background: none;
 font-weight: bold;
 color: white;
 float: none;
-padding:7px;
+padding:3px;
   text-align:Center;
 }
 
@@ -4211,7 +4215,7 @@ background: none;
 font-weight: bold;
 color: white;
 float: none;
-padding:7px;
+padding:3px;
   text-align:Center;
 }
 
@@ -4223,7 +4227,7 @@ margin-bottom: -10px;
 background: none;
 color: rgb(54,54,54);
 float: none;
-padding:7px;
+padding:3px;
   text-align:center;
 }
 
@@ -4355,8 +4359,6 @@ box-shadow:none;
   box-shadow:inset 0px 0px 3px 2px #888;
 }
 
-
-
 #ColonneMenuSecondaire {
 border-left: 1px solid #1D9DD9;
 }
@@ -4369,3 +4371,13 @@ margin-left: -10px;
 margin-right: 8px;
   font-size:12px;
 }
+
+ul#NavFixe .dropdown a.dropdown-toggle {
+cursor: pointer;
+}
+
+.img-thumbnail {
+margin-top:30px;
+}
+
+
