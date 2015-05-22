@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load i18n bootstrap3 spurl auf cms_tags menu_tags %}
 
+{% block extra_head %}
+<meta name="robots" content="noindex, follow">
+{% endblock %}
+
 {% block contenu %}
 <div class="col-md-12" id="content" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
