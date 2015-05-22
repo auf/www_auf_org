@@ -28,7 +28,7 @@
     <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
 
     {% if object.bureau.all %}
-      <div>
+      <p>
       {% for b in object.bureau.all %}
           {% if b.nom == "International" %}
             <i class="fa fa-globe">-International</i>
@@ -36,7 +36,7 @@
           <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
           {% endif %}
       {% endfor %}
-      </div>
+      </p>
     {% endif %}
     <div>
     {% render_placeholder object.cmstexte %}
