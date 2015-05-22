@@ -29,7 +29,7 @@
 
     {% if object.bureau.all %}
       <div class="mini-estampilles">
-      {% for b in p.bureau.all %}
+      {% for b in object.bureau.all %}
           {% if b.nom == "International" %}
             <i class="fa fa-globe">-International</i>
           {% else %}
