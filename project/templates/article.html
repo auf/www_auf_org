@@ -27,6 +27,7 @@
 
     <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
 
+    <p>
     {% if object.bureau.all %}
       <div class="mini-estampilles">
       {% for b in object.bureau.all %}
@@ -38,6 +39,7 @@
       {% endfor %}
       </div>
     {% endif %}
+    </p>
     <div>
     {% render_placeholder object.cmstexte %}
     </div>
