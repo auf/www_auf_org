@@ -8,10 +8,6 @@ list-style: none;
 padding: 0;
 }
 
-#container .wide label {
-  width: 0px !important;
-}
-
 body {
   font-family: Open Sans;
   background-color: #E5E5E5;
@@ -41,80 +37,59 @@ sup {
   margin: 33px 0 15px 0;
 }
 
-ul.errorlist {
-  margin: 0 !important;
-  padding: 0 !important;
+h2 {
+  margin-top: 30px;
 }
 
-.errorlist li {
-  color: red !important;
-}
+/* ------------Tables -------------- */
 
-ol, ul {
-  list-style: none;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-STYLES COMMUNS À TOUTES LES PAGES ----------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-.Clearer {
-  clear: both;
-}
-
-.Clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-#WrapperCorps {
-  width: 964px;
-  min-height: 329px;
-  height: auto !important;
-  height: 329px;
-  margin: 0 auto;
-  padding: 0 0 11px 0;
-  border-left: 8px solid #e9e9ea;
-  border-right: 8px solid #e9e9ea;
-  background: #FFF;
-}
-
-/* -----------Entete ------------ */
-#WrapperEntete {
-  width: 100%;
-  height: 123px;
-}
-
-#Entete {
-  margin: 0 auto;
-  background: #FFF;
-  position: relative;
-  background: white url(/static/img/logo-droite.png) top right no-repeat;
-}
-#Entete .Logo {
-  display: block;
-  float: left;
-  height: 115px;
-  width: 163px;
-}
-#Entete h2 {
-  font-size: 22px;
-  line-height: 25px;
-  color: #fdd536;
+th {
+  text-align: center;
   font-weight: bold;
-  margin-top: 57px;
-  display: block;
-  float: left;
-  position: absolute;
-  left: 170px;
 }
-#Entete .LogoImpression {
-  display: none;
+
+#form-error li {
+  padding: 0px 0px 0px 15px !important;
 }
+
+#tabemploye {
+  font-size: 11px;
+}
+
+table {
+  font-size: 11px;
+  margin-bottom: 15px;
+  min-width: 405px;
+  width: 100%;
+}
+
+td {
+  padding: 8px 8px 8px 8px;
+  color: #616161;
+}
+
+tr {
+  border: 1px solid #e5e5e5;
+  padding: 10px 0px 10px 0px;
+  background: url(../img/Bg_Enc.png) bottom repeat-x;
+}
+
+/* -------------------------------------------------------------------
+------------------STYLES COMMUNS À TOUTES LES PAGES-------------------
+---------------------------------------------------------------------- */
+
+/*---------------[SITE INSTITUTIONNEL]-------------------*/
+
+/* -----------Entete------------ 
+--------------------------------*/
+
 
 /* -----Menu navigation couleurs---- */
+
+.ReseauxSociaux {
+  margin-right: 19px;
+}
+
 #NavFixe {
   display: table-cell;
   width: 33%;
@@ -156,85 +131,36 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 #NavFixe > li.MenuLangue {
   border-top: 9px solid #E52727;
 }
-#NavFixe > li.MenuLangue a {
-  outline: none;
-  color: #474747;
-}
-#NavFixe > li.MenuLangue a.LangueSelectionnee {
-  width: 92px;
-  height: 20px;
-  line-height: 20px;
-  padding: 0 33px 0 8px;
-  border: 1px solid #ececec;
-  background: url(../img/Picto_MenuDeroulant.gif) no-repeat 72px 0px;
+
+ul#NavFixe .dropdown a.dropdown-toggle {
+cursor: pointer;
 }
 
-/* ---------Menu selection de langue------------ */
-#ChoixLangue {
-  display: none;
-  width: 91px;
-  border: 1px solid #ececec;
-  border-top: none;
-  position: absolute;
-  left: 0;
-  top: 28px;
-  background: #FFF;
-}
-#ChoixLangue.Ouvert {
-  display: block;
-  left: 48px;
-}
-#ChoixLangue li {
-  float: none;
-  padding: 1px;
-}
-#ChoixLangue a {
-  width: 62px;
-  height: 20px;
-  line-height: 20px;
-  display: block;
-  padding: 0 19px 0 8px;
-}
-#ChoixLangue a:hover {
-  background: #e4e4e4;
-}
+/*----------Icônes réseaux sociaux --------------*/
 
-/* --------------Champ de recherche--------------- */
-.ChampRecherche {
-  clear: right;
-  float: right;
-  border: 1px solid #dcdcdc;
-  margin-right: 98px;
-  padding: 1px;
+.fa-rss {
+  color: #F99000;
 }
-.ChampRecherche form {
-  display: inline;
+.fa-twitter-square {
+  color:  #00aced;
 }
-.ChampRecherche .TxtBox {
-  font-family: Open Sans;
-  font-size: 12px;
-  color: #919191;
-  width: 229px;
-  padding: 5px 5px 3px 11px;
-  border: 0;
-  float: left;
+.fa-facebook-square {
+  color: #3b5998;
 }
-.ChampRecherche .BtRecherche {
-  background: #FFF url(../img/Picto_FlecheRecherche.gif) no-repeat right top;
-  width: 26px;
-  height: 26px;
-  display: block;
-  text-indent: -9999px;
-  overflow: hidden;
-  float: left;
-  border: 0;
+.fa-youtube-play {
+  color: #bb0000;
+}
+#dailymotion {
+  fill: #32506d;
 }
 
 /* -------------Menu principal----------------- */
+
 #MenuPrincipal li {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 #MenuPrincipal li a {
   color: #AA0A2F;
 }
@@ -244,25 +170,14 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
 }
 
 /* ----------Tetière en angle----------- */
-#tetiere-bottom {
-  transform: skewY(-2deg);
-  -webkit-transform: skewY(-2deg);
-  z-index: 1;
+
+.tetiere-svg {
   position: relative;
-  background: white;
-  height: 60px;
-  top: 39px;
+  float:left;
   width: 100%;
-  margin: 0 auto;
 }
 
-/* -------------Entete secondaire----------------- */
-#WrapperEnteteSecondaire {
-  width: 980px;
-  margin: 0 auto;
-  z-index: 10000;
-  position: relative;
-}
+/* -------------Entete secondaire grise------------- */
 
 #EnteteSecondaire {
   height: 340px;
@@ -275,37 +190,79 @@ STYLES COMMUNS À TOUTES LES PAGES ---------------------------------------------
   background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, rgba(144, 144, 144, 0.82) 100%), url('/static/img/CarteFond.png') no-repeat 0 0;
   /* Standard syntax (must be last) */
 }
-#EnteteSecondaire .ContenuEntete {
-  width: 100%;
-  height: 240px;
-  background: no-repeat 0 0px;
-  background-size: 100%;
-  /*box-shadow: 0px -16px 14px -6px #000;*/
+
+/* -------------Bloc de présentation------------- */
+
+.transluscide {
+  background: radial-gradient(rgb(255, 255, 255) 45%, rgb(219, 219, 219) 110%);
+  top: 16px; 
+  border: 7px solid rgb(255, 255, 255); 
+  border-image-source: url(/static/img/bande-couleurs.png); 
+  border-image-slice: 7 77;    
+  width: 306px;
+  box-shadow: rgb(107, 107, 107) 0px 0px 4px 2px;
 }
 
-/* ----------Bloc Médias sociaux----------- */
-.BlocMediasSociaux {
-  height: 34px;
-  background-color: #fdf2c6;
-  padding: 11px 17px 0px 8px;
-  width: 61%;
-  margin: 16px auto;
-}
-.BlocMediasSociaux p {
-  font-size: 1em;
-  color: #000;
-  text-transform: uppercase;
-  margin-bottom: -27px;
-}
-.BlocMediasSociaux img {
-  float: right;
-  display: block;
-  margin-left: 13px;
+
+#BlocPresentation h1 {
+  font-size: 16px;
+line-height: 20px;
+color: rgb(255, 0, 0);
+margin-bottom: 10px;
+text-transform: uppercase;
+font-weight: bold;
+margin-top: 16px;
+text-shadow: rgb(197, 197, 197) 1px 0px;}
+
+#BlocPresentation a {
+  border-bottom: 1px solid rgb(185, 185, 185);
 }
 
-/* -----------------------------------------------------------------------------------------------------------------
-CORPS + CONTENU ----------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
+#BlocPresentation p {
+line-height: 17px;
+color: #000;
+margin-bottom: 14px;
+}
+
+/* -------------Carrousel------------- */
+
+.carrousel {
+width: 638px;
+top: 34px;
+left: -10px;
+}
+
+.carousel i {
+margin-top: 90px;
+font-size: 35px;
+text-shadow: -1px 2px 9px #000;
+}
+
+#EnteteSecondaire .carousel-indicators {
+bottom: -35px;
+}
+
+#EnteteSecondaire .carousel-caption {
+background: rgba(244, 18, 18, 0.71);
+padding: 0px;
+bottom: 0px;
+right: 0%;
+left: 0%;
+}
+
+.fa-chevron-circle-right {
+margin-left: 78px;
+}
+
+.fa-chevron-circle-left {
+margin-left: -92px;
+}
+
+
+/* -----------Corps------------ 
+--------------------------------*/
+
+
 /* ------------Fil d'Ariane--------------- */
 #FilAriane {
   padding: 0 24px 0 21px;
@@ -325,11 +282,7 @@ CORPS + CONTENU ----------------------------------------------------------------
   padding: 0 17px 0 0;
   margin-right: 10px;
 }
-#FilAriane li.DernierItem {
-  background: none;
-  margin-right: 0;
-  padding-right: 0;
-}
+
 #FilAriane a {
   color: #5c5c5c;
   text-decoration: none;
@@ -338,2966 +291,9 @@ CORPS + CONTENU ----------------------------------------------------------------
   color: #0098E9;
 }
 
-/* --------------Corps--------------- */
-#Corps {
-  width: 964px;
-  background: url(../img/Bg_Corps.gif) repeat-y 0 0;
-  margin: 0 auto;
-}
-#Corps .ColonneGauche ul li {
-  background: url(../img/Puce_Liste.gif) no-repeat 2px 5px !important;
-}
 
-#Corps2 {
-  overflow: hidden;
-}
-
-#Corps3 {
-  width: 964px;
-  background: url(../img/Bg_Corps2.gif) no-repeat;
-  margin: 0 auto;
-}
-#Corps3 #BlocContenu {
-  float: left;
-  width: 964px;
-}
-#Corps3 #BlocContenu .Contenu {
-  float: left;
-  width: 732px !important;
-  padding: 0px 24px 37px 24px;
-}
-#Corps3 #carte {
-  padding: 0px;
-}
-
-/* --------------Bloc Contenu--------------- */
-#BlocContenu {
-  float: left;
-  width: 647px;
-}
-#BlocContenu .left {
-  float: left;
-}
-#BlocContenu select {
-  color: #616161;
-  width: 250px;
-  border: 1px solid #ccc;
-  padding: 3px;
-  voice-family: inherit;
-  background-color: #fafafa;
-  height: 25px;
-  line-height: 25px;
-}
-#BlocContenu input[type=text] {
-  color: #616161;
-  width: 242px;
-  border: 1px solid #ccc;
-  padding: 3px;
-  voice-family: inherit;
-  background-color: #fafafa;
-  height: 15px;
-  line-height: 15px;
-}
-#BlocContenu input[type=file] {
-  margin: 12px 16px 12px 16px;
-}
-#BlocContenu input[type=submit] {
-  border: 1px solid #ccc;
-  background-color: #F9F9F9;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px;
-  margin: 6px 0px 0px 163px;
-}
-#BlocContenu input[type=reset] {
-  border: 1px solid #ccc;
-  background-color: #F9F9F9;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px;
-  margin: 6px 0px 0px 15px;
-}
-
-#boitefiltre input[type=submit] {
-  border: 1px solid #ccc;
-  background-color: #F9F9F9;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px;
-  margin: 6px 0px 0px 263px;
-  color: #555;
-}
-
-#BlocContenu .pagination {
-  padding: 16px 0px 5px 0px;
-  text-align: center;
-}
-#BlocContenu .pagination .page {
-  border: 1px solid #ccc;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  margin-bottom: 10px;
-  color: #616161;
-  font-weight: bold;
-}
-#BlocContenu .pagination .prev, #BlocContenu .pagination .next {
-  border: 1px solid #ccc;
-  display: inline-block;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  margin-bottom: 10px;
-  padding: 0px 5px 0px 5px;
-  color: #616161;
-  font-weight: bold;
-}
-#BlocContenu .Contenu {
-  float: left;
-  width: 599px;
-  padding: 0px 24px 37px 24px;
-}
-#BlocContenu .Contenu ul {
-  margin: 6px 0 6px 0;
-  overflow: hidden;
-}
-#BlocContenu .Contenu ul li {
-  font-size: 12px;
-  line-height: 18px;
-  color: #616161;
-  padding: 0 0 0px 18px;
-  margin-bottom: 12px;
-  background: url(../img/Puce_Liste.gif) no-repeat 2px 5px !important;
-}
-#BlocContenu .Contenu a {
-  color: #0098e9;
-}
-#BlocContenu .Contenu a:hover {
-  color: #D0A604;
-}
-#BlocContenu .Contenu h1 {
-  font-size: 2.1em;
-  line-height: 30px;
-  color: #474747;
-  margin-bottom: 20px;
-  padding-bottom: 5px;
-}
-#box_membre h3 {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #d0a604;
-  padding: 5px 0 12px 0;
-}
-
-#BlocContenu .Contenu h4, #BlocContenu .Contenu h5 {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #5c5c5c;
-  padding: 5px 0 1px 0;
-}
-#BlocContenu .Contenu h6 {
-  font-size: 1.8em;
-  color: #474747;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-#BlocContenu .Contenu p {
-  font-size: 13px;
-  line-height: 18px;
-  color: #616161;
-  margin-bottom: 16px;
-}
-#BlocContenu .Contenu p label {
-  display: inline-block;
-  width: 150px;
-  margin-right: 10px;
-  font-weight: bold;
-}
-#BlocContenu .Contenu .lien_suite {
-  font-size: 11px;
-  display: inline-block;
-  height: 23px;
-  line-height: 23px;
-  background: url(../img/Bg_Read.png) repeat-x;
-  padding: 0px 15px 0px 12px;
-  color: #6e6e6e;
-}
-#BlocContenu .Contenu .Titre {
-  font-size: 14px;
-  margin-top: 0px;
-  color: #616161;
-}
-#BlocContenu .Contenu .BlocD h2 {
-  font-size: 14px;
-  margin-top: 0px;
-  margin-bottom: 4px;
-}
-#BlocContenu .Contenu .BlocD h2 a {
-  color: #616161;
-}
-#BlocContenu .Contenu .BlocD h2 a:hover {
-  color: #0098E9;
-}
-#BlocContenu #boitefiltre h3 {
-  font-size: 15px;
-  font-weight: bold;
-  color: #d0a604;
-  padding: 0px 0 16px 0;
-  text-align: center;
-}
-#BlocContenu #boitefiltre p {
-  font-size: 12px;
-  line-height: 18px;
-  color: #616161;
-  margin-bottom: 8px;
-}
-#BlocContenu #boitefiltre p label {
-  display: inline-block;
-  width: 250px;
-  margin-right: 10px;
-  font-weight: bold;
-}
-
-#content-main input[type=submit] {
-  margin-left: 0px;
-}
-#content-main .submit-row {
-  text-align: center;
-}
-
-input[type=submit]:hover, input[type=reset]:hover {
-  background-color: #aaa;
-}
-
-#BlocContenu .Contenu ul li.listemembre {
-  margin: 0px 0px 10px 0px;
-  padding: 12px 12px 12px 12px;
-  width: 338px;
-  display: inline-block;
-  vertical-align: top;
-  border: 1px solid #f5f5f5;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-}
-#BlocContenu .Contenu ul li.listemembre p {
-  margin: 0px;
-  color: #929292;
-  font-size: 11px;
-  line-height: 16px;
-}
-#BlocContenu .Contenu ul li.listemembre .logo {
-  float: left;
-  padding: 5px;
-  border: 1px solid #f2f2f2;
-  margin: 0px 10px 10px 0px;
-}
-#BlocContenu .Contenu ul li.listemembre .pays {
-  width: 100%;
-}
-#BlocContenu #content_partenaire li {
-  margin: 0px 0px 25px 0px;
-  padding: 11px;
-  border: 1px solid #f5f5f5;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-  overflow: hidden;
-}
-#BlocContenu #content_partenaire .article_preview h2 {
-  font-size: 14px;
-  margin-bottom: 1px;
-  margin-top: 0;
-  color: #616161;
-}
-#BlocContenu #content_partenaire .article_preview p {
-  color: #929292;
-  font-size: 11px;
-  margin: 10px 0px 0px 0px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-GABARIT 2 COLONNES -------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-body.Details #BlocContenu .Contenu a.LienBouton {
-  background-image: url(../img/Bg_LienBoutonDetails.png);
-}
-body.Details #BlocContenu .Contenu .NotesImportantes {
-  margin: 12px 0 22px 0;
-}
-body.Details #BlocContenu .Contenu .NotesImportantes p {
-  margin-bottom: 12px;
-}
-body.Details #ColonneLaterale .LienApplication {
-  width: 252px;
-  _width: 199px;
-  height: 72px;
-  display: block;
-  background: url(../img/Img_OmbreDetails.png) no-repeat 0 0;
-  position: relative;
-  top: -22px;
-  left: -22px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #FFF;
-  text-transform: uppercase;
-  text-decoration: none;
-  line-height: 62px;
-  padding: 0 37px 0 37px;
-}
-body.Details #ColonneLaterale .LienApplication span {
-  background: url(../img/Picto_Fleche.gif) no-repeat right 50%;
-  padding-right: 17px;
-}
-body.Details #ColonneLaterale .LienApplication:hover span {
-  text-decoration: underline;
-}
-body.Details #ColonneLaterale .Encadre .ContenuEncadre p {
-  font-size: 1.1em;
-  margin-bottom: 19px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-GABARIT 3 COLONNES -------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-body.TroisColonnes #BlocContenu .Contenu {
-  width: 415px;
-  background-position: -184px 0;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-GABARIT POUR FORMULAIRE --------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-body.Formulaire #Corps {
-  background: #FFF;
-}
-body.Formulaire #EnteteSecondaire {
-  height: 64px;
-}
-body.Formulaire #EnteteSecondaire .ContenuEntete {
-  height: 64px;
-}
-body.Formulaire #EnteteSecondaire #BlocCarteMonde {
-  float: left;
-}
-body.Formulaire #EnteteSecondaire .BlocMediasSociaux {
-  margin-top: 14px;
-  width: 280px;
-}
-body.Formulaire #EnteteSecondaire .BlocMediasSociaux p {
-  float: left;
-  height: 36px;
-  line-height: 36px;
-  padding-right: 7px;
-  width: 110px;
-}
-body.Formulaire #ColonneLaterale {
-  margin-top: 0;
-}
-body.Formulaire #BlocContenu .Contenu .BlocOnglets {
-  height: 34px;
-  border-bottom: 6px solid #e40404;
-}
-body.Formulaire #BlocContenu .Contenu .BlocOnglets ul {
-  height: 34px;
-  float: right;
-  background: none;
-  margin: 0;
-}
-body.Formulaire #BlocContenu .Contenu .BlocOnglets li {
-  float: left;
-  height: 34px;
-  background: none;
-  font-size: 13px;
-  border: none;
-  padding: 0;
-}
-body.Formulaire #BlocContenu .Contenu .BlocOnglets li a {
-  display: inline-block;
-  height: 34px;
-  line-height: 38px;
-  color: #858585;
-  padding: 0 24px 0 24px;
-  outline: none;
-  background: #f8f8f8;
-}
-body.Formulaire #BlocContenu .Contenu .BlocOnglets li a:hover {
-  color: #0098E9;
-}
-body.Formulaire #BlocContenu .Contenu .BlocOnglets li a.On {
-  background: #e40404;
-  color: #FFF;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-COLONNE LATÉRALE ---------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-/*-------Bloc Réseaux Sociaux--------*/
-#BlocReseauxSociaux {
-  height: 64px;
-  background: #FFD500;
-  width: 43%;
-  float: right;
-  display: inline-block;
-}
-
-/*-------Colonne laterale--------*/
-#ColonneLaterale {
-  float: left;
-  width: 317px;
-  margin: 0px;
-  position: relative;
-}
-#ColonneLaterale h2 {
-  font-size: 1.8em;
-  color: #474747;
-  background: url(../img/Img_HautListeColonneLaterale.png) no-repeat left bottom;
-  padding-bottom: 16px;
-}
-#ColonneLaterale ul {
-  background: url(../img/Img_BasListeColonneLaterale.png) no-repeat left bottom;
-  padding-bottom: 12px;
-  margin-bottom: 18px;
-}
-#ColonneLaterale ul li {
-  border-bottom: 1px solid #dcdcdc;
-  padding: 13px 0 12px 0;
-  font-size: 1.15em;
-  color: #5e5d5d;
-}
-#ColonneLaterale p {
-  margin-bottom: 3px;
-}
-#ColonneLaterale ul li p {
-  margin-bottom: 0;
-}
-#ColonneLaterale a {
-  /*color:#5c5c5c;*/
-}
-#ColonneLaterale a:hover {
-  /*color:#0098E9;*/
-}
-#ColonneLaterale .Ombre {
-  position: absolute;
-  top: -9px;
-  left: -9px;
-  background: none;
-  _display: none;
-}
-#ColonneLaterale .Contenu {
-  padding: 23px 22px 22px 22px;
-  position: relative;
-}
-#ColonneLaterale .BlocActualites {
-  margin-bottom: 40px;
-  margin-top: 30px;
-}
-
-/*-------Bloc Actualités--------*/
-.BlocActualites {
-  margin-bottom: 40px;
-}
-.BlocActualites ul {
-  /*margin-bottom:14px !important;*/
-  /*font-size:0.8em;*/
-}
-.BlocActualites li {
-  padding: 22px 0 20px 0 !important;
-  width: 273px;
-}
-.BlocActualites img.ImageNouvelle {
-  float: left;
-  padding: 3px;
-  border: 1px solid #dfdfdf;
-  display: block;
-  margin-right: 13px;
-}
-.BlocActualites p.DetailsNouvelle {
-  float: left;
-  width: 193px;
-  line-height: 15px;
-}
-.BlocActualites p.DetailsNouvelle span.Date {
-  font-size: 11px;
-  color: #929292;
-  display: inline-block;
-}
-
-.Colonne3 p.DetailsNouvelle span.Date {
-  font-size: 11px;
-  color: #929292;
-  display: inline-block;
-}
-
-.BlocActualites p.DetailsNouvelle span.Note {
-  font-size: 11px;
-  color: #929292;
-  display: inline-block;
-}
-.BlocActualites p.DetailsNouvelle span.Titre {
-  padding: 1px 0px 4px 0px;
-  display: inline-block;
-  font-size: 12px;
-  color: #616161;
-}
-.BlocActualites p.DetailsNouvelle a:hover span.Titre {
-  color: #0098e9 !important;
-}
-
-#ColonneLaterale .Encadre {
-  background: #FFF;
-  border: 1px solid #dcdcdc;
-  padding: 4px;
-  margin-bottom: 14px;
-}
-#ColonneLaterale .Encadre .ContenuEncadre {
-  border: 1px solid #f2f2f3;
-  min-height: 100px;
-  height: auto !important;
-  height: 100px;
-  padding: 14px 20px 8px 20px;
-}
-#ColonneLaterale .Encadre .ContenuEncadre h2 {
-  margin-bottom: 14px;
-  background: none;
-  padding-bottom: 0;
-}
-#ColonneLaterale .Encadre .ContenuEncadre h3 {
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #474747;
-  margin: 4px 0 4px 0;
-}
-#ColonneLaterale .Encadre .ContenuEncadre p {
-  font-size: 1.2em;
-  color: #5c5c5c;
-  line-height: 16px;
-  margin-bottom: 12px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-BLOC DE BAS DE PAGE ------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-/*-------Bloc de bas de page--------*/
-#BlocBasPage {
-  width: 954px;
-  height: 176px;
-  padding: 10px 0 0 10px;
-}
-#BlocBasPage .BlocPromo {
-  width: 246px;
-  height: 128px;
-  border: 1px solid #8F8F8F;
-  overflow: hidden;
-  padding: 30px 30px 10px 30px;
-  float: left;
-  margin-right: 10px;
-  border-radius: 8px;
-  box-shadow: inset 0px 1px 13px #8F8F8F;
-  background: #A2A2A2;
-}
-#BlocBasPage .BlocPromo p {
-  font-size: 12px;
-  line-height: 18px;
-  color: #5c5c5c;
-  margin-bottom: 12px;
-}
-#BlocBasPage .BlocPromo p.Titre {
-  font-size: 19px;
-  line-height: 17px;
-  color: #FFF;
-  margin-bottom: 3px;
-}
-
-/*-------Champ Inscription Lettre d'info--------*/
-.ChampInscription {
-  border: 1px solid #dcdcdc;
-  padding: 1px;
-  background: #FFF;
-}
-.ChampInscription label {
-  display: none;
-}
-.ChampInscription .TxtBox {
-  font-family: Open Sans;
-  font-size: 12px;
-  color: #919191;
-  width: 169px;
-  padding: 6px 11px 5px 11px;
-  border: 0;
-  float: left;
-}
-.ChampInscription .BtInscription {
-  background: #FFF url(../img/Picto_FlecheInfolettre.gif) no-repeat right top;
-  width: 26px;
-  height: 26px;
-  display: block;
-  text-indent: -9999px;
-  overflow: hidden;
-  float: left;
-  border: 0px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-PIED DE PAGE -------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-#PiedPage {
-  background: #707070;
-  color: white;
-  margin-bottom: -16px;
-  height: 124px;
-}
-#PiedPage img {
-  position: relative;
-  float: right;
-  top: -33px;
-  margin-right: 52px;
-}
-#PiedPage p {
-  position: relative;
-  top: 71px;
-  margin-left: 66px;
-  font-size: 1em;
-}
-#PiedPage li {
-  color: #a3a4a7;
-  float: left;
-  background: url(../img/Img_SepPiedPage.gif) no-repeat right 50%;
-  padding-right: 17px;
-  margin-right: 14px;
-}
-#PiedPage li.DernierItem {
-  background: none;
-  margin-right: 0;
-  padding-right: 0;
-}
-#PiedPage a {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-#PiedPage a:hover {
-  color: #0098E9;
-}
-
-.AligneGauche {
-  float: left;
-}
-
-.AligneDroite {
-  float: right;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-ACCUEIL ET ACTUALITÉS ----------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-body.Accueil #EnteteSecondaire, body.ListeActualites #EnteteSecondaire {
-  height: 315px;
-  position: relative;
-  z-index: -2;
-  margin-top: 5px;
-}
-body.Accueil .CadreImage, body.ListeActualites .CadreImage {
-  width: 607px;
-  height: 313px;
-  padding-left: 8px;
-  position: absolute;
-  top: 2px;
-  right: 0px;
-  z-index: 200;
-}
-body.Accueil #BlocPresentation, body.ListeActualites #BlocPresentation {
-  float: left;
-  width: 283px;
-  padding: 61px 20px 0 25px;
-}
-#BlocPresentation p, body.ListeActualites #BlocPresentation p {
-  line-height: 17px;
-  color: #000;
-  margin-bottom: 14px;
-}
-body.Accueil #BlocPresentation ul, body.ListeActualites #BlocPresentation ul {
-  margin: 14px 0 26px 0;
-}
-body.Accueil #BlocPresentation ul li, body.ListeActualites #BlocPresentation ul li {
-  font-size: 11px;
-  line-height: 17px;
-  color: #FFF;
-}
-body.Accueil #BlocPresentation a, body.ListeActualites #BlocPresentation a {
-  text-decoration: none;
-  color: #AA0A2F;
-}
-body.Accueil #BlocPresentation a:hover, body.ListeActualites #BlocPresentation a:hover {
-  color: #fff;
-}
-body.Accueil #BlocPresentation a.LienBouton, body.ListeActualites #BlocPresentation a.LienBouton {
-  background: url(../img/Bg_LienBoutonDetails.png) no-repeat right -17px;
-}
-body.Accueil #BlocPresentation a.LienBouton:hover, body.ListeActualites #BlocPresentation a.LienBouton:hover {
-  background: url(../img/Bg_LienBoutonDetails.png) no-repeat right 0;
-}
-
-#BlocContenu .CadreImage {
-  width: 415px;
-  height: 215px;
-  margin-bottom: 45px;
-  z-index: 200;
-}
-#BlocContenu .Item #BlocEnBref, #BlocContenu .Item2 #BlocEnBref {
-  height: 48px;
-  background: url(../img/Bg_BlocEnBref.png) repeat-x 0 0;
-  z-index: 300;
-  color: #fff;
-  margin-top: 1px;
-}
-#BlocContenu .Item #BlocEnBref p, #BlocContenu .Item2 #BlocEnBref p {
-  font-size: 13px;
-  color: #FFF;
-  margin-bottom: 0;
-}
-#BlocContenu .Item #BlocEnBref .ConteneurEnBref, #BlocContenu .Item2 #BlocEnBref .ConteneurEnBref {
-  float: left;
-  width: 300px;
-  margin: 6px 0 0 58px;
-}
-#BlocContenu .Item #BlocEnBref .ConteneurEnBref a, #BlocContenu .Item2 #BlocEnBref .ConteneurEnBref a {
-  color: #fff;
-}
-#BlocContenu .BoutonPrecedent, #BlocContenu .Controleur .BoutonSuivant {
-  height: 20px;
-  width: 15px;
-  display: block;
-  position: absolute;
-  top: 50px;
-  outline: none;
-}
-
-body.Accueil #ColonneLaterale, body.ListeActualites #ColonneLaterale {
-  /*margin-top:61px;*/
-}
-body.Accueil #ColonneLaterale .Contenu, body.ListeActualites #ColonneLaterale .Contenu {
-  /*padding-top:20px;*/
-}
-body.Accueil .Item #BlocEnBref ul, body.ListeActualites .Item #BlocEnBref ul {
-  width: 212px;
-  height: 62px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: none;
-  position: relative;
-}
-body.Accueil .Item #BlocEnBref ul li, body.ListeActualites .Item #BlocEnBref ul li {
-  border-bottom: none;
-  color: #FFF;
-  font-size: 12px;
-  float: left;
-  width: 174px;
-  height: 60px;
-  padding: 0 38px 0 0;
-  position: absolute;
-  top: 0;
-  right: 174px;
-  overflow: hidden;
-}
-body.Accueil .Item #BlocEnBref a, body.ListeActualites .Item #BlocEnBref a {
-  color: #FFF;
-}
-body.Accueil .Item #BlocEnBref a:hover, body.ListeActualites .Item #BlocEnBref a:hover {
-  color: #ffdf49;
-}
-body.Accueil .Item #BlocEnBref, body.Accueil .Item2 #BlocEnBref {
-  width: 100%;
-  height: 25px;
-  background: url(../img/Bg_BlocEnBref.png) repeat-x 0 0;
-  position: absolute;
-  z-index: 300;
-  bottom: 0px;
-  right: 0px;
-}
-body.ListeActualites .Item #BlocEnBref, body.ListeActualites .Item2 #BlocEnBref {
-  width: 100%;
-  height: 25px;
-  background: url(../img/Bg_BlocEnBref.png) repeat-x 0 0;
-  position: absolute;
-  z-index: 300;
-  bottom: 0px;
-  right: 0px;
-}
-body.Accueil .Item #BlocEnBref p, body.Accueil .Item2 #BlocEnBref p {
-  font-size: 12px;
-  color: #FFF;
-  margin-bottom: 0;
-  text-align: center;
-}
-body.ListeActualites #BlocEnBref p {
-  font-size: 12px;
-  color: #FFF;
-  margin-bottom: 0;
-  text-align: center;
-}
-body.Accueil .Item #BlocEnBref .ConteneurEnBref, body.Accueil .Item2 #BlocEnBref .ConteneurEnBref {
-  float: left;
-  width: 603px;
-  text-transform: uppercase;
-  padding-left: 5px;
-  height: 25px;
-  line-height: 25px;
-  text-align: right;
-}
-body.ListeActualites .Item #BlocEnBref .ConteneurEnBref, body.ListeActualites .Item2 #BlocEnBref .ConteneurEnBref {
-  float: left;
-  width: 603px;
-  text-transform: uppercase;
-  padding-left: 5px;
-  height: 25px;
-  line-height: 25px;
-  text-align: right;
-}
-
-/*-----------------Controleur du diaporama----------------*/
-#BlocContenu .CadreImage .Controleur {
-  position: relative;
-  z-index: 320;
-  top: 135px;
-}
-#BlocContenu .CadreImage .Controleur img {
-  width: 15px;
-  height: 20px;
-  display: block;
-  overflow: hidden;
-}
-#BlocContenu .CadreImage .Item {
-  position: absolute;
-  z-index: 1;
-}
-#BlocContenu .CadreImage .Item img {
-  width: 415px;
-  height: 170px;
-  display: block;
-  overflow: hidden;
-}
-#BlocContenu .CadreImage .Item2 {
-  position: absolute;
-  z-index: 1;
-}
-#BlocContenu .Controleur .BoutonPrecedent {
-  left: 18px;
-}
-#BlocContenu .Controleur .BoutonSuivant {
-  left: 385px;
-}
-
-body.Accueil .CadreImage .Controleur, body.ListeActualites .CadreImage .Controleur {
-  position: absolute;
-  z-index: 320;
-  top: -50px;
-  left: 0px;
-}
-body.Accueil .CadreImage .Controleur img, body.ListeActualites .CadreImage .Controleur img {
-  width: 32px;
-  height: 32px;
-  display: block;
-  overflow: hidden;
-}
-body.Accueil .Controleur .BoutonPrecedent, body.Accueil .Controleur .BoutonSuivant {
-  height: 32px;
-  width: 32px;
-  display: block;
-  position: absolute;
-  top: 196px;
-  outline: none;
-  padding: 4px;
-}
-body.ListeActualites .Controleur .BoutonPrecedent, body.ListeActualites .Controleur .BoutonSuivant {
-  height: 32px;
-  width: 32px;
-  display: block;
-  position: absolute;
-  top: 196px;
-  outline: none;
-  padding: 4px;
-}
-body.Accueil .Controleur .BoutonPrecedent, body.ListeActualites .Controleur .BoutonPrecedent {
-  left: 30px;
-}
-body.Accueil .Controleur .BoutonSuivant, body.ListeActualites .Controleur .BoutonSuivant {
-  left: 560px;
-}
-body.Accueil .CadreImage .Item img, body.ListeActualites .CadreImage .Item img {
-  width: 607px;
-  height: 313px;
-  display: block;
-  overflow: hidden;
-}
-body.Accueil .CadreImage .Item, body.Accueil .CadreImage .Item2 {
-  position: absolute;
-  top: 0;
-  left: 8px;
-  z-index: 1;
-  -webkit-mask-image: -webkit-gradient(linear, right top, left top, color-stop(0.94, black), color-stop(0.09, black), color-stop(11.9, transparent), color-stop(0, transparent), color-stop(0, transparent));
-}
-body.ListeActualites .CadreImage .Item, body.ListeActualites .CadreImage .Item2 {
-  position: absolute;
-  top: 0;
-  left: 8px;
-  z-index: 1;
-  -webkit-mask-image: -webkit-gradient(linear, right top, left top, color-stop(0.94, black), color-stop(0.09, black), color-stop(11.9, transparent), color-stop(0, transparent), color-stop(0, transparent));
-}
-
-/*----------------------FIN------------------------*/
-body.Accueil .WrapperMediasSociaux, body.ListeActualites .WrapperMediasSociaux {
-  padding: 15px 0px 16px 20px;
-  width: 274px;
-}
-
-#ColonneLaterale .WrapperMediasSociaux {
-  padding: 15px 0px 16px 20px;
-  width: 274px;
-}
-
-body.Accueil .BlocMediasSociaux, body.ListeActualites .BlocMediasSociaux {
-  margin: 0;
-  height: 26px;
-  background-color: #fdf2c6;
-  padding: 3px 5px 3px 3px;
-  float: none;
-}
-
-#ColonneLaterale .BlocMediasSociaux {
-  margin: 0;
-  height: 26px;
-  background-color: #fdf2c6;
-  padding: 3px 5px 3px 3px;
-  float: none;
-}
-
-body.Accueil .BlocMediasSociaux p, body.ListeActualites .BlocMediasSociaux p {
-  color: #888888;
-  float: left;
-  padding-right: 7px;
-  width: 91px;
-  text-align: center;
-}
-
-#ColonneLaterale .BlocMediasSociaux p {
-  color: #808080;
-  float: left;
-  line-height: 29px;
-  padding-right: 7px;
-  width: 91px;
-  text-align: center;
-  font-size: 11px;
-}
-
-body.Accueil #BlocContenu .Contenu {
-  padding-top: 24px;
-  min-height: 950px;
-}
-body.Accueil #BlocContenu .Contenu h2 {
-  height: 48px;
-  background: url(../img/Bg_TitresAccueil.gif) no-repeat bottom right;
-  margin: 0 !important;
-  line-height: 46px !important;
-  position: relative;
-}
-body.Accueil #BlocContenu .Contenu h2 img.RSS {
-  position: absolute;
-  top: 20px;
-  right: 0;
-}
-body.Accueil #BlocContenu .Contenu p.DetailsNouvelle {
-  float: left;
-  width: 203px;
-  line-height: 16px;
-  margin-bottom: 4px !important;
-}
-body.Accueil #BlocContenu .Contenu li {
-  background: none !important;
-  padding: 16px 0 16px 0 !important;
-  width: 283px;
-  margin: 0 !important;
-}
-body.Accueil #BlocContenu .Contenu ul {
-  font-size: 0.7em;
-}
-body.ListeActualites #BlocContenu .Contenu ul {
-  font-size: 0.7em;
-}
-body.Accueil .ColonneGauche, body.ListeActualites .ColonneGauche {
-  margin-right: 30px;
-}
-body.Accueil .ColonneGauche, body.Accueil .ColonneDroite {
-  float: left;
-  width: 283px;
-}
-body.ListeActualites .ColonneGauche, body.ListeActualites .ColonneDroite {
-  float: left;
-  width: 283px;
-}
-
-#actubureau ul {
-  margin: 20px 0 23px;
-}
-#actubureau ul li {
-  margin: 0px 0px 20px 0px !important;
-  padding: 11px !important;
-  border: 1px solid #f5f5f5;
-  background: url(../img/Bg_Enc.png) top repeat-x !important;
-  overflow: hidden;
-}
-
-body.ListeActualites #BlocContenu .Contenu li {
-  padding: 10px !important;
-  margin: 0px 0px 16px 0px !important;
-  border: 1px solid #E9E9E9;
-}
-body.ListeActualites #BlocContenu .Contenu .tabs li {
-  padding: 0px !important;
-  margin: 0px !important;
-  border: 1px solid #E9E9E9;
-}
-body.ListeActualites #BlocContenu .Contenu .fondarticle {
-  background: url("../img/Bg_Enc.png") repeat-x scroll center bottom transparent !important;
-}
-body.ListeActualites #BlocContenu .Contenu p.DetailsNouvelle {
-  float: left;
-  width: 470px;
-  line-height: 16px;
-  margin-bottom: 0px !important;
-}
-body.ListeActualites #BlocContenu .Contenu p.DetailsNouvelle span.Titre {
-  padding: 8px 0px 9px 0px;
-  display: inline-block;
-  font-size: 12px;
-  color: #616161;
-}
-
-#boitefiltre {
-  margin: 0px 0px 20px 0px;
-  border: 1px solid #e9e9e9;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-  color: #616161;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 10px;
-}
-
-body.Accueil #BlocContenu .Contenu li img.ImageNouvelle, body.ListeActualites #BlocContenu .Contenu li img.ImageNouvelle {
-  float: left;
-  padding: 3px;
-  border: 1px solid #dfdfdf;
-  display: block;
-  margin-right: 13px;
-}
-
-#actubureau li img.ImageNouvelle {
-  float: left;
-  padding: 3px;
-  border: 1px solid #dfdfdf;
-  display: block;
-  margin-right: 13px;
-}
-
-body.Accueil #BlocContenu .Contenu p.DetailsNouvelle, body.ListeActualites #BlocContenu .Contenu p.DetailsNouvelle {
-  text-decoration: none;
-}
-body.Accueil #BlocContenu .Contenu p.DetailsNouvelle span.Date, body.ListeActualites #BlocContenu .Contenu p.DetailsNouvelle span.Date {
-  font-size: 12px;
-  color: #929292;
-  display: inline-block;
-}
-body.Accueil #BlocContenu .Contenu p.DetailsNouvelle span.Note, body.ListeActualites #BlocContenu .Contenu p.DetailsNouvelle span.Note {
-  font-size: 1.1em;
-  color: #919090;
-}
-body.Accueil #BlocContenu .Contenu p.DetailsNouvelle span.Titre {
-  padding: 1px 0px 4px 0px;
-  display: inline-block;
-  font-size: 12px;
-  color: #616161;
-}
-body.Accueil #BlocContenu .Contenu p.DetailsNouvelle a:hover span.Titre {
-  color: #0098e9 !important;
-}
-body.ListeActualites #BlocContenu .Contenu p.DetailsNouvelle a:hover span.Titre {
-  color: #0098e9 !important;
-}
-body.Accueil .BlocRealisations p.DetailsNouvelle {
-  width: 283px !important;
-}
-body.Accueil .BlocRealisations li.PremierItem p.DetailsNouvelle {
-  width: 203px !important;
-}
-body.Accueil .BlocProjets p.DetailsNouvelle, body.Accueil .BlocAppelsParticipation p.DetailsNouvelle {
-  width: 293px !important;
-  margin-bottom: 0px !important;
-}
-body.Accueil .BlocProjets p.DetailsNouvelle span.Note, body.Accueil .BlocAppelsParticipation p.DetailsNouvelle span.Note {
-  margin-top: 3px;
-  display: inline-block;
-}
-body.Accueil #BlocBasPage {
-  width: 637px;
-  height: 200px;
-  left: 0;
-  bottom: 0px;
-}
-body.Accueil #BlocBasPage .BlocPromo {
-  width: 565px;
-  height: 150px;
-  padding-top: 22px;
-}
-body.Accueil #BlocBasPage .BlocPromo h2 {
-  font-size: 22px;
-  color: #424242;
-  margin-bottom: 20px;
-}
-body.Accueil .ConteneurInformation {
-  position: relative;
-  width: 565px;
-  height: 150px;
-}
-body.Accueil .ConteneurInformation .Item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 565px;
-  height: 150px;
-  overflow: hidden;
-  background: url(../img/Bg_ItemInfoContinu.jpg) no-repeat 0 0;
-  z-index: 1;
-}
-body.Accueil .ConteneurInformation .Item img {
-  float: left;
-  width: 229px;
-  height: 138px;
-  padding: 5px;
-  border: 1px solid #FFF;
-  margin-right: 30px;
-}
-body.Accueil .ConteneurInformation .Item div {
-  float: left;
-  width: 294px;
-}
-body.Accueil .ConteneurInformation .Item p.Date {
-  margin-bottom: 3px !important;
-}
-body.Accueil .ConteneurInformation .Item p.Titre {
-  line-height: 20px !important;
-}
-body.Accueil .ConteneurInformation .Controleur {
-  position: absolute;
-  top: 112px;
-  left: 275px;
-  z-index: 1000;
-}
-body.Accueil .ConteneurInformation .Controleur li {
-  width: 21px;
-  height: 21px;
-  padding: 1px;
-  border: 1px solid #fce37c;
-  float: left;
-  text-align: center;
-  line-height: 21px;
-  margin-right: 5px;
-  font-size: 14px;
-}
-body.Accueil .ConteneurInformation .Controleur a {
-  width: 21px;
-  height: 21px;
-  display: block;
-  color: #FFF;
-  text-decoration: none;
-}
-body.Accueil .ConteneurInformation .Controleur a:hover, body.Accueil .ConteneurInformation .Controleur a.On {
-  background: #FFF;
-  color: #ffcd04;
-}
-body.Accueil .BlocPartenaires {
-  border: 1px solid #f2f2f3;
-  width: 238px;
-  height: 114px;
-  position: relative;
-  left: -9px;
-}
-body.Accueil .BlocPartenaires .BoutonPrecedent, body.Accueil .BlocPartenaires .BoutonSuivant {
-  position: absolute;
-  top: 41px;
-  display: block;
-  width: 16px;
-  height: 33px;
-  outline: none;
-}
-body.Accueil .BlocPartenaires .BoutonPrecedent {
-  left: 8px;
-}
-body.Accueil .BlocPartenaires .BoutonSuivant {
-  right: 8px;
-}
-body.Accueil .ConteneurPartenaires {
-  width: 180px;
-  height: 100px;
-  position: relative;
-  overflow: hidden;
-  margin: 7px 0 0 29px;
-  text-align: center;
-}
-body.Accueil .ConteneurPartenaires .Item {
-  width: 180px;
-  padding-top: 10px;
-  height: 90px;
-  display: table-cell;
-  vertical-align: middle;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: -180px;
-  background: #FFF;
-  font-size: 12px;
-}
-body.Accueil .LienDevenirPartenaire {
-  font-size: 11px;
-  color: #9d9d9d;
-  margin-top: 6px;
-  display: inline-block;
-}
-body.Accueil .LienDevenirPartenaire:hover {
-  color: #0098e9;
-}
-
-#actubureau p {
-  margin-bottom: 0px !important;
-}
-#actubureau p.DetailsNouvelle {
-  float: left;
-  width: 310px;
-  line-height: 15px;
-}
-#actubureau p.DetailsNouvelle span.Date {
-  font-size: 11px;
-  color: #929292;
-  display: inline-block;
-}
-#actubureau p.DetailsNouvelle span.Titre {
-  padding: 1px 0px 4px 0px;
-  display: inline-block;
-  font-size: 12px;
-  color: #616161;
-}
-#actubureau p.DetailsNouvelle span.TexteRegion {
-  text-transform: uppercase;
-  background: #e6b804;
-  color: #FFF !important;
-  padding: 2px 5px 1px 5px;
-  margin-bottom: 5px;
-}
-#actubureau p.DetailsNouvelle span.Note {
-  color: #929292;
-  display: inline-block;
-  font-size: 11px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-STYLES SPÉFICIQUES À L'ACCUEIL -------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-body.Accueil #ColonneLaterale h2 {
-  background: none;
-}
-body.Accueil #ColonneLaterale .Contenu ul {
-  margin-bottom: 27px;
-}
-body.Accueil #ColonneLaterale .Contenu ul li {
-  padding: 8px 0 7px 37px;
-  background: no-repeat 0 50%;
-}
-body.Accueil #ColonneLaterale .Contenu ul li a {
-  font-weight: bold;
-  color: #5e5d5d;
-}
-body.Accueil #ColonneLaterale .Contenu ul li a:hover {
-  color: #0098E9;
-  text-decoration: none;
-}
-body.Accueil .CibleServices {
-  width: 273px;
-  height: 105px;
-  display: block;
-  background: no-repeat 0 0;
-  position: relative;
-  margin-bottom: 38px;
-}
-body.Accueil .CibleServices a {
-  font-size: 14px;
-  font-weight: bold;
-  font-style: italic;
-  width: 273px;
-  height: 105px;
-  display: block;
-  color: #FFF;
-}
-body.Accueil .CibleServices a:hover {
-  color: #474747;
-}
-body.Accueil .CibleServices a span {
-  padding: 6px 14px 0px 14px;
-  height: 48px;
-  display: block;
-  line-height: 14px;
-  background: url(../img/Bg_CategorieAccueil.gif) no-repeat 0 0;
-  position: absolute;
-  top: 16px;
-  right: -7px;
-  overflow: hidden;
-  width: 118px;
-}
-body.Accueil #BlocContenu {
-  position: relative;
-  min-height: 950px !important;
-}
-body.Accueil #BlocContenu .BlocActualites, body.Accueil #BlocContenu .BlocRealisations, body.Accueil #BlocContenu .BlocProjets, body.Accueil #BlocContenu .BlocAppelsParticipation, body.Accueil #BlocContenu .BlocEvenements {
-  margin-bottom: 49px;
-}
-body.Accueil #BlocContenu .BlocActualites, body.Accueil #BlocContenu .BlocPublications {
-  /*margin-right: 30px;*/
-}
-body.Accueil .ColonneDroite p.DetailsNouvelle {
-  width: 283px !important;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-STYLES SPÉFICIQUES AUX ACTUALITÉS ----------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-body.ListeActualites h1 {
-  position: relative;
-  margin-bottom: 14px !important;
-}
-body.ListeActualites h1 img.RSS {
-  position: absolute;
-  bottom: 12px;
-  right: 0;
-}
-body.ListeActualites #BlocContenu .Contenu {
-  padding-top: 5px;
-}
-body.ListeActualites #BlocContenu .Contenu ul {
-  margin-bottom: 11px;
-}
-body.ListeActualites #ColonneLaterale ul {
-  font-size: 0.8em;
-  margin-bottom: 18px;
-}
-body.ListeActualites #ColonneLaterale li {
-  padding: 17px 0 17px 0;
-}
-body.ListeActualites #ColonneLaterale p.DetailsNouvelle span.Date {
-  font-size: 1.1em;
-  color: #9D9D9D;
-  line-height: 15px;
-}
-body.ListeActualites #ColonneLaterale p.DetailsNouvelle span.Note {
-  font-size: 1em;
-  color: #919090;
-  display: inline-block;
-  margin-top: 3px;
-}
-body.ListeActualites #ColonneLaterale p.DetailsNouvelle span.Titre {
-  font-size: 12px;
-  line-height: 15px;
-  color: #5c5c5c;
-}
-body.ListeActualites #ColonneLaterale p.DetailsNouvelle a:hover span.Titre {
-  color: #0098e9 !important;
-}
-body.ListeActualites .ColonneGauche, body.ListeActualites .ColonneDroite {
-  background: url(../img/Bg_SeparateurListe.png) no-repeat 0 0;
-  padding-top: 11px;
-}
-
-.bodyDetail #BlocContenu .Contenu {
-  width: 613px;
-}
-.bodyDetail #BlocContenu .Contenu h1 {
-  /*margin-bottom:0;*/
-}
-.bodyDetail .ColonneGauche {
-  width: 184px;
-  margin-right: 24px;
-  float: left;
-}
-.bodyDetail .ColonneGauche .ImageActualite {
-  display: block;
-  width: 184px;
-  height: auto;
-}
-.bodyDetail .ColonneGauche .Partage {
-  float: left;
-  padding-top: 15px;
-}
-.bodyDetail .ColonneGauche .Facebook {
-  width: 60px !important;
-  margin: 0 5px 0 6px;
-  height: 62px;
-}
-.bodyDetail .ColonneGauche .Courriel a {
-  background: url(../img/Icone_Courriel.png) no-repeat 4px 0;
-  display: block;
-  width: 48px;
-  height: 61px;
-  position: relative;
-}
-.bodyDetail .ColonneGauche .Courriel a span {
-  background: #000;
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-size: 11px;
-  color: #FFF;
-  height: 18px;
-  line-height: 18px;
-  padding: 0 5px 0 5px;
-}
-.bodyDetail .ColonneDroite {
-  float: left;
-}
-
-.ColonneGauche .ImageNouvelle {
-  border: 1px solid #EFEFEF;
-}
-
-.bodyDetail .ColonneDroite {
-  width: 390px;
-  font-size: 12px;
-  line-height: 16px;
-  color: #5c5c5c;
-}
-.bodyDetail .ColonneDroite img {
-  max-width: 380px !important;
-  height: auto;
-  border: 1px solid #DFDFDF;
-  display: block;
-  margin: 10px 14px 10px 0;
-  padding: 5px;
-}
-.bodyDetail .ColonneDroite p {
-  margin-top: 18px;
-  line-height: 18px !important;
-  color: #5c5c5c !important;
-}
-
-.paraintro {
-  margin: 5px 0px 15px 0px;
-  text-align: justify;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-MENU PRINCIPAL + MENU SECONDAIRES ----------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-/*------------Menu secondaire--------------*/
-#ColonneMenuSecondaire li a {
-  color: #AA0A2F;
-}
-
-
-/*--------------Navigation Rapide--------------*/
-.NavigationRapide {
-  width: 184px;
-  margin-bottom: 35px;
-}
-.NavigationRapide p {
-  background: #79797a;
-  height: 35px;
-  line-height: 35px;
-  font-size: 1.3em;
-  font-weight: bold;
-  font-style: italic;
-  color: #FFF;
-  padding-left: 29px;
-}
-.NavigationRapide ul li {
-  border-bottom: 1px solid #dcdcdc;
-  font-size: 11px;
-  font-weight: bold;
-  color: #79797a;
-  padding: 13px 35px 10px 16px;
-  background: url(../img/Bg_MenuG4.png) right no-repeat;
-}
-.NavigationRapide a {
-  color: #79797a;
-  text-decoration: none;
-}
-.NavigationRapide a:hover {
-  color: #0098E9;
-}
-
-/*-----------Colonne Laterale---------*/
-#ColonneLaterale .NavigationRapide {
-  width: 273px;
-  margin: 0px 0px 25px 0px;
-}
-#ColonneLaterale .NavigationRapide ul {
-  margin-bottom: 0 !important;
-}
-#ColonneLaterale .NavigationRapide li {
-  padding: 9px 0 9px 13px !important;
-}
-
-/*-------------------------------------*/
-.fondform {
-  margin: 0px 0px 25px 0px;
-  padding: 11px;
-  border: 1px solid #f5f5f5;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-  border-bottom: 1px solid #EEEEEE;
-  overflow: hidden;
-}
-
-#BlocContenu .Contenu .liEncartMenu {
-  margin: 0px 0px 25px 0px;
-  padding: 11px;
-  border: 1px solid #f5f5f5;
-  background: url(../img/Bg_Enc.png) bottom repeat-x !important;
-  overflow: hidden;
-}
-#BlocContenu .Contenu #EncartSousMenu .liEncartMenu .BlocD {
-  float: left;
-  width: 255px;
-}
-#BlocContenu .Contenu #EncartSousMenu .liEncartMenu .stuff p {
-  color: #898989;
-  font-size: 0.96em;
-  margin: 0px 0px 12px 0px;
-  text-align: justify;
-}
-#BlocContenu .Contenu #EncartSousMenu .liEncartMenu .Imgbloc {
-  max-height: 150px;
-  width: 118px;
-  float: left;
-  margin-right: 15px;
-}
-#BlocContenu .Contenu #EncartSousMenu .liEncartMenu .Imgbloc img {
-  width: 118px;
-  max-height: 150px;
-}
-
-.encartTitle {
-  height: 28px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-CARTE DU MONDE -----------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-#separationcarte {
-  height: 3px;
-  background: #fdca00;
-}
-
-#BlocCarteMonde {
-  min-height: 64px;
-  height: auto !important;
-  margin: 0 auto;
-  position: relative;
-  z-index: 0;
-}
-#BlocCarteMonde #BlocSelectionBureau {
-  width: 57%;
-  height: 64px;
-  background-color: #FFD500;
-  display: inline-block;
-}
-#BlocCarteMonde #BlocSelectionBureau.On {
-  background-position: 0 -64px;
-}
-#BlocCarteMonde #BlocSelectionBureau label {
-  font-size: 11px;
-  color: #4c4c4c;
-  text-transform: uppercase;
-  float: left;
-  height: 64px;
-  line-height: 64px;
-}
-#BlocCarteMonde .SelectionCarte {
-  width: 117px;
-  height: 61px;
-  display: inline-block;
-  float: left;
-  background: url(../img/carte/CarteMonde.png) no-repeat 0 0;
-  margin: 0 0 0 7px;
-  outline: none;
-}
-#BlocCarteMonde .SelectionCarte.On {
-  background-position: 0 -64px;
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee {
-  width: 117px;
-  height: 61px;
-  background: no-repeat 0 0;
-  display: block;
-  text-indent: -9999px;
-  overflow: hidden;
-  cursor: pointer;
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Afrique-Centrale {
-  background-image: url(../img/carte/CarteAfrique-Centrale.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Afrique-de-l-Ouest {
-  background-image: url(../img/carte/CarteAfrique-de-l-Ouest.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Ameriques {
-  background-image: url(../img/carte/CarteAmeriques.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Asie-Pacifique {
-  background-image: url(../img/carte/CarteAsie-Pacifique.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Caraibes {
-  background-image: url(../img/carte/CarteCaraibes.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Europe-centrale-et-orientale {
-  background-image: url(../img/carte/CarteEurope-centrale-et-orientale.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Europe-de-l-Ouest-et-Maghreb {
-  background-image: url(../img/carte/CarteEurope-de-l-Ouest-et-Maghreb.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Moyen-Orient {
-  background-image: url(../img/carte/CarteMoyen-Orient.png);
-}
-#BlocCarteMonde .SelectionCarte .RegionSelectionnee#Ocean-Indien {
-  background-image: url(../img/carte/CarteOcean-Indien.png);
-}
-#BlocCarteMonde #BlocSelectionBureau a.SelectionBureau {
-  width: 302px;
-  height: 26px;
-  line-height: 26px;
-  padding: 0 11px 0 11px;
-  background: url(../img/Bg_SelectionBureau.gif) no-repeat 0 0;
-  display: block;
-  font-size: 11px;
-  color: #474747;
-  outline: none;
-  float: right;
-  margin: 17px 10px 0 0;
-  border: 1px solid #ececec;
-}
-#BlocCarteMonde #BlocSelectionBureau ul.MenuDeroulantBureau {
-  background: #FFF;
-  width: 301px;
-  position: absolute;
-  top: 43px;
-  right: 10px;
-  padding: 8px 0 8px 0;
-  display: none;
-  z-index: 9999;
-  border: 1px solid #ececec;
-  border-top: none;
-}
-#BlocCarteMonde #BlocSelectionBureau ul.MenuDeroulantBureau.On {
-  display: block;
-}
-#BlocCarteMonde #BlocSelectionBureau li a {
-  width: 279px;
-  padding: 4px 11px 4px 11px;
-  display: block;
-  font-size: 11px;
-  color: #474747;
-}
-#BlocCarteMonde #BlocSelectionBureau li a:hover {
-  color: #0098E9;
-  background: #F8F8F8;
-}
-#BlocCarteMonde #WrapperCarte {
-  width: 647px;
-  display: none;
-  position: absolute;
-  z-index: 400;
-}
-#BlocCarteMonde #Carte {
-  width: 647px;
-  height: 270px;
-  background: url(../img/Img_CarteMonde.png) no-repeat 0 0;
-  position: relative;
-}
-#BlocCarteMonde #Carte a {
-  display: block;
-  text-indent: -9999px;
-  overflow: hidden;
-  position: absolute;
-  outline: none;
-  z-index: 200;
-}
-#BlocCarteMonde #Carte a#Zoneafrique-centrale-et-des-grands-lacs {
-  width: 72px;
-  height: 120px;
-  top: 93px;
-  left: 312px;
-}
-#BlocCarteMonde #Carte a#Zoneafrique-de-l-ouest {
-  width: 55px;
-  height: 45px;
-  top: 103px;
-  left: 268px;
-}
-#BlocCarteMonde #Carte a#Zoneameriques {
-  width: 163px;
-  height: 267px;
-  top: 2px;
-  left: 70px;
-}
-#BlocCarteMonde #Carte a#Zoneasie-pacifique {
-  width: 166px;
-  height: 185px;
-  top: 61px;
-  left: 416px;
-}
-#BlocCarteMonde #Carte a#Zonecaraibe {
-  width: 41px;
-  height: 30px;
-  top: 103px;
-  left: 156px;
-}
-#BlocCarteMonde #Carte a#Zoneeurope-centrale-et-orientale {
-  width: 228px;
-  height: 73px;
-  top: 12px;
-  left: 319px;
-}
-#BlocCarteMonde #Carte a#Zoneeurope-de-l-ouest {
-  width: 65px;
-  height: 84px;
-  top: 2px;
-  left: 271px;
-}
-#BlocCarteMonde #Carte a#Zonemoyen-orient {
-  width: 82px;
-  height: 46px;
-  top: 82px;
-  left: 338px;
-}
-#BlocCarteMonde #Carte a#Zoneocean-indien {
-  width: 55px;
-  height: 71px;
-  top: 152px;
-  left: 327px;
-}
-#BlocCarteMonde #Carte a#Zonemaghreb {
-  width: 55px;
-  height: 34px;
-  top: 83px;
-  left: 265px;
-}
-#BlocCarteMonde .ControlesCarte {
-  background: #f3c924;
-  height: 30px;
-  padding: 0 17px 0 17px;
-  text-align: right;
-}
-#BlocCarteMonde .ControlesCarte a {
-  font-size: 11px;
-  color: #FFF;
-  line-height: 30px;
-  display: inline-block;
-  margin-left: 25px;
-}
-#BlocCarteMonde .ControlesCarte a:hover {
-  color: #474747;
-}
-
-#tooltip {
-  position: absolute;
-  z-index: 3000;
-  background-color: #FFF;
-  padding: 0 34px 0 34px;
-  color: #e40404;
-  font-size: 12px;
-  height: 47px;
-  line-height: 47px;
-  border: 1px solid #dcdcdc;
-}
-#tooltip h3, #tooltip div {
-  margin: 0;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-STYLES POUR TEXTE --------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-.TexteRegion {
-  text-transform: uppercase;
-  background: #e6b804;
-  color: #FFF !important;
-  padding: 2px 5px 1px 5px;
-  margin-bottom: 5px;
-  font-size: 11px;
-}
-
-.TexteCitation {
-  font-size: 1.3em;
-  font-weight: bold;
-  font-style: italic;
-  color: #757575;
-  line-height: 22px;
-}
-
-.TexteImportant {
-  color: #e30000 !important;
-  font-weight: bold;
-}
-
-.TexteSpecial {
-  color: #9d9d9d;
-}
-
-/*- Styles spéciaux pour visionnement de video ---------------------------------*/
-body.Video {
-  color: #fff;
-  background: #000;
-}
-body.Video #Contenu {
-  width: 560px;
-  background: #000;
-  margin: 0 auto;
-  padding: 8px 0 0;
-}
-body.Video #Contenu p.Fermer {
-  text-align: right;
-  margin: 0 0 6px;
-}
-body.Video #Contenu ul {
-  float: right;
-}
-body.Video #Contenu ul li {
-  float: left;
-  list-style: none none;
-  padding: 0 0 0 6px;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-STYLES POUR HYPERLIENS ---------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-a.LienBouton {
-  font-size: 10px;
-  color: #FFF !important;
-  background: url(../img/Bg_LienBoutonContenu.png) no-repeat right 0;
-  display: inline-block;
-  text-transform: uppercase;
-  text-decoration: none !important;
-  padding: 0 15px 0 8px;
-  height: 17px;
-  line-height: 17px;
-  overflow: hidden;
-  margin-right: 10px;
-}
-a.LienBouton:hover {
-  background-position: right -17px;
-}
-a.LienBoutonPresentation {
-  background: #248ab9;
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 14px;
-  color: white !important;
-}
-a.LienBoutonPresentation:hover {
-  background: #1d9dd9;
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 14px;
-  color: white !important;
-}
-
-/* -----------------------------------------------------------------------------------------------------------------
-STYLES POUR FORMULAIRES --------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------ */
-.Formulaire #BlocContenu .Contenu h2 {
-  margin-top: 0;
-  margin-bottom: 21px;
-}
-.Formulaire form {
-  padding: 27px 0 0 23px;
-}
-.Formulaire .ChampsObligatoires {
-  font-size: 11px !important;
-  color: #d0a604 !important;
-  font-style: italic;
-  float: right;
-  padding-top: 5px;
-}
-.Formulaire .Champ {
-  font-size: 1.1em;
-}
-.Formulaire .Champ label {
-  display: block;
-  margin-bottom: 6px;
-  color: #5c5c5c;
-  font-size: 1.1em;
-}
-.Formulaire .Champ small {
-  color: #bdbdbd;
-  font-size: 11px;
-  font-style: italic;
-}
-.Formulaire .Champ span {
-  margin-left: 3px;
-}
-.Formulaire .Champ .TxtBox, .Formulaire .Champ .TxtArea {
-  font-family: Open Sans;
-  font-size: 11px;
-  color: #474747 !important;
-  border: 1px solid #bababa;
-  background: #FFF;
-  padding: 7px 10px 7px 10px;
-  width: 435px;
-}
-.Formulaire .Champ.Fichier .TxtBox {
-  float: left;
-}
-.Formulaire #txtDescription_counter {
-  font-size: 11px;
-  color: #5c5c5c;
-  float: right;
-  line-height: 18px;
-}
-.Formulaire #txtDescription_counter.Max {
-  color: red !important;
-}
-.Formulaire .SelectList {
-  width: 456px;
-  font-family: Open Sans;
-  font-size: 11px;
-  color: #474747 !important;
-  border: 1px solid #bababa;
-  background: #FFF;
-  margin-right: 3px;
-}
-.Formulaire .ChampUpload {
-  width: 89px;
-  height: 30px;
-  overflow: hidden;
-  background: url(../img/Bg_UploadButton.png) no-repeat 0 0;
-  position: relative;
-  display: block;
-  float: left;
-}
-.Formulaire .ChampUpload span {
-  width: 89px;
-  height: 30px;
-  direction: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  line-height: 30px;
-  font-size: 11px;
-  color: #FFF;
-  text-align: center;
-  cursor: pointer !important;
-}
-.Formulaire .BoutonUpload {
-  width: 89px;
-  height: 30px;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  cursor: pointer !important;
-}
-.Formulaire .Erreur label, .Formulaire .Erreur .TxtBox, .Formulaire .Erreur .TxtArea {
-  color: red !important;
-}
-.Formulaire .Erreur .TxtBox, .Formulaire .Erreur .TxtArea {
-  border-color: red !important;
-}
-
-/*- Styles d'ajustement pour les EM ----------------------------------------*/
-div#Contenu p p,
-div#Contenu ul ul,
-div#Contenu ol ol,
-div#Contenu ol ul,
-div#Contenu ul ol,
-table.Tableau ul,
-table.Tableau ol,
-table.Tableau p {
-  font-size: 1em;
-}
-
-/*----------------Tab Onglet-------------------------*/
-#tabonglet {
-  margin-top: 30px;
-}
-#tabonglet ul.tabs {
-  margin: 0;
-  padding: 0;
-  float: left;
-  list-style: none;
-  height: 32px;
-  /*--Set height of tabs--*/
-  border-bottom: 1px solid #DCDCDC;
-  border-left: 1px solid #DCDCDC;
-  width: 100%;
-}
-#tabonglet ul.tabs li {
-  float: left;
-  margin: 0;
-  padding: 0;
-  height: 31px;
-  /*--Subtract 1px from the height of the unordered list--*/
-  line-height: 31px;
-  /*--Vertically aligns the text within the tab--*/
-  border: 1px solid #DCDCDC;
-  border-left: none;
-  margin-bottom: -1px;
-  /*--Pull the list item down 1px--*/
-  overflow: hidden;
-  position: relative;
-  background: #f1f1f1 !important;
-}
-#tabonglet ul.tabs li a {
-  text-decoration: none;
-  color: #000;
-  display: block;
-  font-size: 1.2em;
-  padding: 0 20px;
-  border: 1px solid #fff;
-  /*--Gives the bevel look with a 1px white border inside the list item--*/
-  outline: none;
-}
-#tabonglet ul.tabs li a:hover {
-  background: #f2f2f2;
-}
-#tabonglet ul.tabs li.active {
-  /*--Makes sure that the active tab does not listen to the hover properties--*/
-  background: #fff !important;
-  border-bottom: 1px solid #fff;
-  /*--Makes the active tab look like it's connected with its content--*/
-  font-weight: bold;
-}
-#tabonglet ul.tabs li.active a:hover {
-  /*--Makes sure that the active tab does not listen to the hover properties--*/
-  background: #fff !important;
-  border-bottom: 1px solid #fff;
-  /*--Makes the active tab look like it's connected with its content--*/
-  font-weight: bold;
-}
-#tabonglet ul li {
-  font-size: 1em !important;
-}
-#tabonglet .tab_container {
-  border: 1px solid #DCDCDC;
-  border-top: none;
-  overflow: hidden;
-  clear: both;
-  float: left;
-  width: 100%;
-  background: #fff;
-}
-#tabonglet .tab_content {
-  padding: 20px;
-  font-size: 1.2em;
-}
-#tabonglet .tab_content ul li {
-  background: url(../img/rss.png) no-repeat center left !important;
-  padding: 0 0 0 25px !important;
-  line-height: 40px;
-  margin-bottom: 0px !important;
-}
-
-/*--------------Sitemap-----------------*/
-body.ListeActualites #BlocContenu #sitemap * {
-  border: 0px !important;
-  padding: 0px !important;
-  margin: 0px !important;
-  font-size: 12px !important;
-  background: none !important;
-}
-body.ListeActualites #BlocContenu #sitemap ul {
-  padding: 8px 0px 8px 16px !important;
-  list-style: square;
-}
-body.ListeActualites #BlocContenu #sitemap li {
-  padding: 2px 0px 2px 0px !important;
-  width: 100%;
-  line-height: 18px;
-}
-
-/* -----------Back to top ------------ */
-#back-top {
-  position: fixed;
-  bottom: 210px;
-}
-#back-top a {
-  width: 40px;
-  display: block;
-  text-align: center;
-  /* background color transition */
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  transition: 1s;
-}
-#back-top span {
-  width: 40px;
-  height: 86px;
-  display: block;
-  margin-bottom: 7px;
-  padding-right: 2px;
-  background: #ddd url(../img/top.png) no-repeat center center;
-  /* background color transition */
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  transition: 1s;
-}
-#back-top a:hover span {
-  background-color: #ccc;
-}
-
-/*------------------Carte Bureaux-----------------------*/
-
-#carte2 {
-  width: 732px;
-  height: 385px;
-  margin: 30px  auto;
-  padding: 5px;
-  border: 1px solid #DCDCDC;
-  position: relative;
-}
-
-#cartebas {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  padding: 12px 20px 12px 20px;
-  height: 95px;
-  background: url(../img/carte/blanc.png) repeat;
-  color: #474747;
-}
-#cartebas h2 {
-  margin: 0px 0px 12px 0px;
-  font-size: 14px;
-}
-#cartebas .noBord {
-  border-right: none !important;
-  margin-right: 0px !important;
-}
-#cartebas h2 span {
-  font-size: 0.74em;
-}
-#cartebas h3 {
-  font-weight: bold;
-  margin: -6px 0px 4px 0px;
-  font-size: 12px;
-}
-#cartebas .carteBL {
-  width: 270px;
-  padding-right: 12px;
-  margin-right: 20px;
-  float: left;
-  font-size: 11px;
-  border-right: 1px solid #7F7F7F;
-}
-
-.cartebas2 {
-  position: absolute;
-}
-
-#trans {
-  z-index: 105;
-}
-
-.bur, #beco-map, #bap-map, #bmo-map, #bacgl-map, #boi-map, #bao-map, #bm-map, #beo-map, #bc-map, #ba-map, #beco-desc, #bap-desc, #bmo-desc, #bacgl-desc, #boi-desc, #bao-desc, #bm-desc, #beo-desc, #bc-desc, #ba-desc {
-  -moz-opacity: .0;
-  -ms-filter: ”alpha(opacity=0) ”;
-  filter: alpha(opacity=0);
-  opacity: .0;
-  left: -1px;
-  top: -1px;
-}
-
-#Corps2 ul {
-  margin: 20px 0 20px 0;
-}
-#Corps2 .ColonneGauche, #Corps2 .ColonneDroite, #Corps2 .Colonne3 {
-  float: left;
-  width: 283px;
-  margin-right: 0px;
-  padding-top: 11px;
-  margin-left: 30px;
-}
-#Corps2 .ColonneGauche h2, #Corps2 .ColonneDroite H2, #Corps2 .Colonne3 H2 {
-  height: 48px;
-  background: url(../img/Bg_TitresAccueil.gif) no-repeat bottom right;
-  margin: 0 !important;
-  line-height: 46px !important;
-  position: relative;
-  font-size: 1.8em;
-  color: #474747;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-#Corps2 .ColonneGauche li, #Corps2 .ColonneDroite li {
-  padding: 15px 0px 15px 0px !important;
-}
-#Corps2 .Colonne3 li {
-  padding: 15px 0px 15px 0px !important;
-}
-#Corps2 .Colonne3 p {
-  font-size: 1.2em;
-  line-height: 16px;
-  color: #5c5c5c;
-}
-#Corps2 .ColonneDroite p {
-  font-size: 1.2em;
-  line-height: 16px;
-  color: #5c5c5c;
-}
-#Corps2 .Colonne3 .Titre, #Corps2 .ColonneDroite .Titre {
-  margin-top: 0px;
-  color: #616161;
-}
-#Corps2 .Colonne3 a:hover span.Titre, #Corps2 .ColonneDroite a:hover span.Titre {
-  color: #0098e9 !important;
-}
-
-/*-------------------Emploi-------------------*/
-#content-main .BlocEmploi {
-  border: 1px solid #F0F0F0;
-  padding: 15px;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-  color: #616161;
-  margin-bottom: 20px;
-}
-#content-main .BlocEmploi H2 {
-  margin: 0px 0px 15px 4px !important;
-}
-#content-main .postuler {
-  margin: 0px 0px 10px 0px;
-  background-color: #f3f3f6;
-  padding: 10px;
-  text-align: center;
-}
-#content-main .postuler a {
-  font-size: 1.2em;
-}
-#content-main .tabpostuler {
-  font-size: 1.2em;
-  border-spacing: 15pt;
-}
-#content-main .tabtr {
-  padding: 10px 5px 10px 5px;
-}
-#content-main .tabtd {
-  width: 130px;
-  font-weight: bold;
-  display: inline-block;
-  vertical-align: top;
-}
-#content-main .tabtd2 {
-  display: inline-block;
-  width: 423px;
-}
-#content-main .etoile {
-  color: #dc2300;
-}
-#content-main .BlocEmploi td {
-  text-align: center;
-  font-weight: bold;
-}
-
-th {
-  text-align: center;
-  font-weight: bold;
-}
-
-#BlocContenu .postuler {
-  margin: 22px 0px 30px 0px;
-  border: 1px solid #e9e9e9;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-  color: #616161;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-}
-
-#form-error li {
-  padding: 0px 0px 0px 15px !important;
-}
-
-#tabemploye {
-  font-size: 11px;
-}
-
-table {
-  font-size: 11px;
-  margin-bottom: 15px;
-  min-width: 405px;
-  width: 100%;
-}
-
-td {
-  padding: 8px 8px 8px 8px;
-  color: #616161;
-}
-
-tr {
-  border: 1px solid #e5e5e5;
-  padding: 10px 0px 10px 0px;
-  background: url(../img/Bg_Enc.png) bottom repeat-x;
-}
-
-/*--------------Recherche----------------*/
-#results_content li {
-  margin: 0px 0px 10px 0px;
-  padding: 12px 12px 12px 12px;
-  border: 1px solid #f5f5f5;
-  background: url(../img/Bg_Enc.png) bottom repeat-x !important;
-}
-#results_content h2 {
-  font-size: 1.2em !important;
-  margin-bottom: 10px !important;
-  margin-top: 15px !important;
-}
-
-#results_footer_paging a, #results_header_paging a {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 0px 7px 0px 7px;
-  height: 23px;
-  line-height: 23px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/*------------MAP membre--------------*/
-iframe #afficher {
-  background-color: #FFFFFF !important;
-}
-
-/*----------BOX membre-----------*/
-#box_membre {
-  margin: 2px;
-  width: 580px;
-  background-color: #FEFEFE;
-  padding: 10px;
-  min-height: 578px;
-}
-#box_membre h2 {
-  height: 48px;
-  margin: 0 !important;
-  line-height: 46px !important;
-  position: relative;
-  font-size: 1.8em;
-  color: #474747;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-#box_membre p {
-  font-size: 11px;
-  line-height: 18px;
-  color: #616161;
-  margin-bottom: 10px;
-}
-
-.box_membre {
-  width: 568px;
-  border: 1px solid #f5f5f5;
-  background: url("../img/Bg_Enc.png") repeat-x scroll center bottom transparent;
-  padding: 5px 5px 0px 5px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-
-.vert, .rouge, .bleu {
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  border-radius:3px;
-}
-
-
-.vert {
-  border: 3px solid rgb(141, 190, 35);
-}
-
-.vert h4 {
-background: white;
-margin-top: -27px;
-margin-bottom: 0px;
-color: rgb(141, 190, 35);
-font-size: 17px;
-font-weight: bold;
-float: left;
-}
-
-
-.vert li {
-background: rgb(141, 190, 35);
-}
-
-/*-----------Carré étudiants-----------*/
-
-.rouge {
-margin-top: 49px;
-border: 3px solid rgb(229, 39, 39);
-}
-
-.rouge h4 {
-margin-top: -27px;
-margin-bottom: 0px;
-background: white;
-font-weight: bold;
-color: rgb(229, 39, 39);
-float: left;
-font-size: 1.9rem;
-}
-
-.rouge li {
-background: rgb(229, 39, 39);
-}
-
-/*-----------Carré Responsable d'établissement-----------*/
-
-.bleu {
-border: 3px solid rgb(112, 34, 131);
-}
-
-.bleu h4 {
-background: white;
-color: rgb(112, 34, 131);
-margin-top: -27px;
-margin-bottom: 0px;
-font-size: 1.5rem;
-font-weight: bold;
-float: left;
-}
-
-.bleu li {
-background: rgb(112, 34, 131);
-}
-
-/*--------------------------------------*/
-
-.navbar-default {
-  margin-bottom: 20px;
-}
-
-.navbar-brand {
-    max-width: 15%;
-    padding: 10px 0 0 10px;
-}
-
-.navbar-toggle {
-    margin-top: 22px;
-    margin-left: 10px;
-}
-
-#BlocPresentation h1 {
-  font-size: 16px;
-line-height: 20px;
-color: rgb(255, 0, 0);
-margin-bottom: 10px;
-text-transform: uppercase;
-font-weight: bold;
-margin-top: 16px;
-text-shadow: rgb(197, 197, 197) 1px 0px;}
-
-#BlocPresentation a {
-  border-bottom: 1px solid rgb(185, 185, 185);
-}
-
-h2 {
-  margin-top: 30px;
-}
-
-
-/*--Styles pour intérieur des cartes, section "À LA UNE"--*/
-/*-----Boite temoignages----*/
-
-.boite-temoignages h4 {
-margin-top: -28px;
-background: white;
-color: rgb(66, 66, 66);
-float: left;
-}
-
-/*-----Boite lettre d'info----*/
-
-.boite-lettre h4 {
-margin-top: -29px;
-background: white;
-color: rgb(29, 157, 217);
-float: left;
-}
-
-/*-----Boite partenaires----*/
-
-.boite-partenaires h4 {
-color: grey;
-margin-top: -26px;
-background: white;
-float: left;
-}
-
-/*-----Style pour contenu dans les carrés----*/
-.thumbnail-bureau {
-font-size: 1.2rem;
-margin: 0px -12px 8px -11px;
-}
-
-.thumbnail-bureau img {
- width:80px;
-}
-
-.thumbnail-bureau span {
-margin: -1px;
- font-weight: bold;
-}
-
-.thumbnail-bureau .text-muted {
-margin-top: -15px;
-margin-bottom: 0px;
-color: #AA0A2F;
-margin-left: 5px;
-}
-
-.rouge a.btn.btn-info {
-background: #E52727;
-border: none;
-}
-
-.vert a.btn.btn-info {
-background: rgb(141, 190, 35);
-border: none;
-}
-
-.bleu a.btn.btn-info {
-background: rgb(112, 34, 131);
-border: none;
-}
-
-/*--Box shadow--*/
-.thumbnail-actu {
-  box-shadow: 0px 0px 2px 0px #B0B0B0;
-}
-
-/*--Couleur du H4 dans la carte--*/
-.thumbnail-actu h4{
-   color: #1D9DD9;
-   padding: 10px;
-   text-align: justify;
-}
-
-/*--Style pour la description--*/
-.thumbnail-actu .caption {
-  padding-bottom: 23px;
-}
-
-/*--Couleur de la description--*/
-.thumbnail-actu a {
-  color: #616161;
-}
-
-/*--Style pour la date--*/
-.thumbnail-actu .text-muted {
-   margin-top: -20px;
-}
-
-/*--Style pour le bouton de la carte--*/
-.thumbnail-actu .btn-default {
-   margin-top: -21px;
-  border-top: 2px solid #1D9DD9;
-  border-radius: 0px;
-  color: #1D9DD9;
-}
-
-
-
-
-/*--Styles pour intérieur des cartes, section "APPELS D'OFFRE"--*/
-
-.thumbnail-appels {
-  box-shadow: 0px 0px 2px 0px #B0B0B0;
-}
-
-.thumbnail-appels h4 {
-  color: #1D9DD9;
-}
-
-.thumbnail-appels .img-thumbnail {
-    margin: 10px;
-}
-
-.thumbnail-appels .caption a {
-    color: #616161;
-}
-
-.thumbnail-appels .btn-default {
-    margin-top: 10px;
-    border-top: 2px solid #1D9DD9;
-    border-radius: 0px;
-    color: #1D9DD9;
-}
-
-.highlighted {
-    background-color: #1D9DD9;
-}
-
-#EnteteSecondaire.BA  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BACGL  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BAO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BAP  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BC  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BECO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BEO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 100%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BM  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BMO  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
-}
-
-#EnteteSecondaire.BOI  {
-background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
-background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
-background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
-background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
-}
-
-
-.estampille {
-    position: relative;
-    top: 5px;
-    right: -28px;
-}
-
-.estampille-bureau {
-  width: 15%;
-}
-
-.titre-bureau {
-    display: inline;
-    position: relative;
-    top: -19px;
-    left: 21px;
-    font-weight: bold;
-}
-
-.BA , .BA .circle1, .BA rect, .BA #dailymotion {
-   color: #34AB92 !important;
-   fill: #34AB92 !important;
-}
-
-.BACGL, .BACGL .circle1, .BACGL rect, .BACGL #dailymotion {
-   fill: #F7AB00 !important;
-    color: #F7AB00 !important;
-}
-
-.BAO, .BAO .circle1, .BAO rect, .BAO #dailymotion {
-   fill: #65B22E !important;
-    color: #65B22E !important;
-}
-
-.BAP, .BAP .circle1, .BAP rect, .BAP #dailymotion {
-   fill: #9F72AE !important;
-    color: #9F72AE !important;
-}
-
-.BC, .BC .circle1, .BC rect, .BC #dailymotion {
-   fill: #601D52 !important;
-    color: #601D52 !important;
-}
-
-.BECO, .BECO .circle1, .BECO rect, .BECO #dailymotion {
-   fill: #73D0F5 !important;
-    color: #73D0F5 !important;
-}
-
-.BEO, .BEO .circle1, .BEO rect, .BEO #dailymotion {
-   fill: #EA560D !important;
-    color: #EA560D !important;
-}
-
-.BM, .BM .circle1, .BM rect, .BM #dailymotion {
-   fill: #B49B5A !important;
-    color: #B49B5A !important;
-}
-
-.BMO, .BMO .circle1, .BMO rect, .BMO #dailymotion {
-   fill: #387DC0 !important;
-    color: #387DC0 !important;
-}
-
-.BOI, .BOI .circle1, .BOI rect, .BOI #dailymotion {
-   fill: #EE79AD !important;
-    color: #EE79AD !important;
-}
-
-  .datamaps-legend dl dd {
-  width: 16px;
-   margin-right: 18px;
-   border-radius: 10px;
-}
-.tetiere-svg {
-  position: relative;
-  float:left;
-  width: 100%;
-}
-
-.ReseauxSociaux {
-  margin-right: 19px;
-}
-
-.btn-carre {
-    background: none;
-    color: white;
-    margin-left: 14px;
-    bottom:50px;
-}
-
-.transluscide {
-  background: radial-gradient(rgb(255, 255, 255) 45%, rgb(219, 219, 219) 110%);
-  top: 16px; 
-  border: 7px solid rgb(255, 255, 255); 
-  border-image-source: url(/static/img/bande-couleurs.png); 
-  border-image-slice: 7 77;    
-  width: 306px;
-  box-shadow: rgb(107, 107, 107) 0px 0px 4px 2px;
-}
-
-.carrousel {
-width: 638px;
-top: 34px;
-left: -10px;
-}
-
-
-#EnteteSecondaire .carousel-indicators {
-bottom: -35px;
-}
-
-.carousel i {
-margin-top: 90px;
-font-size: 35px;
-text-shadow: -1px 2px 9px #000;
-}
-
-.fa-chevron-circle-right {
-margin-left: 78px;
-}
-
-.fa-chevron-circle-left {
-margin-left: -92px;
-}
-
-#EnteteSecondaire .carousel-caption {
-background: rgba(244, 18, 18, 0.71);
-padding: 0px;
-bottom: 0px;
-right: 0%;
-left: 0%;
-}
-
-.search-results li {
-background: #E5E5E5;
-padding: 1px 0px 1px 14px;
-margin: 11px;
-border: 1px dashed rgb(205, 205, 205);
-border-radius: 4px;
-}
-
-.filtres {
-margin-top: 41px;
-border: 1px solid rgb(214, 214, 214);
-padding: 17px 0px 0px 31px;
-margin-bottom: -20px;
-box-shadow: rgb(176, 176, 176) 1px 1px 2px;
-}
-
-.titre-filtres {
-background: rgb(241, 241, 241);
-text-align: center;
-margin: 21px 0px -24px;
-padding: 2px;
-border: 1px solid;
-}
-
-.navbar-form {
-  padding-right: 68px;
-}
-
-#content {
-margin-top: 5px;
-padding-bottom: 37px;
-background: white;
-margin-left: 0px;
-margin-right: 0px;
-}
-
-.fa-rss {
-  color: #F99000;
-}
-.fa-twitter-square {
-  color:  #00aced;
-}
-.fa-facebook-square {
-  color: #3b5998;
-}
-.fa-youtube-play {
-  color: #bb0000;
-}
-#dailymotion {
-  fill: #32506d;
-}
-
-/* parent selection in css is not ready...
-a:not( [href*='auf.org'] ):not( [href^='#'] ):not( [href^='/'] ):not( .carousel-caption ):after{
-    font-family: 'FontAwesome';
-    content: " \f08e";
-}
-
-a:after >  img{
-  content: "";
-}
-*/
-
-
-/*--------Boite lettre d'information--------*/
-
-.boite-lettre {
- border: 3px solid rgb(29, 157, 217);
-
-}
-
-.boite-lettre p {
-background: rgb(29, 157, 217);
-color: white;
-text-align: center;
-font-weight: bold;
-border: 1px solid black;
-}
-
-/*--------Boite Temoignages--------*/
-
-.boite-temoignages {
- border: 3px solid rgb(255, 213, 0);
-}
-
-.boite-temoignages p {
-background: rgb(255, 213, 0);
-padding: 8px 10px 7px 8px;
-text-align: center;
-font-weight: bold;
-border: 1px solid black;
-}
-
-/*--------------------------------*/
-
-.texte h3 {
-  letter-spacing:0px;
-  border-bottom: 1px dotted #D6D6D6;
-  font-size:2rem;
-  margin-bottom: 10px;
-  border-left: 3px solid #1D9DD9; 
-  padding-left: 4px;
-}
-
-.texte p {
- letter-spacing:0.1px;
- line-height:1.9rem;
- margin-bottom: 10px;
-  margin-left:6px;
-}
-
-.texte ul li {
-  margin-left: 38px;
-  list-style-type:circle;
-  padding-top:9px;
-}
-
-.Organigramme  ul li {
-  margin-left: 0px;
-}
-
-.texte img{
- margin: 0px 10px 0px 4px;
-}
-
-#EncartSousMenu li  {
-margin: 0px 0px 25px 0px;
-padding: 11px;
-border: 1px solid #f5f5f5;
-background: url('/static/img/Bg_Enc.png?79652420884f') bottom repeat-x !important;
-overflow: hidden;
-list-style:none;
-}
-
-#EncartSousMenu img {
-max-height: 150px;
-width: 118px;
-margin-right: 15px;
-float:left;
-}
-
-#EncartSousMenu .btn-info {
-display: inline-block;
-line-height: 23px;
-float:right;
-}
-
-#EncartSousMenu .BlocD {
-  margin-top:-35px;
-  top:10px;
-}
-
-#EncartSousMenu .stuff {
-margin-left:130px
-}
+/* -----------ONGLETS (TABS)------------ 
+----------------------------------------*/
 
 .nav-tabs {
   margin-top:10px;
@@ -3329,7 +325,8 @@ ul.nav.nav-tabs a:hover {
   color:black;
 }
 
-/*--------TAB Actualité---------*/
+
+/*--------TAB ActualitéS---------*/
 
 ul.nav.nav-tabs > li:nth-last-child(5) a {
   background-color: #1D9DD9;
@@ -3350,151 +347,7 @@ color:#1D9DD9;
 
 }
 
-/*Carte*/
-#carte{
-width: 910px;
-height: 540px;
-background: url(../img/carte/map1.jpg) no-repeat center;
-margin: 30px  auto;
-padding: 5px;
-border: 1px solid #DCDCDC;
-position: relative;
-}
-
-#carte2{
-width: 732px;
-height: 385px;
-margin: 30px  auto;
-padding: 5px;
-border: 1px solid #DCDCDC;
-position: relative;
-}
-
-#carte img{
-	position: absolute;
-	}
-
-#carte .carteBoite{
-	position: absolute;
-	padding: 0px 3px 0px 3px;
-	display: inline-block;
-	color: #272727;
-	/*font-weight: bold;*/
-	line-height: 13px;
-	background-color: rgba(255, 255, 255, 0.65);
-	z-index: 100;
-}
-
-#carte .carteBoite2{
-	position: absolute;
-	padding: 3px 0px 3px 17px;
-	/*width: 100%;*/
-	display: inline-block;
-	color: #474747;
-	/*font-weight: bold;*/
-	line-height: 14px;
-	background-color: rgba(255, 255, 255, 0.68);
-	z-index: 100;
-	font-size: 11px;
-}
-
-#carte .carteBoite2 span{
-	margin-right: 13px;
-}
-
-#carte .bucarest{
-	top: 179px;
-	left: 493px;
-}
-
-#carte .paris{
-	top: 169px;
-	left: 437px;
-}
-
-#carte .bruxelles{
-	top: 155px;
-	left: 443px;
-}
-
-#carte .montreal{
-	top: 170px;
-	left: 264px;
-}
-
-#carte .port{
-	top: 253px;
-	left: 253px;
-}
-
-#carte .dakar{
-	top: 254px;
-	left: 397px;
-}
-
-#carte .yaounde{
-	top: 288px;
-	left: 456px;
-}
-
-#carte .anta{
-	top: 348px;
-	left: 543px;
-}
-
-#carte .beyrouth{
-	top: 212px;
-	left: 518px;
-}
-
-#carte .rabat{
-	top: 215px;
-	left: 413px;
-}
-
-#carte .hanoi{
-	top: 249px;
-	left: 685px;
-}
-
-#carte .bureau{
-background: url(../img/carte/bureau.png) no-repeat center left;
-padding-left: 12px;
-}
-
-#carte .siege{
-background: url(../img/carte/siege.png) no-repeat center left;
-padding-left: 12px;
-}
-
-#carte .rectorat{
-background: url(../img/carte/rectorat.png) no-repeat center left;
-padding-left: 12px;
-}
-
-#carte .siegebureau{
-background: url(../img/carte/rectorat2.png) no-repeat center left;
-padding-left: 20px;
-}
-
-.bur{ -moz-opacity:.0; -ms-filter:”alpha(opacity=0)”; filter:alpha(opacity=0); opacity:.0; }
-
-#cartebas{
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	padding: 12px 20px 12px 20px;
-	height: 95px;
-	background: url(../img/carte/blanc.png) repeat;
-	color: #474747;
-}
-
-.cartebas2{
-	position: absolute;
-}
-
 /*--------TAB Appels d'offres---------*/
-
 
 ul.nav.nav-tabs > li:nth-last-child(4) a {
   background-color: #FFD500;
@@ -3627,260 +480,6 @@ ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
   border-color:white;
 }
 
-/*--------TAB Bureaux "À propos" (BA)---------*/
-
-.bureau-ameriques ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #34AB92;
-  color:white;
-  border:none;
-}
-
-.bureau-ameriques ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(52, 171, 146, 0.49);
-}
-
-.bureau-ameriques ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #34AB92;
-color:#34AB92;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-ameriques .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #34AB92;
-}
-
-/*--------TAB Bureaux "À propos" (BACGL)---------*/
-
-.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #F7AB00;
-  color:white;
-  border:none;
-}
-
-.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(247, 171, 0, 0.49);
-}
-
-.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #F7AB00;
-color:#F7AB00;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.afrique-centrale-et-des-grands-lacs .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #F7AB00;
-}
-
-/*--------TAB Bureaux "À propos" (BAO)---------*/
-
-.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #65B22E;
-  color:white;
-  border:none;
-}
-
-.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(101, 178, 46, 0.49);
-}
-
-.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #65B22E;
-color:#65B22E;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-afrique-de-l-ouest .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #65B22E;
-}
-
-/*--------TAB Bureaux "À propos" (BAP)---------*/
-
-.bureau-asie-pacifique ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #9F72AE;
-  color:white;
-  border:none;
-}
-
-.bureau-asie-pacifique ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(159, 114, 174, 0.49);
-}
-
-.bureau-asie-pacifique ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #9F72AE;
-color:#9F72AE;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-asie-pacifique .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #9F72AE;
-}
-
-/*--------TAB Bureaux "À propos" (BC)---------*/
-
-.bureau-caraibe ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #601D52;
-  color:white;
-  border:none;
-}
-
-.bureau-caraibe ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(96, 29, 82, 0.49);
-}
-
-.bureau-caraibe ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #601D52;
-color:#601D52;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-caraibe .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #601D52;
-}
-
-/*--------TAB Bureaux "À propos" (BECO)---------*/
-
-.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #73D0F5;
-  color:white;
-  border:none;
-}
-
-.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(115, 208, 245, 0.49);
-}
-
-.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #73D0F5;
-color:#73D0F5;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-europe-centrale-et-orientale .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #73D0F5;
-}
-
-/*--------TAB Bureaux "À propos" (BEO)---------*/
-
-.bureau-europe-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #EA560D;
-  color:white;
-  border:none;
-}
-
-.bureau-europe-de-l-ouest ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(234, 86, 13, 0.49);
-}
-
-.bureau-europe-de-l-ouest ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #EA560D;
-color:#EA560D;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-europe-de-l-ouest .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #EA560D;
-}
-
-/*--------TAB Bureaux "À propos" (BM)---------*/
-
-.bureau-maghreb ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #B49B5A;
-  color:white;
-  border:none;
-}
-
-.bureau-maghreb ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(180, 155, 90, 0.49);
-}
-
-.bureau-maghreb ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #B49B5A;
-color:#B49B5A;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-maghreb .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #B49B5A;
-}
-
-/*--------TAB Bureaux "À propos" (BMO)---------*/
-
-.bureau-moyen-orient ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #387DC0;
-  color:white;
-  border:none;
-}
-
-.bureau-moyen-orient ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(56, 125, 192, 0.49);
-}
-
-.bureau-moyen-orient ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #387DC0;
-color:#387DC0;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-moyen-orient .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #387DC0;
-}
-
-/*--------TAB Bureaux "À propos" (BOI)---------*/
-
-.bureau-ocean-indien ul.nav.nav-tabs > li:nth-last-child(6) a {
-  background-color: #EE79AD;
-  color:white;
-  border:none;
-}
-
-.bureau-ocean-indien ul.nav.nav-tabs > li:nth-last-child(6) > a:hover {
-background-color: rgba(238, 121, 173, 0.49);
-}
-
-.bureau-ocean-indien ul.nav.nav-tabs > li.active:nth-last-child(6) > a {
-background: white;
-border: 3px solid #EE79AD;
-color:#EE79AD;
-border-bottom:none; 
-margin-bottom: -1px;
-}
-
-.bureau-ocean-indien .tab-content > .tab-pane.active:nth-last-child(6) {
-  border:3px solid #EE79AD;
-}
-
-
-.mini-estampilles .fa-circle {
-  cursor:pointer;
-  outline: 0;
-}
-
-.mini-estampilles{
-margin-top: -15px;
-}
-
-.mini-estampilles i{
-margin-left: 12px;
-}
-
 #content > div > div > ul.nav-tabs > li.active > a {
   top: 1px;
   position: relative;
@@ -3895,124 +494,986 @@ margin-left: 12px;
   padding: 14px;
   }
 
-div.thumbnail-appels > a > div.caption {
-  overflow: hidden;
+
+
+/* -----------CONTENU DYNAMIQUE (ACTUS, APPELS, PUBLICATIONS, ETC)------------ 
+------------------------------------------------------------------------------*/
+
+/*----------------Styles pour intérieur des items dynamiques--------------*/
+
+.thumbnail-appels {
+  box-shadow: 0px 0px 2px 0px #B0B0B0;
 }
 
-div.thumbnail-appels > a > div.caption > p {
-  min-height: 62px;
+.thumbnail-appels:hover {
+background: rgba(245, 245, 245, 0.43);
+border: 1px solid rgb(166, 166, 166);
 }
 
-
-
-
-#MenuSecondaire {
-width: 184px;
-background: #D9D9D9;
-padding: 3px 0 0px 0;
-margin-bottom: 35px;
-margin-top: 25px;
-zoom: 108%;
-}
-
-#MenuSecondaire a {
-color: #000;
-display: inline-block;
-}
-
-#MenuSecondaire a:hover {
+.thumbnail-appels h4 {
   color: #1D9DD9;
 }
 
-#MenuSecondaire li {
-font-size: 11px;
-font-weight: bold;
-position: relative;
-border-bottom: 1px solid #c6c6c6;
-padding: 10px 30px 10px 22px;
-background:none; 
+.thumbnail-appels .img-thumbnail {
+    margin: 10px;
+}
+
+.thumbnail-appels .caption a {
+    color: #616161;
+}
+
+.thumbnail-appels .btn-default {
+    margin-top: 10px;
+    border-top: 2px solid #1D9DD9;
+    border-radius: 0px;
+    color: #1D9DD9;
 }
 
 
-#MenuSecondaire li.Selection a, #MenuSecondaire li.ancestor a {
-color: #EEE;
-width: 135px;
-padding: 7px 32px 10px 32px;
-background: #AA0A2F;
+/*------------------Mini estampilles région---------------------*/
+
+
+.mini-estampilles{
+margin-top: -15px;
+}
+
+.mini-estampilles i{
+margin-left: 12px;
+}
+
+.mini-estampilles .fa-circle {
+  cursor:pointer;
+  outline: 0;
+}
+
+
+/* -------------Moteur de recherche-------------
+--------------------------------------------------- */
+
+.btn-carre {
+    background: none;
+    color: white;
+    margin-left: 14px;
+    bottom:50px;
+}
+
+
+.search-results li {
+background: #E5E5E5;
+padding: 1px 0px 1px 14px;
+margin: 11px;
+border: 1px dashed rgb(205, 205, 205);
 border-radius: 4px;
 }
 
-#MenuSecondaire li.ancestor ul {
-background-color: #FDFDFD;
-border-left: 2px solid #1D9DD9;
+.filtres {
+margin-top: 41px;
+border: 1px solid rgb(214, 214, 214);
+padding: 17px 0px 0px 31px;
+margin-bottom: -20px;
+box-shadow: rgb(176, 176, 176) 1px 1px 2px;
 }
 
-#MenuSecondaire li.Selection ul {
-margin: -4px 0px 5px 14px;
-background-color: #FFF;
-width: 173px;
+.titre-filtres {
+background: rgb(241, 241, 241);
+text-align: center;
+margin: 21px 0px -24px;
+padding: 2px;
+border: 1px solid;
 }
 
-#MenuSecondaire li.Selection li a {
-font-weight: normal;
-color: #000;
+.navbar-form {
+  padding-right: 68px;
 }
 
-#MenuSecondaire li.ancestor ul li {
-left: 0px;
-border-bottom: 1px solid #B6B6B7;
+.highlighted {
+    background-color: #1D9DD9;
 }
 
 
-#MenuSecondaire li.ancestor ul li.Selection a {
-color: #000;
+/* -------------Page secondaire de CMS-------------
+--------------------------------------------------- */
+
+
+.banniere {
+  position: relative;
+  z-index: -2;
+  top: -37px;
+  margin-bottom: -42px;
 }
 
-#MenuSecondaire li.ancestor ul li a:hover {
+.banniere img {
+  display: inline;
+}
+
+#content {
+margin-top: 0px;
+padding-bottom: 37px;
+background: white;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+
+
+/* -------------Texte------------- */
+
+.texte {
+  min-height: 500px;
+}
+
+.texte img {
+  padding: 5px;
+  border: 1px solid #DFDFDF;
+  margin: 10px 14px 10px 0px;
+ max-width: 100%;
+height: auto;
+}
+
+
+.texte h3 {
+  letter-spacing:0px;
+  border-bottom: 1px dotted #D6D6D6;
+  font-size:2rem;
+  margin-bottom: 10px;
+  border-left: 3px solid #1D9DD9; 
+  padding-left: 4px;
+}
+
+.texte p {
+ letter-spacing:0.1px;
+ line-height:1.9rem;
+ margin-bottom: 10px;
+  margin-left:6px;
+}
+
+.texte ul li {
+  margin-left: 38px;
+  list-style-type:circle;
+  padding-top:9px;
+}
+
+.texte ol li {
+  margin-left: 38px;
+  list-style-type:decimal;
+  padding-top:9px;
+}
+
+.texte img{
+ margin: 0px 10px 0px 4px;
+}
+
+/* -------------Articles------------- */
+
+.img-thumbnail {
+margin-top:30px;
+}
+
+/* -------------Menu flottant latéral------------- */
+
+#myAffix.affix {
+   top: 40px;
+   width: 347px;
+}
+
+#ColonneMenuSecondaire {
+border-left: 1px solid #1D9DD9;
+}
+
+#ColonneMenuSecondaire li a {
+color: #AA0A2F;
+}
+
+#ColonneMenuSecondaire li a::before {
+font-family: fontawesome;
+content: "\f054";
 color: #1D9DD9;
+margin-left: -10px;
+margin-right: 8px;
+  font-size:12px;
 }
 
-#MenuSecondaire li.ancestor ul li.Selection a:hover {
-color: #1D9DD9;
-}
-
-#MenuSecondaire li.ancestor ul ul {
-background-color: #FFFFFF;
-width: 140px;
-margin: 8px 0px -1px 26px;
-}
-
-#MenuSecondaire .menu a::before{
-  content: "\f101";
-    font-family: FontAwesome; 
-  color:Red;
-  margin-right:5px;
-  font-size:1.3em;
-}
-
-#MenuSecondaire .Selection a::before {
-  content:"\f103";
-  color:#1D9DD9;
-}
-
-#MenuSecondaire .Selection li a::before {
-  content:"\f101";
-  color:#E52727;
-}
+/*------------Sous menu sur contenu (pas utilisé)----------*/
 
 
-#MenuSecondaire .Selection .Selection a::before {
-  content:"\f103";
-  color:#E52727;
+#EncartSousMenu li  {
+margin: 0px 0px 25px 0px;
+padding: 11px;
+border: 1px solid #f5f5f5;
+background: url('/static/img/Bg_Enc.png?79652420884f') bottom repeat-x !important;
+overflow: hidden;
+list-style:none;
 }
 
-#MenuSecondaire .Selection .Selection li a::before {
-  content:"\f068\f068";
-  color:#1D9DD9;
-  font-size:0.6em;
-  font-weight:bold;
-  MARGIN-LEFT:-17PX;
+#EncartSousMenu img {
+max-height: 150px;
+width: 118px;
+margin-right: 15px;
+float:left;
 }
+
+#EncartSousMenu .btn-info {
+display: inline-block;
+line-height: 23px;
+float:right;
+}
+
+#EncartSousMenu .BlocD {
+  margin-top:-35px;
+  top:10px;
+}
+
+#EncartSousMenu .stuff {
+margin-left:130px
+}
+
+
+/* -------------Organigramme------------- */
+.Organigramme  ul li {
+  margin-left: 0px;
+}
+
+
+/*------------MAP membre--------------*/
+iframe #afficher {
+  background-color: #FFFFFF !important;
+}
+
+
+/*----------Boîtes de couleurs latérales-----------
+----------------------------------------------------*/
+
+.vert, .rouge, .bleu {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  border-radius:3px;
+}
+
+ .rouge p, .vert p, .bleu p, .boite-lettre p, .boite-temoignages p, .boite-partenaires p {
+margin-bottom: 0px;
+}
+
+
+.rouge li, .vert li, .bleu li, .boite-lettre li, .boite-temoignages li, .boite-partenaires li {
+background: rgb(224, 224, 224);
+box-shadow:none;
+border-radius:0px;
+}
+
+.rouge h3, .vert h3, .bleu h3, .boite-lettre h3, .boite-temoignages h3, .boite-partenaires h3 {
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+font-weight: bold;
+color: white;
+float: none;
+padding:3px;
+  text-align:Center;
+}
+
+.rouge h4, .vert h4, .bleu h4, .boite-lettre h4, .boite-temoignages h4, .boite-partenaires h4 {
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+font-weight: bold;
+color: white;
+float: none;
+padding:3px;
+text-align:Center;
+}
+
+.liste-carres ul li {
+margin-top: 7px;
+font-size: 1.3rem;
+}
+
+
+/*-----------Boîte ROUGE-----------*/
+
+.rouge {
+margin-top: 49px;
+border: 3px solid rgb(229, 39, 39);
+}
+
+
+.rouge .titre {
+background: rgb(229, 39, 39);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.rouge h4 {
+font-size: 1.9rem;
+}
+
+.rouge a.btn.btn-info {
+background: #E52727;
+border: none;
+}
+
+.rouge ul li a {
+  color:#333;
+  display:block;
+  padding:5px;
+  font-weight:500;
+  text-align:center;
+  border-radius:0px;
+}
+
+.rouge ul li a:hover {
+  background:rgb(229, 39, 39);
+  color:white;
+  font-weight:normal;
+  box-shadow:inset 0px 0px 3px 2px rgb(208, 44, 44);
+}
+
+/*------------Boîte VERTE--------------*/
+
+.vert {
+  border: 3px solid rgb(141, 190, 35);
+}
+
+.vert .titre {
+background: rgb(141, 190, 35);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.vert h4 {
+font-size: 17px;}
+
+.vert a.btn.btn-info {
+background: rgb(141, 190, 35);
+border: none;
+}
+
+.vert ul li a {
+    color:#333;
+  display:block;
+  padding:5px;
+  font-weight:500;
+  text-align:center;
+  border-radius:0px;
+}
+
+.vert ul li a:hover {
+  background:rgb(141, 190, 35);
+  color:white;
+    font-weight:normal;
+  box-shadow:inset 0px 0px 3px 2px rgb(136, 180, 37);
+}
+
+/*-----------Boîte BLEUE (VIOLET)-----------*/
+
+.bleu {
+border: 3px solid rgb(112, 34, 131);
+}
+
+.bleu .titre {
+background: rgb(112, 34, 131);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.bleu h4 {
+font-size: 1.5rem;
+}
+
+.bleu a.btn.btn-info {
+background: rgb(112, 34, 131);
+border: none;
+}
+
+.bleu ul li a {
+  color:#333;
+  display:block;
+    padding:5px;
+   font-weight:500;
+  text-align:center;
+  border-radius:0px;
+}
+
+.bleu ul li a:hover {
+  background:rgb(112, 34, 131);
+  color:white;
+  font-weight:normal;
+  box-shadow:inset 0px 0px 3px 2px rgb(103, 39, 119);
+}
+
+/*--------Boîte BLEU CIEL--------*/
+
+.boite-lettre {
+ border: 3px solid rgb(29, 157, 217);
+}
+
+.boite-lettre .titre {
+background: rgb(29, 157, 217);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.boite-lettre p {
+background: rgb(29, 157, 217);
+color: white;
+text-align: center;
+font-weight: bold;
+border: 1px solid black;
+}
+
+.boite-lettre ul li a{
+  color:#333;
+  display:block;
+    padding:5px;
+   font-weight:500;
+  text-align:center;
+  border-radius:3px;
+  background:none;
+}
+
+.boite-lettre ul li a:hover {
+  background:rgb(29, 157, 217);
+  color:white;
+  font-weight:normal;
+  box-shadow:inset 0px 0px 3px 2px rgb(36, 145, 196);
+}
+
+/*--------Boîte JAUNE--------*/
+
+.boite-temoignages {
+ border: 3px solid rgb(255, 213, 0);
+}
+
+.boite-temoignages .titre {
+background: rgb(255, 213, 0);
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.boite-temoignages p {
+background: rgb(255, 213, 0);
+padding: 8px 10px 7px 8px;
+text-align: center;
+font-weight: bold;
+border: 1px solid black;
+}
+
+.boite-temoignages ul li a {
+  color:#333;
+  display:block;
+    padding:10px;
+   font-weight:500;
+  text-align:center;
+  border-radius:0px;
+  margin-bottom:-10px;
+}
+
+.boite-temoignages ul li a:hover {
+  background:rgb(255, 213, 0);
+  color:rgb(54, 54, 54);
+  font-weight:normal;
+  box-shadow:inset 0px 0px 3px 2px rgb(229, 202, 63);
+}
+
+.boite-temoignages h4, .boite-temoignages h5 
+{
+margin-top: -15px;
+margin-bottom: -10px;
+background: none;
+color: rgb(54,54,54);
+float: none;
+padding:3px;
+  text-align:center;
+}
+
+/*------Boîte GRISE----*/
+
+.boite-partenaires {
+border: 3px solid grey;
+}
+
+.boite-partenaires .titre {
+background: grey;
+margin-bottom: 24px;
+margin-left: -16px;
+margin-right: -16px;
+}
+
+.boite-partenaires ul li a{
+  color:#333;
+  display:block;
+    padding:5px;
+   font-weight:500;
+  text-align:center;
+  border-radius:3px;
+  background:none;
+}
+
+.boite-partenaires ul li a:hover {
+  background:grey;
+  color:white;
+  font-weight:normal;
+  box-shadow:inset 0px 0px 3px 2px #888;
+}
+
+.boite-partenaires img {
+  margin-left: 21px;
+  margin-bottom: 11px;
+  border: 1px solid lightgrey;
+  padding: 6px;
+}
+
+
+/*-----Contenu dynamique dans les Boîtes----*/
+
+.thumbnail-bureau {
+font-size: 1.2rem;
+margin: 0px -8px 11px -8px;
+}
+
+.thumbnail-bureau:hover {
+background: rgba(245, 245, 245, 0.43);
+border: 1px solid rgb(166, 166, 166);
+}
+
+.thumbnail-bureau img {
+ width:80px;
+ margin-top:0px;
+border: 1px solid rgb(178, 178, 178);
+margin-top: 3px;
+}
+
+.thumbnail-bureau span {
+ font-weight: bold;
+display: flex;
+padding-right: 6px;
+padding-left: 4px;
+padding-top: 0px;
+margin-bottom: -13px;
+}
+
+.thumbnail-bureau .text-muted {
+margin-top: -15px;
+margin-bottom: 0px;
+color: #AA0A2F;
+margin-left: 5px;
+font-size: smaller;
+}
+
+
+
+
+/* -------------------------------------------------------------------
+------------------STYLES COMMUNS AUX BUREAUX RÉGIONAUX-------------------
+---------------------------------------------------------------------- */
+
+/* ------------ENTETES SECONDAIRES----------------
+------------------------------------------------ */
+
+/*------[Bureau des Amériques (BA)]---------*/
+#EnteteSecondaire.BA  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #34AB92 100%), url('/static/img/bandeaux/BACarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Afrique Centrale et des Grands Lacs (BACGL)]---------*/
+#EnteteSecondaire.BACGL  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #F7AB00 100%), url('/static/img/bandeaux/BACGLCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Afrique de l'Ouest (BAO)]---------*/
+#EnteteSecondaire.BAO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #65B22E 100%), url('/static/img/bandeaux/BAOCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Asie Pacifique (BAP)]---------*/
+#EnteteSecondaire.BAP  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #9F72AE 100%), url('/static/img/bandeaux/BAPCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Caraïbes (BC)]---------*/
+#EnteteSecondaire.BC  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #601D52 100%), url('/static/img/bandeaux/BCCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Europe Central et Oriental (BECO)]---------*/
+#EnteteSecondaire.BECO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #73D0F5 100%), url('/static/img/bandeaux/BECOCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Europe de l'Ouest (BEO)]---------*/
+#EnteteSecondaire.BEO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 150%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 150%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 150%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EA560D 150%), url('/static/img/bandeaux/BEOCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Maghreb (BM)]---------*/
+#EnteteSecondaire.BM  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #B49B5A 100%), url('/static/img/bandeaux/BMCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Moyen-Orient (BMO)]---------*/
+#EnteteSecondaire.BMO  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #387DC0 100%), url('/static/img/bandeaux/BMOCarte.png') no-repeat 0 0;
+}
+
+/*------[Bureau Océan Indien (BOI)]---------*/
+#EnteteSecondaire.BOI  {
+background: -webkit-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+background: -o-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+background: -moz-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+background: radial-radial-gradient(top center, ellipse cover, rgba(255, 255, 255, 0.2) 0%, #EE79AD 100%), url('/static/img/bandeaux/BOICarte.png') no-repeat 0 0;
+}
+
+/* ------------ESTAMPILLES ET COULEURS----------------
+------------------------------------------------ */
+
+/*-------------Estampilles et titres----------------*/
+.estampille {
+    position: relative;
+    top: 5px;
+    right: -28px;
+}
+
+.estampille-bureau {
+  width: 15%;
+}
+
+.titre-bureau {
+    display: inline;
+    position: relative;
+    top: -19px;
+    left: 21px;
+    font-weight: bold;
+}
+
+/*-------------Couleurs des bureaux----------------*/
+
+.BA , .BA .circle1, .BA rect, .BA #dailymotion {
+   color: #34AB92 !important;
+   fill: #34AB92 !important;
+}
+
+.BACGL, .BACGL .circle1, .BACGL rect, .BACGL #dailymotion {
+   fill: #F7AB00 !important;
+    color: #F7AB00 !important;
+}
+
+.BAO, .BAO .circle1, .BAO rect, .BAO #dailymotion {
+   fill: #65B22E !important;
+    color: #65B22E !important;
+}
+
+.BAP, .BAP .circle1, .BAP rect, .BAP #dailymotion {
+   fill: #9F72AE !important;
+    color: #9F72AE !important;
+}
+
+.BC, .BC .circle1, .BC rect, .BC #dailymotion {
+   fill: #601D52 !important;
+    color: #601D52 !important;
+}
+
+.BECO, .BECO .circle1, .BECO rect, .BECO #dailymotion {
+   fill: #73D0F5 !important;
+    color: #73D0F5 !important;
+}
+
+.BEO, .BEO .circle1, .BEO rect, .BEO #dailymotion {
+   fill: #EA560D !important;
+    color: #EA560D !important;
+}
+
+.BM, .BM .circle1, .BM rect, .BM #dailymotion {
+   fill: #B49B5A !important;
+    color: #B49B5A !important;
+}
+
+.BMO, .BMO .circle1, .BMO rect, .BMO #dailymotion {
+   fill: #387DC0 !important;
+    color: #387DC0 !important;
+}
+
+.BOI, .BOI .circle1, .BOI rect, .BOI #dailymotion {
+   fill: #EE79AD !important;
+    color: #EE79AD !important;
+}
+
+
+/*-------------Onglets "À PROPOS" (BUREAUX)--------------
+---------------------------------------------------------*/
+
+/*--------Bureau des Amériques (BA)---------*/
+
+.bureau-ameriques ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #34AB92;
+  color:white;
+  border:none;
+}
+
+.bureau-ameriques ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(52, 171, 146, 0.49);
+}
+
+.bureau-ameriques ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #34AB92;
+color:#34AB92;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-ameriques .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #34AB92;
+}
+
+/*--------Bureau Afrique Centrale et des Grands Lacs (BACGL)---------*/
+
+.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #F7AB00;
+  color:white;
+  border:none;
+}
+
+.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(247, 171, 0, 0.49);
+}
+
+.afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #F7AB00;
+color:#F7AB00;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.afrique-centrale-et-des-grands-lacs .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #F7AB00;
+}
+
+/*--------Bureau Afrique de l'Ouest (BAO)---------*/
+
+.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #65B22E;
+  color:white;
+  border:none;
+}
+
+.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(101, 178, 46, 0.49);
+}
+
+.bureau-afrique-de-l-ouest ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #65B22E;
+color:#65B22E;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-afrique-de-l-ouest .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #65B22E;
+}
+
+/*--------Bureau Asie Pacifique (BAP)---------*/
+
+.bureau-asie-pacifique ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #9F72AE;
+  color:white;
+  border:none;
+}
+
+.bureau-asie-pacifique ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(159, 114, 174, 0.49);
+}
+
+.bureau-asie-pacifique ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #9F72AE;
+color:#9F72AE;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-asie-pacifique .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #9F72AE;
+}
+
+/*--------Bureau Caraïbe (BC)---------*/
+
+.bureau-caraibe ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #601D52;
+  color:white;
+  border:none;
+}
+
+.bureau-caraibe ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(96, 29, 82, 0.49);
+}
+
+.bureau-caraibe ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #601D52;
+color:#601D52;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-caraibe .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #601D52;
+}
+
+/*--------Bureau Europe Centrale et Orientale (BECO)---------*/
+
+.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #73D0F5;
+  color:white;
+  border:none;
+}
+
+.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(115, 208, 245, 0.49);
+}
+
+.bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #73D0F5;
+color:#73D0F5;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-europe-centrale-et-orientale .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #73D0F5;
+}
+
+/*--------Bureau Europe de l'Ouest (BEO)---------*/
+
+.bureau-europe-de-l-ouest ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #EA560D;
+  color:white;
+  border:none;
+}
+
+.bureau-europe-de-l-ouest ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(234, 86, 13, 0.49);
+}
+
+.bureau-europe-de-l-ouest ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #EA560D;
+color:#EA560D;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-europe-de-l-ouest .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #EA560D;
+}
+
+/*--------Bureau Maghreb (BM)---------*/
+
+.bureau-maghreb ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #B49B5A;
+  color:white;
+  border:none;
+}
+
+.bureau-maghreb ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(180, 155, 90, 0.49);
+}
+
+.bureau-maghreb ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #B49B5A;
+color:#B49B5A;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-maghreb .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #B49B5A;
+}
+
+/*--------Bureau Moyen Orient (BMO)---------*/
+
+.bureau-moyen-orient ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #387DC0;
+  color:white;
+  border:none;
+}
+
+.bureau-moyen-orient ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(56, 125, 192, 0.49);
+}
+
+.bureau-moyen-orient ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid #387DC0;
+color:#387DC0;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-moyen-orient .tab-content > .tab-pane.active:nth-last-child(6) {
+  border:3px solid #387DC0;
+}
+
+/*--------Bureau Océan Indien (BOI)---------*/
+
+.bureau-ocean-indien ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: #EE79AD;
+  color:white;
+  border:none;
+}
+
+.bureau-ocean-indien ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(238, 121, 173, 0.49);
+}
+
+.bureau-ocean-indien ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
+background: white;
+border: 3px solid #EE79AD;
+color:#EE79AD;
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+.bureau-ocean-indien .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid #EE79AD;
+}
+
+
+/*--------Plan du site (site map)---------*/
 
 .menu .Selection .Selection .menu a {
     background: white;
@@ -4020,13 +1481,6 @@ margin: 8px 0px -1px 26px;
   margin-left: 5px;
   margin-bottom: -10px;
   border: 2px solid #1D9DD9;
-}
-
-#MenuSecondaire > li.menu.ancestor.Selection > ul > li.menu.Selection > a {
-  padding: 6px 6px 7px 13px;
-margin-left: 14px;
-margin-bottom: -11px;
-border: 1px solid #1D9DD9;
 }
 
 ul#sitemap * {
@@ -4067,23 +1521,8 @@ ul#sitemap li {
   margin-top:1px;
 }
 
-.boite-partenaires {
-border: 3px solid grey;
-}
 
-.boite-partenaires img {
-  margin-left: 21px;
-  margin-bottom: 11px;
-  border: 1px solid lightgrey;
-  padding: 6px;
-}
-
-.texte p img {
-  padding: 5px;
-  border: 1px solid #DFDFDF;
-  margin: 10px 14px 10px 0px;
-  display: block;
-}
+/*-------------Page Offres d'emploi--------------*/
 
 .BlocEmploi {
 border: 1px solid #D7D7D7;
@@ -4122,262 +1561,67 @@ display: inline-block;
 width: 423px;
 }
 
-.banniere {
+
+/* -------------Pied de page-------------
+----------------------------------------- */
+
+#PiedPage {
+  background: #707070;
+  color: white;
+  margin-bottom: -16px;
+  height: 124px;
+}
+#PiedPage img {
   position: relative;
-  z-index: -2;
-  top: -37px;
-  margin-bottom: -42px;
+  float: right;
+  top: -33px;
+  margin-right: 52px;
+}
+#PiedPage p {
+  position: relative;
+  top: 71px;
+  margin-left: 66px;
+  font-size: 1em;
+}
+#PiedPage a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+#PiedPage a:hover {
+  color: #0098E9;
 }
 
-.banniere img {
-  display: inline;
+/*--------------STYLE MOBILE----------------*/
+
+.navbar-default {
+  margin-bottom: 20px;
 }
 
-#content {
-  margin-top: 0px;
+.navbar-brand {
+    max-width: 15%;
+    padding: 10px 0 0 10px;
 }
 
-.texte {
-  min-height: 500px;
+.navbar-toggle {
+    margin-top: 22px;
+    margin-left: 10px;
 }
 
-#myAffix.affix {
-   top: 40px;
-   width: 347px;
+/*------------------------------------*/
+
+
+/* parent selection in css is not ready...
+a:not( [href*='auf.org'] ):not( [href^='#'] ):not( [href^='/'] ):not( .carousel-caption ):after{
+    font-family: 'FontAwesome';
+    content: " \f08e";
 }
 
-.liste-carres ul li {
-margin-top: 7px;
-font-size: 1.3rem;
-padding: 0px; /*----À enlever---*/
-border: 1px solid silver;
+a:after >  img{
+  content: "";
 }
-
-
-.rouge .titre {
-background: rgb(229, 39, 39);
-margin-bottom: 24px;
-margin-left: -16px;
-margin-right: -16px;
-}
-
-.vert .titre {
-background: rgb(141, 190, 35);
-margin-bottom: 24px;
-margin-left: -16px;
-margin-right: -16px;
-}
-
-.bleu .titre {
-background: rgb(112, 34, 131);
-margin-bottom: 24px;
-margin-left: -16px;
-margin-right: -16px;
-}
-
-.boite-lettre .titre {
-background: rgb(29, 157, 217);
-margin-bottom: 24px;
-margin-left: -16px;
-margin-right: -16px;
-}
-
-.boite-temoignages .titre {
-background: rgb(255, 213, 0);
-margin-bottom: 24px;
-margin-left: -16px;
-margin-right: -16px;
-}
-
-.boite-partenaires .titre {
-background: grey;
-margin-bottom: 24px;
-margin-left: -16px;
-margin-right: -16px;
-}
-
-.rouge h3, .vert h3, .bleu h3, .boite-lettre h3, .boite-temoignages h3, .boite-partenaires h3 {
-margin-top: -15px;
-margin-bottom: -10px;
-background: none;
-font-weight: bold;
-color: white;
-float: none;
-padding:3px;
-  text-align:Center;
-}
-
-
-.rouge h4, .vert h4, .bleu h4, .boite-lettre h4, .boite-temoignages h4, .boite-partenaires h4 {
-margin-top: -15px;
-margin-bottom: -10px;
-background: none;
-font-weight: bold;
-color: white;
-float: none;
-padding:3px;
-  text-align:Center;
-}
-
-
-.boite-temoignages h4, .boite-temoignages h5 
-{
-margin-top: -15px;
-margin-bottom: -10px;
-background: none;
-color: rgb(54,54,54);
-float: none;
-padding:3px;
-  text-align:center;
-}
+*/
 
 
 
-.liste-carres ul li {
-margin-top: 7px;
-font-size: 1.3rem;
-padding: 0px; /*----À enlever---*/
-border:none;
-}
-
-.rouge li, .vert li, .bleu li,.boite-lettre li, .boite-temoignages li, .boite-partenaires li {
-background: rgb(224, 224, 224);
-box-shadow:none;
- border-radius:0px;
-}
-
-/*------Rouge----*/
-
-.rouge ul li a {
-  color:#333;
-  display:block;
-  padding:5px;
-  font-weight:500;
-  text-align:center;
-  border-radius:0px;
-}
-
-.rouge ul li a:hover {
-  background:rgb(229, 39, 39);
-  color:white;
-  font-weight:bold;
-  box-shadow:inset 0px 0px 3px 2px rgb(208, 44, 44);
-}
-
-/*------Vert----*/
-
-.vert ul li a {
-    color:#333;
-  display:block;
-  padding:5px;
-  font-weight:500;
-  text-align:center;
-  border-radius:0px;
-}
-
-.vert ul li a:hover {
-  background:rgb(141, 190, 35);
-  color:white;
-    font-weight:bold;
-  box-shadow:inset 0px 0px 3px 2px rgb(136, 180, 37);
-}
-
-/*------Bleu----*/
-
-.bleu ul li a {
-  color:#333;
-  display:block;
-    padding:5px;
-   font-weight:500;
-  text-align:center;
-  border-radius:0px;
-}
-
-.bleu ul li a:hover {
-  background:rgb(112, 34, 131);
-  color:white;
-  font-weight:bold;
-  box-shadow:inset 0px 0px 3px 2px rgb(103, 39, 119);
-}
-
-/*------Boite lettre----*/
-
-.boite-lettre ul li a{
-  color:#333;
-  display:block;
-    padding:5px;
-   font-weight:500;
-  text-align:center;
-  border-radius:3px;
-  border:1px solid silver;
-  background:none;
-}
-
-.boite-lettre ul li a:hover {
-  background:rgb(29, 157, 217);
-  color:white;
-  font-weight:bold;
-  box-shadow:inset 0px 0px 3px 2px rgb(36, 145, 196);
-}
-
-/*------Boite temoignage----*/
-
-.boite-temoignages ul li a {
-  color:#333;
-  display:block;
-    padding:10px;
-   font-weight:500;
-  text-align:center;
-  border-radius:0px;
-  margin-bottom:-10px;
-}
-
-.boite-temoignages ul li a:hover {
-  background:rgb(255, 213, 0);
-  color:rgb(54, 54, 54);
-  font-weight:bold;
-  box-shadow:inset 0px 0px 3px 2px rgb(229, 202, 63);
-}
-
-/*------Boite partenaires----*/
-
-.boite-partenaires ul li a{
-  color:#333;
-  display:block;
-    padding:5px;
-   font-weight:500;
-  text-align:center;
-  border-radius:3px;
-  border:1px solid silver;
-  background:none;
-}
-
-.boite-partenaires ul li a:hover {
-  background:grey;
-  color:white;
-  font-weight:bold;
-  box-shadow:inset 0px 0px 3px 2px #888;
-}
-
-#ColonneMenuSecondaire {
-border-left: 1px solid #1D9DD9;
-}
-
-#ColonneMenuSecondaire li a::before {
-font-family: fontawesome;
-content: "\f054";
-color: #1D9DD9;
-margin-left: -10px;
-margin-right: 8px;
-  font-size:12px;
-}
-
-ul#NavFixe .dropdown a.dropdown-toggle {
-cursor: pointer;
-}
-
-.img-thumbnail {
-margin-top:30px;
-}
 
 
