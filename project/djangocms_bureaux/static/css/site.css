@@ -1624,4 +1624,6 @@ a:after >  img{
 
 
 
-
+.facebook-this, .gplus-this, .tweet-this {
+  display: inline;
+}
