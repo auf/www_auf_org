@@ -1,1 +1,1 @@
-INSTALLED_APPS += ('django_social_share')
+INSTALLED_APPS += ('django_social_share', )
