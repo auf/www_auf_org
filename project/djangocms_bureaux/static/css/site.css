@@ -1607,6 +1607,49 @@ width: 423px;
     margin-left: 10px;
 }
 
+.django_social_share {
+  padding:4px;
+  border: 1px dashed rgb(238, 238, 238);
+  text-align:center;
+  margin:15px auto ;
+}
+
+.facebook-this, .gplus-this, .tweet-this {
+  display:inline;
+  margin-left: 09px;
+font-size:1rem;
+
+
+}
+
+.facebook-this .fa-facebook-official, .gplus-this .fa-google-plus, .tweet-this .fa-twitter {
+border-radius: 29px;
+background: rgb(233, 233, 233);
+padding: 7px;
+color: rgb(110, 110, 110);
+
+}
+
+.facebook-this .fa-facebook-official:hover {
+  color:#3b5998;
+  background:whitesmoke;
+}
+
+.gplus-this .fa-google-plus:hover {
+  color: #dd4b39;
+  background:whitesmoke;
+}
+
+.tweet-this .fa-twitter:hover {
+  color: #00acee;
+  background:whitesmoke;
+}
+
+.img-thumbnail {
+display:block;
+margin:0 auto;
+}
+
 /*------------------------------------*/
 
 
@@ -1622,8 +1665,3 @@ a:after >  img{
 */
 
 
-
-
-.facebook-this, .gplus-this, .tweet-this {
-  display: inline;
-}
