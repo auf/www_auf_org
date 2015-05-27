@@ -20,10 +20,11 @@
 {% endrender_model_block %}
 {% endif %}
 
-<p>Partager: </p>
-{% post_to_facebook object "Avec Facebook" %}
-{% post_to_gplus object "Avec Google+" %}
-{% post_to_twitter "Visitez: " object "Avec Twitter" %}
+<p>Partager sur:
+{% post_to_facebook object '<i class="fa fa-facebook-official"></i>' %}
+{% post_to_gplus object '<i class="fa fa-google-plus"></i>' %}
+{% post_to_twitter "Visitez: " object '<i class="fa fa-twitter"></i>' %}
+</p>
 
 {% placeholder colonne_gauche %}
 </div>
