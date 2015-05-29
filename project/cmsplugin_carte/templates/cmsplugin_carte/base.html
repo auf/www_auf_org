@@ -1,4 +1,4 @@
-{% load sekizai_tags staticfiles %}
+{% load sekizai_tags staticfiles auf %}
 
 {% addtoblock "css" %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/ol.css" type="text/css"/>
@@ -77,8 +77,6 @@
         set_popup_content: set_popup_content,
         couleurs_bureaux: COULEURS_BUREAUX
       });
-      carte.filter_map('BAO', 'tous');
-      carte.zoom_to_region('BAO');
     }
 
     function filtre_change() {
