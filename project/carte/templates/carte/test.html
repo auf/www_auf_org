@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}ol.css" type="text/css"/>
+    <script src="{{ STATIC_URL }}ol-debug.js"></script>
+    <script src="{{ STATIC_URL }}jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/carte.js"></script>
+    <style>
+      .ol-popup {
+        position: absolute;
+        background-color: white;
+        -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+        filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        bottom: 35px;
+        left: -50px;
+      }
+
+      .ol-popup:after, .ol-popup:before {
+        top: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .ol-popup:after {
+        border-top-color: white;
+        border-width: 10px;
+        left: 48px;
+        margin-left: -10px;
+      }
+
+      .ol-popup:before {
+        border-top-color: #cccccc;
+        border-width: 11px;
+        left: 48px;
+        margin-left: -11px;
+      }
+    </style>
+  </head>
+  <body>
+  <div>
+    <form>
+      <label for="filter-bureau">Filtre bureaux</label>
+      <select id="filter-bureau">
+        <option value="tous">Tous</option>
+        {% for bureau in bureaux %}
+          <option value="{{ bureau.code }}">{{ bureau.nom }}</option>
+        {% endfor %}
+
+      </select>
+    <label for="filter-type">Filtre type</label>
+    <select id="filter-type">
+      <option value="tous">Tous</option>
+      <option value="etablissements">Établissements</option>
+      <option value="implantations">Implantations</option>
+    </select>
+    </form>
+  </div>
+  <div id="carte" style="height: 600px; width: 100%"
+       data-implantation-marker-url="{{ STATIC_URL }}img/google-309739_640.png"
+       data-membre-marker-url="{{ STATIC_URL }}img/google-309740_640.png">
+
+  </div>
+    <div id="popup" class="ol-popup">
+    </div>
+  <script type="text/javascript">
+    const COULEURS_BUREAUX = {'BSC': '#FF0000', 'BACGL': '#F7AB00', 'BA': '#34AB92',
+                    'BAP': '#9F72AE', 'BC': '#601D52', 'BM': '#B49B5A',
+                    'BMO': '#387DC0', 'BOI': '#EE79AD', 'BECO': '#73D0F5',
+                    'BAO': '#65B22E', 'BEOM': '#000088', 'BEO': '#EA560D'};
+
+    
+    var carte;
+    var div_carte = $("#carte");
+    var implantation_marker_url = div_carte.data('implantation-marker-url');
+    var membre_marker_url = div_carte.data('membre-marker-url');
+
+    function set_popup_content(code_pays, nom, implantations, nb_etablissements,
+                               nb_cnfp) {
+      var noms_implantations =  [];
+      $.each(implantations, function(i, impl) {
+        noms_implantations.push(impl.nom) });
+      $('#popup').html(nom + '<br/>'
+        + noms_implantations.join('<br/>') + '<br/>'
+      + 'Nb Établissements:' +  nb_etablissements.toString() + '<br/>Nb CNFp:'
+        + nb_cnfp.toString());
+    }
+
+    function init_carte(donnees_carte) {
+      carte = Carte.init({
+        container_id: 'carte',
+        donnees_carte: donnees_carte,
+        implantation_marker_url: implantation_marker_url,
+        membre_marker_url: membre_marker_url,
+        popup_id: 'popup',
+        set_popup_content: set_popup_content,
+        couleurs_bureaux: COULEURS_BUREAUX
+      });
+      carte.filter_map('BAO', 'tous');
+      carte.zoom_to_region('BAO');
+    }
+
+    function filtre_change() {
+      var code_bureau = $('#filter-bureau').val();
+      var type = $('#filter-type').val();
+      carte.filter_map(code_bureau, type);
+    }
+
+    $(function() {
+      $.getJSON('/auf_carte/donnees_carte.json', init_carte);
+      $('#filter-bureau').change(filtre_change);
+      $('#filter-type').change(filtre_change);
+    });
+  </script>
+  </body>
+
+</html>
