@@ -99,7 +99,7 @@
       <select id="filter-bureau">
         <option value="tous">Tous</option>
         {% for bureau in bureaux %}
-          <option value="{{ bureau.code }}">{{ bureau.nom }}</option>
+          <option value="B{{ bureau.code }}">{{ bureau.nom }}</option>
         {% endfor %}
 
       </select>
