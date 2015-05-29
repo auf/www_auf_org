@@ -4,10 +4,14 @@ import collections
 import itertools
 import json
 import os
+
 import django.http
 import django.shortcuts
+
 import auf.django.references.models as auf_refs
-from auf_carte.carte import models
+
+from . import models
+
 
 TYPE_SIEGE = u'Siège'
 TYPE_CNFP = u'Campus numérique francophone partenaire'
