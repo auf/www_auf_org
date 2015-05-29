@@ -2,8 +2,8 @@
 import collections
 
 import unittest
-from auf_carte.carte import models
-import auf_carte.carte.views as views
+import models
+import views
 import auf.django.references.models as auf_refs
 
 
