@@ -1,0 +1,108 @@
+{% load sekizai_tags staticfiles %}
+
+{% addtoblock "js" %}
+<script type="text/javascript" src="{% static "js/d3.v3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/topojson.v1.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/datamaps.world.min.js" %}"></script>
+<script>
+    var map = new Datamap({
+    element: document.getElementById("carte"),
+    responsive: true,
+    dataUrl: '{% url "cmsplugin_carte-pays_json" %}',
+    data: {},
+
+    done: function(datamap) {
+        datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+            window.open('http://www.auf.org/' + datamap.options.data[geography.id].fillKey.toLowerCase())
+        });
+    },
+
+    geographyConfig: {
+      highlightOnHover: true,
+      popupOnHover: true,
+      borderColor:'#FFF',
+      borderWidth: 0.5,
+      popupTemplate: function(geo, data) {
+          $('#adresse_physique').html(data['adresse_physique']);
+          $('#adresse_postale').html(data['adresse_postale']);
+          return ['<div class="hoverinfo"><strong>', data.fillKey, '</strong></div>'].join('');
+      }
+   },
+
+   fills: {
+              'BA':'#34AB92',
+              'BACGL':'#F7AB00',
+              'BAO': '#65B22E',
+              'BAP': '#9F72AE',
+              'BC': '#601D52',
+              'BECO': '#73D0F5',
+              'BEO': '#EA560D',
+              'BM': '#B49B5A',
+              'BMO': '#387DC0',
+              'BOI': '#EE79AD',
+               defaultFill: '#AAA'
+            }
+    });
+
+    window.addEventListener('resize', function() {
+        map.resize();
+    });
+
+ $.getJSON('{% url "cmsplugin_carte-bureaux_json" %}', function(points) {
+        map.bubbles(points, {
+            borderWidth: 1,
+            popupOnHover: true,
+            highlightOnHover: true,
+            borderColor: '#000',
+            popupTemplate: function (geo, data) {
+              return '<div class="hoverinfo"><strong>' +  data.nom  + '</strong></div>';
+            }
+        });
+ }).fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});
+
+//Legende
+    map.legend();
+</script>
+
+{% endaddtoblock %}
+
+
+<h3 class="page_title">L'AUF dans le monde</h3>
+
+<div id="carte"></div>
+
+<div class="row" style="margin-top: -100px;">
+  <div class="col-md-6">
+    <h3>Adresse physique</h3>
+      <div id="adresse_physique">
+        <strong>Rectorat et Siège</strong><br/>
+        Pavillon Jean-Marc Léger<br/>
+        3034, Boul. Edouard-Montpetit<br/>
+        Montréal, (Québec) H3T 1J7 Canada
+        <hr/>
+        <strong>Rectorat et Services centraux</strong><br/>
+        4, place de la Sorbonne<br/>
+        75005 Paris<br/>
+        France<br/>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Adresse postale</h3>
+      <div id="adresse_postale">
+        <strong>Rectorat et Siège</strong><br/>
+        BP 49714 Csp du Musée<br/>
+        Montréal (Québec) H3T 2A5<br/>
+        Canada
+        <hr/>
+        <strong>Rectorat et Services centraux</strong><br/>
+        4, place de la Sorbonne<br/>
+        75005 Paris<br/>
+        France
+      </div>
+    </div>
+  </div>
+</div>
+
