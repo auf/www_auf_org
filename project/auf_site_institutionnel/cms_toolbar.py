@@ -29,7 +29,7 @@ class AufToolbar(CMSToolbar):
         if self.is_current_app:
             menu = self.toolbar.get_or_create_menu('auf-app', 'AUF')
             for m in self.watch_models:
-                url = reverse('admin:auf_site_institutionnel' +
+                url = reverse('admin:auf_site_institutionnel' + '_' +
                               m._meta.object_name.lower() + "_add")
                 menu.add_modal_item('Ajouter: %s'
                                     % MODEL_LIST[m._meta.object_name], url=url)
