@@ -234,8 +234,8 @@ class ComaresAdmin(FilePickerAdmin):
 class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin,FilePickerAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
     adminfiles_fields = ('texte', )
-    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_pub','une'], 'classes': ['wide']}),]
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'une')
+    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_pub'], 'classes': ['wide']}),]
+    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
     def queryset(self, request):
         """
         Filtrage de la liste par région.
