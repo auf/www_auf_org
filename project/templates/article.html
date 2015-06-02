@@ -17,7 +17,7 @@
 {% else %}
 {% render_model_block object "image" %}
     <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg"/>
-{% endrender_model_block %}
+{% endrender_model_block %}{% endrender_model_add_block %}u
 {% endif %}
 
 <div class="django_social_share">
@@ -28,7 +28,7 @@
 </div>
 
 <div class= "col-md-6 texte">
-    <h2>{% render_model_add_block object %}</h2>
+    <h2>{% render_model object "titre" %}</h2>
 
     <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
 
