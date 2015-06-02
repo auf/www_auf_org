@@ -14,8 +14,8 @@ class RubriqueBureauAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', ], 'classes': ['wide']}),
-                                #'titre', 'slug', 'image', 'resume', 'texte'], 'classes': ['wide']}),
+        ('Article', {'fields': ['status','titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
+                                # 'texte'], 'classes': ['wide']}),
     ]
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
