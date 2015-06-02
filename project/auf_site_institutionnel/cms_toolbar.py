@@ -8,16 +8,16 @@ from cms.toolbar_base import CMSToolbar
 from .models import (Bourse, Actualite, Veille, Appel_Offre, Evenement,
                      Publication)
 
-MODEL_LIST = (
-    ('Actualite', 'Actualités'),
-    ('Publication', 'Publications'),
-    ('Appel_Offre', 'Appels d\'offre'),
-    ('Bourse', 'Bourses'),
-    ('Evenement', 'Événements'),
-    ('Partenaire', 'Partenaires'),
-    ('Comares', 'Comares'),
-    ('Veille', 'Veilles'),
-)
+MODEL_DICT = {
+    'Actualite': 'Actualités',
+    'Publication': 'Publications',
+    'Appel_Offre': 'Appels d\'offre',
+    'Bourse': 'Bourses',
+    'Evenement': 'Événements',
+    'Partenaire': 'Partenaires',
+    'Comares': 'Comares',
+    'Veille': 'Veilles',
+}
 
 
 @toolbar_pool.register
@@ -32,7 +32,7 @@ class AufToolbar(CMSToolbar):
                 url = reverse('admin:auf_site_institutionnel' + '_' +
                               m._meta.object_name.lower() + "_add")
                 menu.add_modal_item('Ajouter: %s'
-                                    % MODEL_LIST[m._meta.object_name], url=url)
+                                    % MODEL_DICT[m._meta.object_name], url=url)
 
 # menu AUF
 # menus actu, appels, etc
