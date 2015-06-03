@@ -8,7 +8,7 @@ from django.conf import settings
 
 from cms.models.fields import PlaceholderField
 from cms.models.pluginmodel import CMSPlugin
-from cms import api
+from cms.api import add_plugin
 
 from auf.django.references.models import Employe, Region, Service
 
@@ -106,7 +106,7 @@ class Actualite(models.Model):
 
     def save(self, *args, **kwargs):
         object = super(Actualite, self).save(*args, **kwargs)
-        api.add_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
+        add_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
