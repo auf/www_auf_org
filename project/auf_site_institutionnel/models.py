@@ -106,7 +106,7 @@ class Actualite(models.Model):
 
     def save(self, *args, **kwargs):
         object = super(Actualite, self).save(*args, **kwargs)
-        api.cms_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
+        api.add_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
