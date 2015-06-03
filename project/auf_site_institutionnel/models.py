@@ -8,6 +8,7 @@ from django.conf import settings
 
 from cms.models.fields import PlaceholderField
 from cms.models.pluginmodel import CMSPlugin
+from cms import api
 
 from auf.django.references.models import Employe, Region, Service
 
@@ -102,6 +103,11 @@ class Actualite(models.Model):
 
     def get_absolute_url_region(self):
         return "/actualites-regionales/%s/" %self.slug
+
+    def save(self, *args, **kwargs):
+        object = super(Actualite, self).save(*args, **kwargs)
+        api.cms_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
+        return object
 
 
 class Veille(models.Model):
