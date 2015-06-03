@@ -8,7 +8,6 @@ from django.conf import settings
 
 from cms.models.fields import PlaceholderField
 from cms.models.pluginmodel import CMSPlugin
-from cms.api import add_plugin
 
 from auf.django.references.models import Employe, Region, Service
 
@@ -89,7 +88,6 @@ class Actualite(models.Model):
     date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    une = models.BooleanField('Garder cette actualité en haut de liste')
     status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
@@ -106,6 +104,7 @@ class Actualite(models.Model):
 
     def save(self, *args, **kwargs):
         object = super(Actualite, self).save(*args, **kwargs)
+        from cms.api import add_plugin
         add_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
         return object
 
