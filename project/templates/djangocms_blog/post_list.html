@@ -1,0 +1,51 @@
+{% load menu_tags cms_tags sekizai_tags %}
+{% load thumbnail %}
+
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="popover"]').popover({html:true})
+})
+</script>
+{% endaddtoblock %}
+
+
+<div>
+
+{% for p in post_list %}
+<div class="thumbnail thumbnail-appels">
+  <div class="media">
+    <a class="pull-left" href="{{p.get_absolute_url}}">
+        {% if p.main_image %}
+        <img class="img-thumbnail" src="{% thumbnail p.main_image 130x90 upscale %}"/>
+        {% endif %}
+    </a>
+    <div class="media-body">
+        <h4 class="title-date">
+        <a href="{{p.get_absolute_url}}">
+        {{ p.titre }}
+        </a>
+        </h4>
+        {% if p.date_published %}
+        <p class="text-muted">Date de publication: <strong>{{p.date_published|date:"j F Y"}}</strong></p>
+        {% endif %}
+        <p>{% p.abstract %}</p>
+    </div>
+  </div>
+  <hr>
+    {% if p.bureau.all %}
+      <div class="mini-estampilles">
+      {% for b in p.bureau.all %}
+          {% if b.nom == "International" %}
+            <i class="fa fa-globe">-International</i>
+          {% else %}
+            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="<a href='/B{{ b.code }}'>{{ b.nom }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+          {% endif %}
+      {% endfor %}
+      </div>
+
+    {% endif %}
+</div>
+{% endfor %}
+</div>
