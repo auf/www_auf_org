@@ -62,6 +62,7 @@ INSTALLED_APPS += (
     'djangocms_style',
     'djangocms_text_ckeditor',
 
+    'parler',
     'taggit',
     'taggit_autosuggest',
     'django_select2',
