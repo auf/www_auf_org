@@ -155,6 +155,7 @@ CMS_TEMPLATES = (
 
 META_SITE_PROTOCOL = 'http'
 META_USE_SITES = False
+META_SITE_DOMAIN = 'test-www.auf.org'
 
 CKEDITOR_SETTINGS = {
     'contentsCss': '/static/css/font-awesome.min.css',
