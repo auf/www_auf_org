@@ -153,6 +153,9 @@ CMS_TEMPLATES = (
 #    'filer.models.imagemodels.Image',
 #)
 
+META_SITE_PROTOCOL = 'http'
+META_USE_SITES = False
+
 CKEDITOR_SETTINGS = {
     'contentsCss': '/static/css/font-awesome.min.css',
     'extraPlugins': 'fontawesome',
