@@ -30,7 +30,7 @@ $(function () {
         {% if p.date_published %}
         <p class="text-muted">Date de publication: <strong>{{p.date_published|date:"j F Y"}}</strong></p>
         {% endif %}
-        <p>{% p.abstract %}</p>
+        <p>{{ p.abstract }}</p>
     </div>
   </div>
   <hr>
