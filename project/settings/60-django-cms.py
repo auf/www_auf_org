@@ -62,6 +62,14 @@ INSTALLED_APPS += (
     'djangocms_style',
     'djangocms_text_ckeditor',
 
+    'taggit',
+    'taggit_autosuggest',
+    'django_select2',
+    'meta',
+    'meta_mixin',
+    'admin_enhancer',
+    'djangocms_blog',
+
     'project.cmsplugin_pagelist',
     'project.cmsplugin_modellist',
     'project.cmsplugin_carte',
