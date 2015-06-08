@@ -12,8 +12,9 @@ class RubriqueBureauAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status','titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
-                                # 'texte'], 'classes': ['wide']}),
+        ('Article', {
+         'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
+        # 'texte'], 'classes': ['wide']}),
     ]
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
@@ -32,36 +33,44 @@ class RubriqueBureauAdmin(admin.ModelAdmin):
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
         else:
             return "<img src='../../../static/logodefaut.jpg' style='height:40px;'>"
-    show_image2.allow_tags = True #permet de sortir du html#
+    show_image2.allow_tags = True  # permet de sortir du html#
     show_image2.short_description = 'Image'
 
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+    list_display = (
+        'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
     list_display_links = ('status', 'titre')
     search_fields = ['titre']
 
 
 class RubriqueBureauPersonnaAdmin(RubriqueBureauAdmin):
+
     def show_image2(self, obj):
         if obj.image:
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
         else:
             return "<img src='../../../static/logodefaut.jpg' style='height:40px;'>"
-    show_image2.allow_tags = True #permet de sortir du html#
+    show_image2.allow_tags = True  # permet de sortir du html#
     show_image2.short_description = 'Image'
 
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'date_fin')
+    list_display = ('status', 'show_image2', 'titre',
+                    'date_pub', 'afficher_les_bureaux', 'date_fin')
     fieldsets = [('Cibles', {'fields': ['bureau', 'personna']})] + \
-	RubriqueBureauAdmin.fieldsets[1:]
+        RubriqueBureauAdmin.fieldsets[1:]
 
     def afficher_les_personnas(self, obj):
         return ', '.join([b.nom for b in obj.personna.all()])
 
+
 class PersonnaAdmin(admin.ModelAdmin):
     pass
 
+
 class BourseAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauPersonnaAdmin):
 
-    fieldsets = RubriqueBureauPersonnaAdmin.fieldsets + [('Date', {'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}),]
+    fieldsets = RubriqueBureauPersonnaAdmin.fieldsets + \
+        [('Date', {
+          'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}), ]
+
     def queryset(self, request):
         """
         Filtrage de la liste par région.
@@ -83,10 +92,11 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
     frontend_editable_fields = ['titre', 'resume', "image"]
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
-	('Partenaires?', {'fields': ['auf']}),
+        ('Partenaires?', {'fields': ['auf']}),
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
-	('Date', {'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}),
+        ('Article', {
+         'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
+        ('Date', {'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}),
     ]
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
@@ -105,10 +115,11 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
         else:
             return "<img src='../../../static/logodefaut.jpg' style='height:40px;'>"
-    show_image2.allow_tags = True #permet de sortir du html#
+    show_image2.allow_tags = True  # permet de sortir du html#
     show_image2.short_description = 'Image'
 
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'auf')
+    list_display = (
+        'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'auf')
     list_display_links = ('status', 'titre')
     search_fields = ['titre']
 
@@ -131,16 +142,20 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
 
 class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
+
     def show_image2(self, obj):
         if obj.image:
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
         else:
             return "<img src='../../../static/logodefaut.jpg' style='height:40px;'>"
-    show_image2.allow_tags = True #permet de sortir du html#
+    show_image2.allow_tags = True  # permet de sortir du html#
     show_image2.short_description = 'Image'
 
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'date_debut', 'date_fin')
-    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_debut', 'date_fin'], 'classes': ['wide']}),('Informations Supplémentaires', {'fields': ['lieu', 'detail_horaire'], 'classes': ['wide']})]
+    list_display = ('status', 'show_image2', 'titre', 'date_pub',
+                    'afficher_les_bureaux', 'date_debut', 'date_fin')
+    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_debut', 'date_fin'], 'classes': [
+                                                  'wide']}), ('Informations Supplémentaires', {'fields': ['lieu', 'detail_horaire'], 'classes': ['wide']})]
+
     def queryset(self, request):
         """
         Filtrage de la liste par région.
@@ -163,7 +178,8 @@ class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']}),
+        ('Article', {'fields': [
+         'status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']}),
         ('Date', {'fields': ['date_pub'], 'classes': ['wide']}),
     ]
 
@@ -175,10 +191,12 @@ class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
         else:
             return "<img src='../../../static/logodefaut.jpg' style='height:40px;'>"
-    show_image2.allow_tags = True #permet de sortir du html#
+    show_image2.allow_tags = True  # permet de sortir du html#
     show_image2.short_description = 'Image'
 
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+    list_display = (
+        'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+
     def queryset(self, request):
         """
         Filtrage de la liste par région.
@@ -195,11 +213,13 @@ class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.
 
         return qs
 
+
 class ComaresAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
+        ('Article', {
+         'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
         ('Date', {'fields': ['date_pub'], 'classes': ['wide']}),
     ]
 
@@ -211,10 +231,12 @@ class ComaresAdmin(admin.ModelAdmin):
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
         else:
             return "<img src='../../../static/logodefaut.jpg' style='height:40px;'>"
-    show_image2.allow_tags = True #permet de sortir du html#
+    show_image2.allow_tags = True  # permet de sortir du html#
     show_image2.short_description = 'Image'
 
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+    list_display = (
+        'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+
     def queryset(self, request):
 
         qs = self.model._default_manager.get_query_set()
@@ -230,8 +252,11 @@ class ComaresAdmin(admin.ModelAdmin):
 
 class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
-    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_pub'], 'classes': ['wide']}),]
-    list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+    fieldsets = RubriqueBureauAdmin.fieldsets + \
+        [('Date', {'fields': ['date_pub'], 'classes': ['wide']}), ]
+    list_display = (
+        'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
+
     def queryset(self, request):
         """
         Filtrage de la liste par région.
@@ -250,7 +275,9 @@ class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
 
 
 class VeilleAdmin(RubriqueBureauAdmin):
-    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_pub'], 'classes': ['wide']}),]
+    fieldsets = RubriqueBureauAdmin.fieldsets + \
+        [('Date', {'fields': ['date_pub'], 'classes': ['wide']}), ]
+
     def queryset(self, request):
 
         qs = self.model._default_manager.get_query_set()
@@ -262,7 +289,6 @@ class VeilleAdmin(RubriqueBureauAdmin):
             return qs.filter(bureau=request.user.employe.implantation.region.id)
 
         return qs
-
 
 
 #admin.site.register(Bureau, BureauAdmin)

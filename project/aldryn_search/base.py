@@ -34,12 +34,14 @@ class AbstractIndex(indexes.SearchIndex):
         return self.get_model().objects.all()
 
     def prepare(self, obj):
-        current_language = self.get_current_language(using=self._backend_alias, obj=obj)
+        current_language = self.get_current_language(
+            using=self._backend_alias, obj=obj)
 
         with override(current_language):
             request = self.get_request_instance(obj, current_language)
             self.prepared_data = super(AbstractIndex, self).prepare(obj)
-            self.prepared_data['text'] = self.get_search_data(obj, current_language, request)
+            self.prepared_data['text'] = self.get_search_data(
+                obj, current_language, request)
             self.prepare_fields(obj, current_language, request)
             return self.prepared_data
 
@@ -144,4 +146,5 @@ class AldrynIndexBase(AbstractIndex):
         if self.index_title or getattr(self, 'INDEX_TITLE', False):
             prepared_text = self.prepared_data['text']
             prepared_title = self.prepared_data['title']
-            self.prepared_data['text'] = clean_join(' ', [prepared_title, prepared_text])
+            self.prepared_data['text'] = clean_join(
+                ' ', [prepared_title, prepared_text])

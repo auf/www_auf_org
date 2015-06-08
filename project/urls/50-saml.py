@@ -6,7 +6,6 @@ urlpatterns += patterns(
 )
 
 if not saml_settings.SAML_AUTH:
-    urlpatterns += patterns(
-            '',
-            (r'^', include('auf.django.saml.mellon_urls')),
+    urlpatterns += patterns('',
+        (r'^', include('auf.django.saml.mellon_urls')),
     )

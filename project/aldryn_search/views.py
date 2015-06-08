@@ -22,16 +22,21 @@ class AldrynFacetedSearchForm(SearchForm):
 
     def search(self):
         sqs = SearchQuerySet()
-        sqs = sqs.facet('bureaux').facet('section').facet('annee').facet('partenaire')
+        sqs = sqs.facet('bureaux').facet(
+            'section').facet('annee').facet('partenaire')
 
         if self.is_valid():
             q = self.cleaned_data.get('q', '')
-            if q: sqs = sqs.filter(content=sqs.query.clean(q))
+            if q:
+                sqs = sqs.filter(content=sqs.query.clean(q))
 
-        if self.courant: sqs = sqs.filter(date_fin__gte=datetime.date.today())
-        if self.cloture: sqs = sqs.filter(date_fin__lt=datetime.date.today())
+        if self.courant:
+            sqs = sqs.filter(date_fin__gte=datetime.date.today())
+        if self.cloture:
+            sqs = sqs.filter(date_fin__lt=datetime.date.today())
 
-        self.selected_facets = list(set(self.selected_facets.split('&') + self.selected_facets_get))
+        self.selected_facets = list(
+            set(self.selected_facets.split('&') + self.selected_facets_get))
 
         for facet in self.selected_facets:
             if "__" not in facet:
@@ -58,7 +63,8 @@ class AldrynSearchView(FormMixin, ListView):
         self.form.courant = self.request.GET.get('courant', '')
         self.form.cloture = self.request.GET.get('cloture', '')
         self.form.selected_facets = self.request.GET.get('selected_facets', '')
-        self.form.selected_facets_get = self.request.GET.getlist('selected_facets', [])
+        self.form.selected_facets_get = self.request.GET.getlist(
+            'selected_facets', [])
         return super(AldrynSearchView, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
@@ -73,7 +79,8 @@ class AldrynSearchView(FormMixin, ListView):
 
         context['form'] = self.form
         context['facets'] = self.facet_counts
-        context['selected_facets'] = self.request.GET.getlist('selected_facets', [])
+        context['selected_facets'] = self.request.GET.getlist(
+            'selected_facets', [])
         if self.object_list.query.backend.include_spelling:
             context['suggestion'] = self.form.get_suggestion()
         return context

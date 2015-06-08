@@ -45,14 +45,17 @@ class TitleIndex(get_index_base()):
     def get_search_data(self, obj, language, request):
         current_page = obj.page
         placeholders = current_page.placeholders.all()
-        plugins = self.get_plugin_queryset(language).filter(placeholder__in=placeholders)
+        plugins = self.get_plugin_queryset(
+            language).filter(placeholder__in=placeholders)
         text_bits = []
 
         for base_plugin in plugins:
-            plugin_text_content = self.get_plugin_search_text(base_plugin, request)
+            plugin_text_content = self.get_plugin_search_text(
+                base_plugin, request)
             text_bits.append(plugin_text_content)
 
-        page_meta_description = current_page.get_meta_description(fallback=False, language=language)
+        page_meta_description = current_page.get_meta_description(
+            fallback=False, language=language)
 
         if page_meta_description:
             text_bits.append(page_meta_description)
@@ -76,8 +79,10 @@ class TitleIndex(get_index_base()):
 
     def get_index_queryset(self, language):
         queryset = Title.objects.public().filter(
-            Q(page__publication_date__lt=timezone.now()) | Q(page__publication_date__isnull=True),
-            Q(page__publication_end_date__gte=timezone.now()) | Q(page__publication_end_date__isnull=True),
+            Q(page__publication_date__lt=timezone.now()) | Q(
+                page__publication_date__isnull=True),
+            Q(page__publication_end_date__gte=timezone.now()) | Q(
+                page__publication_end_date__isnull=True),
             Q(redirect__exact='') | Q(redirect__isnull=True),
             language=language
         ).select_related('page').distinct()

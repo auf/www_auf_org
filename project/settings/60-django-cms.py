@@ -110,7 +110,7 @@ CMS_SEO_FIELDS = True
 CMS_PERMISSION = True
 CMS_PUBLIC_FOR = 'all'
 
-TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
+TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -120,7 +120,7 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
-#MIGRATION_MODULES = {
+# MIGRATION_MODULES = {
 #    'cms': 'cms.migrations_django',
 #    'menus': 'menus.migrations_django',
 #    'filer': 'filer.migrations_django',
@@ -148,7 +148,7 @@ CMS_TEMPLATES = (
 )
 
 #FILER_ENABLE_PERMISSIONS = False
-#FILER_FILE_MODELS = (
+# FILER_FILE_MODELS = (
 #    "project.djangocms_bureaux.models.AufFile",
 #    'filer.models.imagemodels.Image',
 #)
@@ -174,10 +174,12 @@ CKEDITOR_SETTINGS = {
         ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
         ['Maximize', ''],
         '/',
-        ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+        ['Bold', 'Italic', 'Underline', '-', 'Subscript',
+            'Superscript', '-', 'RemoveFormat'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
         ['HorizontalRule'],
-        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'],
+        ['NumberedList', 'BulletedList', '-',
+            'Outdent', 'Indent', '-', 'Table'],
         ['FontAwesome'],
         ['Source']
     ],
@@ -188,11 +190,13 @@ CKEDITOR_SETTINGS = {
         ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
         ['Maximize', ''],
         '/',
-        ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+        ['Bold', 'Italic', 'Underline', '-', 'Subscript',
+            'Superscript', '-', 'RemoveFormat'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
         ['HorizontalRule'],
         ['Link', 'Unlink'],
-        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'],
+        ['NumberedList', 'BulletedList', '-',
+            'Outdent', 'Indent', '-', 'Table'],
         ['Source']
     ],
 

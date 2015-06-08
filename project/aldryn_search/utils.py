@@ -49,7 +49,8 @@ def get_callable(string_or_callable):
         return string_or_callable
     else:
         module_name, object_name = string_or_callable.rsplit('.', 1)
-        if module_name.startswith('aldryn_search'): module_name = "project." + module_name
+        if module_name.startswith('aldryn_search'):
+            module_name = "project." + module_name
         module = import_module(module_name)
         return getattr(module, object_name)
 
@@ -61,9 +62,11 @@ def _get_language_from_alias_func():
         try:
             func = get_callable(path_or_callable)
         except AttributeError as error:
-            raise ImproperlyConfigured('ALDRYN_SEARCH_LANGUAGE_FROM_ALIAS: %s' % (str(error)))
+            raise ImproperlyConfigured(
+                'ALDRYN_SEARCH_LANGUAGE_FROM_ALIAS: %s' % (str(error)))
         if not callable(func):
-            raise ImproperlyConfigured('ALDRYN_SEARCH_LANGUAGE_FROM_ALIAS: %s is not callable' % func)
+            raise ImproperlyConfigured(
+                'ALDRYN_SEARCH_LANGUAGE_FROM_ALIAS: %s is not callable' % func)
     else:
         func = None
     return func
@@ -74,15 +77,18 @@ def get_index_base():
     try:
         BaseClass = get_callable(index_string)
     except AttributeError as error:
-        raise ImproperlyConfigured('ALDRYN_SEARCH_INDEX_BASE_CLASS: %s' % (str(error)))
+        raise ImproperlyConfigured(
+            'ALDRYN_SEARCH_INDEX_BASE_CLASS: %s' % (str(error)))
 
     if not issubclass(BaseClass, SearchIndex):
-        raise ImproperlyConfigured('ALDRYN_SEARCH_INDEX_BASE_CLASS: %s is not a subclass of haystack.indexes.SearchIndex' % index_string)
+        raise ImproperlyConfigured(
+            'ALDRYN_SEARCH_INDEX_BASE_CLASS: %s is not a subclass of haystack.indexes.SearchIndex' % index_string)
 
     required_fields = ['text', 'language']
 
     if not all(field in BaseClass.fields for field in required_fields):
-        raise ImproperlyConfigured('ALDRYN_SEARCH_INDEX_BASE_CLASS: %s must contain at least these fields: %s' % (index_string, required_fields))
+        raise ImproperlyConfigured('ALDRYN_SEARCH_INDEX_BASE_CLASS: %s must contain at least these fields: %s' % (
+            index_string, required_fields))
     return BaseClass
 
 

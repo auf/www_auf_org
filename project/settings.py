@@ -15,7 +15,8 @@ for f in conffiles:
     exec(open(abspath(f)).read())
 
     # from https://github.com/2general/django-split-settings/blob/master/split_settings/tools.py
-    # add dummy modules to sys.modules to make runserver autoreload work with settings components
+    # add dummy modules to sys.modules to make runserver autoreload work with
+    # settings components
     modulename = '_settings.%s' % f
     module = types.ModuleType(modulename)
     module.__file__ = f

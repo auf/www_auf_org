@@ -10,27 +10,39 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'Carousel'
         db.create_table(u'cmsplugin_bootstrap_carousel_carousel', (
-            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
-            ('domid', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('interval', self.gf('django.db.models.fields.IntegerField')(default=5000)),
+            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(
+                to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
+            ('domid', self.gf('django.db.models.fields.CharField')
+             (max_length=50)),
+            ('interval', self.gf(
+                'django.db.models.fields.IntegerField')(default=5000)),
             ('show_title', self.gf('django.db.models.fields.BooleanField')()),
-            ('show_caption', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('width', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('height', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('show_caption', self.gf(
+                'django.db.models.fields.BooleanField')(default=True)),
+            ('width', self.gf(
+                'django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('height', self.gf(
+                'django.db.models.fields.PositiveIntegerField')(default=0)),
         ))
         db.send_create_signal(u'cmsplugin_bootstrap_carousel', ['Carousel'])
 
         # Adding model 'CarouselItem'
         db.create_table(u'cmsplugin_bootstrap_carousel_carouselitem', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('carousel', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['cmsplugin_bootstrap_carousel.Carousel'])),
-            ('caption_title', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
-            ('caption_content', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('url', self.gf('django.db.models.fields.CharField')(default=None, max_length=256, blank=True)),
+            (u'id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('carousel', self.gf('django.db.models.fields.related.ForeignKey')
+             (to=orm['cmsplugin_bootstrap_carousel.Carousel'])),
+            ('caption_title', self.gf('django.db.models.fields.CharField')
+             (max_length=100, null=True, blank=True)),
+            ('caption_content', self.gf('django.db.models.fields.TextField')
+             (null=True, blank=True)),
+            ('image', self.gf('django.db.models.fields.files.ImageField')
+             (max_length=100, null=True, blank=True)),
+            ('url', self.gf('django.db.models.fields.CharField')
+             (default=None, max_length=256, blank=True)),
         ))
-        db.send_create_signal(u'cmsplugin_bootstrap_carousel', ['CarouselItem'])
-
+        db.send_create_signal(
+            u'cmsplugin_bootstrap_carousel', ['CarouselItem'])
 
     def backwards(self, orm):
         # Deleting model 'Carousel'
@@ -38,7 +50,6 @@ class Migration(SchemaMigration):
 
         # Deleting model 'CarouselItem'
         db.delete_table(u'cmsplugin_bootstrap_carousel_carouselitem')
-
 
     models = {
         'cms.cmsplugin': {

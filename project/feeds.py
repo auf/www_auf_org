@@ -21,6 +21,7 @@ REGION = {
 
 
 class ArticleFeed(Feed):
+
     def get_object(self, request):
         region_actuel = request.GET.get('region_actuel', '')
         self.region_actuel = region_actuel
@@ -156,18 +157,21 @@ class foad(Feed):
         return "Tous les actus FOAD"
 
     def items(self, obj):
-	mot = ["FOAD", "TICE"]
-	event = Evenement.objects.filter(titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:4]
-	actu = Actualite.objects.filter(titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:6]
-	appel = Appel_Offre.objects.filter(titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:5]
-	tout = chain(actu, appel, event)
+        mot = ["FOAD", "TICE"]
+        event = Evenement.objects.filter(
+            titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:4]
+        actu = Actualite.objects.filter(
+            titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:6]
+        appel = Appel_Offre.objects.filter(
+            titre__regex=r'(FOAD|TICE|CLOM|MOOC|Technologies|Formation à distance|Numérique|Innovation pédagogique)').order_by('-date_pub')[:5]
+        tout = chain(actu, appel, event)
         return tout
 
     def item_title(self, obj):
         return "%s" % obj.titre
 
-    #def item_pubdate(self, obj):
-        #return obj.date_pub
+    # def item_pubdate(self, obj):
+        # return obj.date_pub
 
     def item_description(self, obj):
         if (obj.resume != ''):

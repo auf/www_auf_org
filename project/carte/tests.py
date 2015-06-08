@@ -8,6 +8,7 @@ import auf.django.references.models as auf_refs
 
 
 class DonneesPaysTest(unittest.TestCase):
+
     def setUp(self):
         self.pays = [auf_refs.Pays(id=1, code='AF', code_iso3='AFG'),
                      auf_refs.Pays(id=2, code='FR', code_iso3='FRA'),
@@ -38,7 +39,8 @@ class DonneesPaysTest(unittest.TestCase):
                          set(pays.code_iso3 for pays in self.pays))
 
     def test_etablissements_par_pays_counter(self):
-        counter = views.get_etablissements_par_pays_counter(self.etablissements)
+        counter = views.get_etablissements_par_pays_counter(
+            self.etablissements)
         self.assertEqual(counter, {self.pays[0]: 1, self.pays[1]: 2})
 
     def test_get_implantations_par_pays(self):
@@ -66,6 +68,7 @@ FakeImplantation = collections.namedtuple(
 
 
 class LieuxImplantationsTest(unittest.TestCase):
+
     def setUp(self):
         self.implantations = {
             'cnf_bamako': FakeImplantation(id=1, nom='CNF Bamako',

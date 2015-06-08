@@ -48,16 +48,16 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 )
 
 
-#Marc modul Upload
-#urlpatterns += patterns ('',
+# Marc modul Upload
+# urlpatterns += patterns ('',
 #    url(r'^adminfiles/', include('adminfiles.urls')),
 #)
 
 
-#Mohamed
-#Lien pour Contacte
+# Mohamed
+# Lien pour Contacte
 #from contacts.views import contact
-#urlpatterns += patterns('',
+# urlpatterns += patterns('',
 #    (r'^contact/$',contact),
 #)
 

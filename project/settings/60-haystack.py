@@ -11,7 +11,7 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-HAYSTACK_XAPIAN_LANGUAGE="french"
+HAYSTACK_XAPIAN_LANGUAGE = "french"
 
 #HAYSTACK_ROUTERS = ['project.aldryn_search.router.LanguageRouter',]
-ALDRYN_SEARCH_INDEX_BASE_CLASS= 'project.djangocms_bureaux.search_indexes.AufIndex'
+ALDRYN_SEARCH_INDEX_BASE_CLASS = 'project.djangocms_bureaux.search_indexes.AufIndex'

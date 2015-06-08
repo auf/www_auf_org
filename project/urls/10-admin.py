@@ -8,7 +8,7 @@ except ImportError:
 from django.contrib import admin
 
 handler404
-handler500 # Pyflakes
+handler500  # Pyflakes
 
 admin.autodiscover()
 

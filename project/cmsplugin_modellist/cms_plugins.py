@@ -26,22 +26,26 @@ class ModelListCMSPlugin(CMSPluginBase):
     admin_preview = False
 
     def render(self, context, instance, placeholder):
-        ctx = super(ModelListCMSPlugin, self).render(context, instance, placeholder)
+        ctx = super(ModelListCMSPlugin, self).render(
+            context, instance, placeholder)
 
         obj = get_model('auf_site_institutionnel', instance.modele)
         obj_query = obj.objects.filter(status=3).order_by('-date_pub')
         bureau = instance.bureau.all()
 
         if bureau:
-            ctx['object_list'] = obj_query.filter(bureau=bureau).distinct()[:instance.nbelements]
+            ctx['object_list'] = obj_query.filter(
+                bureau=bureau).distinct()[:instance.nbelements]
         else:
             ctx['object_list'] = obj_query.distinct()[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
 
         # FIXME Flux RSS par bureau
-        ctx['voir_plus'] = "/recherche/?selected_facets=section__" + FACETS[instance.modele]
-        ctx['lien_rss'] = "/flux/" + instance.modele.lower() + "/?region_actuel=International"
+        ctx['voir_plus'] = "/recherche/?selected_facets=section__" + \
+            FACETS[instance.modele]
+        ctx['lien_rss'] = "/flux/" + \
+            instance.modele.lower() + "/?region_actuel=International"
 
         return ctx
 

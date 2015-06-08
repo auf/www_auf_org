@@ -23,7 +23,8 @@ LAT_LONG = {
 def pays_json(request):
     data = {}
     for pays in Pays.objects.all():
-        implantation = pays.region.implantation_set.filter(actif=True, type="Bureau")[0]
+        implantation = pays.region.implantation_set.filter(
+            actif=True, type="Bureau")[0]
         try:
             adresse_physique = "<br/>".join([
                 "<strong>" + implantation.nom + "</strong>",
@@ -46,7 +47,7 @@ def pays_json(request):
                           unicode(implantation.adresse_postale_pays.nom)])
             ])
         except:
-            adresse_physique =''
+            adresse_physique = ''
             adresse_postale = ''
         data[pays.code_iso3] = {
             'id': pays.code_iso3,

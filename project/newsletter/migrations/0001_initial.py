@@ -10,201 +10,298 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'Newsletter'
         db.create_table('newsletter_newsletter', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('status', self.gf('django.db.models.fields.CharField')(default='3', max_length=1)),
-            ('numero', self.gf('django.db.models.fields.IntegerField')(default=0, max_length=11)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('status', self.gf('django.db.models.fields.CharField')
+             (default='3', max_length=1)),
+            ('numero', self.gf('django.db.models.fields.IntegerField')
+             (default=0, max_length=11)),
             ('date', self.gf('django.db.models.fields.DateField')()),
-            ('titre_dossier', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
-            ('texte_dossier', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('photo_dossier', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('lien_dossier', self.gf('django.db.models.fields.URLField')(max_length=300, null=True, blank=True)),
-            ('lien', self.gf('django.db.models.fields.EmailField')(default='webmestre@auf.org', max_length=200)),
-            ('lien2', self.gf('django.db.models.fields.URLField')(default='http://www.auf.org', max_length=250)),
-            ('lienFace', self.gf('django.db.models.fields.URLField')(default='http://www.facebook.com/aufinternational', max_length=250)),
-            ('abonne', self.gf('django.db.models.fields.IntegerField')(default='1000', max_length=11)),
-            ('footer', self.gf('django.db.models.fields.TextField')(default='Lettre electronique est une publication realisee par Agence universitaire de la Francophonie. AUF operateur direct de la Francophonie est un reseau mondial de 781 etablissements enseignement superieur et de recherche.')),
+            ('titre_dossier', self.gf('django.db.models.fields.CharField')
+             (max_length=255, null=True, blank=True)),
+            ('texte_dossier', self.gf('django.db.models.fields.TextField')
+             (null=True, blank=True)),
+            ('photo_dossier', self.gf('django.db.models.fields.files.ImageField')(
+                max_length=100, null=True, blank=True)),
+            ('lien_dossier', self.gf('django.db.models.fields.URLField')
+             (max_length=300, null=True, blank=True)),
+            ('lien', self.gf('django.db.models.fields.EmailField')
+             (default='webmestre@auf.org', max_length=200)),
+            ('lien2', self.gf('django.db.models.fields.URLField')
+             (default='http://www.auf.org', max_length=250)),
+            ('lienFace', self.gf('django.db.models.fields.URLField')(
+                default='http://www.facebook.com/aufinternational', max_length=250)),
+            ('abonne', self.gf('django.db.models.fields.IntegerField')
+             (default='1000', max_length=11)),
+            ('footer', self.gf('django.db.models.fields.TextField')(
+                default='Lettre electronique est une publication realisee par Agence universitaire de la Francophonie. AUF operateur direct de la Francophonie est un reseau mondial de 781 etablissements enseignement superieur et de recherche.')),
         ))
         db.send_create_signal('newsletter', ['Newsletter'])
 
         # Adding M2M table for field bureau on 'Newsletter'
         db.create_table('newsletter_newsletter_bureau', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('newsletter', models.ForeignKey(orm['newsletter.newsletter'], null=False)),
-            ('region', models.ForeignKey(orm['site_references.region'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('newsletter', models.ForeignKey(
+                orm['newsletter.newsletter'], null=False)),
+            ('region', models.ForeignKey(
+                orm['site_references.region'], null=False))
         ))
-        db.create_unique('newsletter_newsletter_bureau', ['newsletter_id', 'region_id'])
+        db.create_unique(
+            'newsletter_newsletter_bureau', ['newsletter_id', 'region_id'])
 
         # Adding M2M table for field appel on 'Newsletter'
         db.create_table('newsletter_newsletter_appel', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('newsletter', models.ForeignKey(orm['newsletter.newsletter'], null=False)),
-            ('appel_offre', models.ForeignKey(orm['auf_site_institutionnel.appel_offre'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('newsletter', models.ForeignKey(
+                orm['newsletter.newsletter'], null=False)),
+            ('appel_offre', models.ForeignKey(
+                orm['auf_site_institutionnel.appel_offre'], null=False))
         ))
-        db.create_unique('newsletter_newsletter_appel', ['newsletter_id', 'appel_offre_id'])
+        db.create_unique(
+            'newsletter_newsletter_appel', ['newsletter_id', 'appel_offre_id'])
 
         # Adding M2M table for field actualite on 'Newsletter'
         db.create_table('newsletter_newsletter_actualite', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('newsletter', models.ForeignKey(orm['newsletter.newsletter'], null=False)),
-            ('actualite', models.ForeignKey(orm['auf_site_institutionnel.actualite'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('newsletter', models.ForeignKey(
+                orm['newsletter.newsletter'], null=False)),
+            ('actualite', models.ForeignKey(
+                orm['auf_site_institutionnel.actualite'], null=False))
         ))
-        db.create_unique('newsletter_newsletter_actualite', ['newsletter_id', 'actualite_id'])
+        db.create_unique(
+            'newsletter_newsletter_actualite', ['newsletter_id', 'actualite_id'])
 
         # Adding M2M table for field evenement on 'Newsletter'
         db.create_table('newsletter_newsletter_evenement', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('newsletter', models.ForeignKey(orm['newsletter.newsletter'], null=False)),
-            ('evenement', models.ForeignKey(orm['auf_site_institutionnel.evenement'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('newsletter', models.ForeignKey(
+                orm['newsletter.newsletter'], null=False)),
+            ('evenement', models.ForeignKey(
+                orm['auf_site_institutionnel.evenement'], null=False))
         ))
-        db.create_unique('newsletter_newsletter_evenement', ['newsletter_id', 'evenement_id'])
+        db.create_unique(
+            'newsletter_newsletter_evenement', ['newsletter_id', 'evenement_id'])
 
         # Adding M2M table for field publication on 'Newsletter'
         db.create_table('newsletter_newsletter_publication', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('newsletter', models.ForeignKey(orm['newsletter.newsletter'], null=False)),
-            ('publication', models.ForeignKey(orm['auf_site_institutionnel.publication'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('newsletter', models.ForeignKey(
+                orm['newsletter.newsletter'], null=False)),
+            ('publication', models.ForeignKey(
+                orm['auf_site_institutionnel.publication'], null=False))
         ))
-        db.create_unique('newsletter_newsletter_publication', ['newsletter_id', 'publication_id'])
+        db.create_unique(
+            'newsletter_newsletter_publication', ['newsletter_id', 'publication_id'])
 
         # Adding model 'Abonne'
         db.create_table('newsletter_abonne', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('adresse', self.gf('django.db.models.fields.EmailField')(max_length=75)),
-            ('date', self.gf('django.db.models.fields.DateField')(auto_now_add=True, blank=True)),
-            ('valide', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('adresse', self.gf('django.db.models.fields.EmailField')
+             (max_length=75)),
+            ('date', self.gf('django.db.models.fields.DateField')
+             (auto_now_add=True, blank=True)),
+            ('valide', self.gf('django.db.models.fields.BooleanField')
+             (default=False)),
         ))
         db.send_create_signal('newsletter', ['Abonne'])
 
         # Adding M2M table for field bureau on 'Abonne'
         db.create_table('newsletter_abonne_bureau', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('abonne', models.ForeignKey(orm['newsletter.abonne'], null=False)),
-            ('region', models.ForeignKey(orm['site_references.region'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('abonne', models.ForeignKey(
+                orm['newsletter.abonne'], null=False)),
+            ('region', models.ForeignKey(
+                orm['site_references.region'], null=False))
         ))
-        db.create_unique('newsletter_abonne_bureau', ['abonne_id', 'region_id'])
+        db.create_unique(
+            'newsletter_abonne_bureau', ['abonne_id', 'region_id'])
 
         # Adding model 'Fil'
         db.create_table('newsletter_fil', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('numero', self.gf('django.db.models.fields.IntegerField')(default=0, max_length=11)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('numero', self.gf('django.db.models.fields.IntegerField')
+             (default=0, max_length=11)),
             ('date', self.gf('django.db.models.fields.DateField')()),
-            ('footer', self.gf('django.db.models.fields.TextField')(default='Copyright AUF 2013')),
+            ('footer', self.gf('django.db.models.fields.TextField')
+             (default='Copyright AUF 2013')),
         ))
         db.send_create_signal('newsletter', ['Fil'])
 
         # Adding M2M table for field bureau on 'Fil'
         db.create_table('newsletter_fil_bureau', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
             ('fil', models.ForeignKey(orm['newsletter.fil'], null=False)),
-            ('region', models.ForeignKey(orm['site_references.region'], null=False))
+            ('region', models.ForeignKey(
+                orm['site_references.region'], null=False))
         ))
         db.create_unique('newsletter_fil_bureau', ['fil_id', 'region_id'])
 
         # Adding M2M table for field actualite on 'Fil'
         db.create_table('newsletter_fil_actualite', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
             ('fil', models.ForeignKey(orm['newsletter.fil'], null=False)),
-            ('actualite', models.ForeignKey(orm['auf_site_institutionnel.actualite'], null=False))
+            ('actualite', models.ForeignKey(
+                orm['auf_site_institutionnel.actualite'], null=False))
         ))
-        db.create_unique('newsletter_fil_actualite', ['fil_id', 'actualite_id'])
+        db.create_unique(
+            'newsletter_fil_actualite', ['fil_id', 'actualite_id'])
 
         # Adding M2M table for field evenement on 'Fil'
         db.create_table('newsletter_fil_evenement', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
             ('fil', models.ForeignKey(orm['newsletter.fil'], null=False)),
-            ('evenement', models.ForeignKey(orm['auf_site_institutionnel.evenement'], null=False))
+            ('evenement', models.ForeignKey(
+                orm['auf_site_institutionnel.evenement'], null=False))
         ))
-        db.create_unique('newsletter_fil_evenement', ['fil_id', 'evenement_id'])
+        db.create_unique(
+            'newsletter_fil_evenement', ['fil_id', 'evenement_id'])
 
         # Adding model 'Planete'
         db.create_table('newsletter_planete', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('status', self.gf('django.db.models.fields.CharField')(default='3', max_length=1)),
-            ('numero', self.gf('django.db.models.fields.IntegerField')(default=0, max_length=11)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('status', self.gf('django.db.models.fields.CharField')
+             (default='3', max_length=1)),
+            ('numero', self.gf('django.db.models.fields.IntegerField')
+             (default=0, max_length=11)),
             ('date', self.gf('django.db.models.fields.DateField')()),
-            ('titre_dossier', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('titre_dossier', self.gf(
+                'django.db.models.fields.CharField')(max_length=255)),
             ('texte_dossier', self.gf('django.db.models.fields.TextField')()),
-            ('photo_dossier', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('lien_dossier', self.gf('django.db.models.fields.URLField')(max_length=300, null=True, blank=True)),
-            ('fil_planete', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['newsletter.Fil'])),
-            ('footer', self.gf('django.db.models.fields.TextField')(default='Lettre electronique est une publication realisee par Agence universitaire de la Francophonie. AUF operateur direct de la Francophonie est un reseau mondial de 781 etablissements enseignement superieur et de recherche.')),
+            ('photo_dossier', self.gf('django.db.models.fields.files.ImageField')(
+                max_length=100, null=True, blank=True)),
+            ('lien_dossier', self.gf('django.db.models.fields.URLField')
+             (max_length=300, null=True, blank=True)),
+            ('fil_planete', self.gf('django.db.models.fields.related.ForeignKey')(
+                to=orm['newsletter.Fil'])),
+            ('footer', self.gf('django.db.models.fields.TextField')(
+                default='Lettre electronique est une publication realisee par Agence universitaire de la Francophonie. AUF operateur direct de la Francophonie est un reseau mondial de 781 etablissements enseignement superieur et de recherche.')),
         ))
         db.send_create_signal('newsletter', ['Planete'])
 
         # Adding M2M table for field appel_planete on 'Planete'
         db.create_table('newsletter_planete_appel_planete', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('planete', models.ForeignKey(orm['newsletter.planete'], null=False)),
-            ('appel_offre', models.ForeignKey(orm['auf_site_institutionnel.appel_offre'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('planete', models.ForeignKey(
+                orm['newsletter.planete'], null=False)),
+            ('appel_offre', models.ForeignKey(
+                orm['auf_site_institutionnel.appel_offre'], null=False))
         ))
-        db.create_unique('newsletter_planete_appel_planete', ['planete_id', 'appel_offre_id'])
+        db.create_unique(
+            'newsletter_planete_appel_planete', ['planete_id', 'appel_offre_id'])
 
         # Adding M2M table for field bourse_planete on 'Planete'
         db.create_table('newsletter_planete_bourse_planete', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('planete', models.ForeignKey(orm['newsletter.planete'], null=False)),
-            ('bourse', models.ForeignKey(orm['auf_site_institutionnel.bourse'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('planete', models.ForeignKey(
+                orm['newsletter.planete'], null=False)),
+            ('bourse', models.ForeignKey(
+                orm['auf_site_institutionnel.bourse'], null=False))
         ))
-        db.create_unique('newsletter_planete_bourse_planete', ['planete_id', 'bourse_id'])
+        db.create_unique(
+            'newsletter_planete_bourse_planete', ['planete_id', 'bourse_id'])
 
         # Adding M2M table for field evenement_planete on 'Planete'
         db.create_table('newsletter_planete_evenement_planete', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('planete', models.ForeignKey(orm['newsletter.planete'], null=False)),
-            ('evenement', models.ForeignKey(orm['auf_site_institutionnel.evenement'], null=False))
+            ('id', models.AutoField(
+                verbose_name='ID', primary_key=True, auto_created=True)),
+            ('planete', models.ForeignKey(
+                orm['newsletter.planete'], null=False)),
+            ('evenement', models.ForeignKey(
+                orm['auf_site_institutionnel.evenement'], null=False))
         ))
-        db.create_unique('newsletter_planete_evenement_planete', ['planete_id', 'evenement_id'])
+        db.create_unique(
+            'newsletter_planete_evenement_planete', ['planete_id', 'evenement_id'])
 
         # Adding model 'ProjetPlanete'
         db.create_table('newsletter_projetplanete', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('planete', self.gf('django.db.models.fields.related.ForeignKey')(related_name='projets', to=orm['newsletter.Planete'])),
-            ('titre_projet', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('planete', self.gf('django.db.models.fields.related.ForeignKey')
+             (related_name='projets', to=orm['newsletter.Planete'])),
+            ('titre_projet', self.gf(
+                'django.db.models.fields.CharField')(max_length=255)),
             ('texte_projet', self.gf('django.db.models.fields.TextField')()),
-            ('photo_projet', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('lien_projet', self.gf('django.db.models.fields.URLField')(max_length=300)),
-            ('ordre_projet', self.gf('django.db.models.fields.IntegerField')(default=1)),
+            ('photo_projet', self.gf('django.db.models.fields.files.ImageField')(
+                max_length=100, null=True, blank=True)),
+            ('lien_projet', self.gf(
+                'django.db.models.fields.URLField')(max_length=300)),
+            ('ordre_projet', self.gf(
+                'django.db.models.fields.IntegerField')(default=1)),
         ))
         db.send_create_signal('newsletter', ['ProjetPlanete'])
 
         # Adding model 'MembrePlanete'
         db.create_table('newsletter_membreplanete', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('planete', self.gf('django.db.models.fields.related.ForeignKey')(related_name='membres', to=orm['newsletter.Planete'])),
-            ('titre_membre', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('planete', self.gf('django.db.models.fields.related.ForeignKey')
+             (related_name='membres', to=orm['newsletter.Planete'])),
+            ('titre_membre', self.gf(
+                'django.db.models.fields.CharField')(max_length=255)),
             ('texte_membre', self.gf('django.db.models.fields.TextField')()),
-            ('photo_membre', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('lien_membre', self.gf('django.db.models.fields.URLField')(max_length=300)),
-            ('ordre_membre', self.gf('django.db.models.fields.IntegerField')(default=1)),
+            ('photo_membre', self.gf('django.db.models.fields.files.ImageField')(
+                max_length=100, null=True, blank=True)),
+            ('lien_membre', self.gf(
+                'django.db.models.fields.URLField')(max_length=300)),
+            ('ordre_membre', self.gf(
+                'django.db.models.fields.IntegerField')(default=1)),
         ))
         db.send_create_signal('newsletter', ['MembrePlanete'])
 
         # Adding model 'Breve'
         db.create_table('newsletter_breve', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('numero', self.gf('django.db.models.fields.IntegerField')(default=0, max_length=11)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('numero', self.gf('django.db.models.fields.IntegerField')
+             (default=0, max_length=11)),
             ('date', self.gf('django.db.models.fields.DateField')()),
-            ('texte_intro', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_rh', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_ari', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_agenda', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_mission', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_arrive', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_diver', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('texte_autre', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('footer', self.gf('django.db.models.fields.TextField')(default="Les br\xc3\xa8ves des services centraux sont une publication r\xc3\xa9alis\xc3\xa9e par l'Agence universitaire de la Francophonie. L'AUF, op\xc3\xa9rateur de la Francophonie, est un r\xc3\xa9seau mondial de 800 \xc3\xa9tablissements d'enseignement sup\xc3\xa9rieur et de recherche.")),
+            ('texte_intro', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_rh', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_ari', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_agenda', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_mission', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_arrive', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_diver', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('texte_autre', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('footer', self.gf('django.db.models.fields.TextField')(
+                default="Les br\xc3\xa8ves des services centraux sont une publication r\xc3\xa9alis\xc3\xa9e par l'Agence universitaire de la Francophonie. L'AUF, op\xc3\xa9rateur de la Francophonie, est un r\xc3\xa9seau mondial de 800 \xc3\xa9tablissements d'enseignement sup\xc3\xa9rieur et de recherche.")),
         ))
         db.send_create_signal('newsletter', ['Breve'])
 
         # Adding model 'VideoPlugin'
         db.create_table('cmsplugin_videoplugin', (
-            ('cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
-            ('titre', self.gf('django.db.models.fields.CharField')(max_length=250)),
-            ('video', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(
+                to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
+            ('titre', self.gf('django.db.models.fields.CharField')
+             (max_length=250)),
+            ('video', self.gf('django.db.models.fields.TextField')
+             (null=True, blank=True)),
+            ('description', self.gf('django.db.models.fields.TextField')
+             (null=True, blank=True)),
         ))
         db.send_create_signal('newsletter', ['VideoPlugin'])
-
 
     def backwards(self, orm):
         # Deleting model 'Newsletter'
@@ -266,7 +363,6 @@ class Migration(SchemaMigration):
 
         # Deleting model 'VideoPlugin'
         db.delete_table('cmsplugin_videoplugin')
-
 
     models = {
         'auf_site_institutionnel.actualite': {

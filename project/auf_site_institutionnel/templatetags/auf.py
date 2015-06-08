@@ -28,6 +28,7 @@ def get_bureau(context):
             return BUREAU_SLUGS[key]
     return ('', '')
 
+
 @register.filter
 def bureaux(obj):
     bureaux = list(obj.bureau.all())
@@ -46,8 +47,9 @@ def do_show_facet(context, facet_name):
 
         if urlunquote(long_facet_name) in selected_facets:
             html += "<dd><a href='%s'><input onclick='window.location=\"%s\"; return true;'type='checkbox' checked='checked'/> %s</a> (%s)</dd>"\
-                % (path.replace("&selected_facets=" + long_facet_name,"").replace("?selected_facets=" + long_facet_name,"?"),
-                   path.replace("&selected_facets=" + long_facet_name,"").replace("?selected_facets=" + long_facet_name,"?"),
+                % (path.replace("&selected_facets=" + long_facet_name, "").replace("?selected_facets=" + long_facet_name, "?"),
+                   path.replace("&selected_facets=" + long_facet_name,
+                                "").replace("?selected_facets=" + long_facet_name, "?"),
                    smart_text(f[0]), f[1])
         else:
             if path.endswith('/'):

@@ -57,10 +57,13 @@ class Bourse(models.Model):
     cmstexte = PlaceholderField('texte')
     image = models.ImageField(upload_to='bourse', null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
-    date_fin2 = models.CharField(max_length=1, null=True, blank=True, choices=(('1', '1 Moi avant le début des manifestations'), ('2', '2 Mois avant le début des manifestations'), ('3', '3 Mois avant le début des manifestations'), ('4', '4 Mois avant le début des manifestations'), ('5', '5 Mois avant le début des manifestations'), ('6', 'Permanent')))
+    date_fin2 = models.CharField(max_length=1, null=True, blank=True, choices=(('1', '1 Moi avant le début des manifestations'), ('2', '2 Mois avant le début des manifestations'), (
+        '3', '3 Mois avant le début des manifestations'), ('4', '4 Mois avant le début des manifestations'), ('5', '5 Mois avant le début des manifestations'), ('6', 'Permanent')))
     date_pub = models.DateTimeField('date de creation')
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_pub',)
@@ -69,10 +72,10 @@ class Bourse(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/allocations/%s/" %self.slug
+        return "/allocations/%s/" % self.slug
 
     def get_absolute_url_region(self):
-        return "/allocations-regionales/%s/" %self.slug
+        return "/allocations-regionales/%s/" % self.slug
 
 
 class Actualite(models.Model):
@@ -87,8 +90,10 @@ class Actualite(models.Model):
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateField('date')
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_pub',)
@@ -97,15 +102,16 @@ class Actualite(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/actualites/%s/" %self.slug
+        return "/actualites/%s/" % self.slug
 
     def get_absolute_url_region(self):
-        return "/actualites-regionales/%s/" %self.slug
+        return "/actualites-regionales/%s/" % self.slug
 
     def save(self, *args, **kwargs):
         object = super(Actualite, self).save(*args, **kwargs)
         from cms.api import add_plugin
-        add_plugin(self.cmstexte, "TextPlugin", "fr", body="Double-cliquez ici pour ajouter votre texte")
+        add_plugin(self.cmstexte, "TextPlugin", "fr",
+                   body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
@@ -121,8 +127,10 @@ class Veille(models.Model):
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateField('date')
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_pub',)
@@ -131,15 +139,16 @@ class Veille(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/veille/%s/" %self.slug
+        return "/veille/%s/" % self.slug
 
     def get_absolute_url_region(self):
-        return "/veille-regionale/%s/" %self.slug
+        return "/veille-regionale/%s/" % self.slug
 
 
 class Appel_Offre(models.Model):
     bureau = models.ManyToManyField(Region, related_name="appel_offre_bureau")
-    auf = models.BooleanField("Cet appel d'offre est un appel d'offre AUF (et non partenaire)", default="True")
+    auf = models.BooleanField(
+        "Cet appel d'offre est un appel d'offre AUF (et non partenaire)", default="True")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -148,10 +157,13 @@ class Appel_Offre(models.Model):
     cmstexte = PlaceholderField('texte')
     image = models.ImageField(null=True, blank=True, upload_to='appel_offre')
     date_fin = models.DateField(null=True, blank=True)
-    date_fin2 = models.CharField(max_length=1, null=True, blank=True, choices=(('1', '1 Moi avant le début des manifestations'), ('2', '2 Mois avant le début des manifestations'), ('3', '3 Mois avant le début des manifestations'), ('4', '4 Mois avant le début des manifestations'), ('5', '5 Mois avant le début des manifestations'), ('6', 'Permanent')))
+    date_fin2 = models.CharField(max_length=1, null=True, blank=True, choices=(('1', '1 Moi avant le début des manifestations'), ('2', '2 Mois avant le début des manifestations'), (
+        '3', '3 Mois avant le début des manifestations'), ('4', '4 Mois avant le début des manifestations'), ('5', '5 Mois avant le début des manifestations'), ('6', 'Permanent')))
     date_pub = models.DateTimeField('date de creation')
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_pub',)
@@ -160,10 +172,10 @@ class Appel_Offre(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/appels-offre/%s/" %self.slug
+        return "/appels-offre/%s/" % self.slug
 
     def get_absolute_url_region(self):
-        return "/appels-offre-regionales/%s/" %self.slug
+        return "/appels-offre-regionales/%s/" % self.slug
 
 
 class Evenement(models.Model):
@@ -179,8 +191,10 @@ class Evenement(models.Model):
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateTimeField('date de creation', auto_now=True)
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_debut',)
@@ -189,10 +203,11 @@ class Evenement(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/evenements/%s/" %self.slug
+        return "/evenements/%s/" % self.slug
 
     def get_absolute_url_region(self):
-        return "/evenements-regionales/%s/" %self.slug
+        return "/evenements-regionales/%s/" % self.slug
+
 
 class Comares(models.Model):
     bureau = models.ManyToManyField(Region, related_name="comares_bureau")
@@ -202,8 +217,10 @@ class Comares(models.Model):
     texte = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='actualite')
     date_pub = models.DateField('date')
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_pub',)
@@ -212,7 +229,7 @@ class Comares(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/comares/%s/" %self.slug
+        return "/comares/%s/" % self.slug
 
 
 class Publication(models.Model):
@@ -225,8 +242,10 @@ class Publication(models.Model):
     docu = models.FileField(null=True, blank=True, upload_to='publication')
     image = models.ImageField(null=True, blank=True, upload_to='publication')
     date_pub = models.DateField('date')
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
+        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
 
     class Meta:
         ordering = ('-date_pub',)
@@ -235,14 +254,15 @@ class Publication(models.Model):
         return self.titre
 
     def get_absolute_url(self):
-        return "/publications/%s/" %self.slug
+        return "/publications/%s/" % self.slug
 
     def get_absolute_url_region(self):
-        return "/publications-regionales/%s/" %self.slug
+        return "/publications-regionales/%s/" % self.slug
 
 
 class Partenaire(models.Model):
-    type = models.CharField(max_length=1, choices=(('1', 'Etats et gouvernements'), ('2', 'Organisations internationales'), ('3', 'Cooperation décentralisee'), ('4', 'Institutions universitaires et scientifiques'), ('5', 'Acteurs economiques')))
+    type = models.CharField(max_length=1, choices=(('1', 'Etats et gouvernements'), ('2', 'Organisations internationales'), (
+        '3', 'Cooperation décentralisee'), ('4', 'Institutions universitaires et scientifiques'), ('5', 'Acteurs economiques')))
     nom = models.TextField()
     objet = models.TextField()
     budget = models.CharField(max_length=200)
@@ -250,33 +270,38 @@ class Partenaire(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='partenaires')
     site = models.URLField(max_length=200)
     date_pub = models.DateTimeField('date de creation', auto_now=True)
-    date_mod = models.DateTimeField('date de derniere modification', auto_now_add=True)
+    date_mod = models.DateTimeField(
+        'date de derniere modification', auto_now_add=True)
 
     def __unicode__(self):
         return self.nom
 
     def get_absolute_url(self):
-        return "/partenaire/%s/" %self.slug
+        return "/partenaire/%s/" % self.slug
 
 
 class EmployePlugin(CMSPlugin):
-    service = models.ForeignKey(Service, related_name="employe_plugin_service", null=True, blank=True)
+    service = models.ForeignKey(
+        Service, related_name="employe_plugin_service", null=True, blank=True)
     # FIXME
     fonction = models.CharField(max_length=255, null=True, blank=True,
                                 choices=set(
-                                    ((e.fonction, e.fonction) for e in Employe.objects.filter(actif=True))
+                                    ((e.fonction, e.fonction)
+                                     for e in Employe.objects.filter(actif=True))
                                 )
-               )
-    region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
+                                )
+    region = models.ForeignKey(
+        Region, related_name="employe_plugin_region", null=True, blank=True)
     layout_template = \
         models.CharField("Template utilisé pour l'affichage",
-            choices = DynamicTemplateChoices(
-                path=TEMPLATE_PATH,
-                include='.html',
-                exclude='default'),
-            max_length=256,
-            help_text="""Utiliser le template pour afficher le contenu de la liste""")
+                         choices=DynamicTemplateChoices(
+                             path=TEMPLATE_PATH,
+                             include='.html',
+                             exclude='default'),
+                         max_length=256,
+                         help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
 
 class ImplantationPlugin(CMSPlugin):
-    region = models.ForeignKey(Region, related_name="implantation_plugin_region", null=True, blank=True)
+    region = models.ForeignKey(
+        Region, related_name="implantation_plugin_region", null=True, blank=True)

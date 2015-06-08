@@ -25,22 +25,23 @@ MODEL_LIST = (
 class ModelList(CMSPlugin):
     title = models.CharField("Titre", max_length="256")
 
-    bureau = models.ManyToManyField(Region, related_name="cmsplugin_modellist_bureau")
+    bureau = models.ManyToManyField(
+        Region, related_name="cmsplugin_modellist_bureau")
 
     layout_template = \
         models.CharField("Template utilisé pour l'affichage",
-            choices = DynamicTemplateChoices(
-                path=TEMPLATE_PATH,
-                include='.html',
-                exclude='default'),
-            max_length=256,
-            help_text="""Utiliser le template pour afficher le contenu de la liste""")
+                         choices=DynamicTemplateChoices(
+                             path=TEMPLATE_PATH,
+                             include='.html',
+                             exclude='default'),
+                         max_length=256,
+                         help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
     modele = models.CharField("Modèle", choices=MODEL_LIST, max_length="256",
-      help_text="""Selectionnez la page racine dont vous voulez afficher le contenu (liste des sous pages)""")
+                              help_text="""Selectionnez la page racine dont vous voulez afficher le contenu (liste des sous pages)""")
 
     nbelements = models.IntegerField(default=6,
-      help_text="""Le nombre d'éléments à afficher ?""")
+                                     help_text="""Le nombre d'éléments à afficher ?""")
 
     def copy_relations(self, oldinstance):
         self.bureau = oldinstance.bureau.all()

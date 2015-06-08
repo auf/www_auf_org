@@ -10,4 +10,4 @@ class Contacte(models.Model):
     bureau = models.OneToOneField(Region)
 
     def __unicode__(self):
-	return u'%s %s'%(self.nom, self.prenom)
+        return u'%s %s' % (self.nom, self.prenom)

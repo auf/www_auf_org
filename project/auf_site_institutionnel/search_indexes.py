@@ -103,4 +103,3 @@ class PublicationIndex(AufIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         return Publication.objects.filter(status='3')
-

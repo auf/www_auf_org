@@ -11,10 +11,10 @@ class NbInstitutionsPlugin(CMSPluginBase):
     render_template = "NB.html"
 
     def render(self, context, instance, placeholder):
-        context = super(NbInstitutionsPlugin, self).render(context, instance, placeholder)
+        context = super(NbInstitutionsPlugin, self).render(
+            context, instance, placeholder)
         context['object'] = 804
 
         return context
 
 plugin_pool.register_plugin(NbInstitutionsPlugin)
-

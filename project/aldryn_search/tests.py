@@ -57,32 +57,36 @@ class PluginIndexingTests(TestCase):
             placeholder=Placeholder(id=1235)
         )
         instance.cmsplugin_ptr = instance
-        instance.pk = 1234 # otherwise plugin_meta_context_processor() crashes
+        instance.pk = 1234  # otherwise plugin_meta_context_processor() crashes
         return instance
 
     def test_plugin_indexing_is_enabled_by_default(self):
         cms_plugin = self.get_plugin()
-        indexed_content = self.index.get_plugin_search_text(cms_plugin, self.request)
+        indexed_content = self.index.get_plugin_search_text(
+            cms_plugin, self.request)
         self.assertEqual(NotIndexedPlugin.plugin_content, indexed_content)
 
     def test_plugin_indexing_can_be_disabled_on_model(self):
         cms_plugin = self.get_plugin()
         cms_plugin.search_fulltext = False
-        indexed_content = self.index.get_plugin_search_text(cms_plugin, self.request)
+        indexed_content = self.index.get_plugin_search_text(
+            cms_plugin, self.request)
         self.assertEqual('', indexed_content)
 
     def test_plugin_indexing_can_be_disabled_on_plugin(self):
         NotIndexedPlugin.search_fulltext = False
 
         try:
-            self.assertEqual('', self.index.get_plugin_search_text(self.get_plugin(), self.request))
+            self.assertEqual(
+                '', self.index.get_plugin_search_text(self.get_plugin(), self.request))
         finally:
             del NotIndexedPlugin.search_fulltext
 
     def test_page_title_is_indexed_using_prepare(self):
         """This tests the indexing path way used by update_index mgmt command"""
         from cms.api import create_page
-        page = create_page(title="Whoopee", template="whee.html", language="en")
+        page = create_page(
+            title="Whoopee", template="whee.html", language="en")
 
         from haystack import connections
         from haystack.constants import DEFAULT_ALIAS
@@ -93,7 +97,7 @@ class PluginIndexingTests(TestCase):
         index = unified_index.get_index(Title)
 
         title = Title.objects.get(pk=page.title_set.all()[0].pk)
-        index.index_queryset(DEFAULT_ALIAS) # initialises index._backend_alias
+        index.index_queryset(DEFAULT_ALIAS)  # initialises index._backend_alias
         indexed = index.prepare(title)
         self.assertEqual('Whoopee', indexed['title'])
         self.assertEqual('Whoopee', indexed['text'])
@@ -101,7 +105,8 @@ class PluginIndexingTests(TestCase):
     def test_page_title_is_indexed_using_update_object(self):
         """This tests the indexing path way used by the RealTimeSignalProcessor"""
         from cms.api import create_page
-        page = create_page(title="Whoopee", template="whee.html", language="en")
+        page = create_page(
+            title="Whoopee", template="whee.html", language="en")
 
         from haystack import connections
         from haystack.constants import DEFAULT_ALIAS

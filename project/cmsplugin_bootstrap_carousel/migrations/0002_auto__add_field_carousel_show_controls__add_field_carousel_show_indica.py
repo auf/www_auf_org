@@ -10,22 +10,24 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding field 'Carousel.show_controls'
         db.add_column(u'cmsplugin_bootstrap_carousel_carousel', 'show_controls',
-                      self.gf('django.db.models.fields.BooleanField')(default=True),
+                      self.gf('django.db.models.fields.BooleanField')(
+                          default=True),
                       keep_default=False)
 
         # Adding field 'Carousel.show_indicator'
         db.add_column(u'cmsplugin_bootstrap_carousel_carousel', 'show_indicator',
-                      self.gf('django.db.models.fields.BooleanField')(default=True),
+                      self.gf('django.db.models.fields.BooleanField')(
+                          default=True),
                       keep_default=False)
-
 
     def backwards(self, orm):
         # Deleting field 'Carousel.show_controls'
-        db.delete_column(u'cmsplugin_bootstrap_carousel_carousel', 'show_controls')
+        db.delete_column(
+            u'cmsplugin_bootstrap_carousel_carousel', 'show_controls')
 
         # Deleting field 'Carousel.show_indicator'
-        db.delete_column(u'cmsplugin_bootstrap_carousel_carousel', 'show_indicator')
-
+        db.delete_column(
+            u'cmsplugin_bootstrap_carousel_carousel', 'show_indicator')
 
     models = {
         'cms.cmsplugin': {

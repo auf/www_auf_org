@@ -3,8 +3,8 @@ from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
 
 from .models import (
-  PageList,
-  TEMPLATE_PATH,
+    PageList,
+    TEMPLATE_PATH,
 )
 
 
@@ -15,9 +15,11 @@ class PageListCMSPlugin(CMSPluginBase):
     admin_preview = False
 
     def render(self, context, instance, placeholder):
-        ctx = super(PageListCMSPlugin, self).render(context, instance, placeholder)
+        ctx = super(PageListCMSPlugin, self).render(
+            context, instance, placeholder)
 
-        ctx['descendants'] = instance.root.get_descendants()[:instance.nbelements]
+        ctx['descendants'] = instance.root.get_descendants()[
+            :instance.nbelements]
         ctx['title'] = instance.title
 
         return ctx

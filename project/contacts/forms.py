@@ -8,4 +8,3 @@ class ContacteForm(forms.Form):
     email = forms.EmailField()
     bureau = forms.ModelChoiceField(queryset=Region.objects.all())
     message = forms.CharField(widget=forms.Textarea)
-

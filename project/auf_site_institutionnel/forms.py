@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
-import re, datetime
+import re
+import datetime
 from django import forms
 from django import db
 from django.db.models import Q
@@ -13,17 +14,20 @@ from project.auf_site_institutionnel.models import Bourse, Personna, Actualite
 
 
 class ContactEmployeForm(forms.Form):
-    nom = forms.CharField(max_length=255,label=u"Nom")
-    prenom = forms.CharField(max_length=255,label=u"Prénom")
-    courriel = forms.CharField(max_length=255,label=u"Courriel")
+    nom = forms.CharField(max_length=255, label=u"Nom")
+    prenom = forms.CharField(max_length=255, label=u"Prénom")
+    courriel = forms.CharField(max_length=255, label=u"Courriel")
     message = forms.CharField(label=u"Message", widget=forms.Textarea)
     #captcha = CaptchaField()
 
 
 class RechercheEmployeForm(forms.Form):
-    implantation = forms.ModelChoiceField(queryset=Implantation.ouvertes.all(), required=False)
-    region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False)
-    service = forms.ModelChoiceField(queryset=Service.objects.filter(actif=True), required=False)
+    implantation = forms.ModelChoiceField(
+        queryset=Implantation.ouvertes.all(), required=False)
+    region = forms.ModelChoiceField(
+        queryset=Region.objects.all(), required=False)
+    service = forms.ModelChoiceField(
+        queryset=Service.objects.filter(actif=True), required=False)
     mots = forms.CharField(max_length=100, required=False)
 
     def get_results(self):
@@ -48,9 +52,11 @@ class RechercheEmployeForm(forms.Form):
         if len(mots) > 0:
             q_mots = Q()
             for m in mots:
-                q_mots  = q_mots | Q(nom__icontains=m) | Q(prenom__icontains=m) | Q(fonction__icontains=m) | Q(service__nom__icontains=m)
+                q_mots = q_mots | Q(nom__icontains=m) | Q(prenom__icontains=m) | Q(
+                    fonction__icontains=m) | Q(service__nom__icontains=m)
             q = q & q_mots
-        liste_employes = Employe.objects.filter(courriel__isnull=False).filter(q)
+        liste_employes = Employe.objects.filter(
+            courriel__isnull=False).filter(q)
         return liste_employes
 
 
@@ -59,7 +65,7 @@ class EtablissementSearchForm(forms.Form):
     region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes",
                                     help_text="")
     pays = forms.ModelChoiceField(queryset=Pays.objects.all(), required=False, label="Pays", empty_label="Tous",
-                                    help_text="")
+                                  help_text="")
 
     def get_query_set(self):
 
@@ -91,29 +97,41 @@ class EtablissementSearchForm(forms.Form):
 
 class ActuSearchForm(forms.Form):
 
-    region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
+    region = forms.ModelChoiceField(queryset=Region.objects.all(
+    ), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
     titre = forms.CharField(max_length=255, required=False, label="Par titre")
-    date_pub = forms.DateField(widget = forms.DateTimeInput(attrs={'class': 'datepicker'}), required=False, label="Par date de publication")
+    date_pub = forms.DateField(widget=forms.DateTimeInput(
+        attrs={'class': 'datepicker'}), required=False, label="Par date de publication")
 
 
 class EventSearchForm(forms.Form):
 
-    region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
-    date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(('1', 'Événements à venir'), ('2', 'Événements passés')))
+    region = forms.ModelChoiceField(queryset=Region.objects.all(
+    ), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
+    date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(
+        ('1', 'Événements à venir'), ('2', 'Événements passés')))
     titre = forms.CharField(max_length=255, required=False)
+
 
 class BourseSearchForm(forms.Form):
 
-    region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
-    date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(('1', 'Allocations en cours'), ('2', 'Allocations cloturées')))
-    personna = forms.ModelChoiceField(label="Par public cible", required=False, empty_label="Sélectionnez un public...", help_text="", queryset= Personna.objects.all())
+    region = forms.ModelChoiceField(queryset=Region.objects.all(
+    ), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
+    date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(
+        ('1', 'Allocations en cours'), ('2', 'Allocations cloturées')))
+    personna = forms.ModelChoiceField(label="Par public cible", required=False,
+                                      empty_label="Sélectionnez un public...", help_text="", queryset=Personna.objects.all())
     titre = forms.CharField(max_length=255, required=False, label="Par titre")
+
 
 class AppelSearchForm(forms.Form):
 
-    region = forms.ModelChoiceField(queryset=Region.objects.all(), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
-    date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(('1', 'Appels d\'offres en cours'), ('2', 'Appels d\'offres clôturés')))
-    personna = forms.ModelChoiceField(label="Par public cible", required=False, empty_label="Sélectionnez un public...", help_text="", queryset= Personna.objects.all())
+    region = forms.ModelChoiceField(queryset=Region.objects.all(
+    ), required=False, label="Par implantation régionale de l'AUF", empty_label="Toutes", help_text="")
+    date = forms.ChoiceField(label="Par type de date", required=False, help_text="", choices=(
+        ('1', 'Appels d\'offres en cours'), ('2', 'Appels d\'offres clôturés')))
+    personna = forms.ModelChoiceField(label="Par public cible", required=False,
+                                      empty_label="Sélectionnez un public...", help_text="", queryset=Personna.objects.all())
     titre = forms.CharField(max_length=255, required=False, label="Par titre")
 
 

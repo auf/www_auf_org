@@ -9,7 +9,9 @@ from cms.models import Placeholder, Page
 
 from .formatting import deslugify
 
+
 class DynamicChoice(object):
+
     """
     Trivial example of creating a dynamic choice
     """
@@ -17,7 +19,7 @@ class DynamicChoice(object):
 
     def __iter__(self, *args, **kwargs):
         for choice in self.generate():
-            if hasattr(choice,'__iter__'):
+            if hasattr(choice, '__iter__'):
                 yield (choice[0], choice[1])
             else:
                 yield choice, choice
@@ -38,9 +40,10 @@ class DynamicChoice(object):
 class PageAttributeDynamicChoices(DynamicChoice):
 
     def __init__(self, *args, **kwargs):
-        super(PageAttributeDynamicChoices, self).__init__(self, *args, **kwargs)
+        super(PageAttributeDynamicChoices, self).__init__(
+            self, *args, **kwargs)
 
-    def generate(self,*args, **kwargs):
+    def generate(self, *args, **kwargs):
         choices = list()
         return choices
 
@@ -50,31 +53,32 @@ class PlaceholdersDynamicChoices(DynamicChoice):
     def __init__(self, *args, **kwargs):
         super(PlaceholdersDynamicChoices, self).__init__(self, *args, **kwargs)
 
-    def generate(self,*args, **kwargs):
+    def generate(self, *args, **kwargs):
         choices = list()
         for item in Placeholder.objects.all().values("slot").distinct():
             choices += ((
-              item['slot'],
-              deslugify(item['slot'])
-              ), )
+                item['slot'],
+                deslugify(item['slot'])
+            ), )
 
         return choices
+
 
 class PageIDsDynamicChoices(DynamicChoice):
 
     def __init__(self, *args, **kwargs):
         super(PageIDsDynamicChoices, self).__init__(self, *args, **kwargs)
 
-    def generate(self,*args, **kwargs):
+    def generate(self, *args, **kwargs):
         choices = list()
         for item in Page.objects.all():
-            if not item.reverse_id :
+            if not item.reverse_id:
                 continue
 
             choices += ((
-              item.reverse_id,
-              "{0} [{1}]".format(item.get_title(), item.reverse_id)
-              ), )
+                item.reverse_id,
+                "{0} [{1}]".format(item.get_title(), item.reverse_id)
+            ), )
 
         return choices
 
@@ -86,8 +90,8 @@ class DynamicTemplateChoices(DynamicChoice):
     default_file = None
 
     def __init__(self, path=None, include=None,
-                       exclude=None, default_file="default.html",
-                       *args, **kwargs):
+                 exclude=None, default_file="default.html",
+                 *args, **kwargs):
         super(DynamicTemplateChoices, self).__init__(self, *args, **kwargs)
         self.path = path
         self.include = include
@@ -96,12 +100,12 @@ class DynamicTemplateChoices(DynamicChoice):
 
     def generate(self, *args, **kwargs):
         choices = list()
-        choices += ( (os.path.join(self.path,self.default_file), "Default"),)
+        choices += ((os.path.join(self.path, self.default_file), "Default"),)
 
         for template_dir in app_template_dirs:
-          results = self.walkdir(os.path.join(template_dir, self.path))
-          if results:
-              choices += results
+            results = self.walkdir(os.path.join(template_dir, self.path))
+            if results:
+                choices += results
 
         return choices
 
@@ -116,7 +120,7 @@ class DynamicTemplateChoices(DynamicChoice):
             if self.include:
                 include = [item.strip() for item in self.include.split(",")]
                 filtered_file_list = list()
-                for file_item in files :
+                for file_item in files:
                     found = filter(lambda x: x in file_item, include)
                     if len(found) > 0:
                         filtered_file_list += (file_item, )
@@ -125,19 +129,19 @@ class DynamicTemplateChoices(DynamicChoice):
             if self.exclude:
                 exclude = [item.strip() for item in self.exclude.split(",")]
                 filtered_file_list = list()
-                for file_item in files :
+                for file_item in files:
                     found = filter(lambda x: x in file_item, exclude)
                     if len(found) <= 0:
                         filtered_file_list += (file_item, )
                 files = filtered_file_list
 
-            for item in files :
-                output += ( (
+            for item in files:
+                output += ((
                     os.path.join(self.path, item),
                     deslugify(os.path.splitext(item)[0]),
                 ),)
 
-            for item in dirs :
+            for item in dirs:
                 output += self.walkdir(os.path.join(root, item))
 
         return output

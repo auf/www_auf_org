@@ -9,6 +9,7 @@ from django.forms import ModelForm, ValidationError
 
 
 class CarouselForm(ModelForm):
+
     class Meta:
         model = Carousel
 
@@ -32,7 +33,7 @@ class BootstrapCarouselPlugin(CMSPluginBase):
 
     inlines = [
         CarouselItemInline,
-        ]
+    ]
 
     def render(self, context, instance, placeholder):
         context.update({'instance': instance})

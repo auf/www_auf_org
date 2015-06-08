@@ -13,6 +13,7 @@ from project.auf_site_institutionnel.models import Partenaire
 #from newsletter.models import *
 from .models import EmployePlugin, ImplantationPlugin
 
+
 class CMSMembrePlugin(CMSPluginBase):
     name = _("Membre")
     render_template = "auf_site_institutionnel/membrePlugin.html"
@@ -20,12 +21,13 @@ class CMSMembrePlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         dictFilter = {}
         dictFilter['membre'] = True
-        #if request.method == 'GET': # If the form has been submitted...
-        item_list = MembreFilter(context['request'].GET or None, queryset = Etablissement.objects.filter(**dictFilter))
+        # if request.method == 'GET': # If the form has been submitted...
+        item_list = MembreFilter(
+            context['request'].GET or None, queryset=Etablissement.objects.filter(**dictFilter))
 
-        context.update({'membre_list':item_list,
-                        'form':item_list.form,
-                        'placeholder':placeholder})
+        context.update({'membre_list': item_list,
+                        'form': item_list.form,
+                        'placeholder': placeholder})
         return context
 
 plugin_pool.register_plugin(CMSMembrePlugin)
@@ -38,9 +40,9 @@ class CMSPartenairePlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         item_list = Partenaire.objects.all()
 
-        context.update({'partenaire_list':item_list,
-                        'form':item_list,
-                        'placeholder':placeholder})
+        context.update({'partenaire_list': item_list,
+                        'form': item_list,
+                        'placeholder': placeholder})
         return context
 
 plugin_pool.register_plugin(CMSPartenairePlugin)
@@ -52,7 +54,8 @@ class CMSEmployePlugin(CMSPluginBase):
     render_template = "auf_site_institutionnel/employe/base.html"
 
     def render(self, context, instance, placeholder):
-        ctx = super(CMSEmployePlugin, self).render(context, instance, placeholder)
+        ctx = super(CMSEmployePlugin, self).render(
+            context, instance, placeholder)
         qs = Employe.objects.filter(actif=True)
         if instance.service:
             qs = qs.filter(service=instance.service)
@@ -74,7 +77,8 @@ class CMSImplantationPlugin(CMSPluginBase):
     render_template = "auf_site_institutionnel/_implantation.html"
 
     def render(self, context, instance, placeholder):
-        ctx = super(CMSImplantationPlugin, self).render(context, instance, placeholder)
+        ctx = super(CMSImplantationPlugin, self).render(
+            context, instance, placeholder)
         qs = Implantation.objects.filter(actif=True)
         if instance.region:
             qs = qs.filter(region=instance.region)
@@ -84,7 +88,7 @@ class CMSImplantationPlugin(CMSPluginBase):
 
 plugin_pool.register_plugin(CMSImplantationPlugin)
 
-#class CMSLettrePlugin(CMSPluginBase):
+# class CMSLettrePlugin(CMSPluginBase):
 #    name = _("Lettre")
 #    render_template = "auf_site_institutionnel/lettrePlugin.html"
 #
@@ -96,10 +100,10 @@ plugin_pool.register_plugin(CMSImplantationPlugin)
 #        context.update({'lettre_list':item_list})
 #        return context
 #
-#plugin_pool.register_plugin(CMSLettrePlugin)
+# plugin_pool.register_plugin(CMSLettrePlugin)
 #
 #
-#class CMSVideoPlugin(CMSPluginBase):
+# class CMSVideoPlugin(CMSPluginBase):
 #    name = _("Video")
 #    model = VideoPlugin
 #    render_template = "auf_site_institutionnel/videoPlugin.html"
@@ -110,4 +114,4 @@ plugin_pool.register_plugin(CMSImplantationPlugin)
 #                        'placeholder':placeholder})
 #        return context
 #
-#plugin_pool.register_plugin(CMSVideoPlugin)
+# plugin_pool.register_plugin(CMSVideoPlugin)

@@ -22,7 +22,7 @@ ICONES = {
     "zip": "file-archive-o"
 }
 
-#TAILLES = {
+# TAILLES = {
 #    "16":"",
 #    "32":"fa-2x",
 #    "48":"fa-3x",
@@ -31,6 +31,7 @@ ICONES = {
 
 
 class AufFile(File):
+
     @property
     def icons(self):
         r = {}
@@ -65,6 +66,3 @@ class ImageExtension(PageExtension):
     image = FilerImageField()
 
 extension_pool.register(ImageExtension)
-
-
-

@@ -127,7 +127,8 @@ def get_lieux_implantations(coords_implantations):
 
 
 def get_donnees_pays(etablissements, implantations, liste_pays):
-    etablissements_counter = get_etablissements_par_pays_counter(etablissements)
+    etablissements_counter = get_etablissements_par_pays_counter(
+        etablissements)
     cnfp_counter = collections.Counter(
         [i.adresse_postale_pays
          for i in implantations if i.type == TYPE_CNFP])

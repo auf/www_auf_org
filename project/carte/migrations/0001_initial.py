@@ -10,19 +10,22 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'CoordonneesImplantations'
         db.create_table('carte_coordonneesimplantations', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('implantation', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['references.Implantation'])),
-            ('latitude', self.gf('django.db.models.fields.DecimalField')(max_digits=8, decimal_places=4)),
-            ('longitude', self.gf('django.db.models.fields.DecimalField')(max_digits=8, decimal_places=4)),
-            ('valide', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('implantation', self.gf('django.db.models.fields.related.ForeignKey')(
+                to=orm['references.Implantation'])),
+            ('latitude', self.gf('django.db.models.fields.DecimalField')
+             (max_digits=8, decimal_places=4)),
+            ('longitude', self.gf('django.db.models.fields.DecimalField')
+             (max_digits=8, decimal_places=4)),
+            ('valide', self.gf('django.db.models.fields.BooleanField')
+             (default=False)),
         ))
         db.send_create_signal('carte', ['CoordonneesImplantations'])
-
 
     def backwards(self, orm):
         # Deleting model 'CoordonneesImplantations'
         db.delete_table('carte_coordonneesimplantations')
-
 
     models = {
         'carte.coordonneesimplantations': {
