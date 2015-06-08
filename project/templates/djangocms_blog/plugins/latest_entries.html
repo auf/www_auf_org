@@ -13,7 +13,7 @@ $(function () {
 
 <div>
 
-{% for p in post_list %}
+{% for p in posts_list %}
 <div class="thumbnail thumbnail-appels">
   <div class="media">
     <a class="pull-left" href="{{p.get_absolute_url}}">
@@ -24,13 +24,13 @@ $(function () {
     <div class="media-body">
         <h4 class="title-date">
         <a href="{{p.get_absolute_url}}">
-        {{ p.titre }}
+        {{ p.title }}
         </a>
         </h4>
         {% if p.date_published %}
         <p class="text-muted">Date de publication: <strong>{{p.date_published|date:"j F Y"}}</strong></p>
         {% endif %}
-        <p>{{ p.abstract }}</p>
+        <p>{{ p.abstract|safe }}</p>
     </div>
   </div>
   <hr>

@@ -4,9 +4,8 @@ from django.db.models import get_model
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cms.models.pluginmodel import CMSPlugin
 
-from .models import ModelList, TEMPLATE_PATH
+from .models import ModelList
 
 FACETS = {
     'Actualite': 'Actualité',
@@ -34,9 +33,9 @@ class ModelListCMSPlugin(CMSPluginBase):
         bureau = instance.bureau.all()
 
         if bureau:
-            ctx['object_list'] = obj_query.filter(bureau=bureau)[:instance.nbelements]
+            ctx['object_list'] = obj_query.filter(bureau=bureau).distinct()[:instance.nbelements]
         else:
-            ctx['object_list'] = obj_query[:instance.nbelements]
+            ctx['object_list'] = obj_query.distinct()[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
 

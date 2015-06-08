@@ -6,8 +6,6 @@ from django.contrib import admin
 
 from cms.admin.placeholderadmin import PlaceholderAdminMixin, FrontendEditableAdminMixin
 
-from adminfiles.admin import FilePickerAdmin
-
 
 class RubriqueBureauAdmin(admin.ModelAdmin):
 
@@ -61,9 +59,8 @@ class RubriqueBureauPersonnaAdmin(RubriqueBureauAdmin):
 class PersonnaAdmin(admin.ModelAdmin):
     pass
 
-class BourseAdmin(RubriqueBureauPersonnaAdmin,FilePickerAdmin):
+class BourseAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauPersonnaAdmin):
 
-    adminfiles_fields = ('texte', )
     fieldsets = RubriqueBureauPersonnaAdmin.fieldsets + [('Date', {'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}),]
     def queryset(self, request):
         """
@@ -85,11 +82,10 @@ class BourseAdmin(RubriqueBureauPersonnaAdmin,FilePickerAdmin):
 class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, RubriqueBureauPersonnaAdmin):
 
     prepopulated_fields = {'slug': ['titre']}
-    #adminfiles_fields = ('texte', )
     fieldsets = [
 	('Partenaires?', {'fields': ['auf']}),
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'resume', 'texte'], 'classes': ['wide']}),
+        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
 	('Date', {'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}),
     ]
 
@@ -132,7 +128,8 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
 
         return qs
 
-class EvenementAdmin(RubriqueBureauAdmin,FilePickerAdmin):
+
+class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
     def show_image2(self, obj):
         if obj.image:
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
@@ -143,7 +140,6 @@ class EvenementAdmin(RubriqueBureauAdmin,FilePickerAdmin):
 
     list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'date_debut', 'date_fin')
     fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_debut', 'date_fin'], 'classes': ['wide']}),('Informations Supplémentaires', {'fields': ['lieu', 'detail_horaire'], 'classes': ['wide']})]
-    adminfiles_fields = ('texte', )
     def queryset(self, request):
         """
         Filtrage de la liste par région.
@@ -160,12 +156,12 @@ class EvenementAdmin(RubriqueBureauAdmin,FilePickerAdmin):
 
         return qs
 
-class PublicationAdmin(FilePickerAdmin):
-    adminfiles_fields = ('texte', )
+
+class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'docu', 'resume', 'texte'], 'classes': ['wide']}),
+        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']}),
         ('Date', {'fields': ['date_pub'], 'classes': ['wide']}),
     ]
 
@@ -198,11 +194,10 @@ class PublicationAdmin(FilePickerAdmin):
         return qs
 
 class ComaresAdmin(FilePickerAdmin):
-    adminfiles_fields = ('texte', )
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'resume', 'texte'], 'classes': ['wide']}),
+        ('Article', {'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
         ('Date', {'fields': ['date_pub'], 'classes': ['wide']}),
     ]
 
@@ -231,9 +226,8 @@ class ComaresAdmin(FilePickerAdmin):
         return qs
 
 
-class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin,FilePickerAdmin):
+class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
-    adminfiles_fields = ('texte', )
     fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_pub'], 'classes': ['wide']}),]
     list_display = ('status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
     def queryset(self, request):
@@ -253,8 +247,7 @@ class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
         return qs
 
 
-class VeilleAdmin(RubriqueBureauAdmin,FilePickerAdmin):
-    adminfiles_fields = ('texte', )
+class VeilleAdmin(RubriqueBureauAdmin):
     fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_pub'], 'classes': ['wide']}),]
     def queryset(self, request):
 

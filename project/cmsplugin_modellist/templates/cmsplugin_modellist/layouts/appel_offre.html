@@ -5,15 +5,13 @@
 {% addtoblock "js" %}
 <script type="text/javascript">
 $(function () {
-  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="popover"]').popover({html:true})
 })
 </script>
 {% endaddtoblock %}
 
 
-<div id="cms-menu-{{ plugin.id }}"
-     class="cms-plugin cms-{{ plugin.plugin_type|slugify }}"
-     data-plugin-position="{{ plugin.position }}">
+<div>
 
 {% for p in object_list %}
 <div class="thumbnail thumbnail-appels">
@@ -48,7 +46,7 @@ $(function () {
           {% if b.nom == "International" %}
             <i class="fa fa-globe">-International</i>
           {% else %}
-          <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="<a href='/B{{ b.code }}'>{{ b.nom }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
           {% endif %}
       {% endfor %}
       </div>
