@@ -157,7 +157,7 @@ class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
         return qs
 
 
-class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin):
+class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
