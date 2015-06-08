@@ -157,6 +157,9 @@ META_SITE_PROTOCOL = 'http'
 META_USE_SITES = False
 META_SITE_DOMAIN = 'test-www.auf.org'
 
+BLOG_ENABLE_COMMENTS = False
+BLOG_USE_PLACEHOLDER = False
+
 CKEDITOR_SETTINGS = {
     'contentsCss': '/static/css/font-awesome.min.css',
     'extraPlugins': 'fontawesome',
