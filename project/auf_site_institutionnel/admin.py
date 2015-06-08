@@ -193,7 +193,7 @@ class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin):
 
         return qs
 
-class ComaresAdmin(FilePickerAdmin):
+class ComaresAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
