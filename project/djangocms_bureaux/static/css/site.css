@@ -84,6 +84,12 @@ tr {
 /* -----------Entete------------ 
 --------------------------------*/
 
+/* ------------Logo-------------- */
+
+.navbar-brand {		
+    max-width: 15%;	
+    padding: 10px 0 0 10px;	
+}
 
 /* -----Menu navigation couleurs---- */
 
@@ -157,6 +163,10 @@ cursor: pointer;
 
 /* -------------Menu principal----------------- */
 
+#MenuPrincipal {
+width:100%;
+}
+
 #MenuPrincipal li {
   font-weight: bold;
   text-transform: uppercase;
@@ -169,6 +179,17 @@ cursor: pointer;
 #MenuPrincipal li ul li {
   text-transform: none;
 }
+
+#MenuPrincipal .dropdown-menu li.active a {
+background: #e7e7e7;
+}
+
+/* -Pour icône "home"- */
+
+#MenuPrincipal .fa-home {
+font-size: 2rem;
+}
+
 
 /* ----------Tetière en angle----------- */
 
@@ -327,7 +348,31 @@ ul.nav.nav-tabs a:hover {
 }
 
 
-/*--------TAB ActualitéS---------*/
+/*--------TAB Actualités---------*/
+
+
+.accueil ul.nav.nav-tabs > li:nth-child(1) a {
+  background-color: silver;
+  color:white;
+  border:none;
+}
+
+.accueil ul.nav.nav-tabs > li:nth-child(1) > a:hover {
+background-color: rgba(192, 192, 192, 0.49);
+}
+
+.accueil ul.nav.nav-tabs > li.active:nth-child(1) > a {
+background: white;
+border: 3px solid silver;
+color: rgb(75, 75, 75);
+border-bottom:none; 
+margin-bottom: -1px;
+}
+
+
+
+/*--------TAB Appels d'offre---------*/
+
 
 ul.nav.nav-tabs > li:nth-last-child(5) a {
   background-color: #1D9DD9;
@@ -348,7 +393,7 @@ color:#1D9DD9;
 
 }
 
-/*--------TAB Appels d'offres---------*/
+/*--------TAB Publications---------*/
 
 ul.nav.nav-tabs > li:nth-last-child(4) a {
   background-color: #FFD500;
@@ -367,7 +412,7 @@ border-bottom:none;
 margin-bottom: -1px;
 }
 
-/*--------TAB Allocations---------*/
+/*--------TAB Bourses---------*/
 
 ul.nav.nav-tabs > li:nth-last-child(3) a {
   background-color: #8DBE23;
@@ -387,7 +432,7 @@ color:#8DBE23;
   margin-bottom: -1px;
 }
 
-/*--------TAB Publications---------*/
+/*--------TAB Évenements---------*/
 
 ul.nav.nav-tabs > li:nth-last-child(2) a {
   background-color: #702283;
@@ -407,7 +452,7 @@ ul.nav.nav-tabs > li.active:nth-last-child(2) > a {
     margin-bottom: -1px;
 }
 
-/*--------TAB Évenements---------*/
+/*--------TAB Appels à concurrence---------*/
 
 ul.nav.nav-tabs > li:nth-last-child(1) a {
   background-color: #E52727;
@@ -436,6 +481,16 @@ ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
  border-radius: 0px 0px 8px 8px;
 }
 
+.tab-content > .tab-pane.active .btn-info::after {
+content: "\f0da";
+margin-left: 5px;
+font-family:Fontawesome;
+}
+
+.accueil .tab-content > .tab-pane.active:nth-child(1) {
+  border:3px solid silver;
+}
+
 .tab-content > .tab-pane.active:nth-last-child(5) {
   border:3px solid #1D9DD9;
 }
@@ -455,6 +510,14 @@ ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
 .tab-content > .tab-pane.active:nth-last-child(1) {
   border:3px solid #E52727;
 }
+
+
+.accueil .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+  background:silver;
+  border-color:white;
+  color:black;
+}
+
 .tab-content > .tab-pane.active:nth-last-child(5) .btn-info {
   background:#1D9DD9;
   border-color:white;
@@ -529,6 +592,17 @@ border: 1px solid rgb(166, 166, 166);
     border-radius: 0px;
     color: #1D9DD9;
 }
+
+/*---------------Boutons pour appels d'offres-----------------*/
+
+.tab-content > .tab-pane.active:nth-last-child(5) .thumbnail-appels:nth-child(1) {
+margin-top: 27px;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(5) .btn-sm {
+margin-top: -9px;
+}
+
 
 
 /*------------------Mini estampilles région---------------------*/
@@ -1602,8 +1676,6 @@ width: 423px;
   display:inline;
   margin-left: 09px;
 font-size:1rem;
-
-
 }
 
 .facebook-this .fa-facebook-official, .gplus-this .fa-google-plus, .tweet-this .fa-twitter {
@@ -1611,7 +1683,6 @@ border-radius: 29px;
 background: rgb(233, 233, 233);
 padding: 7px;
 color: rgb(110, 110, 110);
-
 }
 
 .facebook-this .fa-facebook-official:hover {
@@ -1634,6 +1705,42 @@ display:block;
 margin:0 auto;
 }
 
+/*----------------Icônes de type de fichier-------------------*/
+
+a[href $='.pdf']::after { 
+content: "\f1c1";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
+
+a[href $='.png']::after { 
+content: "\f03e";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
+
+a[href $='.jpg']::after { 
+content: "\f03e";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
+
+a[href $='.svg']::after { 
+content: "\f03e";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
+
+a[href ^='mailto:']::after { 
+content: "\f003";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
 
 
 /*------------------------------------*/
@@ -1651,287 +1758,13 @@ a:after >  img{
 */
 
 
-/*--------------------------------------*/
-/*---------------MOBILE-----------------*/
-/*--------------------------------------*/
-
-/*-------------------Téléphones---------------------*/
-
-@media screen and (max-width:736px) and (min-width:240px) {
-
-body {
-margin-top: 0px;
-}
- 
-.container {
-padding-right: 30px;
-padding-left: 30px;
-}
-
-/*-Engin de recherche-*/
-
-.navbar-form .form-group {
-    margin-right:-55px;
-  }
-   
-.navbar-brand img{
-margin:0px;
-  padding:3px;
-  margin-top:1px;
-  height:0px;
-  max-width: 15%;
-}
-  
-/*-Bande de couleurs-*/
-
-  #NavFixe {
-   padding:0px;
-  }
-  
-#NavFixe li {
-  font-size:0.9rem;
-  text-align:Center;
-  margin-top:5px
-}
-
-  #NavFixe > li.MenuLangue .open > .dropdown-menu {
-display: block;
-left:-110px;
-font-size:1rem;
-}
-  
-#NavFixe > li.MenuContact .open > .dropdown-menu {
-display: block;
-left:-170px;
-font-size:1rem;
-}
-  
-.ReseauxSociaux {
-font-size:0.7rem;
-  margin:0px;
-}  
-
-  .ReseauxSociaux svg {
-    zoom:50%;
-  }
-  
-/*-Bannnière pages de CMS-*/
-
-  .banniere {
-    top: -9px;
-  }
-
-/*-Onglets-*/
-
-.nav-tabs {
-margin-top: 10px;
-font-size:0.97rem;
-}
-  
-.nav > li > a {
-position: relative;
-display: block;
-padding: 10px 5px;
-  margin-top:-3px;
-}
-
-  .tab-content {
-    margin-top: -3px;
-  }
-
-/*-Contenu-*/
-  #content {
-    padding-bottom:0px; 
-}
-
- .texte h2 {
-padding-top:15px;
-font-size:2rem;
-  }
-
-.django_social_share b { 
-font-size: 0.8em;
-}
-
-/*-Pied de page-*/
-  
-  #PiedPage {
-background: #707070;
-color: white;
-margin-bottom: 0px;
-    height: 50px;
-}
-
-#PiedPage p {
-font-size: 0.9rem;
-top:10px;
-margin-left:0px;
-text-align:center;
-background:#707070;
-padding:5px;
-}
-  
-  #PiedPage img {
-    display:none;
-  }
 
 
-/*---Style commun aux bureaux---*/
-
-/*-Titre du bureau et estampilles-*/
-
- .nav > div.col-md-8 {
-   padding:0px;
-   width:70%;
-   margin-top:15px;
-   margin-bottom:-40px;
-  left:-5px;
-  }
-  
-  h2.titre-bureau {
-  font-size:1.5rem;
-  top:-60px;
-  left:37px;
-  position:relative;
-  text-align:center;
-    
-}
-
-svg.estampille {
-  -ms-transform:scale(0.5); /* IE 9 */
-  -webkit-transform:scale(0.5); /* SAFARI */
-  -moz-transform:scale(0.5); /* FIREFOX */
-  transform:scale(0.5);
-  left:-6px;
-  top:-18px;
-  display:block;
-}
-
-/*-Menu principal-*/
-
- #MenuPrincipal {
-   margin-left:0px;
- }
-
-.navbar-toggle {
-    margin-top:37px;
-    margin-left: 10px;
-  }
-  
-
-/*-Flèches des onglets défilants mobile-*/
-  .wrapper {
-    position:relative;
-    margin:0px auto;
-    overflow:hidden;
-  	height:35px;
-    border-bottom:none;
-}
-
-.list {
-    position:absolute;
-    left:0px;
-    top:0px;
-  	min-width:3000px;
-    margin-top:1px;
-    border-bottom:none;
-}
-
-.scroller {
-  cursor:pointer;
-  display:none;
-  padding:3px;
-  vertical-align:middle;
-  font-size: 1.4em;
-  background:rgba(192, 192, 192, 0.48);
-
-}
-
-.scroller-right{
-  float:right;
-  margin-left:0px;
-  margin-top: -2px;
- padding-left:6px;
-    margin-right: -7px;
-}
-
-.scroller-left {
-  float:left;
-    margin-right:0px;
-  margin-top: -2px;
-    padding-right:6px;
-      margin-left: -7px;
-}
 
 
-/*-Menu des sous pages-*/
-
-#myAffix.affix {
-width: 100%;
-position: initial;
-}
-  
-#ColonneMenuSecondaire {
-border-left: 0px;
-border-top:1px dashed silver;
-margin-top:30px;
-}
-  
-}
-
-/*------------------------Tablettes-----------------------*/
-@media screen and (max-width:1200px) and (min-width:768px) { 
- 
 
 
-/*-Réseaux sociaux (bande de couleurs)-*/
-  .ReseauxSociaux {
-font-size:1.3rem;
 
-} 
-  .ReseauxSociaux svg {
-    zoom:93%;
-    margin-right:-20px;
-  }
- 
-/*-Estampille et titres des bureaux-*/
-
-h2.titre-bureau {
-  font-size:2.4rem;
-}
-
-svg.estampille {
-  -ms-transform:scale(0.8); /* IE 9 */
-  -webkit-transform:scale(0.8); /* SAFARI */
-  -moz-transform:scale(0.8); /* FIREFOX */
-  transform:scale(0.8);
-  right:-35px;
-}
-
-/*-Menu principal-*/
-
-  #MenuPrincipal {
-    font-size:0.9em}
-  
-
-/*-Carousel-*/
-
-  .carrousel {
-    margin-left:180px;
-  }
-
-
-/*-Bannière des pages CMS-*/
-  .banniere {
-    top: -23px;
-  }
-  
-/*-Textes des articles-*/
-
-.texte {padding-top:1px;
-}
-
-}
 
 
 
