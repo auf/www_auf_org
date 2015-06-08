@@ -80,7 +80,7 @@ class BourseAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBur
 
 
 class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, RubriqueBureauPersonnaAdmin):
-
+    frontend_editable_fields = ['titre', 'resume', "image"]
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
 	('Partenaires?', {'fields': ['auf']}),
@@ -130,6 +130,7 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
 
 
 class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
+    frontend_editable_fields = ['titre', 'resume', "image"]
     def show_image2(self, obj):
         if obj.image:
             return "<img src='../../../media/%s' style='height:40px;'>" % obj.image
@@ -158,6 +159,7 @@ class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
 
 
 class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.ModelAdmin):
+    frontend_editable_fields = ['titre', 'resume', "image"]
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
