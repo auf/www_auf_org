@@ -222,6 +222,13 @@ class Evenement(models.Model):
     def get_absolute_url_region(self):
         return "/evenements-regionales/%s/" % self.slug
 
+    def save(self, *args, **kwargs):
+        object = super(Evenement, self).save(*args, **kwargs)
+        from cms.api import add_plugin
+        add_plugin(self.cmstexte, "TextPlugin", "fr",
+                   body="Double-cliquez ici pour ajouter votre texte")
+        return object
+
 
 class Comares(models.Model):
     bureau = models.ManyToManyField(Region, related_name="comares_bureau")
