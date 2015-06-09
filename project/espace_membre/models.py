@@ -13,19 +13,20 @@ RESPONSABLE_ETABLISSEMENT = u'r'
 RESPONSABLE_COMMUNICATION = u'c'
 
 ETABLISSEMENT_CHOIX = (
-        (u"ESR", u"Établissement d'enseignement supérieur et de recherche"),
-        (u"CIR", u"Centre ou institution de recherche"),
-        (u"RES", u"Réseaux"),
+    (u"ESR", u"Établissement d'enseignement supérieur et de recherche"),
+    (u"CIR", u"Centre ou institution de recherche"),
+    (u"RES", u"Réseaux"),
 )
 RESPONSABLE_CHOIX = (
-        (RESPONSABLE_ETABLISSEMENT, u"Responsable d'établissement"),
-        (RESPONSABLE_COMMUNICATION, u"Communication & relations internationales"),
+    (RESPONSABLE_ETABLISSEMENT, u"Responsable d'établissement"),
+    (RESPONSABLE_COMMUNICATION,
+     u"Communication & relations internationales"),
 )
 
 
 class EtablissementAbstrait(ref.EtablissementBase):
     courriel = models.CharField(max_length=128,
-            verbose_name=u"Courriel général")
+                                verbose_name=u"Courriel général")
     nombre = models.IntegerField(null=True)
     chiffres_cles = models.TextField(verbose_name=u"Chiffres clés", blank=True)
     publication_papier = models.BooleanField(default=True)
@@ -45,9 +46,9 @@ def make_diff(object):
         def strip_end_slash(value):
             return value[:-1] if value and isinstance(value, unicode) and value[-1] == u"/" else value
 
-
         # URLField normalise les URL à la validation, et rajoute un slash à la fin
-        # si il n'y en pas déjà un. Ce n'est pas considéré comme une modification du champ.
+        # si il n'y en pas déjà un. Ce n'est pas considéré comme une
+        # modification du champ.
         return strip_end_slash(value1) == strip_end_slash(value2)
 
     object.diff = {}
@@ -59,7 +60,7 @@ def make_diff(object):
                 try:
                     if not ancien:
                         object.diff[f.name] = ""
-                    elif not compare_attr( getattr(ancien, f.name) , getattr(object, f.name)):
+                    elif not compare_attr(getattr(ancien, f.name), getattr(object, f.name)):
                         object.diff[f.name] = getattr(ancien, f.name)
                 except AttributeError:
                     pass
@@ -70,24 +71,30 @@ class Etablissement(EtablissementAbstrait):
 
 
 class EtablissementModification(EtablissementAbstrait):
-    etablissement = models.OneToOneField(Etablissement, null=True, related_name='modification')
+    etablissement = models.OneToOneField(
+        Etablissement, null=True, related_name='modification')
     validation_etablissement = models.BooleanField(default=False,
-            verbose_name=u"Validé par l'établissement")
+                                                   verbose_name=u"Validé par l'établissement")
     validation_sai = models.BooleanField(default=False,
-            verbose_name=u"Validé par le SAI")
+                                         verbose_name=u"Validé par le SAI")
     validation_com = models.BooleanField(default=False,
-        verbose_name=u"Validé par COM")
+                                         verbose_name=u"Validé par COM")
     date_validation_etablissement = models.DateField(null=True)
     date_validation_sai = models.DateField(null=True)
     date_validation_com = models.DateField(null=True)
 
-    a_valider_sai = models.BooleanField(default=False, verbose_name=u"À valider par le SAI")
-    a_valider_com = models.BooleanField(default=False, verbose_name=u"À valider par le COM")
+    a_valider_sai = models.BooleanField(
+        default=False, verbose_name=u"À valider par le SAI")
+    a_valider_com = models.BooleanField(
+        default=False, verbose_name=u"À valider par le COM")
 
-    export_gde_sai = models.BooleanField(default=False, verbose_name=u"Exporté vers GDE par SAI")
-    export_gde_com = models.BooleanField(default=False, verbose_name=u"Exporté vers GDE par COM")
+    export_gde_sai = models.BooleanField(
+        default=False, verbose_name=u"Exporté vers GDE par SAI")
+    export_gde_com = models.BooleanField(
+        default=False, verbose_name=u"Exporté vers GDE par COM")
 
-    champs_com = ('historique', 'description', 'chiffres_cles', 'publication_papier', 'publication_electronique' )
+    champs_com = ('historique', 'description', 'chiffres_cles',
+                  'publication_papier', 'publication_electronique')
 
     ignore_in_diff = ()
 
@@ -98,7 +105,6 @@ class EtablissementModification(EtablissementAbstrait):
         super(EtablissementModification, self).__init__(*args, **kwargs)
         self._original_state = dict(self.__dict__)
         make_diff(self)
-
 
     def set_flags_a_valider(self):
         self.validation_com = True
@@ -114,7 +120,6 @@ class EtablissementModification(EtablissementAbstrait):
         for responsable in self.responsablemodification_set.all():
             responsable.set_flags_a_valider(self)
 
-
     def save(self, *args, **kwargs):
         if self._original_state['validation_sai'] == False and \
                 self.validation_sai == True:
@@ -124,7 +129,6 @@ class EtablissementModification(EtablissementAbstrait):
                 self.validation_com == True:
             self.date_validation_com = datetime.date.today()
         print "validé sai" if self.validation_sai else "non validé SAI"
-
 
         super(EtablissementModification, self).save(*args, **kwargs)
 
@@ -152,17 +156,19 @@ class EtablissementModification(EtablissementAbstrait):
 class ResponsableAbstrait(models.Model):
     genre = models.CharField(max_length=1, blank=True)
     nom = models.CharField(max_length=128, blank=True)
-    prenom = models.CharField(max_length=128, blank=True, verbose_name=u"Prénom")
+    prenom = models.CharField(
+        max_length=128, blank=True, verbose_name=u"Prénom")
     courriel = models.CharField(max_length=128)
     type = models.CharField(max_length=1, choices=RESPONSABLE_CHOIX)
     modification_date = models.DateTimeField(auto_now=True, null=True,
-            verbose_name=u"Date de modification")
+                                             verbose_name=u"Date de modification")
     modification_par = models.CharField(max_length=100, null=True,
-            verbose_name=u"Modifié par")
+                                        verbose_name=u"Modifié par")
 
     salutation = models.CharField(max_length=64, blank=True, default=u"")
     fonction = models.CharField(max_length=64, blank=True, default=u"")
-    sousfonction = models.CharField(max_length=64, blank=True, default=u"", verbose_name=u"Sous-fonction")
+    sousfonction = models.CharField(
+        max_length=64, blank=True, default=u"", verbose_name=u"Sous-fonction")
 
     class Meta:
         abstract = True
@@ -218,15 +224,15 @@ class Acces(models.Model):
         return u"%s" % self.etablissement
 
     def generer_token(self, size=32):
-        self.token = ''.join(random.choice(string.letters + string.digits) \
-                for i in xrange(size))
+        self.token = ''.join(random.choice(string.letters + string.digits)
+                             for i in xrange(size))
 
 
 class Courriel(models.Model):
     date_creation = models.DateTimeField(auto_now_add=True,
-            verbose_name=u"Date de création")
+                                         verbose_name=u"Date de création")
     user_creation = models.ForeignKey(User,
-            verbose_name=u"Créé par")
+                                      verbose_name=u"Créé par")
     sujet = models.CharField(max_length=255)
     contenu = models.TextField()
 

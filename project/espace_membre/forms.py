@@ -10,7 +10,8 @@ def add_style_to_required_fields(form):
         if form.fields[key].required:
             if form.fields[key].label and not form.fields[key].label.endswith(" *"):
                 form.fields[key].label += " *"
-                form.fields[key].widget.attrs.update({'class': 'required_field'})
+                form.fields[key].widget.attrs.update(
+                    {'class': 'required_field'})
 
 
 class EtablissementForm(forms.ModelForm):
@@ -31,15 +32,14 @@ Le nombre total de caractère des textes historique et description combinés doi
     class Meta:
         model = models.Etablissement
         exclude = ('membre', 'membre_adhesion_date', 'implantation',
-                'statut', 'region', 'fonction', 'actif', 'date_modification',
-                'ref', 'responsable_genre', 'responsable_nom', 'responsable_fonction',
-                'responsable_prenom', 'id', 'qualite', 'validation_sai', 'validation_com',
-                'validation_etablissement', 'date_validation_sai', 'a_valider_com', 'a_valider_sai',
-                'date_validation_etablissement', 'date_validation_com', )
+                   'statut', 'region', 'fonction', 'actif', 'date_modification',
+                   'ref', 'responsable_genre', 'responsable_nom', 'responsable_fonction',
+                   'responsable_prenom', 'id', 'qualite', 'validation_sai', 'validation_com',
+                   'validation_etablissement', 'date_validation_sai', 'a_valider_com', 'a_valider_sai',
+                   'date_validation_etablissement', 'date_validation_com', )
 
     def __init__(self, *args, **kwargs):
         super(EtablissementForm, self).__init__(*args, **kwargs)
-
 
         if self.instance.qualite == u"ESR":
             self.fields['nom'].label = u"Intitulé de l'établissement"
@@ -48,7 +48,8 @@ Le nombre total de caractère des textes historique et description combinés doi
         elif self.instance.qualite == u"CIR":
             self.fields['nom'].label = u"Intitulé du centre de recherche"
             self.fields['nombre'].label = u"Nombre de chercheurs"
-            self.fields['historique'].label = u"Historique du centre de recherche"
+            self.fields[
+                'historique'].label = u"Historique du centre de recherche"
         elif self.instance.qualite == u"RES":
             self.fields['nom'].label = u"Intitulé du réseau"
             self.fields['nombre'].label = u"Nombre de membres"
@@ -78,7 +79,7 @@ class ResponsableForm(forms.ModelForm):
     class Meta:
         model = models.ResponsableModification
         exclude = ('etablissement', 'responsable', 'type',
-                'modification_par', 'modification_date', 'genre')
+                   'modification_par', 'modification_date', 'genre')
 
     def __init__(self, *args, **kwargs):
         super(ResponsableForm, self).__init__(*args, **kwargs)
@@ -86,7 +87,6 @@ class ResponsableForm(forms.ModelForm):
         self.fields["prenom"].required = True
         self.fields["fonction"].required = True
         add_style_to_required_fields(self)
-
 
     def clean(self):
         ret = super(ResponsableForm, self).clean()
@@ -114,10 +114,11 @@ class ResponsableCommunicationForm(forms.ModelForm):
     class Meta:
         model = models.ResponsableModification
         exclude = ('etablissement', 'responsable', 'type', 'genre',
-                'modification_par', 'modification_date')
+                   'modification_par', 'modification_date')
 
 
 class RequiredFormSet(forms.models.BaseModelFormSet):
+
     def __init__(self, *args, **kwargs):
         super(RequiredFormSet, self).__init__(*args, **kwargs)
         try:

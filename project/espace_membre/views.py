@@ -25,7 +25,7 @@ def accueil(request):
         except ObjectDoesNotExist:
             c['erreur'] = True
 
-    #si erreur, on clear la session
+    # si erreur, on clear la session
     if c['erreur']:
         try:
             request.session['espace_membre_erreur'] = None
@@ -50,7 +50,7 @@ def connexion(request, token):
 @membre_connecte
 def apercu(request):
     e = models.EtablissementModification.objects \
-            .get(etablissement=request.session['espace_membre_etablissement'])
+        .get(etablissement=request.session['espace_membre_etablissement'])
 
     #form = forms.EtablissementForm(None, instance=e)
 
@@ -59,11 +59,11 @@ def apercu(request):
     form = forms.EtablissementForm(request.POST or None, instance=e)
 
     c = {
-            'form': form,
-            'formset_pha': formset_pha,
-            'formset_com': formset_com,
-            'etablissement': e,
-            'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
+        'form': form,
+        'formset_pha': formset_pha,
+        'formset_com': formset_com,
+        'etablissement': e,
+        'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
     }
     return render_to_response('apercu.html', c, RequestContext(request))
 
@@ -71,7 +71,7 @@ def apercu(request):
 @membre_connecte
 def modifier(request):
     e = models.EtablissementModification.objects \
-            .get(etablissement=request.session['espace_membre_etablissement'])
+        .get(etablissement=request.session['espace_membre_etablissement'])
     if e.validation_etablissement:
         return redirect('espace_membre_apercu')
 
@@ -93,7 +93,7 @@ def modifier(request):
             f.type = "c"
             f.modification_par = u"Établissement"
             f.save()
-        #on limite à un PHA
+        # on limite à un PHA
         saved_forms = formset_pha.save(commit=False)
         try:
             f = saved_forms[0]
@@ -105,15 +105,15 @@ def modifier(request):
             pass
         return redirect('espace_membre_apercu')
     elif request.method == "POST":
-        #on POST, donc quelque chose n'est pas valide
+        # on POST, donc quelque chose n'est pas valide
         erreur = True
 
     c = {
-            'form': form,
-            'formset_com': formset_com,
-            'formset_pha': formset_pha,
-            'erreur': erreur,
-            'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
+        'form': form,
+        'formset_com': formset_com,
+        'formset_pha': formset_pha,
+        'erreur': erreur,
+        'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
     }
 
     return render_to_response('modifier.html', c, RequestContext(request))
@@ -122,19 +122,22 @@ def modifier(request):
 @membre_connecte
 def valider(request):
     e = models.EtablissementModification.objects \
-            .get(etablissement=request.session['espace_membre_etablissement'])
+        .get(etablissement=request.session['espace_membre_etablissement'])
     if not e.validation_etablissement:
         e.validation_etablissement = True
         e.date_validation_etablissement = datetime.date.today()
         e.set_flags_a_valider()
         e.save()
         message = EmailMessage(u"Validation des données",
-            u"L''établissement %s(%s) a validé ses données." % (e.nom, e.id),
-            settings.ESPACE_MEMBRE_SENDER,  # adresse de retour
-            [admin[1] for admin in settings.ESPACE_MEMBRE_ADMINS]   # adresses des destinataires
-        )
+                               u"L''établissement %s(%s) a validé ses données." % (
+                                   e.nom, e.id),
+                               # adresse de retour
+                               settings.ESPACE_MEMBRE_SENDER,
+                               # adresses des destinataires
+                               [admin[1]
+                                   for admin in settings.ESPACE_MEMBRE_ADMINS]
+                               )
         message.send(fail_silently=True)
-
 
     return redirect('espace_membre_apercu')
 
@@ -142,7 +145,7 @@ def valider(request):
 def verifier_token(request, token):
     """ Vérifie si le token est valide et redirege l'usager """
     token = models.Acces.objects.select_related('etablissement') \
-            .get(token=token)
+        .get(token=token)
 
     request.session['espace_membre_etablissement'] = token.etablissement_id
     if not models.EtablissementModification.objects.filter(
@@ -161,9 +164,9 @@ def verifier_token(request, token):
         e.save()
         for f in e.get_responsables_set().exclude(
                 id__in=[
-                    r.responsable_id for r in \
-                            e.get_responsables_modification_set().all()]
-                ):
+                    r.responsable_id for r in
+                    e.get_responsables_modification_set().all()]
+        ):
             f_dict = model_to_dict(f)
             f_dict['responsable_id'] = f_dict['id']
             f_dict['etablissement_id'] = e.id
@@ -175,38 +178,37 @@ def verifier_token(request, token):
             new_f.save()
 
     else:
-        e = models.EtablissementModification.objects.get(etablissement=token.etablissement)
+        e = models.EtablissementModification.objects.get(
+            etablissement=token.etablissement)
         if e.validation_etablissement:
             return redirect('espace_membre_apercu')
 
     return redirect('espace_membre_modifier')
 
 
-
-
 def construire_formset(request):
     assert('espace_membre_etablissement' in request.session)
     e = models.EtablissementModification.objects \
-            .get(etablissement=request.session['espace_membre_etablissement'])
+        .get(etablissement=request.session['espace_membre_etablissement'])
 
     if len(e.get_responsables_set()) != \
             len(e.get_responsables_modification_set()):
         pass
 
     ResponsableFormset = modelformset_factory(
-            models.ResponsableModification, forms.ResponsableForm, extra=0,
-            can_delete=False, formset=forms.RequiredFormSet)
+        models.ResponsableModification, forms.ResponsableForm, extra=0,
+        can_delete=False, formset=forms.RequiredFormSet)
     ResponsableFormsetCom = modelformset_factory(
-            models.ResponsableModification, forms.ResponsableCommunicationForm,
-            extra=1, max_num=1, can_delete=False, formset=forms.RequiredFormSet)
+        models.ResponsableModification, forms.ResponsableCommunicationForm,
+        extra=1, max_num=1, can_delete=False, formset=forms.RequiredFormSet)
 
     formset_com = ResponsableFormsetCom(
-            request.POST or None,
-            queryset=e.get_responsables_modification_com(), prefix='com'
-            )
+        request.POST or None,
+        queryset=e.get_responsables_modification_com(), prefix='com'
+    )
     formset_pha = ResponsableFormset(
-            request.POST or None,
-            queryset=e.get_responsables_modification_pha(), prefix='pha'
-            )
+        request.POST or None,
+        queryset=e.get_responsables_modification_pha(), prefix='pha'
+    )
 
     return formset_pha, formset_com

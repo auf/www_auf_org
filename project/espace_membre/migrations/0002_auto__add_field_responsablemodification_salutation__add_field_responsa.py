@@ -10,34 +10,39 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding field 'ResponsableModification.salutation'
         db.add_column('espace_membre_responsablemodification', 'salutation',
-                      self.gf('django.db.models.fields.CharField')(default=u'', max_length=64, blank=True),
+                      self.gf('django.db.models.fields.CharField')(
+                          default=u'', max_length=64, blank=True),
                       keep_default=False)
 
         # Adding field 'ResponsableModification.fonction'
         db.add_column('espace_membre_responsablemodification', 'fonction',
-                      self.gf('django.db.models.fields.CharField')(default=u'', max_length=64, blank=True),
+                      self.gf('django.db.models.fields.CharField')(
+                          default=u'', max_length=64, blank=True),
                       keep_default=False)
 
         # Adding field 'ResponsableModification.sousfonction'
         db.add_column('espace_membre_responsablemodification', 'sousfonction',
-                      self.gf('django.db.models.fields.CharField')(default=u'', max_length=64, blank=True),
+                      self.gf('django.db.models.fields.CharField')(
+                          default=u'', max_length=64, blank=True),
                       keep_default=False)
 
         # Adding field 'Responsable.salutation'
         db.add_column('espace_membre_responsable', 'salutation',
-                      self.gf('django.db.models.fields.CharField')(default=u'', max_length=64, blank=True),
+                      self.gf('django.db.models.fields.CharField')(
+                          default=u'', max_length=64, blank=True),
                       keep_default=False)
 
         # Adding field 'Responsable.fonction'
         db.add_column('espace_membre_responsable', 'fonction',
-                      self.gf('django.db.models.fields.CharField')(default=u'', max_length=64, blank=True),
+                      self.gf('django.db.models.fields.CharField')(
+                          default=u'', max_length=64, blank=True),
                       keep_default=False)
 
         # Adding field 'Responsable.sousfonction'
         db.add_column('espace_membre_responsable', 'sousfonction',
-                      self.gf('django.db.models.fields.CharField')(default=u'', max_length=64, blank=True),
+                      self.gf('django.db.models.fields.CharField')(
+                          default=u'', max_length=64, blank=True),
                       keep_default=False)
-
 
     def backwards(self, orm):
         # Deleting field 'ResponsableModification.salutation'
@@ -47,7 +52,8 @@ class Migration(SchemaMigration):
         db.delete_column('espace_membre_responsablemodification', 'fonction')
 
         # Deleting field 'ResponsableModification.sousfonction'
-        db.delete_column('espace_membre_responsablemodification', 'sousfonction')
+        db.delete_column(
+            'espace_membre_responsablemodification', 'sousfonction')
 
         # Deleting field 'Responsable.salutation'
         db.delete_column('espace_membre_responsable', 'salutation')
@@ -57,7 +63,6 @@ class Migration(SchemaMigration):
 
         # Deleting field 'Responsable.sousfonction'
         db.delete_column('espace_membre_responsable', 'sousfonction')
-
 
     models = {
         'auth.group': {

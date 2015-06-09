@@ -10,148 +10,255 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'Etablissement'
         db.create_table('espace_membre_etablissement', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('actif', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('nom', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('sigle', self.gf('django.db.models.fields.CharField')(max_length=16, blank=True)),
-            ('pays', self.gf('django.db.models.fields.related.ForeignKey')(related_name='+', to_field='code', db_column='pays', to=orm['references.Pays'])),
-            ('region', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='+', null=True, db_column='region', to=orm['references.Region'])),
-            ('implantation', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='+', null=True, db_column='implantation', to=orm['references.Implantation'])),
-            ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('historique', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('membre', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('membre_adhesion_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('statut', self.gf('django.db.models.fields.CharField')(max_length=1, null=True, blank=True)),
-            ('qualite', self.gf('django.db.models.fields.CharField')(max_length=3, null=True, blank=True)),
-            ('responsable_genre', self.gf('django.db.models.fields.CharField')(max_length=1, blank=True)),
-            ('responsable_nom', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('responsable_prenom', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('responsable_fonction', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('adresse', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('code_postal', self.gf('django.db.models.fields.CharField')(max_length=20, blank=True)),
-            ('cedex', self.gf('django.db.models.fields.CharField')(max_length=20, blank=True)),
-            ('ville', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('province', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('telephone', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('fax', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=255, null=True, blank=True)),
-            ('date_modification', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('commentaire', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('ref', self.gf('django.db.models.fields.related.OneToOneField')(blank=True, related_name='espace_membre_etablissement', unique=True, null=True, to=orm['references.Etablissement'])),
-            ('courriel', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('nombre', self.gf('django.db.models.fields.IntegerField')(null=True)),
-            ('chiffres_cles', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('publication_papier', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('publication_electronique', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('actif', self.gf('django.db.models.fields.BooleanField')
+             (default=True)),
+            ('nom', self.gf('django.db.models.fields.CharField')
+             (max_length=255)),
+            ('sigle', self.gf('django.db.models.fields.CharField')
+             (max_length=16, blank=True)),
+            ('pays', self.gf('django.db.models.fields.related.ForeignKey')(
+                related_name='+', to_field='code', db_column='pays', to=orm['references.Pays'])),
+            ('region', self.gf('django.db.models.fields.related.ForeignKey')(
+                blank=True, related_name='+', null=True, db_column='region', to=orm['references.Region'])),
+            ('implantation', self.gf('django.db.models.fields.related.ForeignKey')(
+                blank=True, related_name='+', null=True, db_column='implantation', to=orm['references.Implantation'])),
+            ('description', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('historique', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('membre', self.gf('django.db.models.fields.BooleanField')
+             (default=False)),
+            ('membre_adhesion_date', self.gf(
+                'django.db.models.fields.DateField')(null=True, blank=True)),
+            ('statut', self.gf('django.db.models.fields.CharField')
+             (max_length=1, null=True, blank=True)),
+            ('qualite', self.gf('django.db.models.fields.CharField')
+             (max_length=3, null=True, blank=True)),
+            ('responsable_genre', self.gf('django.db.models.fields.CharField')
+             (max_length=1, blank=True)),
+            ('responsable_nom', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('responsable_prenom', self.gf('django.db.models.fields.CharField')(
+                max_length=255, blank=True)),
+            ('responsable_fonction', self.gf(
+                'django.db.models.fields.CharField')(max_length=255, blank=True)),
+            ('adresse', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('code_postal', self.gf('django.db.models.fields.CharField')
+             (max_length=20, blank=True)),
+            ('cedex', self.gf('django.db.models.fields.CharField')
+             (max_length=20, blank=True)),
+            ('ville', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('province', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('telephone', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('fax', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('url', self.gf('django.db.models.fields.URLField')
+             (max_length=255, null=True, blank=True)),
+            ('date_modification', self.gf(
+                'django.db.models.fields.DateField')(null=True, blank=True)),
+            ('commentaire', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('ref', self.gf('django.db.models.fields.related.OneToOneField')(
+                blank=True, related_name='espace_membre_etablissement', unique=True, null=True, to=orm['references.Etablissement'])),
+            ('courriel', self.gf('django.db.models.fields.CharField')
+             (max_length=128)),
+            ('nombre', self.gf(
+                'django.db.models.fields.IntegerField')(null=True)),
+            ('chiffres_cles', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('publication_papier', self.gf(
+                'django.db.models.fields.BooleanField')(default=True)),
+            ('publication_electronique', self.gf(
+                'django.db.models.fields.BooleanField')(default=True)),
         ))
         db.send_create_signal('espace_membre', ['Etablissement'])
 
         # Adding model 'EtablissementModification'
         db.create_table('espace_membre_etablissementmodification', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('actif', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('nom', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('sigle', self.gf('django.db.models.fields.CharField')(max_length=16, blank=True)),
-            ('pays', self.gf('django.db.models.fields.related.ForeignKey')(related_name='+', to_field='code', db_column='pays', to=orm['references.Pays'])),
-            ('region', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='+', null=True, db_column='region', to=orm['references.Region'])),
-            ('implantation', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='+', null=True, db_column='implantation', to=orm['references.Implantation'])),
-            ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('historique', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('membre', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('membre_adhesion_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('statut', self.gf('django.db.models.fields.CharField')(max_length=1, null=True, blank=True)),
-            ('qualite', self.gf('django.db.models.fields.CharField')(max_length=3, null=True, blank=True)),
-            ('responsable_genre', self.gf('django.db.models.fields.CharField')(max_length=1, blank=True)),
-            ('responsable_nom', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('responsable_prenom', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('responsable_fonction', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('adresse', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('code_postal', self.gf('django.db.models.fields.CharField')(max_length=20, blank=True)),
-            ('cedex', self.gf('django.db.models.fields.CharField')(max_length=20, blank=True)),
-            ('ville', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('province', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('telephone', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('fax', self.gf('django.db.models.fields.CharField')(max_length=255, blank=True)),
-            ('url', self.gf('django.db.models.fields.URLField')(max_length=255, null=True, blank=True)),
-            ('date_modification', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('commentaire', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('ref', self.gf('django.db.models.fields.related.OneToOneField')(blank=True, related_name='espace_membre_etablissementmodification', unique=True, null=True, to=orm['references.Etablissement'])),
-            ('courriel', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('nombre', self.gf('django.db.models.fields.IntegerField')(null=True)),
-            ('chiffres_cles', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('publication_papier', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('publication_electronique', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('etablissement', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['espace_membre.Etablissement'], unique=True, null=True)),
-            ('validation_etablissement', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('validation_sai', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('validation_com', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('date_validation_etablissement', self.gf('django.db.models.fields.DateField')(null=True)),
-            ('date_validation_sai', self.gf('django.db.models.fields.DateField')(null=True)),
-            ('date_validation_com', self.gf('django.db.models.fields.DateField')(null=True)),
-            ('a_valider_sai', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('a_valider_com', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('actif', self.gf('django.db.models.fields.BooleanField')
+             (default=True)),
+            ('nom', self.gf('django.db.models.fields.CharField')
+             (max_length=255)),
+            ('sigle', self.gf('django.db.models.fields.CharField')
+             (max_length=16, blank=True)),
+            ('pays', self.gf('django.db.models.fields.related.ForeignKey')(
+                related_name='+', to_field='code', db_column='pays', to=orm['references.Pays'])),
+            ('region', self.gf('django.db.models.fields.related.ForeignKey')(
+                blank=True, related_name='+', null=True, db_column='region', to=orm['references.Region'])),
+            ('implantation', self.gf('django.db.models.fields.related.ForeignKey')(
+                blank=True, related_name='+', null=True, db_column='implantation', to=orm['references.Implantation'])),
+            ('description', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('historique', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('membre', self.gf('django.db.models.fields.BooleanField')
+             (default=False)),
+            ('membre_adhesion_date', self.gf(
+                'django.db.models.fields.DateField')(null=True, blank=True)),
+            ('statut', self.gf('django.db.models.fields.CharField')
+             (max_length=1, null=True, blank=True)),
+            ('qualite', self.gf('django.db.models.fields.CharField')
+             (max_length=3, null=True, blank=True)),
+            ('responsable_genre', self.gf('django.db.models.fields.CharField')
+             (max_length=1, blank=True)),
+            ('responsable_nom', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('responsable_prenom', self.gf('django.db.models.fields.CharField')(
+                max_length=255, blank=True)),
+            ('responsable_fonction', self.gf(
+                'django.db.models.fields.CharField')(max_length=255, blank=True)),
+            ('adresse', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('code_postal', self.gf('django.db.models.fields.CharField')
+             (max_length=20, blank=True)),
+            ('cedex', self.gf('django.db.models.fields.CharField')
+             (max_length=20, blank=True)),
+            ('ville', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('province', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('telephone', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('fax', self.gf('django.db.models.fields.CharField')
+             (max_length=255, blank=True)),
+            ('url', self.gf('django.db.models.fields.URLField')
+             (max_length=255, null=True, blank=True)),
+            ('date_modification', self.gf(
+                'django.db.models.fields.DateField')(null=True, blank=True)),
+            ('commentaire', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('ref', self.gf('django.db.models.fields.related.OneToOneField')(
+                blank=True, related_name='espace_membre_etablissementmodification', unique=True, null=True, to=orm['references.Etablissement'])),
+            ('courriel', self.gf('django.db.models.fields.CharField')
+             (max_length=128)),
+            ('nombre', self.gf(
+                'django.db.models.fields.IntegerField')(null=True)),
+            ('chiffres_cles', self.gf(
+                'django.db.models.fields.TextField')(blank=True)),
+            ('publication_papier', self.gf(
+                'django.db.models.fields.BooleanField')(default=True)),
+            ('publication_electronique', self.gf(
+                'django.db.models.fields.BooleanField')(default=True)),
+            ('etablissement', self.gf('django.db.models.fields.related.OneToOneField')(
+                to=orm['espace_membre.Etablissement'], unique=True, null=True)),
+            ('validation_etablissement', self.gf(
+                'django.db.models.fields.BooleanField')(default=False)),
+            ('validation_sai', self.gf(
+                'django.db.models.fields.BooleanField')(default=False)),
+            ('validation_com', self.gf(
+                'django.db.models.fields.BooleanField')(default=False)),
+            ('date_validation_etablissement', self.gf(
+                'django.db.models.fields.DateField')(null=True)),
+            ('date_validation_sai', self.gf(
+                'django.db.models.fields.DateField')(null=True)),
+            ('date_validation_com', self.gf(
+                'django.db.models.fields.DateField')(null=True)),
+            ('a_valider_sai', self.gf(
+                'django.db.models.fields.BooleanField')(default=False)),
+            ('a_valider_com', self.gf(
+                'django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal('espace_membre', ['EtablissementModification'])
 
         # Adding model 'Responsable'
         db.create_table('espace_membre_responsable', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('genre', self.gf('django.db.models.fields.CharField')(max_length=1, blank=True)),
-            ('nom', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
-            ('prenom', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
-            ('courriel', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('type', self.gf('django.db.models.fields.CharField')(max_length=1)),
-            ('modification_date', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, null=True, blank=True)),
-            ('modification_par', self.gf('django.db.models.fields.CharField')(max_length=100, null=True)),
-            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['espace_membre.Etablissement'])),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('genre', self.gf('django.db.models.fields.CharField')
+             (max_length=1, blank=True)),
+            ('nom', self.gf('django.db.models.fields.CharField')
+             (max_length=128, blank=True)),
+            ('prenom', self.gf('django.db.models.fields.CharField')
+             (max_length=128, blank=True)),
+            ('courriel', self.gf('django.db.models.fields.CharField')
+             (max_length=128)),
+            ('type', self.gf('django.db.models.fields.CharField')
+             (max_length=1)),
+            ('modification_date', self.gf('django.db.models.fields.DateTimeField')(
+                auto_now=True, null=True, blank=True)),
+            ('modification_par', self.gf('django.db.models.fields.CharField')
+             (max_length=100, null=True)),
+            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(
+                to=orm['espace_membre.Etablissement'])),
         ))
         db.send_create_signal('espace_membre', ['Responsable'])
 
         # Adding model 'ResponsableModification'
         db.create_table('espace_membre_responsablemodification', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('genre', self.gf('django.db.models.fields.CharField')(max_length=1, blank=True)),
-            ('nom', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
-            ('prenom', self.gf('django.db.models.fields.CharField')(max_length=128, blank=True)),
-            ('courriel', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('type', self.gf('django.db.models.fields.CharField')(max_length=1)),
-            ('modification_date', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, null=True, blank=True)),
-            ('modification_par', self.gf('django.db.models.fields.CharField')(max_length=100, null=True)),
-            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['espace_membre.EtablissementModification'])),
-            ('responsable', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['espace_membre.Responsable'], unique=True, null=True)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('genre', self.gf('django.db.models.fields.CharField')
+             (max_length=1, blank=True)),
+            ('nom', self.gf('django.db.models.fields.CharField')
+             (max_length=128, blank=True)),
+            ('prenom', self.gf('django.db.models.fields.CharField')
+             (max_length=128, blank=True)),
+            ('courriel', self.gf('django.db.models.fields.CharField')
+             (max_length=128)),
+            ('type', self.gf('django.db.models.fields.CharField')
+             (max_length=1)),
+            ('modification_date', self.gf('django.db.models.fields.DateTimeField')(
+                auto_now=True, null=True, blank=True)),
+            ('modification_par', self.gf('django.db.models.fields.CharField')
+             (max_length=100, null=True)),
+            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(
+                to=orm['espace_membre.EtablissementModification'])),
+            ('responsable', self.gf('django.db.models.fields.related.OneToOneField')(
+                to=orm['espace_membre.Responsable'], unique=True, null=True)),
         ))
         db.send_create_signal('espace_membre', ['ResponsableModification'])
 
         # Adding model 'Acces'
         db.create_table('espace_membre_acces', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['espace_membre.Etablissement'])),
-            ('token', self.gf('django.db.models.fields.CharField')(unique=True, max_length=128)),
-            ('active', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(
+                to=orm['espace_membre.Etablissement'])),
+            ('token', self.gf('django.db.models.fields.CharField')
+             (unique=True, max_length=128)),
+            ('active', self.gf('django.db.models.fields.NullBooleanField')
+             (null=True, blank=True)),
         ))
         db.send_create_signal('espace_membre', ['Acces'])
 
         # Adding model 'Courriel'
         db.create_table('espace_membre_courriel', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_creation', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('user_creation', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('sujet', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('date_creation', self.gf('django.db.models.fields.DateTimeField')
+             (auto_now_add=True, blank=True)),
+            ('user_creation', self.gf(
+                'django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+            ('sujet', self.gf('django.db.models.fields.CharField')
+             (max_length=255)),
             ('contenu', self.gf('django.db.models.fields.TextField')()),
         ))
         db.send_create_signal('espace_membre', ['Courriel'])
 
         # Adding model 'CourrielLog'
         db.create_table('espace_membre_courriellog', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('courriel', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['espace_membre.Courriel'])),
-            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['espace_membre.Etablissement'])),
-            ('adresse_courriel', self.gf('django.db.models.fields.CharField')(max_length=128, null=True)),
-            ('envoye', self.gf('django.db.models.fields.BooleanField')(default=False, db_index=True)),
-            ('envoye_le', self.gf('django.db.models.fields.DateTimeField')(null=True)),
+            ('id', self.gf('django.db.models.fields.AutoField')
+             (primary_key=True)),
+            ('courriel', self.gf('django.db.models.fields.related.ForeignKey')
+             (to=orm['espace_membre.Courriel'])),
+            ('etablissement', self.gf('django.db.models.fields.related.ForeignKey')(
+                to=orm['espace_membre.Etablissement'])),
+            ('adresse_courriel', self.gf('django.db.models.fields.CharField')
+             (max_length=128, null=True)),
+            ('envoye', self.gf('django.db.models.fields.BooleanField')
+             (default=False, db_index=True)),
+            ('envoye_le', self.gf(
+                'django.db.models.fields.DateTimeField')(null=True)),
         ))
         db.send_create_signal('espace_membre', ['CourrielLog'])
-
 
     def backwards(self, orm):
         # Deleting model 'Etablissement'
@@ -174,7 +281,6 @@ class Migration(SchemaMigration):
 
         # Deleting model 'CourrielLog'
         db.delete_table('espace_membre_courriellog')
-
 
     models = {
         'auth.group': {

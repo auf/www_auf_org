@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand
 
 from project.espace_membre import models as espace_membre
 
+
 class Command(BaseCommand):
     help = u"Crée les token d'accès pour les établissemts qui n'en ont pas."
 
@@ -18,5 +19,3 @@ class Command(BaseCommand):
                 new_t.generer_token()
                 new_t.active = True
                 new_t.save()
-
-
