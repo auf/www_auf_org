@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block Contenu %}
+<style type="text/css">
+    #BlocContenu .Contenu p label {
+        width: 170px;
+	display: inline;
+	font-size: 12px;
+    }
+
+    #BlocContenu .Contenu fieldset h2 {
+	background-color: #F0F0F0;
+	border-top: 1px solid #C3C3C3;
+	padding: 10px 0 5px;
+	color: #808080;
+    }
+
+    #BlocContenu .Contenu fieldset p {
+	font-size: 13px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+</style>
+{% if etablissement.validation_etablissement %}
+    <div>
+        <h1>Merci d'avoir complété ce formulaire.</h1>
+        <h2 style="border: solid 1px green; padding: 10px; background-color: #efc; margin-top: 0px;">
+            Vos informations sont envoyées pour validation par notre service aux membres.</h2>
+        <p>
+            Si vous souhaitez effectuer d'autres modifications ou pour toutes autres questions et commentaires, veuillez <a href="mailto:{{ ESPACE_MEMBRE_SENDER }}">communiquer avec nous</a>.</p>
+    </div>
+{% else %}
+    <div>
+        <h1>Aperçu avant confirmation.</h1>
+        <h2 style="border: solid 1px orange; padding: 10px; background-color: #ffb; margin-top: 0px;">
+            S'il vous plaît, vérifiez que toutes les informations suivantes sont exactes.
+            <br>
+            Si vous êtes satisfait des informations qui suivent, appuyez sur le bouton "Confirmer" au bas de la page. Sinon, modifiez à nouveau.</h2>
+        <p>
+            N'hésitez pas à <a href="mailto:{{ ESPACE_MEMBRE_SENDER }}">communiquer avec nous</a> pour toutes questions ou commentaires.
+        </p>
+    </div>
+
+    <div>
+        <script type="text/javascript">
+            function confirmer_confirmation() {
+                if (confirm("* Une fois le formulaire confirmé, vous ne pourrez plus le modifier.\n\nVoulez-vous confirmer ces informations ?")) {
+                    window.location.href='{% url espace_membre_valider %}';
+                    return true;
+                }
+                return false;
+            }
+
+        </script>
+
+       <!-- <input type="submit" value="Modifier" onclick="window.location.href='{% url espace_membre_modifier %}'">
+        &nbsp;
+        <input type="submit" value="Confirmer" onclick="confirmer_confirmation()">
+        <br/> -->
+    </div>
+{% endif %}
+
+
+    <fieldset>
+        <h2>Renseignements généraux</h2>
+        <p>
+            {{ form.nom.label_tag }}<br/>
+            {{ form.instance.nom }}
+        </p>
+        <p>
+            {{ form.sigle.label_tag }}<br/>
+            {{ form.instance.sigle }}
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <h2>Contacts</h2>
+        <p>
+            {{ form.pays.label_tag }}<br/>
+            {{ form.instance.pays }}
+        </p>
+
+        <p>
+            {{ form.adresse.label_tag }}<br/>
+            {{ form.instance.adresse }}
+        </p>
+
+        <p>
+            {{ form.code_postal.label_tag }}<br/>
+            {{ form.instance.code_postal }}
+        </p>
+
+        <p>
+            {{ form.ville.label_tag }}<br/>
+            {{ form.instance.ville }}
+        </p>
+
+        <p>
+            {{ form.cedex.label_tag }}<br/>
+            {{ form.instance.cedex }}
+        </p>
+
+        <p>
+            {{ form.province.label_tag }}<br/>
+            {{ form.instance.province }}
+        </p>
+
+        <p>
+            {{ form.telephone.label_tag }}<br/>
+            {{ form.instance.telephone }}
+        </p>
+
+        <p>
+            {{ form.fax.label_tag }}<br/>
+            {{ form.instance.fax }}
+        </p>
+
+        <p>
+            {{ form.courriel.label_tag }}<br/>
+            {{ form.instance.courriel }}
+        </p>
+
+        <p>
+            {{ form.url.label_tag }}<br/>
+            {{ form.instance.url }}
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <h2>Responsable de l'établissement</h2>
+        {% for f in formset_pha %}
+            <p>
+                {{ f.salutation.label_tag }}<br/>
+                {{ f.instance.salutation }}
+            </p>
+            <p>
+                {{ f.nom.label_tag }}<br/>
+                {{ f.instance.nom }}
+            </p>
+            <p>
+                {{ f.prenom.label_tag }}<br/>
+                {{ f.instance.prenom }}
+            </p>
+            <p>
+                {{ f.courriel.label_tag }}<br/>
+                {{ f.instance.courriel }}
+            </p>
+            <p>
+                {{ f.fonction.label_tag }}<br/>
+                {{ f.instance.fonction }}<br/>
+                {{ f.fonction.errors }}
+            </p>
+            <p>
+                {{ f.sousfonction.label_tag }}<br/>
+                {{ f.instance.sousfonction }}<br/>
+                {{ f.sousfonction.errors }}
+            </p>
+
+
+            {% if not forloop.last %}
+                <hr />
+            {% endif %}
+
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+        <h2>Communication & relations internationales</h2>
+        {% for f in formset_com %}
+            <p>
+                {{ f.courriel.label_tag }}<br/>
+                {{ f.instance.courriel }}
+            </p>
+            <p>
+                {{ f.nom.label_tag }}<br/>
+                {{ f.instance.nom }}
+            </p>
+            <p>
+                {{ f.prenom.label_tag }}<br/>
+                {{ f.instance.prenom }}
+            </p>
+            {% if not forloop.last %}
+                <hr />
+            {% endif %}
+
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+        <h2>Statistique</h2>
+        <p>
+            {{ form.nombre.label_tag }}<br/>
+            {{ form.instance.nombre }}
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <h2>Présentation</h2>
+         <p>
+            {{ form.historique.label_tag }}<br/>
+            {{ form.instance.historique|linebreaks }}
+        </p>
+
+        <p>
+            {{ form.description.label_tag }}<br/>
+            {{ form.instance.description|linebreaks }}
+        </p>
+
+        <p>
+            {{ form.chiffres_cles.label_tag }}<br/>
+            {{ form.instance.chiffres_cles|linebreaks }}
+        </p>
+    </fieldset>
+<hr />
+        {% if not etablissement.validation_etablissement %}
+            <input type="submit" value="Modifier" onclick="window.location.href='{% url espace_membre_modifier %}'">
+            &nbsp;
+            <input type="submit" value="Confirmer" onclick="confirmer_confirmation()">
+            <br/>
+
+        {% endif %}
+{% endblock %}

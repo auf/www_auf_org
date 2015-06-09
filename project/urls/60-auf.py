@@ -12,7 +12,7 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 #    url(r'^captcha/', include('captcha.urls')),
     url(r'^employes/$', 'employes', name='employes' ),
     url(r'^contacter/employe/(?P<employe_id>\d+)/$', 'contacter_employe', name='contacter_employe'),
-#    (r'^espace/', include('project.espace_membre.urls')),
+    (r'^espace/', include('project.espace_membre.urls')),
 #    (r'^$', 'accueil'),
     #Url articles
 #    (r'^actualites/$', 'actualite'),

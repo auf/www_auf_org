@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+{% block Contenu %}
+<!--script type="text/javascript">
+    $(function() {
+            $('.formset_com').formset({
+                prefix: '{{ formset_com.prefix }}',
+                addText: 'Ajouter',
+                deleteText: 'Supprimer'
+            });
+    })
+</script-->
+    
+<style type="text/css">
+    textarea, form#modif_membre input[type="text"] {
+        width: 600px;
+    }
+
+    form#modif_membre .erroneous_field {
+        background-color: #FF9999;
+    }
+
+    #BlocContenu .Contenu form#modif_membre fieldset p label {
+        width: 600px;
+    }
+
+    #BlocContenu .Contenu form#modif_membre fieldset h2 {
+        background-color: #F0F0F0;
+        border-top: 1px solid #C3C3C3;
+        padding: 10px 0 5px;
+        color: #808080;
+    }
+	
+    .hint_o {
+        padding-top: 4px;
+        font-size: 11px;
+        float: right;
+        width: 33%;
+        text-align: right;
+		color: #279ab7;
+		cursor: pointer;
+    }
+
+    .label_left {
+        float: left;
+        width: 66%;
+    }
+
+    #BlocContenu .Contenu p.label_left_p {
+        margin-bottom: 0;
+    }
+
+</style>
+<form method="post" id="modif_membre">
+        <h1>Formulaire de mise à jour des données du membre :<br /> <strong>{{ form.instance.nom }}</strong></h1>
+    {% if erreur %}
+        <div style="font-size:16px;color:#ff0000;font-weight:bold">Veuillez corriger les erreurs suivantes.</div>
+    {% endif %}
+        <div>
+        <h2>Voici les informations que nous avons présentement sur votre établissement.<br />Veuillez s'il vous plaît compléter les données manquantes ou corriger les données erronées.</h2>
+        <p>Notez que les champs marqués d'un * sont obligatoires.</p>
+        </div>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ formset_pha.non_field_errors }}
+    {{ formset_com.non_field_errors }}
+
+    <fieldset>
+        <h2>Renseignements généraux</h2>
+        <p>
+            {{ form.nom.label_tag }}<br/>
+            {{ form.nom }}<br/>
+            {{ form.nom.errors }}
+        </p>
+        <p>
+            {{ form.sigle.label_tag }}<br/>
+            {{ form.sigle }}<br/>
+            {{ form.sigle.errors }}
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <h2>Contacts</h2>
+        <p>
+            {{ form.pays.label_tag }}<br/>
+            {{ form.pays }}<br/>
+            {{ form.pays.errors }}
+        </p>
+
+        <p>
+            {{ form.adresse.label_tag }}<br/>
+            {{ form.adresse }}<br/>
+            {{ form.adresse.errors }}
+        </p>
+
+        <p>
+            {{ form.code_postal.label_tag }}<br/>
+            {{ form.code_postal }}<br/>
+            {{ form.code_postal.errors }}
+        </p>
+
+        <p>
+            {{ form.ville.label_tag }}<br/>
+            {{ form.ville }}<br/>
+            {{ form.ville.errors }}
+        </p>
+
+        <p>
+            {{ form.cedex.label_tag }}<br/>
+            {{ form.cedex }}<br/>
+            {{ form.cedex.errors }}
+        </p>
+
+        <p>
+            {{ form.province.label_tag }}<br/>
+            {{ form.province }}<br/>
+            {{ form.province.errors }}
+        </p>
+
+        <p>
+            {{ form.telephone.label_tag }}<br/>
+            {{ form.telephone }}<br/>
+            {{ form.telephone.errors }}
+        </p>
+
+        <p>
+            {{ form.fax.label_tag }}<br/>
+            {{ form.fax }}<br/>
+            {{ form.fax.errors }}
+        </p>
+
+        <p>
+            {{ form.courriel.label_tag }}<br/>
+            {{ form.courriel }}<br/>
+            {{ form.courriel.errors }}
+        </p>
+
+        <p>
+            {{ form.url.label_tag }}<br/>
+            {{ form.url }}<br/>
+            {{ form.url.errors }}
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <h2>Responsable de l'établissement</h2>
+        {{ formset_pha.management_form }}
+        {% for f in formset_pha %}
+            <div class="formset_pha">
+                {{ f.id }}
+                <p>
+                    {{ f.salutation.label_tag }}<br/>
+                    {{ f.salutation }}<br/>
+                    {{ f.salutation.errors }}
+                </p>
+                <p>
+                    {{ f.nom.label_tag }}<br/>
+                    {{ f.nom }}<br/>
+                    {{ f.nom.errors }}
+                </p>
+                <p>
+                    {{ f.prenom.label_tag }}<br/>
+                    {{ f.prenom }}<br/>
+                    {{ f.prenom.errors }}
+                </p>
+                <p>
+                    {{ f.courriel.label_tag }}<br/>
+                    {{ f.courriel }}<br/>
+                    {{ f.courriel.errors }}
+                </p>
+                <p>
+                    {{ f.fonction.label_tag }}<br/>
+                    {{ f.fonction }}<br/>
+                    {{ f.fonction.errors }}
+                </p>
+                <p>
+                    {{ f.sousfonction.label_tag }}<br/>
+                    {{ f.sousfonction }}<br/>
+                    {{ f.sousfonction.errors }}
+                </p>
+            </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+        <h2>Communication & relations internationales</h2>
+        {{ formset_com.management_form }}
+        {% for f in formset_com %}
+            <div class="formset_com">
+                <!--{% if f.instance.pk %}{{ f.DELETE }}{% endif %}-->
+                {{ f.id }}
+                <p>
+                    {{ f.courriel.label_tag }}<br/>
+                    {{ f.courriel }}<br/>
+                    {{ f.courriel.errors }}
+                </p>
+                <p>
+                    {{ f.nom.label_tag }}<br/>
+                    {{ f.nom }}<br/>
+                    {{ f.nom.errors }}
+                </p>
+                <p>
+                    {{ f.prenom.label_tag }}<br/>
+                    {{ f.prenom }}<br/>
+                    {{ f.prenom.errors }}
+                </p>
+            </div>
+            {% if not forloop.last %}
+                
+            {% endif %}
+
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+        <h2>Présentation</h2>
+        <p>
+        <i>* Notez bien que l'ensemble des textes «historique» et «description» ne doivent pas dépasser 800 caractères.</i>
+        </p>
+
+        <p>
+            {{ form.nombre.label_tag }}<br/>
+            {{ form.nombre }}<br/>
+            {{ form.nombre.errors }}
+        </p>
+         <p>
+            {{ form.historique.label_tag }}<br/>
+            {{ form.historique }}<br/>
+            {{ form.historique.errors }}
+        </p>
+        <div style="width:600px; margin-bottom: 18px">
+	        <div class="label_left"><p class="label_left_p">{{ form.description.label_tag }}</p></div>
+					<div id="b_hint_desc" class="hint_o">Aide</div>
+					<div id="hint_desc" style="font-size: 12px; color: #006787; width: 600px; display: none; clear: both;">Veuillez entrer un bref texte
+ descriptif de l'offre de formation de votre établissement (facultés, école, instituts de recherche, unités de formations, etc.). </div><br/>
+            {{ form.description }}<br/>
+            {{ form.description.errors }}
+        </div>
+        <div style="width:600px; margin-bottom: 18px">
+            <div class="label_left"><p class="label_left_p">{{ form.chiffres_cles.label_tag }}</p></div>
+					<div id="b_hint_cc" class="hint_o">Aide</div>
+					<div id="hint_cc" style="font-size: 12px; color: #006787; width: 600px; display: none; clear: both;">Si disponibles, veuillez nous fournir quelques informations, notamment sur certains indicateurs clés de votre établissement : nombre de diplômes délivrés ; nombre d'équipes de recherche ; nombre d'étudiants étrangers ; nombre d'étudiants inscrits en formation LMD. Si votre établissement est situé dans un pays non francophone, veuillez indiquer le nombre de filières francophones disponibles.
+</div><br/>
+            {{ form.chiffres_cles }}<br/>
+            {{ form.chiffres_cles.errors }}
+        </div>
+    </fieldset>
+<hr />
+    <fieldset>
+        <p>
+            {{ form.publication_papier }}
+            J'accepte que ces données soient publiées dans l'annuaire des membres de l'AUF sous format papier.
+        </p>
+        <p>
+            {{ form.publication_electronique }}
+            J'accepte que ces données soient publiées dans l'annuaire des membres de l'AUF sous format électronique sur le <a href="http://www.auf.org">le site institutionnel de l'Agence</a>.
+        </p>
+    </fieldset>
+<hr />
+    <input type="submit" value="Sauvegarder" />
+</form>
+<script>
+    $("#b_hint_desc").click(function () {
+      $("#hint_desc").slideToggle("slow");
+    });
+    $("#b_hint_cc").click(function () {
+      $("#hint_cc").slideToggle("slow");
+    });
+</script>
+{% endblock %}
