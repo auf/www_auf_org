@@ -77,6 +77,13 @@ class Bourse(models.Model):
     def get_absolute_url_region(self):
         return "/allocations-regionales/%s/" % self.slug
 
+    def save(self, *args, **kwargs):
+        object = super(Bourse, self).save(*args, **kwargs)
+        from cms.api import add_plugin
+        add_plugin(self.cmstexte, "TextPlugin", "fr",
+                   body="Double-cliquez ici pour ajouter votre texte")
+        return object
+
 
 class Actualite(models.Model):
     bureau = models.ManyToManyField(Region, related_name="actualite_bureau")
@@ -177,6 +184,13 @@ class Appel_Offre(models.Model):
     def get_absolute_url_region(self):
         return "/appels-offre-regionales/%s/" % self.slug
 
+    def save(self, *args, **kwargs):
+        object = super(Appel_Offre, self).save(*args, **kwargs)
+        from cms.api import add_plugin
+        add_plugin(self.cmstexte, "TextPlugin", "fr",
+                   body="Double-cliquez ici pour ajouter votre texte")
+        return object
+
 
 class Evenement(models.Model):
     bureau = models.ManyToManyField(Region, related_name="evenement_bureau")
@@ -258,6 +272,13 @@ class Publication(models.Model):
 
     def get_absolute_url_region(self):
         return "/publications-regionales/%s/" % self.slug
+
+    def save(self, *args, **kwargs):
+        object = super(Publication, self).save(*args, **kwargs)
+        from cms.api import add_plugin
+        add_plugin(self.cmstexte, "TextPlugin", "fr",
+                   body="Double-cliquez ici pour ajouter votre texte")
+        return object
 
 
 class Partenaire(models.Model):
