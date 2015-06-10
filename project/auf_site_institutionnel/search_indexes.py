@@ -42,7 +42,7 @@ class BourseIndex(AufIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return Bourse.objects.filter(status='3')
+        return Bourse.objects.filter(status__in=[3,5,6])
 
 
 class ActualiteIndex(AufIndex, indexes.Indexable):
@@ -54,7 +54,7 @@ class ActualiteIndex(AufIndex, indexes.Indexable):
         return u"Actualité"
 
     def index_queryset(self, using=None):
-        return Actualite.objects.filter(status='3')
+        return Actualite.objects.filter(status__in=[3,5,6])
 
 
 class AppelOffreIndex(AufIndex, indexes.Indexable):
@@ -76,7 +76,7 @@ class AppelOffreIndex(AufIndex, indexes.Indexable):
         return obj.date_pub.date()
 
     def index_queryset(self, using=None):
-        return Appel_Offre.objects.filter(status='3')
+        return Appel_Offre.objects.filter(status__in=[3,5,6])
 
 
 class EvenementIndex(AufIndex, indexes.Indexable):
@@ -91,7 +91,7 @@ class EvenementIndex(AufIndex, indexes.Indexable):
         return obj.date_pub.date()
 
     def index_queryset(self, using=None):
-        return Evenement.objects.filter(status='3')
+        return Evenement.objects.filter(status__in=[3,5,6])
 
 
 class PublicationIndex(AufIndex, indexes.Indexable):
@@ -106,4 +106,4 @@ class PublicationIndex(AufIndex, indexes.Indexable):
         return datetime.date(2999, 1, 1)
 
     def index_queryset(self, using=None):
-        return Publication.objects.filter(status='3')
+        return Publication.objects.filter(status__in=[3,5,6])

@@ -15,6 +15,15 @@ from project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
 
 TEMPLATE_PATH = os.path.join("auf_site_institutionnel/employe", "layouts")
 
+STATUTS = (
+         ('1', 'En cours de redaction'),
+         ('2', 'Propose a la publication'),
+         ('3', 'Publie sur l\'ensemble du site'),
+         ('5', 'Publie sur la page d\'accuei'),
+         ('6', 'Publie sur les bureaux'),
+         ('4', 'Dépublier')
+)
+
 
 def association_employe_avec_django_user(sender, **kwargs):
     """
@@ -62,8 +71,7 @@ class Bourse(models.Model):
     date_pub = models.DateTimeField('date de creation')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -99,8 +107,7 @@ class Actualite(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -136,8 +143,7 @@ class Veille(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -169,8 +175,7 @@ class Appel_Offre(models.Model):
     date_pub = models.DateTimeField('date de creation')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -207,8 +212,7 @@ class Evenement(models.Model):
     date_pub = models.DateTimeField('date de creation', auto_now=True)
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_debut',)
@@ -240,8 +244,7 @@ class Comares(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -265,8 +268,7 @@ class Publication(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=(
-        ('1', 'En cours de redaction'), ('2', 'Propose a la publication'), ('3', 'Publie en Ligne'), ('4', 'A supprimer')))
+    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)

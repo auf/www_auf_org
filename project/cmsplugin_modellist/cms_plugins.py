@@ -30,14 +30,14 @@ class ModelListCMSPlugin(CMSPluginBase):
             context, instance, placeholder)
 
         obj = get_model('auf_site_institutionnel', instance.modele)
-        obj_query = obj.objects.filter(status=3).order_by('-date_pub')
+        obj_query = obj.objects.exclude(status__in=[1, 2, 4]).order_by('-date_pub')
         bureau = instance.bureau.all()
 
         if bureau:
             ctx['object_list'] = obj_query.filter(
-                bureau=bureau).distinct()[:instance.nbelements]
+                bureau=bureau, status__in=[3,6]).distinct()[:instance.nbelements]
         else:
-            ctx['object_list'] = obj_query.distinct()[:instance.nbelements]
+            ctx['object_list'] = obj_query.filter(status__in=[3,5]).distinct()[:instance.nbelements]
         ctx['title'] = instance.title
         ctx['layout_template'] = instance.layout_template
 
