@@ -36,7 +36,7 @@ def accueil(request):
         except KeyError:
             pass
 
-    return render_to_response('accueil.html', c, RequestContext(request))
+    return render_to_response('espace_membre/accueil.html', c, RequestContext(request))
 
 
 def connexion(request, token):
@@ -65,7 +65,7 @@ def apercu(request):
         'etablissement': e,
         'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
     }
-    return render_to_response('apercu.html', c, RequestContext(request))
+    return render_to_response('espace_membre/apercu.html', c, RequestContext(request))
 
 
 @membre_connecte
@@ -116,7 +116,7 @@ def modifier(request):
         'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
     }
 
-    return render_to_response('modifier.html', c, RequestContext(request))
+    return render_to_response('espace_membre/modifier.html', c, RequestContext(request))
 
 
 @membre_connecte
