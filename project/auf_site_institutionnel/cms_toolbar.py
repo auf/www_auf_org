@@ -26,8 +26,13 @@ class AufToolbar(CMSToolbar):
                     Publication]
 
     def populate(self):
-        menu = self.toolbar.get_or_create_menu('auf-app', 'Ajouter un article')
+        menu = self.toolbar.get_or_create_menu('auf-app', 'Articles')
+        for m in self.watch_models:
+            url = reverse('admin:auf_site_institutionnel' + '_' +
+                          m._meta.object_name.lower() + "_changelist")
+            menu.add_sideframe_item("Voir: " + MODEL_DICT[m._meta.object_name], url=url)
+        menu.add_break('article-break')
         for m in self.watch_models:
             url = reverse('admin:auf_site_institutionnel' + '_' +
                           m._meta.object_name.lower() + "_add")
-            menu.add_sideframe_item(MODEL_DICT[m._meta.object_name], url=url)
+            menu.add_sideframe_item("Ajouter: " + MODEL_DICT[m._meta.object_name], url=url)
