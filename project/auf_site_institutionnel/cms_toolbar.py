@@ -36,3 +36,5 @@ class AufToolbar(CMSToolbar):
             url = reverse('admin:auf_site_institutionnel' + '_' +
                           m._meta.object_name.lower() + "_add")
             menu.add_sideframe_item("Ajouter: " + MODEL_DICT[m._meta.object_name], url=url)
+        menu.add_break('article-break2')
+        menu.add_modal_item('Parcourir les fichiers', url=reverse("admin:filer_folder_changelist"))
