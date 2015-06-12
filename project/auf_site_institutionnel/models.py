@@ -16,12 +16,12 @@ from project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
 TEMPLATE_PATH = os.path.join("auf_site_institutionnel/employe", "layouts")
 
 STATUTS = (
-         ('1', 'En cours de redaction'),
-         ('2', 'Propose a la publication'),
-         ('3', 'Publie sur l\'ensemble du site'),
-         ('5', 'Publie sur la page d\'accuei'),
-         ('6', 'Publie sur les bureaux'),
-         ('4', 'Dépublier')
+         ('1', 'En cours de rédaction'),
+         ('2', 'Proposé à la publication'),
+         ('6', 'Publié sur les sites régionaux'),
+         ('3', 'Publié sur les sites régionaux et international'),
+         ('5', 'Publié sur le site international'),
+         ('4', 'Dépublié')
 )
 
 
