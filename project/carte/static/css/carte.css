@@ -44,35 +44,38 @@ border-bottom-left-radius: 40px;
 border-bottom-right-radius: 40px;
 } 
 
-/*----------STYLE ET CONTENU DESol-popup-------------*/
+/*----------STYLE ET CONTENU DES ol-popup-------------*/
 
-ol-popup-content {
-  min-width: 247px;
+
+.ol-popup {
+    min-width: 226px;
 }
 
-ol-popup p {
+.ol-popup p {
      margin-bottom:0px;
 }
 
-ol-popup-titre {
+.ol-popup-titre {
   text-align:center;
   font-weight:bold;
-  background:whitesmoke;
+  background:#1D9DD9;
   padding:3px;
-  margin: -10px -15px 7px -15px;
+  margin: -15px -15px 0px -15px;
   border-radius:5px 5px 0 0;
   border-bottom: 1px solid #ebebeb;
+  color:white;
 }
 
-ol-popup-soustitre {
-  text-align:center;
+.ol-popup-soustitre {
+  text-align:left;
   margin-top:5px;
 }
 
 
 .implantation {
-  text-align:center;
+  text-align:left;
   font-weight:bold;
+  font-size:0.96em;
 }
 
 .implantation::before {
@@ -81,22 +84,29 @@ ol-popup-soustitre {
   font-size:1.4em;
 }
 
-ol-popup-petit {
-  text-align:center;
-  font-size:smaller;
+.ol-popup-petit {
+  text-align:left;
+  font-size:0.7em;
   font-style:italic;
+  margin-left:11px;
 }
 
 
-ol-popup-liste {
+.ol-popup-liste {
   margin-top:10px;
-  font-size:1.22rem;
+  font-size:1rem;
+  margin-bottom:-7px;
 }
+
 
 .siege::before {
   content:"\f140";
   font-family:FontAwesome;
   margin-right:2px;
+}
+
+.rectorat {
+  margin-top:-2px;
 }
 
 .rectorat::before {
@@ -105,12 +115,14 @@ ol-popup-liste {
   font-family:FontAwesome;
   margin-right:2px;
   position:relative;
+  left:-1px
+  
 }
 
 .cnf::before {
   content:"\25A3";
   margin-right:3px;
-  font-size:1em;
+  font-size:1.3em;
   font-family:FontAwesome;
   position:relative;
   bottom:1px;
@@ -120,7 +132,7 @@ ol-popup-liste {
 .cnfp::before {
   content:"\25BC";
   margin-right:4px;
-  font-size:1em;
+  font-size:1.3em;
   font-family:FontAwesome;
   position:relative;
   bottom:1px;
@@ -131,7 +143,7 @@ ol-popup-liste {
   content:"\25B2";
   margin-right:2px;
   margin-left:-4px;
-  font-size:1.1em;
+  font-size:1.4em;
   position:relative;
   bottom:0px;
 }
@@ -141,7 +153,7 @@ ol-popup-liste {
   font-family:fontawesome;
   margin-right:3px;
   margin-left:-3px;
-  font-size:1em;
+  font-size:1.3em;
   position:relative;
   bottom:0px;
 }
@@ -151,7 +163,7 @@ ol-popup-liste {
   font-family:fontawesome;
   margin-right:3px;
   margin-left:-4px;
-  font-size:0.9em;      
+  font-size:1.1em;      
   position:relative;
   bottom:0px;
 }
