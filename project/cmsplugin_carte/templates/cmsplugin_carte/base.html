@@ -2,6 +2,7 @@
 
 {% addtoblock "css" %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/ol.css" type="text/css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/carte.css" type="text/css"/>
     <style>
       .ol-popup {
         position: absolute;
@@ -83,6 +84,7 @@
       var code_bureau = $('#filter-bureau').val();
       var type = $('#filter-type').val();
       carte.filter_map(code_bureau, type);
+      carte.zoom_to_region(code_bureau);
     }
 
     $(function() {
