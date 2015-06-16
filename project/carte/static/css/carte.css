@@ -8,7 +8,7 @@ div#carte {
 border: 1px solid silver;
 }
 
-.col-md-12 > div:nth-child(1) form {
+.filters form {
 border: 1px solid silver;
 background: #1D9DD9;
 text-align: center;
@@ -19,7 +19,7 @@ padding: 5px;
 border-bottom: none;
 }
 
-.col-md-12 > div:nth-child(1) label {
+.filters label {
 margin-left: 17px;
 margin-right: 6px;
 margin-top: 6px;
