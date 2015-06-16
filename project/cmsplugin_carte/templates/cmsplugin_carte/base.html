@@ -62,10 +62,25 @@
       var noms_implantations =  [];
       $.each(implantations, function(i, impl) {
         noms_implantations.push(impl.nom) });
-      $('#popup').html(nom + '<br/>'
-        + noms_implantations.join('<br/>') + '<br/>'
-      + 'Nb Établissements:' +  nb_etablissements.toString() + '<br/>Nb CNFp:'
-        + nb_cnfp.toString());
+        $('#popup').html('
+    <p class="ol-popup-titre">' + nom + '</p>
+    <p class="ol-popup-soustitre siege">Siège</p>
+    <p class="ol-popup-soustitre rectorat">Rectorat</p>
+    <p class="implantation BA">Bureau des Amériques</p>
+    <p class="ol-popup-petit">Pôle de développement</p>
+    <ul class="ol-popup-liste">
+    <li class="cnf">
+    <strong>00 </strong>Campus numériques francophones</li>
+    <li class="instituts">
+    <strong>00 </strong>Instituts</li>
+    <li class="antennes">
+    <strong>00</strong> Antennes</li>
+    <li class="cnfp">
+    <strong>' + nb_cnfp.toString() + '</strong> CNFp</li>
+    <li class="etablissements">
+    <strong>' +  nb_etablissements.toString() + '</strong> Établissements</li>
+    </ul>'
+//        + noms_implantations.join('<br/>') + '<br/>'
     }
 
     function init_carte(donnees_carte) {
