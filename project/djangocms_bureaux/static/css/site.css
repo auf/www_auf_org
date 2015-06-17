@@ -1849,15 +1849,8 @@ a:after >  img{
 }
 */
 
-
-
-
-
-
-
-
-
-
-
+a.noExternalStyle:after {
+    display:none
+}
 
 
