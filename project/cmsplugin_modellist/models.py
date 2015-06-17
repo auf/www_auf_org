@@ -26,7 +26,7 @@ class ModelList(CMSPlugin):
     title = models.CharField("Titre", max_length="256")
 
     bureau = models.ManyToManyField(
-        Region, related_name="cmsplugin_modellist_bureau")
+        Region, related_name="cmsplugin_modellist_bureau", blank=True, null=True)
 
     layout_template = \
         models.CharField("Template utilisé pour l'affichage",
