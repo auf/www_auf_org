@@ -163,6 +163,15 @@ cursor: pointer;
 
 /* -------------Menu principal----------------- */
 
+
+/* -Firefox Selector- */
+
+@-moz-document url-prefix() {
+    #MenuPrincipal {
+        font-size:0.91em;
+    }
+}
+
 #MenuPrincipal {
 width:100%;
 }
@@ -250,7 +259,7 @@ margin-bottom: 14px;
 
 .carrousel {
 width: 638px;
-top: 34px;
+top: 16px;
 left: -10px;
 }
 
@@ -261,7 +270,15 @@ text-shadow: -1px 2px 9px #000;
 }
 
 #EnteteSecondaire .carousel-indicators {
-bottom: -35px;
+bottom: -54px;
+}
+
+#EnteteSecondaire .carousel-indicators li {
+margin-left: 2px;
+}
+
+#EnteteSecondaire .carousel-indicators .active {
+margin-left: 2px;
 }
 
 #EnteteSecondaire .carousel-caption {
@@ -270,6 +287,9 @@ padding: 0px;
 bottom: 0px;
 right: 0%;
 left: 0%;
+position:relative;
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
 }
 
 .fa-chevron-circle-right {
@@ -593,17 +613,61 @@ border: 1px solid rgb(166, 166, 166);
     color: #1D9DD9;
 }
 
-/*---------------Boutons pour appels d'offres-----------------*/
+/*---------------Boutons superieurs "Voir plus"-----------------*/
+
+.tab-content > .tab-pane.active:nth-last-child(6) .thumbnail-appels:nth-child(1) {
+display:inline-block;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(6) .btn-sm {
+margin-top: -9px;
+margin-bottom:5px;
+}
 
 .tab-content > .tab-pane.active:nth-last-child(5) .thumbnail-appels:nth-child(1) {
-margin-top: 27px;
+display:inline-block;
 }
 
 .tab-content > .tab-pane.active:nth-last-child(5) .btn-sm {
 margin-top: -9px;
+margin-bottom:5px;
 }
 
+.tab-content > .tab-pane.active:nth-last-child(4) .thumbnail-appels:nth-child(1) {
+display:inline-block;
+}
 
+.tab-content > .tab-pane.active:nth-last-child(4) .btn-sm {
+margin-top: -9px;
+margin-bottom:5px;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(3) .thumbnail-appels:nth-child(1) {
+display:inline-block;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(3) .btn-sm {
+margin-top: -9px;
+margin-bottom:5px;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(2) .thumbnail-appels:nth-child(1) {
+display:inline-block;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(2) .btn-sm {
+margin-top: -9px;
+margin-bottom:5px;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(1) .thumbnail-appels:nth-child(1) {
+display:inline-block;
+}
+
+.tab-content > .tab-pane.active:nth-last-child(1) .btn-sm {
+margin-top: -9px;
+margin-bottom:5px;
+}
 
 /*------------------Mini estampilles région---------------------*/
 
@@ -1115,7 +1179,6 @@ border: 1px solid rgb(166, 166, 166);
  width:80px;
  margin-top:0px;
 border: 1px solid rgb(178, 178, 178);
-margin-top: 3px;
 }
 
 .thumbnail-bureau span {
@@ -1135,8 +1198,9 @@ margin-left: 5px;
 font-size: smaller;
 }
 
-
-
+.thumbnail-bureau .title-date {
+min-height: 52px;
+}
 
 /* -------------------------------------------------------------------
 ------------------STYLES COMMUNS AUX BUREAUX RÉGIONAUX-------------------
@@ -1714,6 +1778,20 @@ font-size:1em;
 margin-left:4px;
 }
 
+a[href $='.doc']::after { 
+content: "\f1c2";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
+
+a[href $='.zip']::after { 
+content: "\f1c6";
+font-family:Fontawesome;
+font-size:1em;
+margin-left:4px;
+}
+
 a[href $='.png']::after { 
 content: "\f03e";
 font-family:Fontawesome;
@@ -1743,8 +1821,22 @@ margin-left:4px;
 }
 
 
-/*------------------------------------*/
+/*-----------Fenetres modales (membres)------------*/
 
+#box_membre {
+padding-left: 29px;
+padding-right: 29px;
+}
+
+.box_membre {
+display: inline-block;
+}
+
+.box_membre h3 {
+margin-bottom: 2px;
+}
+
+/*------------------------------------*/
 
 /* parent selection in css is not ready...
 a:not( [href*='auf.org'] ):not( [href^='#'] ):not( [href^='/'] ):not( .carousel-caption ):after{
@@ -1756,6 +1848,7 @@ a:after >  img{
   content: "";
 }
 */
+
 
 
 
