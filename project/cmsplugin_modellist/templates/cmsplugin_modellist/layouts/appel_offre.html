@@ -42,13 +42,13 @@ $(function () {
   <hr>
     {% if p.bureau.all %}
       <div class="mini-estampilles">
-      {% for b in p.bureau.all %}
-          {% if b.nom == "International" %}
+          {% if p.bureau.all.count == 0 %}
             <i class="fa fa-globe">-International</i>
           {% else %}
-            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="<a href='/B{{ b.code }}'>{{ b.nom }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+            {% for b in p.bureau.all %}
+                    <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="<a href='/B{{ b.code }}'>{{ b.nom }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+            {% endfor %}
           {% endif %}
-      {% endfor %}
       </div>
 
     {% endif %}
