@@ -33,7 +33,7 @@
     <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
 
       <p>
-      {% if p.bureau.all.count == 0 %}
+      {% if object.bureau.all.count == 0 %}
             <i class="fa fa-globe">-International</i>
       {% else %}
         {% for b in object.bureau.all %}
