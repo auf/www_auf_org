@@ -57,7 +57,7 @@ class Personna(models.Model):
 
 
 class Bourse(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="bourse_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="bourse_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -94,7 +94,7 @@ class Bourse(models.Model):
 
 
 class Actualite(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="actualite_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="actualite_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -130,7 +130,7 @@ class Actualite(models.Model):
 
 
 class Veille(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="veille_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="veille_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -159,7 +159,7 @@ class Veille(models.Model):
 
 
 class Appel_Offre(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="appel_offre_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="appel_offre_bureau")
     auf = models.BooleanField(
         "Cet appel d'offre est un appel d'offre AUF (et non partenaire)", default="True")
     personna = models.ManyToManyField(Personna)
@@ -198,7 +198,7 @@ class Appel_Offre(models.Model):
 
 
 class Evenement(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="evenement_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="evenement_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
@@ -235,7 +235,7 @@ class Evenement(models.Model):
 
 
 class Comares(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="comares_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="comares_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
@@ -257,7 +257,7 @@ class Comares(models.Model):
 
 
 class Publication(models.Model):
-    bureau = models.ManyToManyField(Region, related_name="publication_bureau")
+    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="publication_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
