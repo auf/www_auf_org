@@ -50,7 +50,7 @@ def actualite_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Actualite, slug=slug)
-    return render_to_response('article.html', {'actualite': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance=RequestContext(request))
+    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance=RequestContext(request))
 
 
 # VUES VEILLE REGIONALE
@@ -63,7 +63,7 @@ def veille_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Veille, slug=slug)
-    return render_to_response('article.html', {'actualite': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance=RequestContext(request))
+    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance=RequestContext(request))
 
 
 def bourse_detail(request, slug):
@@ -81,7 +81,7 @@ def bourse_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Bourse, slug=slug)
-    return render_to_response('article.html', {'bourse': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'allocations/', 'page_title': 'Allocations'}, context_instance=RequestContext(request))
+    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'allocations/', 'page_title': 'Allocations'}, context_instance=RequestContext(request))
 
 
 def appel_offre_detail(request, slug):
@@ -100,7 +100,7 @@ def appel_offre_detail_br(request, slug, slugRegion=''):
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Appel_Offre, slug=slug)
 
-    return render_to_response('article.html', {'appel_offre': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres'}, context_instance=RequestContext(request))
+    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres'}, context_instance=RequestContext(request))
 
 
 def evenement_detail(request, slug):
@@ -118,7 +118,7 @@ def evenement_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Evenement, slug=slug)
-    return render_to_response('article.html', {'evenement': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'evenements/', 'page_title': 'Appels offres'}, context_instance=RequestContext(request))
+    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'evenements/', 'page_title': 'Appels offres'}, context_instance=RequestContext(request))
 
 
 def publication_detail(request, slug, slugRegion=''):
@@ -136,7 +136,7 @@ def publication_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Publication, slug=slug)
-    return render_to_response('article.html', {'publication': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance=RequestContext(request))
+    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance=RequestContext(request))
 
 # AUTRES VUES
 
