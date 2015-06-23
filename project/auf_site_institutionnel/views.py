@@ -18,57 +18,22 @@ from project.auf_site_institutionnel.models import *
 from filters import *
 
 from project.auf_site_institutionnel.filters import MembreFilter, ImplantationFilter
+
 from auf.django.references.models import Etablissement, Pays, Employe, Implantation, Region
 from forms import *
 
-
-# ACCUEIL et prout
-def accueil(request):
-    publi_list_accueil = Publication.objects.filter(
-        status=3).order_by('-date_pub')[:6]
-    event_list_accueil = Evenement.objects.filter(status=3).filter(
-        date_fin__gte=datetime.datetime.now()).order_by('-date_fin').reverse()[:4]
-    appel_list_accueil = list(Appel_Offre.objects.filter(status=3).filter(
-        date_fin__gte=datetime.datetime.now()).order_by('-date_fin').reverse()[:2])
-#    appel_list_accueil.insert(0, Appel_Offre.objects.get(id=2866))
-    appel_list_accueil2 = Appel_Offre.objects.filter(
-        status=3).filter(date_fin2__isnull=False)[:2]
-    bourse_list_accueil = Bourse.objects.filter(status=3).filter(
-        date_fin__gte=datetime.datetime.now()).order_by('-date_fin').reverse()[:3]
-    bourse_list_accueil2 = Bourse.objects.filter(
-        status=3).filter(date_fin2__isnull=False)[:2]
-    abonne_form = AbonneForm()
-    return render_to_response('Accueil.html', {'bourse_list_accueil': bourse_list_accueil, 'bourse_list_accueil2': bourse_list_accueil2, 'appel_list_accueil': appel_list_accueil, 'appel_list_accueil2': appel_list_accueil2, 'publi_list_accueil': publi_list_accueil, 'event_list_accueil': event_list_accueil, 'abonne_form': abonne_form, 'page_slug': ''}, context_instance=RequestContext(request))
-
-
-# VUES ACTUALITES
-def actualite(request):
-    actualite = Actualite.objects
-    if request.method == "POST":
-        form = ActuSearchForm(request.POST)
-        if form.is_valid():
-            # PAR TITRE
-            titre = form.cleaned_data['titre']
-            if titre:
-                actualite = actualite.filter(titre__icontains=titre)
-            # PAR REGION
-            region = form.cleaned_data['region']
-            if region:
-                actualite = actualite.filter(bureau__id=region.id)
-            # PAR DATE
-            date_pub = form.cleaned_data['date_pub']
-            if date_pub:
-                actualite = actualite.filter(date_pub=date_pub)
-    else:
-        form = ActuSearchForm()
-    item_list = actualite.filter(status=3).order_by('-date_pub')
-    return render_to_response('article.html', {'actualite_list': item_list, 'ActuSearchForm': form,  'nb_resultats': item_list.count(), 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance=RequestContext(request))
-
-
-def actualite_latest(request, slugRegion=''):
-    latest_actualite_list = Actualite.objects.all().order_by('-date_pub')[:5]
-    return render_to_response('article.html', {'latest_actualite_list': latest_actualite_list}, context_instance=RequestContext(request))
-
+BUREAU_CODE = {
+    'bureau-ameriques':'A',
+    'bureau-afrique-centrale-et-des-grands-lacs':'ACGL',
+    'bureau-afrique-de-l-ouest':'AO',
+    'bureau-asie-pacifique':'AP',
+    'bureau-caraibe':'C',
+    'bureau-europe-centrale-et-orientale':'ECO',
+    'bureau-europe-de-l-ouest':'EO',
+    'bureau-moyen-orient':'MO',
+    'bureau-maghreb':'M',
+    'bureau-ocean-indien':'OI',
+}
 
 def actualite_detail(request, slug):
     p = get_object_or_404(Actualite, slug=slug)
@@ -80,7 +45,7 @@ def actualite_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
     if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
+        r = Region.objects.filter(code=BUREAUX_CODE[slugRegion])
         if (not r):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
@@ -93,48 +58,12 @@ def veille_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
     if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
+        r = Region.objects.filter(code=BUREAUX_CODE[slugRegion])
         if (not r):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Veille, slug=slug)
     return render_to_response('article.html', {'actualite': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'Actualite'}, context_instance=RequestContext(request))
-
-
-# VUES BOURSES
-def bourse(request):
-    bourse = Bourse.objects
-    if request.method == "POST":
-        form = BourseSearchForm(request.POST)
-        if form.is_valid():
-            # PAR TITRE
-            titre = form.cleaned_data['titre']
-            if titre:
-                bourse = bourse.filter(titre__icontains=titre)
-            # PAR REGION
-            region = form.cleaned_data['region']
-            if region:
-                bourse = bourse.filter(bureau__id=region.id)
-            # PAR PERSONNA
-            personna = form.cleaned_data['personna']
-            if personna:
-                bourse = bourse.filter(personna__id=personna.id)
-            # PAR DATE
-            date = form.cleaned_data['date']
-            if date == "1":
-                bourse = bourse.exclude(date_fin__lt=datetime.datetime.now())
-            else:
-                bourse = bourse.exclude(date_fin__gte=datetime.datetime.now())
-    else:
-        form = BourseSearchForm()
-        bourse = bourse.exclude(date_fin__lt=datetime.datetime.now())
-    item_list = bourse.filter(status=3).order_by('-date_fin').reverse()
-    return render_to_response('article.html', {'bourse_list': item_list,  'BourseSearchForm': form, 'page_slug': 'allocations/', 'page_title': 'Allocations', 'nb_resultats': item_list.count()}, context_instance=RequestContext(request))
-
-
-def bourse_latest(request, slugRegion=''):
-    latest_bourse_list = Bourse.objects.all().order_by('-date_pub')[:5]
-    return render_to_response('article.html', {'latest_bourse_list': latest_bourse_list}, context_instance=RequestContext(request))
 
 
 def bourse_detail(request, slug):
@@ -147,86 +76,12 @@ def bourse_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
     if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
+        r = Region.objects.filter(code=BUREAUX_CODE[slugRegion])
         if (not r):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Bourse, slug=slug)
     return render_to_response('article.html', {'bourse': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'allocations/', 'page_title': 'Allocations'}, context_instance=RequestContext(request))
-
-
-# VUES APPLE OFFRES
-def appel_offre(request):
-    appel = Appel_Offre.objects.filter(auf=True)
-    if request.method == "POST":
-        form = AppelSearchForm(request.POST)
-        if form.is_valid():
-            # PAR TITRE
-            titre = form.cleaned_data['titre']
-            if titre:
-                appel = appel.filter(titre__icontains=titre)
-            # PAR REGION
-            region = form.cleaned_data['region']
-            if region:
-                appel = appel.filter(bureau__id=region.id)
-            # PAR PERSONNA
-            personna = form.cleaned_data['personna']
-            if personna:
-                appel = appel.filter(personna__id=personna.id)
-            # PAR DATE
-            date = form.cleaned_data['date']
-            if date == "1":
-                appel = appel.exclude(date_fin__lt=datetime.datetime.now())
-            else:
-                appel = appel.exclude(date_fin__gte=datetime.datetime.now())
-    else:
-        form = AppelSearchForm()
-        appel = appel.exclude(date_fin__lt=datetime.datetime.now())
-    item_list = appel.filter(status=3).exclude(
-        date_fin2__isnull=True).order_by('-date_fin2').reverse()
-    item_list3 = appel.filter(status=3).exclude(
-        date_fin__isnull=True).order_by('-date_fin').reverse()
-    return render_to_response('article.html', {'appel_offre_list': item_list, 'appel_offre_list2': item_list3,  'AppelSearchForm': form, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres', 'nb_resultats': item_list.count(), 'nb_resultats2': item_list3.count()}, context_instance=RequestContext(request))
-
-
-# VUES APPLE OFFRES PARTENAIRES
-def appel_offre_partenaires(request):
-    appel = Appel_Offre.objects.filter(auf=False)
-    if request.method == "POST":
-        form = AppelSearchForm(request.POST)
-        if form.is_valid():
-            # PAR TITRE
-            titre = form.cleaned_data['titre']
-            if titre:
-                appel = appel.filter(titre__icontains=titre)
-            # PAR REGION
-            region = form.cleaned_data['region']
-            if region:
-                appel = appel.filter(bureau__id=region.id)
-            # PAR PERSONNA
-            personna = form.cleaned_data['personna']
-            if personna:
-                appel = appel.filter(personna__id=personna.id)
-            # PAR DATE
-            date = form.cleaned_data['date']
-            if date == "1":
-                appel = appel.exclude(date_fin__lt=datetime.datetime.now())
-            else:
-                appel = appel.exclude(date_fin__gte=datetime.datetime.now())
-    else:
-        form = AppelSearchForm()
-        appel = appel.exclude(date_fin__lt=datetime.datetime.now())
-    item_list = appel.filter(status=3).exclude(
-        date_fin2__isnull=True).order_by('-date_fin2').reverse()
-    item_list3 = appel.filter(status=3).exclude(
-        date_fin__isnull=True).order_by('-date_fin').reverse()
-    return render_to_response('article.html', {'appel_offre_list': item_list, 'appel_offre_list2': item_list3,  'AppelSearchForm': form, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres', 'nb_resultats': item_list.count(), 'nb_resultats2': item_list3.count()}, context_instance=RequestContext(request))
-
-
-def appel_offre_latest(request, slugRegion=''):
-    latest_appel_offre_list = Appel_Offre.objects.all().order_by(
-        '-date_pub')[:5]
-    return render_to_response('article.html', {'latest_appel_offre_list': latest_appel_offre_list}, context_instance=RequestContext(request))
 
 
 def appel_offre_detail(request, slug):
@@ -239,47 +94,13 @@ def appel_offre_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
     if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
+        r = Region.objects.filter(code=BUREAUX_CODE[slugRegion])
         if (not r):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Appel_Offre, slug=slug)
 
     return render_to_response('article.html', {'appel_offre': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'appels-offre/', 'page_title': 'Appels offres'}, context_instance=RequestContext(request))
-
-
-# VUES EVENEMENTS
-def evenement(request):
-    evenement = Evenement.objects
-    if request.method == "POST":
-        form = EventSearchForm(request.POST)
-        if form.is_valid():
-            # PAR TITRE
-            titre = form.cleaned_data['titre']
-            if titre:
-                evenement = evenement.filter(titre__icontains=titre)
-            # PAR REGION
-            region = form.cleaned_data['region']
-            if region:
-                evenement = evenement.filter(bureau__id=region.id)
-            # PAR DATE
-            date = form.cleaned_data['date']
-            if date == "1":
-                evenement = evenement.filter(
-                    date_fin__gte=datetime.datetime.now())
-            else:
-                evenement = evenement.exclude(
-                    date_fin__gte=datetime.datetime.now())
-    else:
-        form = EventSearchForm()
-        evenement = evenement.filter(date_fin__gte=datetime.datetime.now())
-    item_list = evenement.filter(status=3).order_by('-date_fin').reverse()
-    return render_to_response('article.html', {'evenement_list': item_list,  'EventSearchForm': form, 'page_slug': 'evenements/', 'page_title': 'Evenements', 'nb_resultats': item_list.count()}, context_instance=RequestContext(request))
-
-
-def evenement_latest(request, slugRegion=''):
-    latest_evenement_list = Evenement.objects.all().order_by('-date_pub')[:5]
-    return render_to_response('article.html', {'latest_evenement_list': latest_evenement_list}, context_instance=RequestContext(request))
 
 
 def evenement_detail(request, slug):
@@ -292,26 +113,12 @@ def evenement_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
     if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
+        r = Region.objects.filter(code=BUREAUX_CODE[slugRegion])
         if (not r):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Evenement, slug=slug)
     return render_to_response('article.html', {'evenement': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'evenements/', 'page_title': 'Appels offres'}, context_instance=RequestContext(request))
-
-
-# VUES PUBLICATION
-def publication(request):
-    dictFilter = {}
-    item_list = PubliFilter(request.GET or None, queryset=Publication.objects.filter(
-        **dictFilter).filter(status=3).order_by('-date_pub'))
-    return render_to_response('article.html', {'publication_list': item_list,  'PubliForm': item_list.form, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance=RequestContext(request))
-
-
-def publication_latest(request, slugRegion=''):
-    latest_publication_list = Publication.objects.all().order_by(
-        '-date_pub')[:5]
-    return render_to_response('article.html', {'latest_publication_list': latest_publication_list}, context_instance=RequestContext(request))
 
 
 def publication_detail(request, slug, slugRegion=''):
@@ -324,25 +131,12 @@ def publication_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''
     if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
+        r = Region.objects.filter(code=BUREAUX_CODE[slugRegion])
         if (not r):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Publication, slug=slug)
     return render_to_response('article.html', {'publication': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'publications/', 'page_title': 'Publications'}, context_instance=RequestContext(request))
-
-
-# VUE COMARES
-def comares_detail(request, slug, slugRegion=''):
-    slugRegionContext = ''
-    slugPersonnaContext = ''
-    if (slugRegion != ''):
-        r = Region.objects.filter(slug=slugRegion)
-        if (not r):
-            slugPersonnaContext = '/' + slugRegion
-        slugRegionContext = '/' + slugRegion
-    p = get_object_or_404(Comares, slug=slug)
-    return render_to_response('article.html', {'comares': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'comares/', 'page_title': 'Actualités COMARES'}, context_instance=RequestContext(request))
 
 # AUTRES VUES
 
