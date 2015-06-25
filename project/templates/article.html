@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
-{% load static i18n cms_tags menu_tags sekizai_tags %}
+{% load static i18n cms_tags menu_tags sekizai_tags auf %}
 {% load social_share %}
 {% load thumbnail %}
+
+{% get_bureau as bureau %}
+
+{% block menu %}
+    {% if request.current_page.get_root.reverse_id != "bureaux" %}
+            {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+    {% else %}
+            {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
+    {% endif %}
+{% endblock %}
+
 
 {% block contenu %}
 <div class="col-md-12" id="content" style="background-color: white;">
