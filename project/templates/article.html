@@ -6,7 +6,7 @@
 {% get_bureau as bureau %}
 
 {% block menu %}
-    {% if request.current_page.get_root.reverse_id != "bureaux" %}
+{% if bureau.0 %}
             {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
     {% else %}
             {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
