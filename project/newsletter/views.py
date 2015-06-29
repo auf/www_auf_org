@@ -3,6 +3,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 
 from auf.django.references.models import Region
 from .models import *
