@@ -1,548 +1,548 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>AUF - Planète N°{{ planete.numero}} - {{ planete.date }}</title>
-	<style type="text/css">
+  <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <title>AUF - Planète N°{{ planete.numero}} - {{ planete.date }}</title>
+	  <style type="text/css">
 
-		#outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
-		body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
-		/* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
-		.ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
-		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
-		#backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
-		/* End reset */
-		img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
-		a img {border:none;}
-		.image_fix {display:block;}
-		p {margin: 1em 0; font-size: 13px; color: #999999;}
-		h1, h2, h3, h4, h5, h6 {color: black !important;}
-		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
-		h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
-			color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
-		}
-		h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
-			color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
-		}
-		ul{ padding: 0px;}
-		li{ margin-left: 20px; font-size: 13px; color: #999999;}
-		table td {border-collapse: collapse;}
-		table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
-		a {font-weight: bold; color: #e74c3c; font-size: 13px;}
+		 #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+		 body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+		 /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+		 .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+		 .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+		 #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+		 /* End reset */
+		 img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+		 a img {border:none;}
+		 .image_fix {display:block;}
+		 p {margin: 1em 0; font-size: 13px; color: #999999;}
+		 h1, h2, h3, h4, h5, h6 {color: black !important;}
+		 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
+		 h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+			 color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+		 }
+		 h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+			 color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+		 }
+		 ul{ padding: 0px;}
+		 li{ margin-left: 20px; font-size: 13px; color: #999999;}
+		 table td {border-collapse: collapse;}
+		 table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+		 a {font-weight: bold; color: #e74c3c; font-size: 13px;}
 
-		@media only screen and (max-device-width: 480px) {
+		 @media only screen and (max-device-width: 480px) {
 
-			a[href^="tel"], a[href^="sms"] {
-				text-decoration: none;
-				color: black; /* or whatever your want */
-				pointer-events: none;
-				cursor: default;
-			}
+			 a[href^="tel"], a[href^="sms"] {
+				 text-decoration: none;
+				 color: black; /* or whatever your want */
+				 pointer-events: none;
+				 cursor: default;
+			 }
 
-			.mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
-				text-decoration: default;
-				color: orange !important; /* or whatever your want */
-				pointer-events: auto;
-				cursor: default;
-			}
-		}
+			 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+				 text-decoration: default;
+				 color: orange !important; /* or whatever your want */
+				 pointer-events: auto;
+				 cursor: default;
+			 }
+		 }
 
 
-		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-			
-			a[href^="tel"], a[href^="sms"] {
-				text-decoration: none;
-				color: blue; /* or whatever your want */
-				pointer-events: none;
-				cursor: default;
-			}
+		 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 
-			.mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
-				text-decoration: default;
-				color: orange !important;
-				pointer-events: auto;
-				cursor: default;
-			}
-		}
+			 a[href^="tel"], a[href^="sms"] {
+				 text-decoration: none;
+				 color: blue; /* or whatever your want */
+				 pointer-events: none;
+				 cursor: default;
+			 }
 
-		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-			/* Put your iPhone 4g styles in here */
-		}
+			 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+				 text-decoration: default;
+				 color: orange !important;
+				 pointer-events: auto;
+				 cursor: default;
+			 }
+		 }
 
-		/* Following Android targeting from:
-		http://developer.android.com/guide/webapps/targeting.html
-		http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
-		@media only screen and (-webkit-device-pixel-ratio:.75){
-			/* Put CSS for low density (ldpi) Android layouts in here */
-		}
-		@media only screen and (-webkit-device-pixel-ratio:1){
-			/* Put CSS for medium density (mdpi) Android layouts in here */
-		}
-		@media only screen and (-webkit-device-pixel-ratio:1.5){
-			/* Put CSS for high density (hdpi) Android layouts in here */
-		}
-		/* end Android targeting */
+		 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+			 /* Put your iPhone 4g styles in here */
+		 }
+
+		 /* Following Android targeting from:
+		    http://developer.android.com/guide/webapps/targeting.html
+		    http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
+		 @media only screen and (-webkit-device-pixel-ratio:.75){
+			 /* Put CSS for low density (ldpi) Android layouts in here */
+		 }
+		 @media only screen and (-webkit-device-pixel-ratio:1){
+			 /* Put CSS for medium density (mdpi) Android layouts in here */
+		 }
+		 @media only screen and (-webkit-device-pixel-ratio:1.5){
+			 /* Put CSS for high density (hdpi) Android layouts in here */
+		 }
+		 /* end Android targeting */
 		</style>
 
 		<!-- Targeting Windows Mobile -->
-	<!--[if IEMobile 7]>
-	<style type="text/css">
+	  <!--[if IEMobile 7]>
+	  <style type="text/css">
 
-	</style>
-	<![endif]-->
+	  </style>
+	  <![endif]-->
 
-	<!-- ***********************************************
-	****************************************************
-	END MOBILE TARGETING
-	****************************************************
-	************************************************ -->
+	  <!-- ***********************************************
+	  ****************************************************
+	  END MOBILE TARGETING
+	  ****************************************************
+	  ************************************************ -->
 
-	<!--[if gte mso 9]>
-	<style>
+	  <!--[if gte mso 9]>
+	  <style>
 		/* Target Outlook 2007 and 2010 */
-	</style>
-	<![endif]-->
-</head>
-<body>
-	<!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
-	<table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #ecf0f1; font-family: Arial, Helvetica, sans-serif;">
-		<tr>
-			<td>
+	  </style>
+	  <![endif]-->
+  </head>
+  <body>
+	  <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
+	  <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #ecf0f1; font-family: Arial, Helvetica, sans-serif;">
+		  <tr>
+			  <td>
 
-				<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 800px; margin: auto;">
-					<tr>
-						<td>
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 800px; margin: auto;">
+					  <tr>
+						  <td>
 
-							<!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; text-align: center;">
-								<tr>
-									<td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;">
-										<i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="http://www.auf.org/planete-auf/{{planete.id}}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
-									</td>
-								</tr>
-							</table>
+							  <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; text-align: center;">
+								  <tr>
+									  <td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;">
+										  <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="http://www.auf.org/planete-auf/{{planete.id}}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
+									  </td>
+								  </tr>
+							  </table>
 
-							<table cellpadding="0" cellspacing="0" border="0" align="center">
-								<tr>
-									<td>
-										<img src="http://www.auf.org/static/lettre/imgPlanete/headerTop.gif" style="display: block;" />
-									</td>
-								</tr>
-							</table>
+							  <table cellpadding="0" cellspacing="0" border="0" align="center">
+								  <tr>
+									  <td>
+										  <img src="http://www.auf.org/static/lettre/imgPlanete/headerTop.gif" style="display: block;" />
+									  </td>
+								  </tr>
+							  </table>
 
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #279dd6;">
-								<tr>
-									<td style="vertical-align: top;">
-										<img src="http://www.auf.org/static/lettre/imgPlanete/headerLeft.gif" style="display: block;" />
-									</td>
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #279dd6;">
+								  <tr>
+									  <td style="vertical-align: top;">
+										  <img src="http://www.auf.org/static/lettre/imgPlanete/headerLeft.gif" style="display: block;" />
+									  </td>
 
-									<td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
-										<h1 style="color: #ffffff !important; font-weight:normal; font-size: 44px; text-transform: uppercase; line-height:44px; margin:0;">PLANETE AUF</h1>
-										<h2 style="text-transform: uppercase; color: #fff !important; font-size: 18px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO {{ planete.numero }}</b> - {{ planete.date|date:"F Y" }}</h2>
-									</td>
-								</tr>
-							</table>
+									  <td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
+										  <h1 style="color: #ffffff !important; font-weight:normal; font-size: 44px; text-transform: uppercase; line-height:44px; margin:0;">PLANETE AUF</h1>
+										  <h2 style="text-transform: uppercase; color: #fff !important; font-size: 18px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO {{ planete.numero }}</b> - {{ planete.date|date:"F Y" }}</h2>
+									  </td>
+								  </tr>
+							  </table>
 
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%;">
-								<tr>
-									<td style="text-align:left;">
-										<img src="http://www.auf.org/static/lettre/imgPlanete/headerBottom.gif" style="display: block;" />
-									</td>
-								</tr>
-							</table>
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%;">
+								  <tr>
+									  <td style="text-align:left;">
+										  <img src="http://www.auf.org/static/lettre/imgPlanete/headerBottom.gif" style="display: block;" />
+									  </td>
+								  </tr>
+							  </table>
 
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto;">
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto;">
 
-								<tr>
-									<td style="vertical-align:top;">
-										<img src="http://www.auf.org/static/lettre/imgPlanete/uneColLeft.gif" style="display: block;" />
-									</td>
+								  <tr>
+									  <td style="vertical-align:top;">
+										  <img src="http://www.auf.org/static/lettre/imgPlanete/uneColLeft.gif" style="display: block;" />
+									  </td>
 
-									<td style="vertical-align:top;">
+									  <td style="vertical-align:top;">
 
-										<table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
-											<tr>
-												<td style="vertical-align:top;">
+										  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
+											  <tr>
+												  <td style="vertical-align:top;">
 
-													<table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
-														<tr>
-															<td style="vertical-align:top;">
-																<img src="http://www.auf.org/static/lettre/imgPlanete/uneImageTop.gif" style="display: block;" />
-															</td>
-														</tr>
+													  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
+														  <tr>
+															  <td style="vertical-align:top;">
+																  <img src="http://www.auf.org/static/lettre/imgPlanete/uneImageTop.gif" style="display: block;" />
+															  </td>
+														  </tr>
 
-														<tr>
+														  <tr>
 
-															<td style="vertical-align:top; padding-left:25px;padding-bottom:25px;padding-right:10px;">
+															  <td style="vertical-align:top; padding-left:25px;padding-bottom:25px;padding-right:10px;">
 
-																<table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 550px; border-collapse: collapse;">
-																	<tr style="border-bottom:5px solid #8ebd32;">
-																		<td style="vertical-align:top;">
-																			<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>
-																			{% if planete.photo_dossier %}
-																				<img src="http://www.auf.org/media/{{planete.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
-                                                                            {% else %}
-                                                                            	<img src="http://www.auf.org/static/logodefaut.jpg" style="display: block; margin: auto;" />
-                                                                            {% endif %}
-																		</td>
-																	</tr>
-																	<tr>
-																		<td style="text-align: center; vertical-align:top;">
-                                                                        	<img src="http://www.auf.org/static/lettre/imgPlanete/hintGreen.gif" style="display: block; margin: auto;" />
-																		</td>
-																	</tr>
-																	<tr>
-																		<td style="vertical-align:top;">
-																			<h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;">{{ planete.titre_dossier }}</h2>
-																			<p> {{ planete.texte_dossier|safe }}</p><b>
-                                                                            {% if planete.lien_dossier  %}
-                                                                                <a href="{{ planete.lien_dossier }}" style="font-weight: bold; color: #e74c3c; font-size: 13px;">Consulter le dossier</a>
-                                                                            {% endif %}
-																		</td>
-																	</tr>
-																</table>
+																  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 550px; border-collapse: collapse;">
+																	  <tr style="border-bottom:5px solid #8ebd32;">
+																		  <td style="vertical-align:top;">
+																			  <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>
+																			  {% if planete.photo_dossier %}
+																				  <img src="http://www.auf.org/media/{{planete.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
+                                        {% else %}
+                                          <img src="http://www.auf.org/static/logodefaut.jpg" style="display: block; margin: auto;" />
+                                        {% endif %}
+																		  </td>
+																	  </tr>
+																	  <tr>
+																		  <td style="text-align: center; vertical-align:top;">
+                                        <img src="http://www.auf.org/static/lettre/imgPlanete/hintGreen.gif" style="display: block; margin: auto;" />
+																		  </td>
+																	  </tr>
+																	  <tr>
+																		  <td style="vertical-align:top;">
+																			  <h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;">{{ planete.titre_dossier }}</h2>
+																			  <p> {{ planete.texte_dossier|safe }}</p><b>
+                                          {% if planete.lien_dossier  %}
+                                            <a href="{{ planete.lien_dossier }}" style="font-weight: bold; color: #e74c3c; font-size: 13px;">Consulter le dossier</a>
+                                          {% endif %}
+																		  </td>
+																	  </tr>
+																  </table>
 
-															</td>
-														</tr>
+															  </td>
+														  </tr>
 
-													</table>
+													  </table>
 
-												</td>
+												  </td>
 
-												<td style="vertical-align:top; text-align:right;">
+												  <td style="vertical-align:top; text-align:right;">
 
-													<img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+													  <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
 
-												</td>
-											</tr>
-										</table>
+												  </td>
+											  </tr>
+										  </table>
 
-									</td>
+									  </td>
 
-									<td style="vertical-align:top">
-										<div style="width:100px; display:block">&nbsp;</div>
-									</td>
+									  <td style="vertical-align:top">
+										  <div style="width:100px; display:block">&nbsp;</div>
+									  </td>
 
-								</tr>
+								  </tr>
 
-							</table>
-						</td>
-					</tr>
-				</table>
+							  </table>
+						  </td>
+					  </tr>
+				  </table>
 
-				<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto;">
-					<tr>
-                            <td style="vertical-align:top; padding-right: 20px;">
-                            {% if list_projet %}
-                                <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">ACTUALITÉ DES PROJETS</h2>
-    							
-                                {% for projet in list_projet %}
-                                <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 380px; margin:0; background-color: #fff; margin-top: 20px;">
-    
-                                    <tr>
-                                        <td style="vertical-align:top; text-align:right;">
-                                            <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-                                        </td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td style="vertical-align:top; text-align:right;">
-                                            <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 340px; margin: auto; background-color: #fff;">
-                                                <tr style="">
-                                                    <td style="vertical-align:top; text-align:right; padding-top: 22px;">
-                                                         {% if projet.photo_projet %}
-                                                            <img src="http://www.auf.org/media/{{projet.photo_projet}}" alt="" style="display: block;border-bottom:5px solid #3498db; max-width: 235px; max-height: 230px;" />
-                                                         {% else %}
-                                                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="display: block;border-bottom:5px solid #3498db; max-width: 235px; max-height: 230px;" />
-                                                         {% endif %}
-                                                        <img src="http://www.auf.org/static/lettre/imgPlanete/hintBlue.gif" style="display: block; margin-left: 110px;" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align:left; vertical-align:top;">
-                                                        <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;">{{ projet.titre_projet }}</h2>
-                                                        <p style="font-size: 13px; color: #999999;">{{ projet.texte_projet }}<br /><a href="{{ projet.lien_projet }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            
-                                        </td>
-                                
-								</tr>
-							</table>
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto;">
+					  <tr>
+              <td style="vertical-align:top; padding-right: 20px;">
+                {% if list_projet %}
+                  <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">ACTUALITÉ DES PROJETS</h2>
+
+                  {% for projet in list_projet %}
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 380px; margin:0; background-color: #fff; margin-top: 20px;">
+
+                      <tr>
+                        <td style="vertical-align:top; text-align:right;">
+                          <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="vertical-align:top; text-align:right;">
+                          <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 340px; margin: auto; background-color: #fff;">
+                            <tr style="">
+                              <td style="vertical-align:top; text-align:right; padding-top: 22px;">
+                                {% if projet.photo_projet %}
+                                  <img src="http://www.auf.org/media/{{projet.photo_projet}}" alt="" style="display: block;border-bottom:5px solid #3498db; max-width: 235px; max-height: 230px;" />
+                                {% else %}
+                                  <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="display: block;border-bottom:5px solid #3498db; max-width: 235px; max-height: 230px;" />
+                                {% endif %}
+                                <img src="http://www.auf.org/static/lettre/imgPlanete/hintBlue.gif" style="display: block; margin-left: 110px;" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:left; vertical-align:top;">
+                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;">{{ projet.titre_projet }}</h2>
+                                <p style="font-size: 13px; color: #999999;">{{ projet.texte_projet }}<br /><a href="{{ projet.lien_projet }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+                              </td>
+                            </tr>
+                          </table>
+
+                        </td>
+
+								      </tr>
+							      </table>
+                  {% endfor %}
+							  {% endif %}
+						  </td>
+
+
+
+
+						  <td style="vertical-align:top;">
+							  <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">EN BREF</h2>
+
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 190px; margin:0; background-color: #fff;">
+								  <tr>
+									  <td style="vertical-align:top; text-align:right;">
+										  <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+									  </td>
+								  </tr>
+
+								  <tr>
+									  <td style="vertical-align:top; text-align:right;">
+										  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 150px; margin: auto; background-color: #fff;">
+											  <tr>
+												  <td style="text-align:left; vertical-align:top;">
+                            {% for item in list_actualite %}
+														  <p style="font-size: 13px; color: #999999;margin-bottom: 25px;">{{ item.titre }}<br /><a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
                             {% endfor %}
-							{% endif %}
-						</td>
+													  {% for item in list_evenement2 %}
+														  <p style="font-size: 13px; color: #999999;margin-bottom: 25px;">{{ item.titre }}<br /><a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+                            {% endfor %}
+												  </td>
+											  </tr>
+										  </table>
+									  </td>
+								  </tr>
+							  </table>
+
+						  </td>
+
+					  </tr>
+				  </table>
+
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
+					  <tr>
+						  <td style="vertical-align:top;">
+                {% if list_membre %}
+							    <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">PAROLE DE MEMBRES</h2>
+								  {% for membre in list_membre %}
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px;">
+
+                      <tr>
+                        <td style="vertical-align:top; text-align:right; padding-left: 25px;">
+                          <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
+                          <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
+                            <tr>
+                              <td style="text-align:left; vertical-align:top;">
+                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;">{{ membre.titre_membre }}</h2>
+                                <p style="font-size: 13px; color: #999999;margin-bottom: 0;margin-top: 0;">{{ membre.texte_membre }}<br /><a href="{{ membre.lien_membre }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+                              </td>
+                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
+                                <img src="http://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
+                              </td>
+                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
+                                {% if membre.photo_membre %}
+                                  <img src="http://www.auf.org/media/{{membre.photo_membre}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
+                                {% else %}
+                                  <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
+                                {% endif %}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+							    {% endfor %}
+							  {% endif %}
+
+						  </td>
+					  </tr>
+				  </table>
+
+
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
+					  <tr>
+						  <td style="vertical-align:top;">
+                {% if list_offre %}
+							    <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">AGENDA / APPELS D'OFFRES</h2>
+								  {% for item in list_offre %}
+							      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px">
+
+								      <tr>
+									      <td style="vertical-align:top; text-align:right; padding-left: 25px;">
+										      <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+									      </td>
+								      </tr>
+
+								      <tr>
+									      <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
+										      <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
+											      <tr>
+												      <td style="text-align:left; vertical-align:top;">
+													      <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;">{{item.titre}}</h2>
+													      <p style="font-size: 13px; color: #999999;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}<br /><a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+												      </td>
+												      <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
+													      <img src="http://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
+												      </td>
+												      <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
+													      {% if item.image %}
+                                  <img src="http://www.auf.org/media/{{item.image}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
+                                {% else %}
+                                  <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
+                                {% endif %}
+												      </td>
+											      </tr>
+										      </table>
+									      </td>
+								      </tr>
+							      </table>
+
+							    {% endfor %}
+							  {% endif %}
+
+						  </td>
+					  </tr>
+				  </table>
 
 
 
-
-						<td style="vertical-align:top;">
-							<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">EN BREF</h2>
-
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 190px; margin:0; background-color: #fff;">
-								<tr>
-									<td style="vertical-align:top; text-align:right;">
-										<img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-									</td>
-								</tr>
-
-								<tr>
-									<td style="vertical-align:top; text-align:right;">
-										<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 150px; margin: auto; background-color: #fff;">
-											<tr>
-												<td style="text-align:left; vertical-align:top;">
-                                                	{% for item in list_actualite %}
-														<p style="font-size: 13px; color: #999999;margin-bottom: 25px;">{{ item.titre }}<br /><a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                                                    {% endfor %}
-													{% for item in list_evenement2 %}
-														<p style="font-size: 13px; color: #999999;margin-bottom: 25px;">{{ item.titre }}<br /><a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                                                    {% endfor %}
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-
-						</td>
-
-					</tr>
-				</table>
-
-				<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
-					<tr>
-						<td style="vertical-align:top;">
-                        	 {% if list_membre %}
-							<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">PAROLE DE MEMBRES</h2>
-								{% for membre in list_membre %}
-                                <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px;">
-    
-                                    <tr>
-                                        <td style="vertical-align:top; text-align:right; padding-left: 25px;">
-                                            <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-                                        </td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
-                                            <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
-                                                <tr>
-                                                    <td style="text-align:left; vertical-align:top;">
-                                                        <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;">{{ membre.titre_membre }}</h2>
-                                                        <p style="font-size: 13px; color: #999999;margin-bottom: 0;margin-top: 0;">{{ membre.texte_membre }}<br /><a href="{{ membre.lien_membre }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                                                    </td>
-                                                    <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
-                                                        <img src="http://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
-                                                    </td>
-                                                    <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
-                                                    	 {% if membre.photo_membre %}
-                                                            <img src="http://www.auf.org/media/{{membre.photo_membre}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                                         {% else %}
-                                                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                                         {% endif %}
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-
-							 {% endfor %}
-							{% endif %}
-
-						</td>
-					</tr>
-				</table>
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
+					  <tr>
+						  <td style="vertical-align:top; padding-right: 24px;">
 
 
-				<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
-					<tr>
-						<td style="vertical-align:top;">
-                        	 {% if list_offre %}
-							<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">AGENDA / APPELS D'OFFRES</h2>
-								{% for item in list_offre %}
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px">
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 260px;">
+								  <tr>
+									  <td style="vertical-align:top; text-align:right;">
+										  <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+									  </td>
+								  </tr>
 
-								<tr>
-									<td style="vertical-align:top; text-align:right; padding-left: 25px;">
-										<img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-									</td>
-								</tr>
-
-								<tr>
-									<td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
-										<table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
-											<tr>
-												<td style="text-align:left; vertical-align:top;">
-													<h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;">{{item.titre}}</h2>
-													<p style="font-size: 13px; color: #999999;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}<br /><a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-												</td>
-												<td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
-													<img src="http://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
-												</td>
-												<td style="vertical-align:middle; text-align:right; padding-top: 22px;">
-													 {% if item.image %}
-                                                            <img src="http://www.auf.org/media/{{item.image}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                                     {% else %}
-                                                            <img src="http://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                                     {% endif %}
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-
-							 {% endfor %}
-							{% endif %}
-
-						</td>
-					</tr>
-				</table>
+								  <tr>
+									  <td style="vertical-align:top; text-align:right;">
+										  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
+											  <tr>
+												  <td style="vertical-align:top; text-align:center; padding-top: 22px;">
+													  <a href="mailto:communication@auf.org"><img src="http://www.auf.org/static/lettre/imgPlanete/picto1.gif" /></a>
+												  </td>
+											  </tr>
+									</tr>
+									<tr>
+										<td style="text-align:center; vertical-align:top;">
+											<h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Réagir</h2>
+											<p style="font-size: 13px; color: #999999;">Si vous souhaitez réagir par rapport au contenu ou à la forme de cette lettre d'information</p>
+										</td>
+									</tr>
+									    </table>
+								    </td>
+						</tr>
+						    </table>
 
 
+					    </td>
 
-				<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
-					<tr>
-						<td style="vertical-align:top; padding-right: 24px;">
-
-
-							<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 260px;">
-								<tr>
-									<td style="vertical-align:top; text-align:right;">
-										<img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-									</td>
-								</tr>
-
-								<tr>
-									<td style="vertical-align:top; text-align:right;">
-										<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
-											<tr>
-												<td style="vertical-align:top; text-align:center; padding-top: 22px;">
-													<a href="mailto:communication@auf.org"><img src="http://www.auf.org/static/lettre/imgPlanete/picto1.gif" /></a>
-												</td>
-											</tr>
-										</tr>
-										<tr>
-											<td style="text-align:center; vertical-align:top;">
-												<h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Réagir</h2>
-												<p style="font-size: 13px; color: #999999;">Si vous souhaitez réagir par rapport au contenu ou à la forme de cette lettre d'information</p>
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
+					    <td style="vertical-align:top; padding-right: 24px;">
 
 
-					</td>
+						    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 260px;">
+							    <tr>
+								    <td style="vertical-align:top; text-align:right;">
+									    <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+								    </td>
+							    </tr>
 
-					<td style="vertical-align:top; padding-right: 24px;">
-
-
-						<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 260px;">
-							<tr>
-								<td style="vertical-align:top; text-align:right;">
-									<img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-								</td>
-							</tr>
-
-							<tr>
-								<td style="vertical-align:top; text-align:center;">
-									<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
-										<tr>
-											<td style="vertical-align:top; padding-top: 22px;">
-												<a href="http://www.auf.org/lettre-information-desinscription/"><img src="http://www.auf.org/static/lettre/imgPlanete/picto2.gif" /></a>
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:center; vertical-align:top;">
-												<h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Se désabonner</h2>
-												<p style="font-size: 13px; color: #999999;">Pour se désabonner de cette lettre d'information</p>
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
+							    <tr>
+								    <td style="vertical-align:top; text-align:center;">
+									    <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
+										    <tr>
+											    <td style="vertical-align:top; padding-top: 22px;">
+												    <a href="http://www.auf.org/lettre-information-desinscription/"><img src="http://www.auf.org/static/lettre/imgPlanete/picto2.gif" /></a>
+											    </td>
+										    </tr>
+										    <tr>
+											    <td style="text-align:center; vertical-align:top;">
+												    <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Se désabonner</h2>
+												    <p style="font-size: 13px; color: #999999;">Pour se désabonner de cette lettre d'information</p>
+											    </td>
+										    </tr>
+									    </table>
+								    </td>
+							    </tr>
+						    </table>
 
 
-					</td>
+					    </td>
 
-					<td style="vertical-align:top;">
-
-
-						<table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 260px;">
-							<tr>
-								<td style="vertical-align:top; text-align:right;">
-									<img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-								</td>
-							</tr>
-
-							<tr>
-								<td style="vertical-align:top; text-align:center;">
-									<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
-										<tr>
-											<td style="vertical-align:top; text-align:center; padding-top: 22px;">
-												<a href="https://www.facebook.com/aufinternational"><img src="http://www.auf.org/static/lettre/imgPlanete/picto3.gif" /></a>
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:center; vertical-align:top;">
-												<h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Facebook</h2>
-												<p style="font-size: 13px; color: #999999;">Suivez toute l’actualité de l’Agence Universitaire de la Francophonie</p>
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
+					    <td style="vertical-align:top;">
 
 
-					</td>
+						    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 260px;">
+							    <tr>
+								    <td style="vertical-align:top; text-align:right;">
+									    <img src="http://www.auf.org/static/lettre/imgPlanete/corner.gif" />
+								    </td>
+							    </tr>
 
-				</tr>
-			</table>
+							    <tr>
+								    <td style="vertical-align:top; text-align:center;">
+									    <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
+										    <tr>
+											    <td style="vertical-align:top; text-align:center; padding-top: 22px;">
+												    <a href="https://www.facebook.com/aufinternational"><img src="http://www.auf.org/static/lettre/imgPlanete/picto3.gif" /></a>
+											    </td>
+										    </tr>
+										    <tr>
+											    <td style="text-align:center; vertical-align:top;">
+												    <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Facebook</h2>
+												    <p style="font-size: 13px; color: #999999;">Suivez toute l’actualité de l’Agence Universitaire de la Francophonie</p>
+											    </td>
+										    </tr>
+									    </table>
+								    </td>
+							    </tr>
+						    </table>
 
-			<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 25px;">
-				<tr>
-					<td style="vertical-align:top;">
-						<img src="http://www.auf.org/static/lettre/imgPlanete/logoFooterTop.gif" style="display:block;" />
-					</td>
-				</tr>
-			</table>
 
-			<table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 800px; margin: auto; background-color: #dadada;">
-				<tr>
-					<td style="vertical-align:top; padding-left:100px;">
-						<img src="http://www.auf.org/static/lettre/imgPlanete/logoFooterBottom.gif" />
-					</td>
+					    </td>
 
-					<td style="vertical-align:top; padding-left:25px; padding-top: 25px; font-size: 11px; color: #445669; font-weight: normal; padding-right: 125px;padding-bottom: 25px;">
-						<p style="margin-top: 0;">La Lettre électronique de l'AUF est une publication réalisée par l'Agence universitaire de la Francophonie, une des plus grandes associations d'universités au monde, avec 804 établissements membres dans 102 pays. Cette lettre d'information est diffusée sur une base mensuelle. Elle est libre de droits, à condition d'en préciser la source. N'hésitez pas à la diffuser largement. Si vous avez un problème de lecture, le contenu de cette lettre est également disponible à cette adresse : http://www.auf.org/</p>
+			</tr>
+			    </table>
 
-						<p>Reproduction autorisée avec mention de la source et de l’adresse URL.</p>
-					</td>
-				</tr>
-			</table>
+			    <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 25px;">
+				    <tr>
+					    <td style="vertical-align:top;">
+						    <img src="http://www.auf.org/static/lettre/imgPlanete/logoFooterTop.gif" style="display:block;" />
+					    </td>
+				    </tr>
+			    </table>
 
-		</td>
-	</tr>
-</table>
-<!-- End of wrapper table -->
-</body>
+			    <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 800px; margin: auto; background-color: #dadada;">
+				    <tr>
+					    <td style="vertical-align:top; padding-left:100px;">
+						    <img src="http://www.auf.org/static/lettre/imgPlanete/logoFooterBottom.gif" />
+					    </td>
+
+					    <td style="vertical-align:top; padding-left:25px; padding-top: 25px; font-size: 11px; color: #445669; font-weight: normal; padding-right: 125px;padding-bottom: 25px;">
+						    <p style="margin-top: 0;">La Lettre électronique de l'AUF est une publication réalisée par l'Agence universitaire de la Francophonie, une des plus grandes associations d'universités au monde, avec 804 établissements membres dans 102 pays. Cette lettre d'information est diffusée sur une base mensuelle. Elle est libre de droits, à condition d'en préciser la source. N'hésitez pas à la diffuser largement. Si vous avez un problème de lecture, le contenu de cette lettre est également disponible à cette adresse : http://www.auf.org/</p>
+
+						    <p>Reproduction autorisée avec mention de la source et de l’adresse URL.</p>
+					    </td>
+				    </tr>
+			    </table>
+
+		    </td>
+	    </tr>
+    </table>
+    <!-- End of wrapper table -->
+  </body>
 </html>
 
 <!-- End example table -->
 
-							<!-- Yahoo Link color fix updated: Simply bring your link styling inline.
-							<a href="http://htmlemailboilerplate.com" target ="_blank" title="Styling Links" style="color: orange; text-decoration: none;">Coloring Links appropriately</a>
+<!-- Yahoo Link color fix updated: Simply bring your link styling inline.
+<a href="http://htmlemailboilerplate.com" target ="_blank" title="Styling Links" style="color: orange; text-decoration: none;">Coloring Links appropriately</a>
 
-							Gmail/Hotmail image display fix: Gmail and Hotmail unwantedly adds in an extra space below images when using non IE browsers.  This can be especially painful when you putting images on top of each other or putting back together an image you spliced for formatting reasons.  Either way, you can add the 'image_fix' class to remove that space below the image.  Make sure to set alignment (don't use float) on your images if you are placing them inline with text.
-							<img class="image_fix" src="full path to image" alt="Your alt text" title="Your title text" width="x" height="x" />
+Gmail/Hotmail image display fix: Gmail and Hotmail unwantedly adds in an extra space below images when using non IE browsers.  This can be especially painful when you putting images on top of each other or putting back together an image you spliced for formatting reasons.  Either way, you can add the 'image_fix' class to remove that space below the image.  Make sure to set alignment (don't use float) on your images if you are placing them inline with text.
+<img class="image_fix" src="full path to image" alt="Your alt text" title="Your title text" width="x" height="x" />
 
-							Step 2: Working with telephone numbers (including sms prompts).  Use the "mobile_link" class with a span tag to control what number links and what doesn't in mobile clients.
-							<span class="mobile_link">123-456-7890</span>
+Step 2: Working with telephone numbers (including sms prompts).  Use the "mobile_link" class with a span tag to control what number links and what doesn't in mobile clients.
+<span class="mobile_link">123-456-7890</span>

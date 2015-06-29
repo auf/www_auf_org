@@ -1,0 +1,15 @@
+{% extends "une_colonne.html" %}
+{% block Contenu %}
+<div class="col-md-12" style="background-color: white;">
+<form method="POST">
+    <h2>Veuillez vous identifier</h2>
+    {% if erreur %}
+        <div style="color:red;font-weight:bold">Ce code d'accès n'est pas valide</div>
+    {% endif %}
+    <label for="token">Code d'accès :</label>
+    <input type="text" name="token" id="token" />
+    <input type="submit" />
+    {% csrf_token %}
+</form>
+</div>
+{% endblock %}

@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 
-urlpatterns = patterns('espace_membre.views',
+urlpatterns = patterns('project.espace_membre.views',
     url(r'membre/$', 'accueil', name='espace_membre_accueil'),
     url(r'membre/modifier$', 'modifier', name='espace_membre_modifier'),
     url(r'membre/apercu$', 'apercu', name='espace_membre_apercu'),

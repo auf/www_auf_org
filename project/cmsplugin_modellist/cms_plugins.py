@@ -18,6 +18,15 @@ FACETS = {
     'Veille': 'Veilles',
 }
 
+SLUGS_REGION = {
+    'Actualite': 'actualites',
+    'Publication': 'publications',
+    'Appel_Offre': 'appels-offre',
+    'Evenement': 'evenements',
+    'Veille': 'veille',
+    'Bourse': 'allocations',
+}
+
 
 class ModelListCMSPlugin(CMSPluginBase):
     model = ModelList
@@ -39,6 +48,13 @@ class ModelListCMSPlugin(CMSPluginBase):
         else:
             ctx['object_list'] = obj_query.filter(status__in=[3,5]).distinct()[:instance.nbelements]
         ctx['title'] = instance.title
+
+        # FIXME
+        try:
+            ctx['slug_region'] = SLUGS_REGION[instance.modele]
+        except:
+            pass
+
         ctx['layout_template'] = instance.layout_template
 
         # FIXME Flux RSS par bureau

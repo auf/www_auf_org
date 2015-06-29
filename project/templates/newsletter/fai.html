@@ -13,12 +13,12 @@
 		.ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
 		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
 		#backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
-		
+
 		img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
 		a img {border:none;}
 		.image_fix {display:block;}
 
-	
+
 		p {margin: 1em 0;}
 
 		h1, h2, h3, h4, h5, h6 {color: black !important;}
@@ -200,7 +200,7 @@
                                                                                 <p style="font-size: 13px; color: #999999;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}<br />
                                                                                 <a href="http://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
                                                                             {% endfor %}
-																			
+
 																		</td>
 																	</tr>
 																</table>

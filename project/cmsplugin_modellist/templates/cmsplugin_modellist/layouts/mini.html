@@ -1,4 +1,4 @@
-{% load menu_tags cms_tags sekizai_tags %}
+{% load menu_tags cms_tags sekizai_tags auf %}
 {% load thumbnail %}
 
 
@@ -21,7 +21,14 @@ $(function () {
 
 {% for p in object_list %}
 <div class="thumbnail thumbnail-bureau">
+
+{% get_bureau as bureau %}
+{% if bureau.0 %}
+  <a class="" href="/{{ bureau.0 }}{{p.get_absolute_url_region }}">
+{% else %}
   <a class="" href="{{p.get_absolute_url}}">
+{% endif %}
+
     {% if p.image %}
     <img class="img-thumbnail pull-right" src="{% thumbnail p.image 80x80 upscale %}"/>
     {% else %}
@@ -29,7 +36,13 @@ $(function () {
     {% endif %}
   </a>
     <div class="title-date">
+
+{% if bureau.0 %}
+    <a class="" href="/{{ bureau.0 }}{{p.get_absolute_url_region }}">
+{% else %}
     <a class="" href="{{p.get_absolute_url}}">
+{% endif %}
+
     <span>{{ p.titre }}</span>
     </a>
   </div>
