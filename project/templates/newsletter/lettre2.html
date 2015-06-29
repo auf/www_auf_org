@@ -221,7 +221,7 @@
                               <td style="vertical-align:top; padding-left: 25px;">
                                 <p style="font-size: 12px;">
                                   {% for bureau in list_bureau %}
-                                    <a href="http://www.auf.org/{{bureau.code}}/{{ item.get_absolute_url_region }}" style="color:#fff; text-decoration: none">{{ item.titre }}</a>
+                                    <a href="http://www.auf.org/B{{bureau.code}}/{{ item.get_absolute_url_region }}" style="color:#fff; text-decoration: none">{{ item.titre }}</a>
                                   {% endfor %}
                                 </p>
                               </td>
@@ -285,7 +285,7 @@
                                       {% endif %}
                                       <br />
                                       {% for bureau in list_bureau %}
-                                        <a href="http://www.auf.org/{{bureau.code}}{{ item.get_absolute_url_region }}" target="_blank">lire la suite...</a>
+                                        <a href="http://www.auf.org/B{{bureau.code}}{{ item.get_absolute_url_region }}" target="_blank">lire la suite...</a>
                                       {% endfor %}
                                     </p>
                                   </td>
@@ -360,7 +360,7 @@
                                   {% for bureau in list_bureau %}{% if bureau.nom == 'International' %}
                                     <a href="http://www.auf.org/lettre-information-desinscription/" target="_blank">Cliquez ici</a>
                                   {% else %}
-                                    <a href="http://www.auf.org/{{bureau.code}}/lettre-information-desinscription/" target="_blank">
+                                    <a href="http://www.auf.org/B{{bureau.code}}/lettre-information-desinscription/" target="_blank">
                                       <img src="http://www.auf.org/static/lettre/images/picto2.gif" />
                                     </a>
                                   {% endif %}{% endfor %}
