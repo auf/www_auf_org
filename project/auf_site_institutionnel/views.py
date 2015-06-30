@@ -23,17 +23,18 @@ from auf.django.references.models import Etablissement, Pays, Employe, Implantat
 from forms import *
 
 BUREAUX_CODE = {
-    'ameriques':'A',
-    'afrique-centrale-et-des-grands-lacs':'ACGL',
-    'afrique-de-l-ouest':'AO',
-    'asie-pacifique':'AP',
-    'caraibe':'C',
-    'europe-centrale-et-orientale':'ECO',
-    'europe-de-l-ouest':'EO',
-    'moyen-orient':'MO',
-    'maghreb':'M',
-    'ocean-indien':'OI',
+    'ameriques': 'A',
+    'afrique-centrale-et-des-grands-lacs': 'ACGL',
+    'afrique-de-l-ouest': 'AO',
+    'asie-pacifique': 'AP',
+    'caraibe': 'C',
+    'europe-centrale-et-orientale': 'ECO',
+    'europe-de-l-ouest': 'EO',
+    'moyen-orient': 'MO',
+    'maghreb': 'M',
+    'ocean-indien': 'OI',
 }
+
 
 def actualite_detail(request, slug):
     p = get_object_or_404(Actualite, slug=slug)

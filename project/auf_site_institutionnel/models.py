@@ -16,12 +16,12 @@ from project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
 TEMPLATE_PATH = os.path.join("auf_site_institutionnel/employe", "layouts")
 
 STATUTS = (
-         ('1', 'En cours de rédaction'),
-         ('2', 'Proposé à la publication'),
-         ('6', 'Publié sur les sites régionaux'),
-         ('3', 'Publié sur les sites régionaux et international'),
-         ('5', 'Publié sur le site international'),
-         ('4', 'Dépublié')
+    ('1', 'En cours de rédaction'),
+    ('2', 'Proposé à la publication'),
+    ('6', 'Publié sur les sites régionaux'),
+    ('3', 'Publié sur les sites régionaux et international'),
+    ('5', 'Publié sur le site international'),
+    ('4', 'Dépublié')
 )
 
 
@@ -57,7 +57,8 @@ class Personna(models.Model):
 
 
 class Bourse(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="bourse_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="bourse_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -71,7 +72,8 @@ class Bourse(models.Model):
     date_pub = models.DateTimeField('date de creation')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -94,7 +96,8 @@ class Bourse(models.Model):
 
 
 class Actualite(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="actualite_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="actualite_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -107,7 +110,8 @@ class Actualite(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, null=False, default='3', blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -130,7 +134,8 @@ class Actualite(models.Model):
 
 
 class Veille(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="veille_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="veille_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -143,7 +148,8 @@ class Veille(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, null=False, default='3', blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, null=False, default='3', blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -159,7 +165,8 @@ class Veille(models.Model):
 
 
 class Appel_Offre(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="appel_offre_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="appel_offre_bureau")
     auf = models.BooleanField(
         "Cet appel d'offre est un appel d'offre AUF (et non partenaire)", default="True")
     personna = models.ManyToManyField(Personna)
@@ -175,7 +182,8 @@ class Appel_Offre(models.Model):
     date_pub = models.DateTimeField('date de creation')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -198,7 +206,8 @@ class Appel_Offre(models.Model):
 
 
 class Evenement(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="evenement_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="evenement_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
@@ -212,7 +221,8 @@ class Evenement(models.Model):
     date_pub = models.DateTimeField('date de creation', auto_now=True)
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_debut',)
@@ -235,7 +245,8 @@ class Evenement(models.Model):
 
 
 class Comares(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="comares_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="comares_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
@@ -244,7 +255,8 @@ class Comares(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)
@@ -257,7 +269,8 @@ class Comares(models.Model):
 
 
 class Publication(models.Model):
-    bureau = models.ManyToManyField(Region, blank=True, null=True, related_name="publication_bureau")
+    bureau = models.ManyToManyField(
+        Region, blank=True, null=True, related_name="publication_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
@@ -268,7 +281,8 @@ class Publication(models.Model):
     date_pub = models.DateField('date')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
-    status = models.CharField(max_length=1, default='3', null=False, blank=False, choices=STATUTS)
+    status = models.CharField(
+        max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
     class Meta:
         ordering = ('-date_pub',)

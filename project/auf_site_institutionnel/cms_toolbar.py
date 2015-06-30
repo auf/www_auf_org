@@ -30,11 +30,14 @@ class AufToolbar(CMSToolbar):
         for m in self.watch_models:
             url = reverse('admin:auf_site_institutionnel' + '_' +
                           m._meta.object_name.lower() + "_changelist")
-            menu.add_sideframe_item("Voir: " + MODEL_DICT[m._meta.object_name], url=url)
+            menu.add_sideframe_item(
+                "Voir: " + MODEL_DICT[m._meta.object_name], url=url)
         menu.add_break('article-break')
         for m in self.watch_models:
             url = reverse('admin:auf_site_institutionnel' + '_' +
                           m._meta.object_name.lower() + "_add")
-            menu.add_sideframe_item("Ajouter: " + MODEL_DICT[m._meta.object_name], url=url)
+            menu.add_sideframe_item(
+                "Ajouter: " + MODEL_DICT[m._meta.object_name], url=url)
         menu.add_break('article-break2')
-        menu.add_modal_item('Parcourir les fichiers', url=reverse("admin:filer_folder_changelist"))
+        menu.add_modal_item(
+            'Parcourir les fichiers', url=reverse("admin:filer_folder_changelist"))
