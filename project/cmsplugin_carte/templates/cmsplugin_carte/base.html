@@ -1,4 +1,6 @@
 {% load sekizai_tags staticfiles auf %}
+{% get_bureau as bureau %}
+
 
 {% addtoblock "css" %}
     <link rel="stylesheet" href="{{ STATIC_URL }}css/ol.css" type="text/css"/>
@@ -59,9 +61,6 @@
 
     function make_mini_popup_element(code_pays, nom, implantations, nb_etablissements,
                                      nb_par_type) {
-      var noms_implantations =  [];
-      $.each(implantations, function(i, impl) {
-        noms_implantations.push(impl.nom) });
       var html = '';
       if (nb_etablissements) {
     html += '<span class="etablissements"></span>';
@@ -75,29 +74,28 @@
 
       var new_popup = $('<div class="ol-popup"></div>');
       new_popup.html(html);
-      $('#popups').append(new_popup);
-      return new_popup;
-    }
-
-    function make_popup_element(code_pays, nom, implantations, nb_etablissements,
-                               nb_par_type) {
-      var noms_implantations =  [];
-      $.each(implantations, function(i, impl) {
-        noms_implantations.push(impl.nom) });
+      new_popup.click(function() {
       var html = '<p class="ol-popup-titre">' + nom + '</p>'
-               + '<p class="implantation">' + noms_implantations.join('<br/>') + '</p>'
-               + '<ul class="ol-popup-liste">'
-               + '<li class="etablissements">'
-               + '<strong>' + nb_etablissements.toString() + '</strong> Établissements</li>';
-      $.each(nb_par_type, function(code_type, nb) {
-      if(nb) {
-    html += '<li class="' + code_type + '">' + code_type + ':' + nb.toString() + '</li>';
-      };
+               + '<ul class="implantation">';
+
+      $.each(implantations, function(i, impl) {
+        html += '<li>' + impl.nom + '</li>';
       });
       html += '</ul>';
 
-      var new_popup = $('<div class="ol-popup"></div>');
+      html += '<ul class="ol-popup-liste">'
+              + '<li class="etablissements">'
+              + '<strong>' + nb_etablissements.toString() + '</strong> Établissements</li>';
+      
+      $.each(nb_par_type, function(code_type, nb) {
+        if(nb) {
+          html += '<li class="' + code_type + '"><strong>' + nb.toString() + '</strong> ' + code_type + '</li>';
+        };
+      });
+      html += '</ul>';
+
       new_popup.html(html);
+    });
       $('#popups').append(new_popup);
       return new_popup;
     }
@@ -111,8 +109,10 @@
         make_popup_element: make_mini_popup_element,
         popup_threshold: 5000,
         couleurs_bureaux: COULEURS_BUREAUX,
-        filtre_region: 'BA',
-        zoom_to_region: 'BA'
+{% if bureau.0 %}
+        filtre_region: '{{ bureau.0 }}',
+        zoom_to_region: '{{ bureau.0 }}'
+{% endif %}
       });
     }
 
@@ -136,8 +136,8 @@
       <label for="filter-bureau">Filtre bureaux</label>
       <select id="filter-bureau">
         <option value="tous">Tous</option>
-        {% for bureau in bureaux %}
-          <option value="{{ bureau.code }}">{{ bureau.nom }}</option>
+        {% for b in bureaux %}
+          <option value="B{{ b.code }}" {% if bureau.0 == "B"|join:b.code %}selected{% endif %}>{{ b.nom }}</option>
         {% endfor %}
 
       </select>
@@ -155,7 +155,7 @@
 
   </div>
 
-    <div id="popup" class="ol-popup">
+    <div id="popup" class="ol-popup" style="visibility: hidden;">
     </div>
   <div id="popups" style="visibility: hidden;">
 

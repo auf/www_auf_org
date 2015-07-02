@@ -1,9 +1,16 @@
 {% extends "base.html" %}
-{% load static cms_tags sekizai_tags menu_tags %}
+{% load static cms_tags sekizai_tags menu_tags auf %}
+
+{% get_bureau as bureau %}
 
 {% block menu %}
-    {% show_menu 0 2 2 2 "bootstrap/menu/navbar.html" %}
+{% if bureau.0 %}
+            {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
+    {% else %}
+            {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+    {% endif %}
 {% endblock %}
+
 
 {% block contenu %}
 <div class="col-md-12" id="content" style="background-color: white;">
