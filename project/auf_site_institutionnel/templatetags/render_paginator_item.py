@@ -26,13 +26,20 @@ def render_paginator_item(context, first_last_amount=2, before_after_amount=4):
             page_numbers.append(i)
 
     # Current page and pages after current page
-    if page_obj.number + first_last_amount + before_after_amount < paginator.num_pages:
-        for i in range(page_obj.number, page_obj.number + before_after_amount + 1):
+    if page_obj.number + first_last_amount + \
+            before_after_amount < paginator.num_pages:
+        for i in range(
+                page_obj.number, page_obj.number + before_after_amount + 1):
             page_numbers.append(i)
 
         page_numbers.append(None)
 
-        for i in range(paginator.num_pages - first_last_amount + 1, paginator.num_pages + 1):
+        for i in range(
+                paginator.num_pages -
+                first_last_amount +
+                1,
+                paginator.num_pages +
+                1):
             page_numbers.append(i)
 
     else:
@@ -46,4 +53,5 @@ def render_paginator_item(context, first_last_amount=2, before_after_amount=4):
     }
 
 register.inclusion_tag(
-    'auf_site_institutionnel/pagination.html', takes_context=True)(render_paginator_item)
+    'auf_site_institutionnel/pagination.html',
+    takes_context=True)(render_paginator_item)

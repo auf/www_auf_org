@@ -23,7 +23,9 @@ class CMSMembrePlugin(CMSPluginBase):
         dictFilter['membre'] = True
         # if request.method == 'GET': # If the form has been submitted...
         item_list = MembreFilter(
-            context['request'].GET or None, queryset=Etablissement.objects.filter(**dictFilter))
+            context['request'].GET or None,
+            queryset=Etablissement.objects.filter(
+                **dictFilter))
 
         context.update({'membre_list': item_list,
                         'form': item_list.form,

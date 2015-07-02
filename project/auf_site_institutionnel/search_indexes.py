@@ -1,6 +1,7 @@
 # encoding: utf-8
 import datetime
 
+from django.core.exceptions import ObjectDoesNotExist
 from haystack import indexes
 
 from project.auf_site_institutionnel.models import \
@@ -20,7 +21,7 @@ class AufIndex(indexes.SearchIndex):
     def prepare_bureaux(self, obj):
         try:
             return [b.nom for b in obj.bureau.all()]
-        except ObjectDoesNotExist, e:
+        except ObjectDoesNotExist as e:
             print(e)
             return [u'Non précisé']
 

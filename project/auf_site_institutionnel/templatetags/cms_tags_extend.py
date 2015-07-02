@@ -63,7 +63,12 @@ def do_placeholdervar(parser, token):
 
     except ValueError:
         raise template.TemplateSyntaxError(error_string % bits[0])
-    return PlaceholdervarNode(name=bits[1], parser=parser, token=token, var=bits[-1], nodelist=nodelist, inherit=inherit)
+    return PlaceholdervarNode(name=bits[1],
+                              parser=parser,
+                              token=token,
+                              var=bits[-1],
+                              nodelist=nodelist,
+                              inherit=inherit)
 
 register.tag('placeholdervar', do_placeholdervar)
 
@@ -100,8 +105,13 @@ eg: {% show_placeholdervar "placeholder_name" page_lookup [inherit] as varname %
         #content = PlaceholderNode.render(self, context)
         #site = Site.objects.get_current()
         #lang = get_language_from_request(context['request'])
-        content = _show_placeholder_for_page(context, self.name, self.page_lookup.resolve(
-            context), lang=None, site=None, cache_result=False)['content']
+        content = _show_placeholder_for_page(
+            context,
+            self.name,
+            self.page_lookup.resolve(context),
+            lang=None,
+            site=None,
+            cache_result=False)['content']
         context.push()
         context[self.var] = mark_safe(content)
         output = self.nodelist.render(context)
@@ -131,7 +141,11 @@ def do_show_placeholdervar(parser, token):
 
     except ValueError:
         raise template.TemplateSyntaxError(error_string % bits[0])
-    return ShowPlaceholdervarNode(name=bits[1], var=bits[-1], page_lookup=bits[2], nodelist=nodelist, inherit=inherit)
+    return ShowPlaceholdervarNode(name=bits[1],
+                                  var=bits[-1],
+                                  page_lookup=bits[2],
+                                  nodelist=nodelist,
+                                  inherit=inherit)
     # return ShowPlaceholdervarNode(name=bits[1], var=bits[-1], page_lookup=31, nodelist=nodelist, inherit=inherit)
     # return ShowPlaceholdervarNode(name=bits[1], var=bits[-1],
     # page_lookup=28, nodelist=nodelist, inherit=inherit)

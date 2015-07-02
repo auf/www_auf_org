@@ -40,4 +40,5 @@ class AufToolbar(CMSToolbar):
                 "Ajouter: " + MODEL_DICT[m._meta.object_name], url=url)
         menu.add_break('article-break2')
         menu.add_modal_item(
-            'Parcourir les fichiers', url=reverse("admin:filer_folder_changelist"))
+            'Parcourir les fichiers',
+            url=reverse("admin:filer_folder_changelist"))

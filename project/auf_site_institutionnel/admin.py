@@ -23,7 +23,8 @@ class RubriqueBureauAdmin(admin.ModelAdmin):
             if not request.user.is_superuser:
                 qs = qs.exclude(id=999)
             kwargs["queryset"] = qs
-        return super(RubriqueBureauAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+        return super(RubriqueBureauAdmin, self).formfield_for_manytomany(
+            db_field, request, **kwargs)
 
     def afficher_les_bureaux(self, obj):
         return ', '.join([b.nom for b in obj.bureau.filter(actif=1)])
@@ -65,7 +66,10 @@ class PersonnaAdmin(admin.ModelAdmin):
     pass
 
 
-class BourseAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauPersonnaAdmin):
+class BourseAdmin(
+        FrontendEditableAdminMixin,
+        PlaceholderAdminMixin,
+        RubriqueBureauPersonnaAdmin):
 
     fieldsets = RubriqueBureauPersonnaAdmin.fieldsets + \
         [('Date', {
@@ -83,21 +87,26 @@ class BourseAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBur
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 
 
-class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, RubriqueBureauPersonnaAdmin):
+class Appel_OffreAdmin(
+        PlaceholderAdminMixin,
+        FrontendEditableAdminMixin,
+        RubriqueBureauPersonnaAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
-        ('Partenaires?', {'fields': ['auf']}),
-        ('Cibles', {'fields': ['bureau']}),
-        ('Article', {
-         'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
-        ('Date', {'fields': ['date_fin', 'date_fin2'], 'classes': ['wide']}),
-    ]
+        ('Partenaires?', {
+            'fields': ['auf']}), ('Cibles', {
+                'fields': ['bureau']}), ('Article', {
+                    'fields': [
+                        'status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}), ('Date', {
+                            'fields': [
+                                'date_fin', 'date_fin2'], 'classes': ['wide']}), ]
 
     def formfield_for_manytomany(self, db_field, request, **kwargs):
         if db_field.name == "bureau":
@@ -105,7 +114,8 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
             if not request.user.is_superuser:
                 qs = qs.exclude(id=999)
             kwargs["queryset"] = qs
-        return super(RubriqueBureauAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+        return super(RubriqueBureauAdmin, self).formfield_for_manytomany(
+            db_field, request, **kwargs)
 
     def afficher_les_bureaux(self, obj):
         return ', '.join([b.nom for b in obj.bureau.filter(actif=1)])
@@ -119,7 +129,12 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
     show_image2.short_description = 'Image'
 
     list_display = (
-        'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux', 'auf')
+        'status',
+        'show_image2',
+        'titre',
+        'date_pub',
+        'afficher_les_bureaux',
+        'auf')
     list_display_links = ('status', 'titre')
     search_fields = ['titre']
 
@@ -135,12 +150,16 @@ class Appel_OffreAdmin(PlaceholderAdminMixin, FrontendEditableAdminMixin, Rubriq
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 
 
-class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
+class EvenementAdmin(
+        FrontendEditableAdminMixin,
+        PlaceholderAdminMixin,
+        RubriqueBureauAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
 
     def show_image2(self, obj):
@@ -153,8 +172,12 @@ class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
 
     list_display = ('status', 'show_image2', 'titre', 'date_pub',
                     'afficher_les_bureaux', 'date_debut', 'date_fin')
-    fieldsets = RubriqueBureauAdmin.fieldsets + [('Date', {'fields': ['date_debut', 'date_fin'], 'classes': [
-                                                  'wide']}), ('Informations Supplémentaires', {'fields': ['lieu', 'detail_horaire'], 'classes': ['wide']})]
+    fieldsets = RubriqueBureauAdmin.fieldsets + [
+        ('Date', {
+            'fields': [
+                'date_debut', 'date_fin'], 'classes': ['wide']}), ('Informations Supplémentaires', {
+                    'fields': [
+                        'lieu', 'detail_horaire'], 'classes': ['wide']})]
 
     def queryset(self, request):
         """
@@ -168,20 +191,22 @@ class EvenementAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 
 
-class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.ModelAdmin):
+class PublicationAdmin(
+        FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.ModelAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
-        ('Cibles', {'fields': ['bureau']}),
-        ('Article', {'fields': [
-         'status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']}),
-        ('Date', {'fields': ['date_pub'], 'classes': ['wide']}),
-    ]
+        ('Cibles', {
+            'fields': ['bureau']}), ('Article', {
+                'fields': [
+                    'status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']}), ('Date', {
+                        'fields': ['date_pub'], 'classes': ['wide']}), ]
 
     def afficher_les_bureaux(self, obj):
         return ', '.join([b.nom for b in obj.bureau.all()])
@@ -209,7 +234,8 @@ class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 
@@ -217,11 +243,11 @@ class PublicationAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, admin.
 class ComaresAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['titre']}
     fieldsets = [
-        ('Cibles', {'fields': ['bureau']}),
-        ('Article', {
-         'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
-        ('Date', {'fields': ['date_pub'], 'classes': ['wide']}),
-    ]
+        ('Cibles', {
+            'fields': ['bureau']}), ('Article', {
+                'fields': [
+                    'status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}), ('Date', {
+                        'fields': ['date_pub'], 'classes': ['wide']}), ]
 
     def afficher_les_bureaux(self, obj):
         return ', '.join([b.nom for b in obj.bureau.all()])
@@ -245,12 +271,16 @@ class ComaresAdmin(admin.ModelAdmin):
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 
 
-class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, RubriqueBureauAdmin):
+class ActualiteAdmin(
+        FrontendEditableAdminMixin,
+        PlaceholderAdminMixin,
+        RubriqueBureauAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
     fieldsets = RubriqueBureauAdmin.fieldsets + \
         [('Date', {'fields': ['date_pub'], 'classes': ['wide']}), ]
@@ -269,7 +299,8 @@ class ActualiteAdmin(FrontendEditableAdminMixin, PlaceholderAdminMixin, Rubrique
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 
@@ -286,7 +317,8 @@ class VeilleAdmin(RubriqueBureauAdmin):
             return qs
 
         if request.user.employe is not None:
-            return qs.filter(bureau=request.user.employe.implantation.region.id)
+            return qs.filter(
+                bureau=request.user.employe.implantation.region.id)
 
         return qs
 

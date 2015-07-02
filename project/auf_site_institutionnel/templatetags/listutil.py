@@ -43,13 +43,14 @@ def partition(thelist, n):
     except (ValueError, TypeError):
         return [thelist]
     p = len(thelist) / n
-    return [thelist[p * i:p * (i + 1)] for i in range(n - 1)] + [thelist[p * (i + 1):]]
+    return [thelist[p * i:p * (i + 1)]
+            for i in range(n - 1)] + [thelist[p * (i + 1):]]
 
 
 @register.filter
 def partition_horizontal(thelist, n):
     """
-    Break a list into ``n`` peices, but "horizontally." That is, 
+    Break a list into ``n`` peices, but "horizontally." That is,
     ``partition_horizontal(range(10), 3)`` gives::
 
         [[1, 2, 3],

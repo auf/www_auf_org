@@ -67,8 +67,23 @@ class Bourse(models.Model):
     cmstexte = PlaceholderField('texte')
     image = models.ImageField(upload_to='bourse', null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
-    date_fin2 = models.CharField(max_length=1, null=True, blank=True, choices=(('1', '1 Moi avant le début des manifestations'), ('2', '2 Mois avant le début des manifestations'), (
-        '3', '3 Mois avant le début des manifestations'), ('4', '4 Mois avant le début des manifestations'), ('5', '5 Mois avant le début des manifestations'), ('6', 'Permanent')))
+    date_fin2 = models.CharField(
+        max_length=1,
+        null=True,
+        blank=True,
+        choices=(
+            ('1',
+             '1 Moi avant le début des manifestations'),
+            ('2',
+             '2 Mois avant le début des manifestations'),
+            ('3',
+             '3 Mois avant le début des manifestations'),
+            ('4',
+             '4 Mois avant le début des manifestations'),
+            ('5',
+             '5 Mois avant le début des manifestations'),
+            ('6',
+             'Permanent')))
     date_pub = models.DateTimeField('date de creation')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
@@ -168,7 +183,8 @@ class Appel_Offre(models.Model):
     bureau = models.ManyToManyField(
         Region, blank=True, null=True, related_name="appel_offre_bureau")
     auf = models.BooleanField(
-        "Cet appel d'offre est un appel d'offre AUF (et non partenaire)", default="True")
+        "Cet appel d'offre est un appel d'offre AUF (et non partenaire)",
+        default="True")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
@@ -177,8 +193,23 @@ class Appel_Offre(models.Model):
     cmstexte = PlaceholderField('texte')
     image = models.ImageField(null=True, blank=True, upload_to='appel_offre')
     date_fin = models.DateField(null=True, blank=True)
-    date_fin2 = models.CharField(max_length=1, null=True, blank=True, choices=(('1', '1 Moi avant le début des manifestations'), ('2', '2 Mois avant le début des manifestations'), (
-        '3', '3 Mois avant le début des manifestations'), ('4', '4 Mois avant le début des manifestations'), ('5', '5 Mois avant le début des manifestations'), ('6', 'Permanent')))
+    date_fin2 = models.CharField(
+        max_length=1,
+        null=True,
+        blank=True,
+        choices=(
+            ('1',
+             '1 Moi avant le début des manifestations'),
+            ('2',
+             '2 Mois avant le début des manifestations'),
+            ('3',
+             '3 Mois avant le début des manifestations'),
+            ('4',
+             '4 Mois avant le début des manifestations'),
+            ('5',
+             '5 Mois avant le début des manifestations'),
+            ('6',
+             'Permanent')))
     date_pub = models.DateTimeField('date de creation')
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
@@ -305,8 +336,19 @@ class Publication(models.Model):
 
 
 class Partenaire(models.Model):
-    type = models.CharField(max_length=1, choices=(('1', 'Etats et gouvernements'), ('2', 'Organisations internationales'), (
-        '3', 'Cooperation décentralisee'), ('4', 'Institutions universitaires et scientifiques'), ('5', 'Acteurs economiques')))
+    type = models.CharField(
+        max_length=1,
+        choices=(
+            ('1',
+             'Etats et gouvernements'),
+            ('2',
+             'Organisations internationales'),
+            ('3',
+             'Cooperation décentralisee'),
+            ('4',
+             'Institutions universitaires et scientifiques'),
+            ('5',
+             'Acteurs economiques')))
     nom = models.TextField()
     objet = models.TextField()
     budget = models.CharField(max_length=200)
@@ -328,24 +370,29 @@ class EmployePlugin(CMSPlugin):
     service = models.ForeignKey(
         Service, related_name="employe_plugin_service", null=True, blank=True)
     # FIXME
-    fonction = models.CharField(max_length=255, null=True, blank=True,
-                                choices=set(
-                                    ((e.fonction, e.fonction)
-                                     for e in Employe.objects.filter(actif=True))
-                                )
-                                )
+    fonction = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        choices=set(
+            ((e.fonction,
+              e.fonction) for e in Employe.objects.filter(
+                actif=True))))
     region = models.ForeignKey(
         Region, related_name="employe_plugin_region", null=True, blank=True)
-    layout_template = \
-        models.CharField("Template utilisé pour l'affichage",
-                         choices=DynamicTemplateChoices(
-                             path=TEMPLATE_PATH,
-                             include='.html',
-                             exclude='default'),
-                         max_length=256,
-                         help_text="""Utiliser le template pour afficher le contenu de la liste""")
+    layout_template = models.CharField(
+        "Template utilisé pour l'affichage",
+        choices=DynamicTemplateChoices(
+            path=TEMPLATE_PATH,
+            include='.html',
+            exclude='default'),
+        max_length=256,
+        help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
 
 class ImplantationPlugin(CMSPlugin):
     region = models.ForeignKey(
-        Region, related_name="implantation_plugin_region", null=True, blank=True)
+        Region,
+        related_name="implantation_plugin_region",
+        null=True,
+        blank=True)

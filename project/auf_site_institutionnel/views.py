@@ -39,7 +39,13 @@ BUREAUX_CODE = {
 def actualite_detail(request, slug):
     p = get_object_or_404(Actualite, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
-    return render_to_response('article.html', {'object': p, 'actualite': p, 'bureau': bureau, 'page_slug': 'actualites/', 'page_title': 'actualite'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'actualite': p,
+                               'bureau': bureau,
+                               'page_slug': 'actualites/',
+                               'page_title': 'actualite'},
+                              context_instance=RequestContext(request))
 
 
 def actualite_detail_br(request, slug, slugRegion=''):
@@ -51,7 +57,13 @@ def actualite_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Actualite, slug=slug)
-    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'actualite'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'slugRegion': slugRegionContext,
+                               'slugPersonna': slugPersonnaContext,
+                               'page_slug': 'actualites/',
+                               'page_title': 'actualite'},
+                              context_instance=RequestContext(request))
 
 
 # VUES VEILLE REGIONALE
@@ -64,13 +76,24 @@ def veille_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Veille, slug=slug)
-    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'actualites/', 'page_title': 'veille'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'slugRegion': slugRegionContext,
+                               'slugPersonna': slugPersonnaContext,
+                               'page_slug': 'actualites/',
+                               'page_title': 'veille'},
+                              context_instance=RequestContext(request))
 
 
 def bourse_detail(request, slug):
     p = get_object_or_404(Bourse, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
-    return render_to_response('article.html', {'object': p, 'bureau': bureau, 'page_slug': 'allocations/', 'page_title': 'appel_offre'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'bureau': bureau,
+                               'page_slug': 'allocations/',
+                               'page_title': 'appel_offre'},
+                              context_instance=RequestContext(request))
 
 
 def bourse_detail_br(request, slug, slugRegion=''):
@@ -82,13 +105,24 @@ def bourse_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Bourse, slug=slug)
-    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'allocations/', 'page_title': 'appel_offre'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'slugRegion': slugRegionContext,
+                               'slugPersonna': slugPersonnaContext,
+                               'page_slug': 'allocations/',
+                               'page_title': 'appel_offre'},
+                              context_instance=RequestContext(request))
 
 
 def appel_offre_detail(request, slug):
     p = get_object_or_404(Appel_Offre, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
-    return render_to_response('article.html', {'object': p, 'bureau': bureau, 'page_slug': 'appels-offre/', 'page_title': 'appel_offre'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'bureau': bureau,
+                               'page_slug': 'appels-offre/',
+                               'page_title': 'appel_offre'},
+                              context_instance=RequestContext(request))
 
 
 def appel_offre_detail_br(request, slug, slugRegion=''):
@@ -101,13 +135,24 @@ def appel_offre_detail_br(request, slug, slugRegion=''):
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Appel_Offre, slug=slug)
 
-    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'appels-offre/', 'page_title': 'appel_offre'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'slugRegion': slugRegionContext,
+                               'slugPersonna': slugPersonnaContext,
+                               'page_slug': 'appels-offre/',
+                               'page_title': 'appel_offre'},
+                              context_instance=RequestContext(request))
 
 
 def evenement_detail(request, slug):
     p = get_object_or_404(Evenement, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
-    return render_to_response('article.html', {'object': p, 'bureau': bureau, 'page_slug': 'evenements/', 'page_title': 'evenement'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'bureau': bureau,
+                               'page_slug': 'evenements/',
+                               'page_title': 'evenement'},
+                              context_instance=RequestContext(request))
 
 
 def evenement_detail_br(request, slug, slugRegion=''):
@@ -119,13 +164,24 @@ def evenement_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Evenement, slug=slug)
-    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'evenements/', 'page_title': 'evenement'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'slugRegion': slugRegionContext,
+                               'slugPersonna': slugPersonnaContext,
+                               'page_slug': 'evenements/',
+                               'page_title': 'evenement'},
+                              context_instance=RequestContext(request))
 
 
 def publication_detail(request, slug, slugRegion=''):
     p = get_object_or_404(Publication, slug=slug)
     bureau = ', '.join([b.nom for b in p.bureau.all()])
-    return render_to_response('article.html', {'object': p, 'bureau': bureau, 'page_slug': 'publications/', 'page_title': 'publication'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'bureau': bureau,
+                               'page_slug': 'publications/',
+                               'page_title': 'publication'},
+                              context_instance=RequestContext(request))
 
 
 def publication_detail_br(request, slug, slugRegion=''):
@@ -137,17 +193,27 @@ def publication_detail_br(request, slug, slugRegion=''):
             slugPersonnaContext = '/' + slugRegion
         slugRegionContext = '/' + slugRegion
     p = get_object_or_404(Publication, slug=slug)
-    return render_to_response('article.html', {'object': p, 'slugRegion': slugRegionContext, 'slugPersonna': slugPersonnaContext, 'page_slug': 'publications/', 'page_title': 'publication'}, context_instance=RequestContext(request))
+    return render_to_response('article.html',
+                              {'object': p,
+                               'slugRegion': slugRegionContext,
+                               'slugPersonna': slugPersonnaContext,
+                               'page_slug': 'publications/',
+                               'page_title': 'publication'},
+                              context_instance=RequestContext(request))
 
 # AUTRES VUES
 
 
 def page_rss(request, slugRegion=''):
-    return render_to_response('auf_site_institutionnel/page_rss.html', {'page_title': 'Actualite'}, context_instance=RequestContext(request))
+    return render_to_response('auf_site_institutionnel/page_rss.html',
+                              {'page_title': 'Actualite'},
+                              context_instance=RequestContext(request))
 
 
 def plan_du_site(request, slugRegion=''):
-    return render_to_response('sitemap.html', {'page_title': 'Plan du site'}, context_instance=RequestContext(request))
+    return render_to_response('sitemap.html',
+                              {'page_title': 'Plan du site'},
+                              context_instance=RequestContext(request))
 
 
 def test_membres(request, slugRegion=''):
@@ -157,8 +223,16 @@ def test_membres(request, slugRegion=''):
     dictFilter['membre'] = True
     # if request.method == 'GET': # If the form has been submitted...
     item_list = MembreFilter(
-        request.GET or None, queryset=Etablissement.objects.filter(**dictFilter))
-    return render_to_response('auf_site_institutionnel/membre.html', {'page_title': 'Membres', 'membre_list': item_list, 'form': item_list.form}, context_instance=RequestContext(request))
+        request.GET or None,
+        queryset=Etablissement.objects.filter(
+            **dictFilter))
+    return render_to_response(
+        'auf_site_institutionnel/membre.html',
+        {
+            'page_title': 'Membres',
+            'membre_list': item_list,
+            'form': item_list.form},
+        context_instance=RequestContext(request))
 
 
 def employes(request, ):
@@ -177,7 +251,10 @@ def employes(request, ):
         page = paginator.page(paginator.num_pages)
 
     c = {'form': form, 'page': page, }
-    return render_to_response('auf_site_institutionnel/employes.html', Context(c), context_instance=RequestContext(request))
+    return render_to_response(
+        'auf_site_institutionnel/employes.html',
+        Context(c),
+        context_instance=RequestContext(request))
 
 
 def contacter_employe(request, employe_id=None):
@@ -202,7 +279,10 @@ def contacter_employe(request, employe_id=None):
     else:
         form = ContactEmployeForm()
     c = {'form': form, 'employe': employe}
-    return render_to_response('auf_site_institutionnel/contacter_employe.html', Context(c), context_instance=RequestContext(request))
+    return render_to_response(
+        'auf_site_institutionnel/contacter_employe.html',
+        Context(c),
+        context_instance=RequestContext(request))
 
 
 def membre(request, slugRegion=''):
@@ -212,25 +292,51 @@ def membre(request, slugRegion=''):
         dictFilter['bureau__slug'] = slugRegion
     dictFilter['membre'] = True
     item_list = MembreFilter(
-        request.GET or None, queryset=Etablissement.objects.filter(**dictFilter))
+        request.GET or None,
+        queryset=Etablissement.objects.filter(
+            **dictFilter))
 
-    return render_to_response('auf_site_institutionnel/membre.html', {'form': item_list.form, 'membre_list': item_list, 'page_title': 'Liste des membres'}, context_instance=RequestContext(request))
+    return render_to_response(
+        'auf_site_institutionnel/membre.html',
+        {
+            'form': item_list.form,
+            'membre_list': item_list,
+            'page_title': 'Liste des membres'},
+        context_instance=RequestContext(request))
 
 
 def implantation(request):
     dictFilter = {}
     dictFilter['actif'] = True
     item_list = ImplantationFilter(
-        request.GET or None, queryset=Implantation.ouvertes.filter(**dictFilter))
+        request.GET or None,
+        queryset=Implantation.ouvertes.filter(
+            **dictFilter))
 
-    return render_to_response('auf_site_institutionnel/implantation.html', {'form': item_list.form,  'implantation_list': item_list, 'page_title': 'Liste des implantations'}, context_instance=RequestContext(request))
+    return render_to_response(
+        'auf_site_institutionnel/implantation.html',
+        {
+            'form': item_list.form,
+            'implantation_list': item_list,
+            'page_title': 'Liste des implantations'},
+        context_instance=RequestContext(request))
 
 
 def membre_detail(request, id, slugRegion=''):
     p = Etablissement.objects.filter(id=id)
-    return render_to_response('auf_site_institutionnel/membre_detail.html', {'membre': p, 'page_title': 'Membres'}, context_instance=RequestContext(request))
+    return render_to_response(
+        'auf_site_institutionnel/membre_detail.html',
+        {
+            'membre': p,
+            'page_title': 'Membres'},
+        context_instance=RequestContext(request))
 
 
 def implantation_detail(request, id, slugRegion=''):
     p = Implantation.objects.filter(id=id)
-    return render_to_response('auf_site_institutionnel/implantation_detail.html', {'implantation': p, 'page_title': 'Implantation'}, context_instance=RequestContext(request))
+    return render_to_response(
+        'auf_site_institutionnel/implantation_detail.html',
+        {
+            'implantation': p,
+            'page_title': 'Implantation'},
+        context_instance=RequestContext(request))
