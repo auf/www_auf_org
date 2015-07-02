@@ -62,12 +62,16 @@
       var noms_implantations =  [];
       $.each(implantations, function(i, impl) {
         noms_implantations.push(impl.nom) });
-      var html = nom + '<br/>'
-          + noms_implantations.join('<br/>') + '<br/>'
-          + 'Nb Établissements:' + nb_etablissements.toString();
+      var html = '<p class="ol-popup-titre">' + nom + '</p>' \
+               + '<p class="implantation">' + noms_implantations.join('<br/>') + '</p>' \
+               + '<ul class="ol-popup-liste">' \
+               + '<li class="etablissements">' \
+               + '<strong>' + nb_etablissements.toString() + '</strong> Établissements</li>';
       $.each(nb_par_type, function(code_type, nb) {
-            html += '<br/>Nb ' + code_type + ':' + nb.toString();
+        html += '<li class="' + code_type + '">' + code_type + ':' + nb.toString() + '</li>';
       });
+      html += '</ul>';
+
       var new_popup = $('<div class="ol-popup"></div>');
       new_popup.html(html);
       $('#popups').append(new_popup);
