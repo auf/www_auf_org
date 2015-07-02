@@ -4,10 +4,8 @@ import collections
 import itertools
 import json
 import os
-
 import django.http
 import django.shortcuts
-
 import auf.django.references.models as auf_refs
 
 from . import models
@@ -23,7 +21,18 @@ TYPE_CNF = u'Campus numérique francophone'
 TYPE_CAI = u'Centre d\'accès à l\'information'
 
 
-ORDRE_TYPES_IMPLANTATIONS = dict((type_, i) for i, type_ in enumerate((
+CODES_TYPES_IMPLANTATIONS = (
+    ('siege', TYPE_SIEGE),
+    ('service_central', TYPE_SERVICE_CENTRAL),
+    ('bureau', TYPE_BUREAU),
+    ('institut', TYPE_INSTITUT),
+    ('antenne', TYPE_ANTENNE),
+    ('cnf', TYPE_CNF),
+    ('cnfp', TYPE_CNFP),
+    ('cai', TYPE_CAI),)
+
+
+TYPES_IMPLANTATIONS = (
     TYPE_SIEGE,
     TYPE_SERVICE_CENTRAL,
     TYPE_BUREAU,
@@ -32,7 +41,15 @@ ORDRE_TYPES_IMPLANTATIONS = dict((type_, i) for i, type_ in enumerate((
     TYPE_CNF,
     TYPE_CNFP,
     TYPE_CAI,)
-))
+
+ORDRE_TYPES_IMPLANTATIONS = dict((type_, i) for i, type_ in enumerate((
+    TYPES_IMPLANTATIONS)))
+
+
+CAPITAL_OVERRIDES = {
+    'CG': (14.5, -4.00),  # Brazzaville trop proche de Kinshasa
+    'CD': (16.5, -4.00),  # Brazzaville trop proche de Kinshasa
+}
 
 
 def get_capitals_data(codes_pays):
@@ -46,10 +63,15 @@ def get_capitals_data(codes_pays):
         try:
             country_code = capital_data['CountryCode']
             if country_code != u'NULL':
+                if country_code in CAPITAL_OVERRIDES:
+                    lon, lat = CAPITAL_OVERRIDES[country_code]
+                else:
+                    lon = float(capital_data['CapitalLongitude'])
+                    lat = float(capital_data['CapitalLatitude'])
                 code_iso3 = codes_pays[country_code]
                 capitals_data[code_iso3] = {
-                    'lon': float(capital_data['CapitalLongitude']),
-                    'lat': float(capital_data['CapitalLatitude']),
+                    'lon': lon,
+                    'lat': lat,
                 }
         except KeyError:
             pass
@@ -126,25 +148,34 @@ def get_lieux_implantations(coords_implantations):
     return lieux.values()
 
 
-def get_donnees_pays(etablissements, implantations, liste_pays):
-    etablissements_counter = get_etablissements_par_pays_counter(
-        etablissements)
-    cnfp_counter = collections.Counter(
+def get_counter_par_type_par_pays(implantations, type_):
+    return collections.Counter(
         [i.adresse_postale_pays
-         for i in implantations if i.type == TYPE_CNFP])
+         for i in implantations if i.type == type_]
+    )
+
+
+def get_types_counters(implantations):
+    return [(code, get_counter_par_type_par_pays(implantations, type_))
+            for code, type_ in CODES_TYPES_IMPLANTATIONS]
+
+
+def get_donnees_pays(etablissements, implantations, liste_pays):
+    etablissements_counter = get_etablissements_par_pays_counter(etablissements)
     implantations_par_pays = get_implantations_par_pays(implantations)
+    types_counters = get_types_counters(implantations)
     donnees_pays = {}
     for pays in liste_pays:
         implantations = implantations_par_pays.get(pays.code, [])
         nb_etablissements = etablissements_counter[pays]
-        nb_cnfp = cnfp_counter[pays]
-        donnees_pays[pays.code_iso3] = {
+        donnees_pays[pays.code_iso3]= {
             'nom': pays.nom,
             'bureau': pays.code_bureau_id,
-            'presence_auf': bool(implantations or nb_cnfp or nb_etablissements),
+            'presence_auf': bool(implantations or nb_etablissements),
             'implantations': implantations,
             'nb_etablissements': nb_etablissements,
-            'nb_cnfp': nb_cnfp,
+            'nb_par_type': dict((code, counter[pays])
+                                for code, counter in types_counters)
         }
     return donnees_pays
 
@@ -171,6 +202,7 @@ def donnees_carte_json(request):
         'capitales': get_capitals_data(codes_pays),
         'countries_geojson': get_countries_geojson(),
         'lieux_implantations': lieux,
+        'libelles_types': dict(CODES_TYPES_IMPLANTATIONS),
     }
     return django.http.HttpResponse(json.dumps(data),
                                     mimetype='application/json')

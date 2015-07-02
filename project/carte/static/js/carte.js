@@ -244,12 +244,13 @@ var Carte = (function() {
     /**
      * Callback appelé lorsque le popup va être affiché afin que son contenu soit
      * mis à jour
-     * @callback setPopupContentCallback
+     * @callback makePopupCallback
      * @param {string} nom Nom du pays
      * @param {string} code_pays Code iso3 du pays
      * @param {Array} implantations Liste des implantations du pays
      * @param {Number} nb_etablissements Nombre d'établissements dans le pays
-     * @param {Number} nb_cnfp Nombre de CNF Partenaires dans le pays
+     * @param {Number} nb_par_type Nombre d'implantations par type (CNF,
+     * antenne, institut, etc...)
      */
 
     /**
@@ -262,13 +263,17 @@ var Carte = (function() {
      * pays où il y a au moins une implantation
      * @param options.membre_marker_url Image servant de marqueur pour les pays
      * où il y a des membres mais pas d'implantation
-     * @param options.popup_id Id de l'élément qui sert de popup
-     * @param {setPopupContentCallback} options.set_popup_content Callback appelé
-     * lorsque le popup va être affiché
+     * @param {makePopupCallback} options.make_popup_element Callback appelé
+     * lorsque le popup va être affiché, qui doit retourner l'élément HTML
+     * correspondant au popup.
+     * @param options.popup_threshold Resolution en-dessous de laquelle les
+     * popups s'affichent
      * @param options.couleurs_bureaux Dictionnaire donnant la couleur pour
      * chaque code de bureau régional
      * @param options.filtre_region Code d'un bureau si on ne veut afficher que
      * celui-là
+     * @param options.zoom_to_region Code d'un bureau si on veut initialement
+     * zoomer sur sa région
      */
     function init(options) {
         var implantation_marker_style = make_marker_icon_style(options.implantation_marker_url);
@@ -277,13 +282,7 @@ var Carte = (function() {
         var donnees_pays = options.donnees_carte.donnees_pays;
         var styles_pays = make_styles_pays(options.couleurs_bureaux);
 
-        function get_capitale_style(pays) {
-            return pays.implantations.length ? implantation_marker_style
-                : etablissement_marker_style;
-        }
-
         var pays_par_type = get_pays_par_type(donnees_pays);
-        var pays_par_bureau = get_pays_par_bureau(donnees_pays);
 
         var markers_pays_implantations = make_marker_pays_features(
             options.donnees_carte.capitales,
@@ -344,15 +343,15 @@ var Carte = (function() {
         var map = make_map(options.container_id, [paysLayer, lieux_layer,
             markers_pays_etablissements_layer, markers_pays_implantations_layer]);
 
-        var element = document.getElementById(options.popup_id);
-        var popup = new ol.Overlay({
-            element: element,
-            positioning: 'bottom-center',
-            stopEvent: false
-        });
-        map.addOverlay(popup);
-        map.on('click', feature_click.bind(undefined, map, donnees_pays, popup,
-            options.set_popup_content));
+        var make_popup_overlay_fn = make_popup_overlay.bind(undefined,
+            donnees_pays, options.make_popup_element);
+
+        var view_change_handler = view_change.bind(
+            undefined, markers_pays_implantations, map,
+            make_popup_overlay_fn, options.popup_threshold);
+
+        map.getView().on('change:resolution', view_change_handler);
+        map.getView().on('change:center', view_change_handler);
 
         function filter_map(code_bureau, type) {
             // lieux, markers pays impl, markers pays etab
@@ -387,10 +386,59 @@ var Carte = (function() {
                 markers_pays_implantations_layer], donnees_pays);
         var zoom_to_region_fn = zoom_to_region.bind(undefined, map, bureaux_geometries);
 
+        if (options.filtre_region !== undefined) {
+            filter_map(options.filtre_region, 'tous');
+        }
+
+        if (options.zoom_to_region !== undefined) {
+            zoom_to_region_fn(options.zoom_to_region);
+        }
+
         return {
             filter_map: filter_map,
             zoom_to_region: zoom_to_region_fn,
             ol_map: map
+        }
+    }
+
+    function make_popup_overlay(donnees_pays, make_popup_element_callback,
+                                coords, code_pays) {
+        var donnees_du_pays = donnees_pays[code_pays];
+        if (donnees_du_pays === undefined) return;
+        var element = make_popup_element_callback(
+            code_pays,
+            donnees_du_pays.nom,
+            donnees_du_pays.implantations,
+            donnees_du_pays.nb_etablissements,
+            donnees_du_pays.nb_par_type);
+        return new ol.Overlay({
+            element: element,
+            positioning: 'bottom-center',
+            stopEvent: false,
+            position: coords
+        });
+    }
+
+    function view_change(markers_pays, map, make_popup_overlay, popup_threshold,
+                         event) {
+        var view = map.getView();
+        var view_extent = view.calculateExtent(map.getSize());
+        var display_popups = view.getResolution() < popup_threshold;
+        for (var i = 0; i < markers_pays.length; i++) {
+            var marker_pays_feature = markers_pays[i];
+            var popup_overlay = marker_pays_feature.get('popup_overlay');
+            var marker_pays_extent = marker_pays_feature.getGeometry().getExtent();
+            if (display_popups && ol.extent.intersects(marker_pays_extent, view_extent)) {
+                if (popup_overlay === undefined) {
+                    var coords = marker_pays_feature.getGeometry().getCoordinates();
+                    popup_overlay = make_popup_overlay(coords,
+                        marker_pays_feature.get('code_pays'));
+                    marker_pays_feature.set('popup_overlay', popup_overlay);
+                }
+                map.addOverlay(popup_overlay);
+            } else if (popup_overlay) {
+                map.removeOverlay(popup_overlay);
+            }
         }
     }
 
@@ -401,31 +449,6 @@ var Carte = (function() {
         var zoom = view.getZoom();
         if (zoom > 4) {
             view.setZoom(zoom - 1);
-        }
-    }
-
-    function feature_click(map, donnees_pays, popup, set_popup_content, evt) {
-        var feature = map.forEachFeatureAtPixel(evt.pixel,
-            function (feature, layer) {
-                return feature;
-            });
-        if (feature) {
-            var code_pays = feature.get('code_pays');
-            if (code_pays) {
-                var geometry = feature.getGeometry();
-                var coord = geometry.getCoordinates();
-                var donnees_du_pays = donnees_pays[code_pays];
-                set_popup_content(code_pays,
-                    donnees_du_pays.nom,
-                    donnees_du_pays.implantations,
-                    donnees_du_pays.nb_etablissements,
-                    donnees_du_pays.nb_cnfp);
-                popup.setPosition(coord);
-            } else {
-                popup.setPosition(undefined);
-            }
-        } else {
-            popup.setPosition(undefined);
         }
     }
 
