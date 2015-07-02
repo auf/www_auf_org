@@ -8,6 +8,7 @@ div#carte {
 border: 1px solid silver;
 }
 
+
 .filters form {
 border: 1px solid silver;
 background: #1D9DD9;
@@ -78,12 +79,6 @@ border-bottom-right-radius: 40px;
   font-size:0.96em;
 }
 
-.implantation::before {
-  content:"\2666";
-  margin-right:2px;
-  font-size:1.4em;
-}
-
 .ol-popup-petit {
   text-align:left;
   font-size:0.7em;
@@ -100,9 +95,11 @@ border-bottom-right-radius: 40px;
 
 
 .siege::before {
-  content:"\f140";
-  font-family:FontAwesome;
-  margin-right:2px;
+  content: "\f140";
+font-family: FontAwesome;
+margin-right: 7px;
+font-size: 1.3em;
+margin-left: -2px;
 }
 
 .rectorat {
@@ -121,7 +118,7 @@ border-bottom-right-radius: 40px;
 
 .cnf::before {
   content:"\25A3";
-  margin-right:3px;
+  margin-right:6px;
   font-size:1.3em;
   font-family:FontAwesome;
   position:relative;
@@ -139,7 +136,7 @@ border-bottom-right-radius: 40px;
   margin-left:-2px;
 }
 
-.instituts::before {
+.institut::before {
   content:"\25B2";
   margin-right:2px;
   margin-left:-4px;
@@ -148,10 +145,10 @@ border-bottom-right-radius: 40px;
   bottom:0px;
 }
 
-.antennes::before {
+.antenne::before {
   content:"\f005";
   font-family:fontawesome;
-  margin-right:3px;
+  margin-right:6px;
   margin-left:-3px;
   font-size:1.3em;
   position:relative;
@@ -163,9 +160,35 @@ border-bottom-right-radius: 40px;
   font-family:fontawesome;
   margin-right:3px;
   margin-left:-4px;
-  font-size:1.1em;      
+  font-size:1.3em;      
   position:relative;
   bottom:0px;
 }
 
+.service_central::before {
+ content:"\f0a3";
+  font-family:FontAwesome;
+  margin-right:2px;
+}
+
+.bureau {
+margin-top: -6px;
+}
+
+.bureau::before {
+content: "\2666";
+font-size: 2rem;
+margin-left: -2px;
+margin-right: 7px;
+}
+
+.implantation li:nth-child(1) {
+text-transform: uppercase;
+text-align: center;
+background: whitesmoke;
+margin-left: -15px;
+margin-right: -15px;
+padding-top: 3px;
+margin-bottom: 2px;
+}
 
