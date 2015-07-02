@@ -57,18 +57,42 @@
     var implantation_marker_url = div_carte.data('implantation-marker-url');
     var membre_marker_url = div_carte.data('membre-marker-url');
 
+    function make_mini_popup_element(code_pays, nom, implantations, nb_etablissements,
+                                     nb_par_type) {
+      var noms_implantations =  [];
+      $.each(implantations, function(i, impl) {
+        noms_implantations.push(impl.nom) });
+      var html = '';
+      if (nb_etablissements) {
+    html += '<span class="etablissements"></span>';
+      }
+
+      $.each(nb_par_type, function(code_type, nb) {
+       if (nb){
+         html += '<span class="' + code_type + '"></span>';
+      };
+      });
+
+      var new_popup = $('<div class="ol-popup"></div>');
+      new_popup.html(html);
+      $('#popups').append(new_popup);
+      return new_popup;
+    }
+
     function make_popup_element(code_pays, nom, implantations, nb_etablissements,
                                nb_par_type) {
       var noms_implantations =  [];
       $.each(implantations, function(i, impl) {
         noms_implantations.push(impl.nom) });
-      var html = '<p class="ol-popup-titre">' + nom + '</p>' \
-               + '<p class="implantation">' + noms_implantations.join('<br/>') + '</p>' \
-               + '<ul class="ol-popup-liste">' \
-               + '<li class="etablissements">' \
+      var html = '<p class="ol-popup-titre">' + nom + '</p>'
+               + '<p class="implantation">' + noms_implantations.join('<br/>') + '</p>'
+               + '<ul class="ol-popup-liste">'
+               + '<li class="etablissements">'
                + '<strong>' + nb_etablissements.toString() + '</strong> Établissements</li>';
       $.each(nb_par_type, function(code_type, nb) {
-        html += '<li class="' + code_type + '">' + code_type + ':' + nb.toString() + '</li>';
+      if(nb) {
+    html += '<li class="' + code_type + '">' + code_type + ':' + nb.toString() + '</li>';
+      };
       });
       html += '</ul>';
 
@@ -84,7 +108,7 @@
         donnees_carte: donnees_carte,
         implantation_marker_url: implantation_marker_url,
         membre_marker_url: membre_marker_url,
-        make_popup_element: make_popup_element,
+        make_popup_element: make_mini_popup_element,
         popup_threshold: 5000,
         couleurs_bureaux: COULEURS_BUREAUX,
         filtre_region: 'BA',
