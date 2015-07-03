@@ -41,7 +41,7 @@
   {% if instance.show_indicator %}
   <ol class="carousel-indicators">
     {% for item in instance.carouselitem_set.all %}
-    <li data-target="#{{ instance.domid }}" data-slide-to="{{ forloop.counter0 }}"
+    <li data-target="#{{ instance.domid }}" data-slide-to="{{ forloop.counter0 }}">
       {% if forloop.first %}class="active">{% endif %}</li>
     {% endfor %}
   </ol>

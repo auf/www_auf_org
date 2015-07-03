@@ -11,7 +11,7 @@
     <meta name="keywords" content="{% page_attribute meta_keywords %}"/>
     <link rel="icon" href="/favicon.ico">
 
-    <title>{% block title %}{% endblock title %}</title>
+    <title>AUF - {% block title %}{% endblock title %}</title>
 
     {% render_block "css" %}
     <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
@@ -36,7 +36,7 @@
         <div class="navbar-default" role="navigation" style="margin-bottom: 0px;background-color:rgba(255, 255, 255, 1);">
           <div>
             <a class="navbar-brand" href="/">
-              <img class="img-responsive" src="{% static "img/auf-menu-logo.svg" %}" alt="Agence universitaire de la Francophonie" class="Logo">
+              <img class="img-responsive logo" src="{% static "img/auf-menu-logo.svg" %}" alt="Agence universitaire de la Francophonie">
             </a>
             <h2 class="sr-only">{% trans "Shortcuts" %}</h2>
             <ul class="skip-links sr-only">

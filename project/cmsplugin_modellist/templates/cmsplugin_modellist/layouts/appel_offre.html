@@ -4,66 +4,66 @@
 
 {% addtoblock "js" %}
 <script type="text/javascript">
-$(function () {
-  $('[data-toggle="popover"]').popover({html:true})
-})
+ $(function () {
+   $('[data-toggle="popover"]').popover({html:true})
+ })
 </script>
 {% endaddtoblock %}
 
 
 <div>
 
-{% for p in object_list %}
-<div class="thumbnail thumbnail-appels">
-  <div class="media">
-{% get_bureau as bureau %}
-{% if bureau.0 %}
-    <a class="pull-left" href="/{{ bureau.0 }}{{p.get_absolute_url_region }}">
-{% else %}
-    <a class="pull-left" href="{{p.get_absolute_url}}">
-{% endif %}
+  {% for p in object_list %}
+    <div class="thumbnail thumbnail-appels">
+      <div class="media">
+        {% get_bureau as bureau %}
+        {% if bureau.0 %}
+          <a class="pull-left" href="/{{ bureau.0 }}{{p.get_absolute_url_region }}">
+        {% else %}
+            <a class="pull-left" href="{{p.get_absolute_url}}">
+        {% endif %}
         {% if p.image %}
-        <img class="img-thumbnail" src="{% thumbnail p.image 130x90 upscale %}"/>
+          <img class="img-thumbnail" src="{% thumbnail p.image 130x90 upscale %}"/>
         {% endif %}
-    </a>
+            </a>
 
-    <div class="media-body">
-        <h4 class="title-date">
+            <div class="media-body">
+              <h4 class="title-date">
 
-{% if bureau.0 %}
-        <a href="/{{ bureau.0 }}{{p.get_absolute_url_region }}">
-{% else %}
-        <a href="{{p.get_absolute_url}}">
-{% endif %}
-        {{ p.titre }}
-        </a>
+                {% if bureau.0 %}
+                  <a href="/{{ bureau.0 }}{{p.get_absolute_url_region }}">
+                {% else %}
+                    <a href="{{p.get_absolute_url}}">
+                {% endif %}
+                {{ p.titre }}
+                    </a>
 
-        </h4>
-        {% if p.date_pub %}
-        <p class="text-muted">Date de publication: <strong>{{p.date_pub|date:"j F Y"}}</strong></p>
+              </h4>
+              {% if p.date_pub %}
+                <p class="text-muted">Date de publication: <strong>{{p.date_pub|date:"j F Y"}}</strong></p>
+              {% endif %}
+              {% if p.date_debut %}
+                <p class="text-muted">Date de début: <strong>{{p.date_debut|date:"j F Y"}}</strong></p>
+              {% endif %}
+              {% if p.date_fin %}
+                <p class="text-muted">Date limite: <strong>{{p.date_fin|date:"j F Y"}}</strong></p>
+              {% endif %}
+              <p>{{ p.resume }}</p>
+            </div>
+      </div>
+      <hr>
+      <div class="mini-estampilles">
+        {% if p.bureau.all.count == 0 %}
+          <i class="fa fa-globe">-International</i>
+        {% else %}
+          {% for b in p.bureau.all %}
+            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="<a href='/B{{ b.code }}'>{{ b.nom }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+          {% endfor %}
         {% endif %}
-        {% if p.date_debut %}
-        <p class="text-muted">Date de début: <strong>{{p.date_debut|date:"j F Y"}}</strong></p>
-        {% endif %}
-        {% if p.date_fin %}
-        <p class="text-muted">Date limite: <strong>{{p.date_fin|date:"j F Y"}}</strong></p>
-        {% endif %}
-        <p>{{ p.resume }}</p>
+      </div>
     </div>
-  </div>
-  <hr>
-  <div class="mini-estampilles">
-      {% if p.bureau.all.count == 0 %}
-        <i class="fa fa-globe">-International</i>
-      {% else %}
-        {% for b in p.bureau.all %}
-                <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="<a href='/B{{ b.code }}'>{{ b.nom }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
-        {% endfor %}
-      {% endif %}
-  </div>
-</div>
-{% endfor %}
+  {% endfor %}
 
-<a class="btn btn-info pull-right" href="{{ voir_plus }}">Voir plus</a>
-<a href="{{ lien_rss }}"><i class="fa fa-rss fa-2x "></i></a>
+  <a class="btn btn-info pull-right" href="{{ voir_plus }}">Voir plus</a>
+  <a href="{{ lien_rss }}"><i class="fa fa-rss fa-2x "></i></a>
 </div>
