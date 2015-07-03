@@ -2,119 +2,119 @@
 {% load static i18n cms_tags menu_tags sekizai_tags %}
 
 {% block menu %}
-    {% if request.current_page.reverse_id == "accueil"%}
-            {% show_menu 0 2 2 2 "bootstrap/menu/navbar.html" %}
-    {% else %}
-            {% show_sub_menu 2 2 3 "bootstrap/menu/navbar.html" %}
-    {% endif %}
+  {% if request.current_page.reverse_id == "accueil"%}
+    {% show_menu 0 2 2 2 "bootstrap/menu/navbar.html" %}
+  {% else %}
+    {% show_sub_menu 2 2 3 "bootstrap/menu/navbar.html" %}
+  {% endif %}
 {% endblock %}
 
 {% block entete %}
-        <div id="EnteteSecondaire" class="{{ bureau.0 }} hidden-sm hidden-xs">
-          <div class="col-md-3 col-md-offset-1 hidden-md transluscide">
-            <div id="BlocPresentation">
-               {% placeholder presentation %}
-            </div>
-          </div>
-          <div class="col-md-6 col-md-offset-1 carrousel">
-            {% placeholder carrousel %}
-          </div>
-        </div>
+  <div id="EnteteSecondaire" class="{{ bureau.0 }} hidden-sm hidden-xs">
+    <div class="col-md-3 col-md-offset-1 hidden-md transluscide">
+      <div id="BlocPresentation">
+        {% placeholder presentation %}
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-1 carrousel">
+      {% placeholder carrousel %}
+    </div>
+  </div>
 {% endblock %}
 
 {% block contenu %}
-<div class="row" id="content">
-<div class="col-md-9 {% if request.current_page.reverse_id != "accueil"%}texte{% endif %}">
-    {% placeholder texte %}
-</div>
-
-<div class="col-md-3">
-    {% placeholder colonne_droite %}
-
-     <div class="rouge">
-     <div class="panel-body">
-
-    {% if request.current_page.reverse_id == "accueil"%}
-       <div class="titre"><h4>Étudiants</h4></div>
-       <div class="liste-carres">
-       <ul>
-         {% show_menu_below_id "etudiants" %}
-        </ul>
-      </div>
-    {% else %}
-      {% placeholder rouge %}
-    {% endif %}
-
-    </div>
+  <div class="row" id="content">
+    <div class="col-md-9 {% if request.current_page.reverse_id != "accueil"%}texte{% endif %}">
+      {% placeholder texte %}
     </div>
 
-     <div class="vert">
-     <div class="panel-body">
+    <div class="col-md-3">
+      {% placeholder colonne_droite %}
 
-    {% if request.current_page.reverse_id == "accueil"%}
-       <div class="titre"><h4>Enseignants/Chercheurs</h4></div>
-       <div class="liste-carres">
-       <ul>
-         {% show_menu_below_id "professeur-chercheur" %}
-       </ul>
-       </div>
-    {% else %}
-      {% placeholder vert %}
-    {% endif %}
+      <div class="rouge">
+        <div class="panel-body">
 
+          {% if request.current_page.reverse_id == "accueil"%}
+            <div class="titre"><h4>Étudiants</h4></div>
+            <div class="liste-carres">
+              <ul>
+                {% show_menu_below_id "etudiants" %}
+              </ul>
+            </div>
+          {% else %}
+            {% placeholder rouge %}
+          {% endif %}
 
-    </div>
-    </div>
-
-     <div class="bleu">
-     <div class="panel-body">
-
-    {% if request.current_page.reverse_id == "accueil"%}
-        <div class="titre"><h4>Responsables d'établissement</h4></div>
-        <div class="liste-carres">
-        <ul>
-          {% show_menu_below_id "responsable-d-etablissement" %}
-        </ul>
         </div>
-    {% else %}
-      {% placeholder bleu %}
-    {% endif %}
-
-    </div>
-    </div>
-
-    <div class="panel boite-lettre">
-    <div class="panel-body">
-
-    {% if request.current_page.reverse_id == "accueil"%}
-       <div class="titre"><h4>Lettre d'information</h4></div>
-       <p style="margin-bottom:8px;">Restez informé grâce à notre lettre d'information</p>
-       <form class="form-group" action="/lettre-information/" method="post">{% csrf_token %}
-       <div class="input-group">
-           <input id="id_adresse" type="text" name="adresse" class="form-control">
-           <span class="input-group-btn">
-           <button type="submit" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
-           </span>
-       </div>
-       </form>
-    {% else %}
-      {% placeholder bleu_ciel %}
-    {% endif %}
-
       </div>
+
+      <div class="vert">
+        <div class="panel-body">
+
+          {% if request.current_page.reverse_id == "accueil"%}
+            <div class="titre"><h4>Enseignants/Chercheurs</h4></div>
+            <div class="liste-carres">
+              <ul>
+                {% show_menu_below_id "professeur-chercheur" %}
+              </ul>
+            </div>
+          {% else %}
+            {% placeholder vert %}
+          {% endif %}
+
+
+        </div>
+      </div>
+
+      <div class="bleu">
+        <div class="panel-body">
+
+          {% if request.current_page.reverse_id == "accueil"%}
+            <div class="titre"><h4>Responsables d'établissement</h4></div>
+            <div class="liste-carres">
+              <ul>
+                {% show_menu_below_id "responsable-d-etablissement" %}
+              </ul>
+            </div>
+          {% else %}
+            {% placeholder bleu %}
+          {% endif %}
+
+        </div>
+      </div>
+
+      <div class="panel boite-lettre">
+        <div class="panel-body">
+
+          {% if request.current_page.reverse_id == "accueil"%}
+            <div class="titre"><h4>Lettre d'information</h4></div>
+            <p style="margin-bottom:8px;">Restez informé grâce à notre lettre d'information</p>
+            <form class="form-group" action="/lettre-information/" method="post">{% csrf_token %}
+              <div class="input-group">
+                <input id="id_adresse" type="text" name="adresse" class="form-control">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default"><i class="fa fa-envelope-o"></i></button>
+                </span>
+              </div>
+            </form>
+          {% else %}
+            {% placeholder bleu_ciel %}
+          {% endif %}
+
+        </div>
       </div>
 
       <div class="panel boite-temoignages">
-      <div class="panel-body">
+        <div class="panel-body">
           {% placeholder jaune %}
-      </div>
+        </div>
       </div>
 
       <div class="panel boite-partenaires">
-      <div class="panel-body">
+        <div class="panel-body">
           {% placeholder gris %}
+        </div>
       </div>
-      </div>
-</div>
-</div>
+    </div>
+  </div>
 {% endblock %}
