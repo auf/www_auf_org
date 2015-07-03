@@ -15,7 +15,7 @@
         border-radius: 10px;
         border: 1px solid #cccccc;
         bottom: 35px;
-        left: -50px;
+        left: 0;
       }
 
       .ol-popup:after, .ol-popup:before {
@@ -59,22 +59,11 @@
     var implantation_marker_url = div_carte.data('implantation-marker-url');
     var membre_marker_url = div_carte.data('membre-marker-url');
 
-    function make_mini_popup_element(code_pays, nom, implantations, nb_etablissements,
-                                     nb_par_type) {
-      var html = '';
-      if (nb_etablissements) {
-    html += '<span class="etablissements"></span>';
-      }
-
-      $.each(nb_par_type, function(code_type, nb) {
-       if (nb){
-         html += '<span class="' + code_type + '"></span>';
-      };
-      });
-
-      var new_popup = $('<div class="ol-popup"></div>');
-      new_popup.html(html);
-      new_popup.click(function() {
+    function map_clicked(code_pays, nom, implantations, nb_etablissements,
+                               nb_par_type) {
+      var noms_implantations =  [];
+      $.each(implantations, function(i, impl) {
+        noms_implantations.push(impl.nom) });
       var html = '<p class="ol-popup-titre">' + nom + '</p>'
                + '<ul class="implantation">';
 
@@ -93,11 +82,7 @@
         };
       });
       html += '</ul>';
-
-      new_popup.html(html);
-    });
-      $('#popups').append(new_popup);
-      return new_popup;
+      $('#popup').html(html);
     }
 
     function init_carte(donnees_carte) {
@@ -106,8 +91,7 @@
         donnees_carte: donnees_carte,
         implantation_marker_url: implantation_marker_url,
         membre_marker_url: membre_marker_url,
-        make_popup_element: make_mini_popup_element,
-        popup_threshold: 5000,
+        on_map_click: map_clicked,
         couleurs_bureaux: COULEURS_BUREAUX,
 {% if bureau.0 %}
         filtre_region: '{{ bureau.0 }}',
@@ -155,9 +139,8 @@
 
   </div>
 
-    <div id="popup" class="ol-popup" style="visibility: hidden;">
+    <div id="popup" class="ol-popup">
     </div>
-  <div id="popups" style="visibility: hidden;">
 
 
 

@@ -53,10 +53,7 @@ CAPITAL_OVERRIDES = {
 
 
 def get_capitals_data(codes_pays):
-    filename = os.path.join(os.path.dirname(__file__), 'static', 'data',
-                            'country_capitals.json')
-    with codecs.open(filename, 'r', encoding='utf-8') as f:
-        capitals_json = f.read()
+    capitals_json = read_file('country_capitals.json')
     raw_capitals_data = json.loads(capitals_json)
     capitals_data = {}
     for capital_data in raw_capitals_data:
@@ -78,12 +75,25 @@ def get_capitals_data(codes_pays):
     return capitals_data
 
 
-def get_countries_geojson():
+def read_file(filename):
     filename = os.path.join(os.path.dirname(__file__), 'static', 'data',
-                            'countries.geojson')
+                            filename)
     with codecs.open(filename, 'r', encoding='utf-8') as f:
-        countries_json = f.read()
-    return json.loads(countries_json)
+        return f.read()
+
+
+def get_countries_geojson():
+    countries_json = read_file('countries.geojson')
+    countries = json.loads(countries_json)
+    overrides_json = read_file('countries_overrides.json')
+    overriden_features = json.loads(overrides_json)
+    for overriden_feature in overriden_features:
+        overridden_country_code = overriden_feature['id']
+        country_features = countries['features']
+        for i, feature in enumerate(country_features):
+            if feature['id'] == overridden_country_code:
+                country_features[i] = overriden_feature
+    return countries
 
 
 def sort_implantations(implantations_list):

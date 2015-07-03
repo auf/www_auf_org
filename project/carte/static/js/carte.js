@@ -1,6 +1,6 @@
 /*
 Sources des données:
-* http://openlayers.org/en/master/examples/data/geojson/countries.geojson
+* https://github.com/johan/world.geo.json
 * http://techslides.com/demos/country-capitals.json
  */
 
@@ -244,7 +244,7 @@ var Carte = (function() {
     /**
      * Callback appelé lorsque le popup va être affiché afin que son contenu soit
      * mis à jour
-     * @callback makePopupCallback
+     * @callback mapClickHandler
      * @param {string} nom Nom du pays
      * @param {string} code_pays Code iso3 du pays
      * @param {Array} implantations Liste des implantations du pays
@@ -263,11 +263,8 @@ var Carte = (function() {
      * pays où il y a au moins une implantation
      * @param options.membre_marker_url Image servant de marqueur pour les pays
      * où il y a des membres mais pas d'implantation
-     * @param {makePopupCallback} options.make_popup_element Callback appelé
-     * lorsque le popup va être affiché, qui doit retourner l'élément HTML
-     * correspondant au popup.
-     * @param options.popup_threshold Resolution en-dessous de laquelle les
-     * popups s'affichent
+     * @param {mapClickHandler} options.on_map_click Callback appelé
+     * lorsque le marqueur d'un pays est cliqué
      * @param options.couleurs_bureaux Dictionnaire donnant la couleur pour
      * chaque code de bureau régional
      * @param options.filtre_region Code d'un bureau si on ne veut afficher que
@@ -343,15 +340,8 @@ var Carte = (function() {
         var map = make_map(options.container_id, [paysLayer, lieux_layer,
             markers_pays_etablissements_layer, markers_pays_implantations_layer]);
 
-        var make_popup_overlay_fn = make_popup_overlay.bind(undefined,
-            donnees_pays, options.make_popup_element);
-
-        var view_change_handler = view_change.bind(
-            undefined, markers_pays_implantations, map,
-            make_popup_overlay_fn, options.popup_threshold);
-
-        map.getView().on('change:resolution', view_change_handler);
-        map.getView().on('change:center', view_change_handler);
+        map.on('click', feature_click.bind(undefined, map, donnees_pays,
+            options.on_map_click));
 
         function filter_map(code_bureau, type) {
             // lieux, markers pays impl, markers pays etab
@@ -401,43 +391,20 @@ var Carte = (function() {
         }
     }
 
-    function make_popup_overlay(donnees_pays, make_popup_element_callback,
-                                coords, code_pays) {
-        var donnees_du_pays = donnees_pays[code_pays];
-        if (donnees_du_pays === undefined) return;
-        var element = make_popup_element_callback(
-            code_pays,
-            donnees_du_pays.nom,
-            donnees_du_pays.implantations,
-            donnees_du_pays.nb_etablissements,
-            donnees_du_pays.nb_par_type);
-        return new ol.Overlay({
-            element: element,
-            positioning: 'bottom-center',
-            stopEvent: false,
-            position: coords
-        });
-    }
-
-    function view_change(markers_pays, map, make_popup_overlay, popup_threshold,
-                         event) {
-        var view = map.getView();
-        var view_extent = view.calculateExtent(map.getSize());
-        var display_popups = view.getResolution() < popup_threshold;
-        for (var i = 0; i < markers_pays.length; i++) {
-            var marker_pays_feature = markers_pays[i];
-            var popup_overlay = marker_pays_feature.get('popup_overlay');
-            var marker_pays_extent = marker_pays_feature.getGeometry().getExtent();
-            if (display_popups && ol.extent.intersects(marker_pays_extent, view_extent)) {
-                if (popup_overlay === undefined) {
-                    var coords = marker_pays_feature.getGeometry().getCoordinates();
-                    popup_overlay = make_popup_overlay(coords,
-                        marker_pays_feature.get('code_pays'));
-                    marker_pays_feature.set('popup_overlay', popup_overlay);
-                }
-                map.addOverlay(popup_overlay);
-            } else if (popup_overlay) {
-                map.removeOverlay(popup_overlay);
+    function feature_click(map, donnees_pays, click_handler, evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function (feature, layer) {
+                return feature;
+            });
+        if (feature) {
+            var code_pays = feature.get('code_pays');
+            if (code_pays) {
+                var donnees_du_pays = donnees_pays[code_pays];
+                click_handler(code_pays,
+                    donnees_du_pays.nom,
+                    donnees_du_pays.implantations,
+                    donnees_du_pays.nb_etablissements,
+                    donnees_du_pays.nb_par_type);
             }
         }
     }
