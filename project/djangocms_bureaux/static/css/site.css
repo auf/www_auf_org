@@ -269,6 +269,12 @@ ul#NavFixe .dropdown a.dropdown-toggle {
     text-shadow: -1px 2px 9px #000;
 }
 
+.carousel-caption h4, .carousel-caption p {
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+
 #EnteteSecondaire .carousel-indicators {
     bottom: -54px;
 }
@@ -1390,6 +1396,10 @@ iframe #afficher {
     border:3px solid #34AB92;
 }
 
+.bureau-ameriques .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#34AB92;
+}
+
 /*--------Bureau Afrique Centrale et des Grands Lacs (BACGL)---------*/
 
 .afrique-centrale-et-des-grands-lacs ul.nav.nav-tabs > li:nth-child(1) a {
@@ -1412,6 +1422,10 @@ iframe #afficher {
 
 .afrique-centrale-et-des-grands-lacs .tab-content > .tab-pane.active:nth-child(1) {
     border:3px solid #F7AB00;
+}
+
+.afrique-centrale-et-des-grands-lacs .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#F7AB00;
 }
 
 /*--------Bureau Afrique de l'Ouest (BAO)---------*/
@@ -1438,6 +1452,11 @@ iframe #afficher {
     border:3px solid #65B22E;
 }
 
+.bureau-afrique-de-l-ouest .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#65B22E;
+}
+
+
 /*--------Bureau Asie Pacifique (BAP)---------*/
 
 .bureau-asie-pacifique ul.nav.nav-tabs > li:nth-child(1) a {
@@ -1460,6 +1479,11 @@ iframe #afficher {
 
 .bureau-asie-pacifique .tab-content > .tab-pane.active:nth-child(1) {
     border:3px solid #9F72AE;
+}
+
+.bureau-asie-pacifique .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#9F72AE;
+color:white;
 }
 
 /*--------Bureau Caraïbe (BC)---------*/
@@ -1486,6 +1510,10 @@ iframe #afficher {
     border:3px solid #601D52;
 }
 
+.bureau-caraibe .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#601D52;
+}
+
 /*--------Bureau Europe Centrale et Orientale (BECO)---------*/
 
 .bureau-europe-centrale-et-orientale ul.nav.nav-tabs > li:nth-child(1) a {
@@ -1508,6 +1536,10 @@ iframe #afficher {
 
 .bureau-europe-centrale-et-orientale .tab-content > .tab-pane.active:nth-child(1) {
     border:3px solid #73D0F5;
+}
+
+.bureau-europe-centrale-et-orientale .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#73D0F5;
 }
 
 /*--------Bureau Europe de l'Ouest (BEO)---------*/
@@ -1534,6 +1566,10 @@ iframe #afficher {
     border:3px solid #EA560D;
 }
 
+.bureau-europe-de-l-ouest .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#EA560D;
+}
+
 /*--------Bureau Maghreb (BM)---------*/
 
 .bureau-maghreb ul.nav.nav-tabs > li:nth-child(1) a {
@@ -1556,6 +1592,10 @@ iframe #afficher {
 
 .bureau-maghreb .tab-content > .tab-pane.active:nth-child(1) {
     border:3px solid #B49B5A;
+}
+
+.bureau-maghreb .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+     background-color: #B49B5A; 
 }
 
 /*--------Bureau Moyen Orient (BMO)---------*/
@@ -1582,6 +1622,10 @@ iframe #afficher {
     border:3px solid #387DC0;
 }
 
+.bureau-moyen-orient .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+     background-color: #387DC0; 
+}
+
 /*--------Bureau Océan Indien (BOI)---------*/
 
 .bureau-ocean-indien ul.nav.nav-tabs > li:nth-child(1) a {
@@ -1606,6 +1650,9 @@ iframe #afficher {
     border:3px solid #EE79AD;
 }
 
+.bureau-ocean-indien .tab-content > .tab-pane.active:nth-child(1) .btn-info {
+    background:#EE79AD;
+}
 
 /*--------Plan du site (site map)---------*/
 
@@ -1703,7 +1750,6 @@ ul#sitemap li {
     background: #707070;
     color: white;
     margin-bottom: -16px;
-    height: 124px;
 }
 #PiedPage img {
     position: relative;
@@ -1834,6 +1880,14 @@ a[href ^='mailto:']::after {
 .box_membre h3 {
     margin-bottom: 2px;
 }
+
+/*---------Page Implantations---------*/
+
+.col-md-12 #accordion .panel-title {
+text-align:center;}
+
+/*------------------------------------*/
+
 
 /*------------------------------------*/
 
