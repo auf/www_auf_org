@@ -66,8 +66,9 @@
 
     function filtre_change() {
       var code_bureau = $('#filter-bureau').val();
-      var type = $('#filter-type').val();
-      carte.filter_map(code_bureau, type);
+      var type_etabli = $("input[type='checkbox'][name='filter-type-etabli']").prop('checked');
+      var type_implan = $("input[type='checkbox'][name='filter-type-implan']").prop('checked');
+      carte.filter_map(code_bureau, type_etabli, type_implan);
       carte.zoom_to_region(code_bureau);
     }
 
@@ -100,6 +101,7 @@
        data-membre-marker-url="{{ STATIC_URL }}img/google-309740_640.png">
 
   </div>
+  <img src="{{ STATIC_URL }}img/legende2015.svg" alt="legende" />
 
     <div id="popup" class="ol-popup">
     </div>

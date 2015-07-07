@@ -5,6 +5,8 @@
 
 {% get_bureau as bureau %}
 
+{% block title %}{% render_model object "titre" %}{% endblock title %}
+
 {% block menu %}
 {% if bureau.0 %}
             {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}

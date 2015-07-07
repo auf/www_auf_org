@@ -300,10 +300,12 @@ var Carte = (function() {
             source: new ol.source.Vector({
                 features: markers_pays_etablissements
             }),
-            style: marker_pays_etablissement_style.bind(undefined,
-                pays_par_type.pays_implantations, 'international',
-                etablissement_marker_style,
-                etablissement_marker_style_skewed)
+            visible: false
+            //style: ol.style.Style({visibility: 'hidden'})
+		//marker_pays_etablissement_style.bind(undefined,
+                //pays_par_type.pays_implantations, 'international')
+                //etablissement_marker_style,
+                //etablissement_marker_style_skewed)
         });
 
         var pays_format = new ol.format.GeoJSON({
@@ -343,12 +345,13 @@ var Carte = (function() {
         map.on('click', feature_click.bind(undefined, map, donnees_pays,
             options.on_map_click));
 
-        function filter_map(code_bureau, type) {
+        function filter_map(code_bureau, type_etabli, type_implan) {
             // lieux, markers pays impl, markers pays etab
             lieux_layer.setStyle(get_lieu_style.bind(undefined, code_bureau));
-            if (type === 'etablissements') {
+            if (type_etabli) {
+                markers_pays_etablissements_layer.setVisible(true);
                 var etablissement_et_implantation_marker_style =
-                    type === 'international' ? etablissement_marker_style_skewed
+                    type_implan ? etablissement_marker_style_skewed
                         : etablissement_marker_style;
                 markers_pays_etablissements_layer.setStyle(
                     marker_pays_etablissement_style.bind(undefined,
@@ -359,7 +362,8 @@ var Carte = (function() {
                 markers_pays_etablissements_layer.setStyle(
                     function() { return []; })
             }
-            if (type === 'implantations') {
+            if (type_implan) {
+                markers_pays_implantations_layer.visible = true;
                 markers_pays_implantations_layer.setStyle(
                     marker_pays_implantation_style.bind(undefined, code_bureau,
                         implantation_marker_style));
@@ -410,13 +414,17 @@ var Carte = (function() {
     }
 
     function zoom_to_region(map, bureaux_geometries, code_bureau) {
-        var region_geometry = bureaux_geometries[code_bureau];
         var view = map.getView();
-        view.fitExtent(region_geometry.getExtent(), map.getSize());
-        var zoom = view.getZoom();
-        if (zoom > 4) {
-            view.setZoom(zoom - 1);
-        }
+        if (code_bureau == 'international'){
+		view.setZoom(2);
+	} else {
+		var region_geometry = bureaux_geometries[code_bureau];
+		view.fitExtent(region_geometry.getExtent(), map.getSize());
+		var zoom = view.getZoom();
+		if (zoom > 4) {
+		    view.setZoom(zoom - 1);
+		}
+	};
     }
 
     return {
