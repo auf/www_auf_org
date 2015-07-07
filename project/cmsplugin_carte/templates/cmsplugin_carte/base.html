@@ -40,7 +40,7 @@
               + '<strong>' + nb_etablissements.toString() + '</strong> Établissements</li>';
       
       $.each(nb_par_type, function(code_type, nb) {
-        if(nb) {
+        if(nb > 1) {
           html += '<li class="' + code_type + '"><strong>' + nb.toString() + '</strong> ' + code_type + '</li>';
         };
       });
