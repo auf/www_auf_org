@@ -40,7 +40,16 @@ display:none;}
 
 .ol-zoom {
 zoom: 1.4;
-top: 26em;}
+top: 26em;
+-moz-transform: scale(1.4);}
+
+
+@-moz-document url-prefix() {
+    .ol-zoom {
+       top:37em;
+       margin-left:10px;
+    }
+}
 
 .legende {
 border-bottom-left-radius: 40px;
@@ -118,8 +127,6 @@ margin-left: -2px;
   margin-top:-2px;
 }
 
-
-
 .cnf::before {
   content:"\25A3";
   margin-right:6px;
@@ -187,19 +194,12 @@ margin-left: -2px;
 margin-right: 7px;
 }
 
-.implantation li:nth-child(1) {
-text-align: center;
-background: whitesmoke;
-margin-left: -15px;
-margin-right: -15px;
-padding-top: 3px;
-margin-bottom: 2px;
-font-size: 1em;
-word-wrap: break-word;
-width: 300px;
+
+.implantation li {
+margin-top:5px;
 }
 
-.implantation li:not(:nth-child(1))::before {
+.implantation li::before {
 content:"•";
 margin-left:-4px;
 margin-right:2px;

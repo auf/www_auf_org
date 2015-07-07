@@ -150,7 +150,7 @@ var Carte = (function() {
         etablissement_marker_style_skewed, feature, resolution) {
         var code_pays = feature.get('code_pays');
         var code_bureau = feature.get('code_bureau');
-        if (filtre_code_bureau === 'tous' || filtre_code_bureau === code_bureau) {
+        if (filtre_code_bureau === 'international' || filtre_code_bureau === code_bureau) {
             if (code_pays in pays_implantations) {
                 return [etablissement_marker_style_skewed];
             } else {
@@ -164,7 +164,7 @@ var Carte = (function() {
     function marker_pays_implantation_style(
         filtre_code_bureau, implantation_marker_style, feature, resolution) {
         var code_bureau = feature.get('code_bureau');
-        if (filtre_code_bureau === 'tous' || filtre_code_bureau === code_bureau) {
+        if (filtre_code_bureau === 'international' || filtre_code_bureau === code_bureau) {
             return [implantation_marker_style];
         } else {
             return [];
@@ -200,7 +200,7 @@ var Carte = (function() {
     function make_bureaux_geometries(pays_marker_layer_list, donnees_pays) {
         /**
          * Renvoie un ol.geom.GeometryCollection contenant les geométries de
-         * tous les marqueurs pays de chaque bureau. Utile pour centrer la
+         * international les marqueurs pays de chaque bureau. Utile pour centrer la
          * carte sur une région.
          * */
         var bureaux_geometry_lists = {};
@@ -234,7 +234,7 @@ var Carte = (function() {
         var lieu = feature.get('lieu');
         var code_bureau = lieu.code_bureau;
         if (resolution < 10000 &&
-            (filtre_code_bureau === 'tous' || filtre_code_bureau === code_bureau)) {
+            (filtre_code_bureau === 'international' || filtre_code_bureau === code_bureau)) {
             return [get_lieu_implantation_style(lieu.nom, lieu.lat, lieu.lon)];
         } else {
             return [];
@@ -301,7 +301,7 @@ var Carte = (function() {
                 features: markers_pays_etablissements
             }),
             style: marker_pays_etablissement_style.bind(undefined,
-                pays_par_type.pays_implantations, 'tous',
+                pays_par_type.pays_implantations, 'international',
                 etablissement_marker_style,
                 etablissement_marker_style_skewed)
         });
@@ -334,7 +334,7 @@ var Carte = (function() {
                 features: make_lieux_implantations_features(
                     options.donnees_carte.lieux_implantations)
             }),
-            style: get_lieu_style.bind(undefined, 'tous')
+            style: get_lieu_style.bind(undefined, 'international')
         });
 
         var map = make_map(options.container_id, [paysLayer, lieux_layer,
@@ -346,9 +346,9 @@ var Carte = (function() {
         function filter_map(code_bureau, type) {
             // lieux, markers pays impl, markers pays etab
             lieux_layer.setStyle(get_lieu_style.bind(undefined, code_bureau));
-            if (type === 'tous' || type === 'etablissements') {
+            if (type === 'etablissements') {
                 var etablissement_et_implantation_marker_style =
-                    type === 'tous' ? etablissement_marker_style_skewed
+                    type === 'international' ? etablissement_marker_style_skewed
                         : etablissement_marker_style;
                 markers_pays_etablissements_layer.setStyle(
                     marker_pays_etablissement_style.bind(undefined,
@@ -359,7 +359,7 @@ var Carte = (function() {
                 markers_pays_etablissements_layer.setStyle(
                     function() { return []; })
             }
-            if (type === 'tous' || type === 'implantations') {
+            if (type === 'implantations') {
                 markers_pays_implantations_layer.setStyle(
                     marker_pays_implantation_style.bind(undefined, code_bureau,
                         implantation_marker_style));
@@ -377,7 +377,7 @@ var Carte = (function() {
         var zoom_to_region_fn = zoom_to_region.bind(undefined, map, bureaux_geometries);
 
         if (options.filtre_region !== undefined) {
-            filter_map(options.filtre_region, 'tous');
+            filter_map(options.filtre_region, 'international');
         }
 
         if (options.zoom_to_region !== undefined) {

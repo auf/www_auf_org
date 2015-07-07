@@ -46,6 +46,7 @@
       });
       html += '</ul>';
       $('#popup').html(html);
+      $('#popup').show();
     }
 
     function init_carte(donnees_carte) {
@@ -73,26 +74,24 @@
     $(function() {
       $.getJSON('/auf_carte/donnees_carte.json', init_carte);
       $('#filter-bureau').change(filtre_change);
-      $('#filter-type').change(filtre_change);
+      $("input[type='checkbox'][name='filter-type-etabli']").change(filtre_change);
+      $("input[type='checkbox'][name='filter-type-implan']").change(filtre_change);
     });
   </script>
 {% endaddtoblock %}
 
   <div class="filters">
     <form>
-      <label for="filter-bureau">Filtre bureaux</label>
+      <label for="filter-bureau">Régions</label>
       <select id="filter-bureau">
-        <option value="tous">Tous</option>
+        <option value="international">International</option>
         {% for b in bureaux %}
           <option value="B{{ b.code }}" {% if bureau.0 == "B"|join:b.code %}selected{% endif %}>{{ b.nom }}</option>
         {% endfor %}
 
       </select>
-    <label for="filter-type">Filtre type</label>
-    <select id="filter-type">
-      <option value="tous">Tous</option>
-      <option value="etablissements">Établissements</option>
-      <option value="implantations">Implantations</option>
+      <input name="filter-type-etabli" type="checkbox" value="etablissements">Établissements</option>
+      <input name="filter-type-implan" type="checkbox" value="implantations" checked="checked">Implantations</option>
     </select>
     </form>
   </div>
