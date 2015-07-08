@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% load i18n cms_tags pagination_tags bootstrap3 %}
+{% load i18n cms_tags pagination_tags bootstrap3 static %}
 
 {% block Contenu %}
 <div class="banniere">
-    <p><img class="img-responsive" src="/media/adminfiles/quefaisonsnous2.png"></p>
+    <p><img class="img-responsive" src="{% static "img/annuaires.png" %}"></p>
 </div>
 <div class="col-md-12" id="content" style="background-color: white;">
 <div class="col-md-6 col-md-offset-2">

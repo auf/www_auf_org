@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% load i18n cms_tags %}
+{% load i18n cms_tags static %}
 
 {% block Contenu %}
   <div class="banniere">
-    <p><img class="img-responsive" src="/media/adminfiles/quefaisonsnous2.png"></p>
+    <p><img class="img-responsive" src="{% static "img/rss_baniere.png" %}"></p>
   </div>
   <div class="col-md-12" id="content" style="background-color: white;">
     <h1>Flux RSS</h1>
