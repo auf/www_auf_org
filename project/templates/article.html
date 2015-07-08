@@ -5,8 +5,8 @@
 
 {% get_bureau as bureau %}
 
-{% block title %}{% render_model object "titre" %}{% endblock title %}
-{% block description %}{% render_model object "resume" "resume" %}{% endblock %}
+{% block title %}{{ object.titre }{% endblock title %}
+{% block description %}{{ object.resume }}{% endblock %}
 
 {% block menu %}
 {% if bureau.0 %}
