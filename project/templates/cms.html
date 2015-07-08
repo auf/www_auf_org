@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static i18n cms_tags menu_tags sekizai_tags auf %}
 
+{% block title %}{% page_attribute "title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock %}
+
 {% get_bureau as bureau %}
 
 {% block menu %}
