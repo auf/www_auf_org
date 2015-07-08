@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static i18n cms_tags menu_tags sekizai_tags %}
 
+{% block title %}{% page_attribute "title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock %}
+
+
 {% block menu %}
   {% if request.current_page.reverse_id == "accueil"%}
     {% show_menu 0 2 2 2 "bootstrap/menu/navbar.html" %}
