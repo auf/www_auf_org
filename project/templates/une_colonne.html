@@ -3,6 +3,9 @@
 
 {% get_bureau as bureau %}
 
+{% block title %}{% page_attribute "title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock %}
+
 {% block menu %}
 {% if bureau.0 %}
             {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
