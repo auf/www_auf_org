@@ -232,4 +232,6 @@ width:7em;
   
 }
 
-.filter-type-etabli, .filter-type-implan {margin-left: 24px;}
+input[type="checkbox"].filter-type-etabli,  input[type="checkbox"].filter-type-implan {
+  margin-left: 24px;
+}
