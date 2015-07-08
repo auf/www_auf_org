@@ -232,4 +232,4 @@ width:7em;
   
 }
 
-input[type="checkbox"] {margin-left: 24px;}
+.filter-type-etabli, .filter-type-implan {margin-left: 24px;}
