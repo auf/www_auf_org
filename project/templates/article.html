@@ -17,9 +17,12 @@
 {% endblock %}
 
 {% block breadcrumb %}
-  <div class="col-md-12 breadcrumb">
+  <div class="col-md-12" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
       <li><a href="/">Accueil</a></li>
+      {% if bureau.0 %}
+        <li><a href="/{{ bureau.0 }}/"></a></li>
+      {% endif %}
     </ul>
   </div>
 {% endblock %}
