@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load i18n cms_tags bootstrap3 %}
 
-{% block Contenu %}
+{% block entete %}
 <div class="banniere">
     <p><img class="img-responsive" src="/media/adminfiles/quefaisonsnous2.png"></p>
 </div>
+{% endblock  %}
 
+{% block Contenu %}
 <div class="col-md-12" id="content" style="background-color: white;">
 <div class="col-md-6 col-md-offset-2">
 <h1>Annuaire des employés</h1>
