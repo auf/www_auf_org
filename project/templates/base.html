@@ -243,6 +243,15 @@
           {% endfor %}
         {% endif %}
 
+        {% block breadcrumb %}
+          <div class="col-md-12 breadcrumb">
+            <ul id="FilAriane" class="hidden-sm hidden-xs">
+              <li><a href="/">Accueil</a></li>
+            </ul>
+          </div>
+        {% endblock %}
+
+
         {% block contenu %}
         {% endblock %}
         {% block Contenu %}

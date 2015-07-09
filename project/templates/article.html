@@ -9,59 +9,62 @@
 {% block description %}{{ object.resume }}{% endblock %}
 
 {% block menu %}
-{% if bureau.0 %}
-            {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
-    {% else %}
-            {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
-    {% endif %}
+  {% if bureau.0 %}
+    {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
+  {% else %}
+    {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+  {% endif %}
 {% endblock %}
 
+{% block breadcrumb %}
+  <div class="col-md-12 breadcrumb">
+    <ul id="FilAriane" class="hidden-sm hidden-xs">
+      <li><a href="/">Accueil</a></li>
+    </ul>
+  </div>
+{% endblock %}
 
 {% block contenu %}
-<div class="col-md-12" id="content" style="background-color: white;">
-    <ul id="FilAriane" class="hidden-sm hidden-xs">
-      {% show_breadcrumb %}
-    </ul>
-<div class="col-md-4">
+  <div class="col-md-12" id="content" style="background-color: white;">
+    <div class="col-md-4">
+      {% if object.image %}
+        {% render_model_block object "image" %}
+          <img class="img-thumbnail" src="{% thumbnail object.image 300x300 crop %}"/>
+        {% endrender_model_block %}
+      {% else %}
+        {% render_model_block object "image" %}
+          <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg"/>
+        {% endrender_model_block %}
+      {% endif %}
 
-{% if object.image %}
-{% render_model_block object "image" %}
-    <img class="img-thumbnail" src="{% thumbnail object.image 300x300 crop %}"/>
-{% endrender_model_block %}
-{% else %}
-{% render_model_block object "image" %}
-    <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg"/>
-{% endrender_model_block %}
-{% endif %}
+      <div class="django_social_share">
+        <b>Partager sur:</b> {% post_to_facebook object '<i class="fa fa-2x fa-facebook-official"></i>' %} {% post_to_gplus object '<i class="fa fa-2x fa-google-plus"></i>' %} {% post_to_twitter "Visitez: " object '<i class="fa fa-2x fa-twitter"></i>' %}
+      </div>
 
-<div class="django_social_share">
-<b>Partager sur:</b> {% post_to_facebook object '<i class="fa fa-2x fa-facebook-official"></i>' %} {% post_to_gplus object '<i class="fa fa-2x fa-google-plus"></i>' %} {% post_to_twitter "Visitez: " object '<i class="fa fa-2x fa-twitter"></i>' %}
-</div>
+      {% placeholder colonne_gauche %}
+    </div>
 
-{% placeholder colonne_gauche %}
-</div>
+    <div class= "col-md-6 texte">
+      <h2>{% render_model object "titre" %}</h2>
 
-<div class= "col-md-6 texte">
-    <h2>{% render_model object "titre" %}</h2>
-
-    <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
+      <p class="paraintro"><strong>{% render_model object "resume" "resume" %}</strong></p>
 
       <p>
-      {% if object.bureau.all.count == 0 %}
-            <i class="fa fa-globe">-International</i>
-      {% else %}
-        {% for b in object.bureau.all %}
-          <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
-        {% endfor %}
-      {% endif %}
+        {% if object.bureau.all.count == 0 %}
+          <i class="fa fa-globe">-International</i>
+        {% else %}
+          {% for b in object.bureau.all %}
+            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+          {% endfor %}
+        {% endif %}
       </p>
-    <div>
-    {% render_placeholder object.cmstexte %}
+      <div>
+        {% render_placeholder object.cmstexte %}
+      </div>
     </div>
-</div>
 
-<div class="col-md-2">
-{% placeholder colonne_droite%}
-</div>
-</div>
+    <div class="col-md-2">
+      {% placeholder colonne_droite%}
+    </div>
+  </div>
 {% endblock %}

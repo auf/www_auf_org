@@ -26,6 +26,9 @@
   </div>
 {% endblock %}
 
+{% block breadcrumb %}
+{% endblock %}
+
 {% block contenu %}
   <div class="row" id="content">
     <div class="col-md-9 {% if request.current_page.reverse_id != "accueil"%}texte{% endif %}">
