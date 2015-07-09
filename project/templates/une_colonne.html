@@ -7,11 +7,11 @@
 {% block description %}{% page_attribute "meta_description" %}{% endblock %}
 
 {% block menu %}
-{% if bureau.0 %}
-            {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
-    {% else %}
-            {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
-    {% endif %}
+  {% if bureau.0 %}
+    {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
+  {% else %}
+    {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+  {% endif %}
 {% endblock %}
 
 {% block breadcrumb %}
@@ -23,9 +23,9 @@
 {% endblock %}
 
 {% block contenu %}
-<div class="col-md-12" id="content" style="background-color: white;">
-<div class="col-md-12">
-  {% placeholder texte %}
-</div>
-</div>
+  <div class="col-md-12" id="content" style="background-color: white;">
+    <div class="col-md-12">
+      {% placeholder texte %}
+    </div>
+  </div>
 {% endblock %}

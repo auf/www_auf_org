@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% load i18n cms_tags static %}
 
-{% block Contenu %}
+{% block entete %}
   <div class="banniere">
     <p><img class="img-responsive" src="{% static "img/rss_baniere.png" %}"></p>
   </div>
+{% endblock %}
+
+{% block Contenu %}
   <div class="col-md-12" id="content" style="background-color: white;">
     <h1>Flux RSS</h1>
 
-    <p>Le <a href="http://fr.wikipedia.org/wiki/Really_Simple_Syndication">Fil
-      RSS</a>, sigle de &laquo;&nbsp;Really Simple <a
+    <p>Le <a href="http://fr.wikipedia.org/wiki/Really_Simple_Syndication">
+      Fil RSS</a>, sigle de &laquo;&nbsp;Really Simple <a
 href="http://fr.wikipedia.org/wiki/Syndication#Internet">Syndication</a>&nbsp;&raquo;
       (syndication vraiment simple) est un format de description de donn&eacute;es
       qui facilite la diffusion de fils d&rsquo;informations, de fa&ccedil;on
