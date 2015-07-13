@@ -212,9 +212,9 @@ class Appel_Offre(models.Model):
              '5 Mois avant le début des manifestations'),
             ('6',
              'Permanent')))
-    date_pub = models.DateTimeField('date de creation')
+    date_pub = models.DateTimeField('date de creation', auto_now_add=True)
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
     status = models.CharField(
         max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
@@ -235,7 +235,7 @@ class Appel_Offre(models.Model):
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
-                   body="Double-cliquez ici pour ajouter votre texte")
+                       body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
