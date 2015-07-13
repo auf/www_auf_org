@@ -3,8 +3,10 @@ gettext = lambda s: s
 SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'auf.django.piwik.middleware.TrackMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -17,6 +19,7 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
     'pagination.middleware.PaginationMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
