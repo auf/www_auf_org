@@ -105,8 +105,9 @@ class Bourse(models.Model):
     def save(self, *args, **kwargs):
         object = super(Bourse, self).save(*args, **kwargs)
         from cms.api import add_plugin
-        add_plugin(self.cmstexte, "TextPlugin", "fr",
-                   body="Double-cliquez ici pour ajouter votre texte")
+        if self.cmstexte.cmsplugin_set.count() == 0:
+            add_plugin(self.cmstexte, "TextPlugin", "fr",
+                       body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
@@ -143,8 +144,9 @@ class Actualite(models.Model):
     def save(self, *args, **kwargs):
         object = super(Actualite, self).save(*args, **kwargs)
         from cms.api import add_plugin
-        add_plugin(self.cmstexte, "TextPlugin", "fr",
-                   body="Double-cliquez ici pour ajouter votre texte")
+        if self.cmstexte.cmsplugin_set.count() == 0:
+            add_plugin(self.cmstexte, "TextPlugin", "fr",
+                       body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
@@ -231,7 +233,8 @@ class Appel_Offre(models.Model):
     def save(self, *args, **kwargs):
         object = super(Appel_Offre, self).save(*args, **kwargs)
         from cms.api import add_plugin
-        add_plugin(self.cmstexte, "TextPlugin", "fr",
+        if self.cmstexte.cmsplugin_set.count() == 0:
+            add_plugin(self.cmstexte, "TextPlugin", "fr",
                    body="Double-cliquez ici pour ajouter votre texte")
         return object
 
@@ -270,8 +273,9 @@ class Evenement(models.Model):
     def save(self, *args, **kwargs):
         object = super(Evenement, self).save(*args, **kwargs)
         from cms.api import add_plugin
-        add_plugin(self.cmstexte, "TextPlugin", "fr",
-                   body="Double-cliquez ici pour ajouter votre texte")
+        if self.cmstexte.cmsplugin_set.count() == 0:
+            add_plugin(self.cmstexte, "TextPlugin", "fr",
+                       body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
@@ -330,8 +334,9 @@ class Publication(models.Model):
     def save(self, *args, **kwargs):
         object = super(Publication, self).save(*args, **kwargs)
         from cms.api import add_plugin
-        add_plugin(self.cmstexte, "TextPlugin", "fr",
-                   body="Double-cliquez ici pour ajouter votre texte")
+        if self.cmstexte.cmsplugin_set.count() == 0:
+            add_plugin(self.cmstexte, "TextPlugin", "fr",
+                       body="Double-cliquez ici pour ajouter votre texte")
         return object
 
 
