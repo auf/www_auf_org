@@ -305,7 +305,10 @@ class ActualiteAdmin(
         return qs
 
 
-class VeilleAdmin(RubriqueBureauAdmin):
+class VeilleAdmin(
+	FrontendEditableAdminMixin,
+	PlaceholderAdminMixin,
+	RubriqueBureauAdmin):
     fieldsets = RubriqueBureauAdmin.fieldsets + \
         [('Date', {'fields': ['date_pub'], 'classes': ['wide']}), ]
 

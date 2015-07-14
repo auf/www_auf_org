@@ -74,7 +74,10 @@ class AppelOffreIndex(AufIndex, indexes.Indexable):
             return u'AUF'
 
     def prepare_date_pub(self, obj):
-        return obj.date_pub.date()
+        try:
+            return obj.date_pub.date()
+        except:
+            return None
 
     def index_queryset(self, using=None):
         return Appel_Offre.objects.filter(status__in=[3, 5, 6])
@@ -89,7 +92,10 @@ class EvenementIndex(AufIndex, indexes.Indexable):
         return u"Événements"
 
     def prepare_date_pub(self, obj):
-        return obj.date_pub.date()
+        try:
+            return obj.date_pub.date()
+        except:
+            return None
 
     def index_queryset(self, using=None):
         return Evenement.objects.filter(status__in=[3, 5, 6])

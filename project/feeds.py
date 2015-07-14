@@ -7,27 +7,27 @@ from itertools import chain
 from django.utils.text import Truncator
 
 REGION = {
-    'Afrique-Centrale': 'ACGL',
-    'Ameriques': 'A',
-    'Afrique-de-l-ouest': 'AO',
-    'Asie-Pacifique': 'AP',
-    'Caraibe': 'C',
-    'Europe-centrale-et-orientale': 'ECO',
-    'Moyen-Orient': 'MO',
-    'Europe-de-l-Ouest': 'EO',
-    'Maghreb': 'M',
-    'Ocean-Indien': 'OI',
+    'afrique-centrale': 'ACGL',
+    'ameriques': 'A',
+    'afrique-de-l-ouest': 'AO',
+    'asie-pacifique': 'AP',
+    'caraibe': 'C',
+    'europe-centrale-et-orientale': 'ECO',
+    'moyen-orient': 'MO',
+    'europe-de-l-ouest': 'EO',
+    'maghreb': 'M',
+    'ocean-indien': 'OI',
 }
 
 
 class ArticleFeed(Feed):
 
     def get_object(self, request):
-        region_actuel = request.GET.get('region_actuel', '')
+        region_actuel = request.GET.get('region_actuel', '').strip().lower()
         self.region_actuel = region_actuel
-        if (self.region_actuel != '' and self.region_actuel != 'International'):
+        if (self.region_actuel != '' and self.region_actuel != 'international'):
             return Region.objects.get(code=REGION[region_actuel])
-        elif (self.region_actuel == 'International'):
+        elif (self.region_actuel == 'international'):
             return Region.objects.all()
         else:
             return Region.objects.get(nom=u'Ameriques')
