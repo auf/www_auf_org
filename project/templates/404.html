@@ -1,8 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" style>
+
+<!DOCTYPE html>
+<html lang="fr" style="margin-top: 30px;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>La page n'existe pas</title>
+<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//www.auf.org/static/css/auf.min.css" rel="stylesheet">
+
+
     <style>
                 * { margin: 0; padding: 0; }
 				
@@ -14,14 +20,49 @@
                         background-size: cover;
                 }
         </style>
+
         
 </head>
 
-<body>
-    	
-        <div style="top: 25%; background: url(/media/adminfiles/bonfond.jpg) repeat-x; height: 300px; position: absolute; width: 100%">
-            <div style="width: 960px; margin: 0 auto; height:300px;"><a href="http://www.auf.org/"><img src="/media/adminfiles/lologo.jpg" style="float:left; margin-top: 60px; border: 0;" /></a><div style="float:left; margin: 125px 0px 0px 65px;"><h1 style="font-family: Arial, Helvetica, sans-serif; color: #fff;">La page recherch&eacute;e n'existe pas</h1><p style="font-family: Arial, Helvetica, sans-serif; color: #fff; font-size: 12px; margin-top: 6px;"><a href="http://www.auf.org/" style="color:#FFFFFF;">Lien vers la page d'accueil du site insitutionnel de l'AUF</a></p></div></div>
-        </div>
+<body style="font-family: 'Open Sans', sans-serif;">
+    	<div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="margin-top:15%; background: rgb(223, 223, 223); padding-bottom: 50px;border-radius: 10px;">
 
+
+                        <div>
+
+
+
+                                 <div class="col-md-3 col-md-offset-1">
+
+<a href="/">
+<img src="/media/adminfiles/lologo.jpg" style="float:left; margin-top: 6rem; border: 0;" /></a>
+
+</div>
+
+
+<div class="col-md-6" style="margin-top:7rem;">
+<h1 style="color: #AA0A2F;">La page recherch&eacute;e n'existe pas</h1><p style="font-family: Arial, Helvetica, sans-serif; color: #fff; font-size: 12px; margin-top: 6px;">
+
+
+                <form class="form-group" action="/recherche/" method="get">
+                  <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Rechercher dans le site">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                  </div>
+                </form>
+
+
+
+
+
+<a href="/" style="color:#1D9DD9;font-weight:bolder;"> « ou retournez vers la page d'accueil du site insitutionnel de l'AUF</a></p></div></div>
+ </div>       
+</div>
+</div>
 </body>
 </html>
+
