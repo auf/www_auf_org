@@ -25,10 +25,8 @@ class AldrynFacetedSearchForm(SearchForm):
         sqs = sqs.facet('bureaux').facet(
             'section').facet('annee').facet('partenaire')
 
-        if self.is_valid():
-            q = self.cleaned_data.get('q', '')
-            if q:
-                sqs = sqs.filter(content=sqs.query.clean(q))
+        if self.q:
+            sqs = sqs.filter(content=sqs.query.clean(self.q))
 
         if self.courant:
             sqs = sqs.filter(date_fin__gte=datetime.date.today())
@@ -60,6 +58,7 @@ class AldrynSearchView(FormMixin, ListView):
 
     def get(self, request, *args, **kwargs):
         self.form = AldrynFacetedSearchForm(self.request.GET)
+        self.form.q = self.request.GET.get('q', '')
         self.form.courant = self.request.GET.get('courant', '')
         self.form.cloture = self.request.GET.get('cloture', '')
         self.form.selected_facets = self.request.GET.get('selected_facets', '')
