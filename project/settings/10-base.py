@@ -11,7 +11,7 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(ROOT, 'sitestatic')
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 
 INSTALLED_APPS += (
     'django.contrib.admin',
@@ -21,6 +21,7 @@ INSTALLED_APPS += (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
 
     'pagination',
     'tagging',
@@ -29,3 +30,5 @@ INSTALLED_APPS += (
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, "templates/"),
 )
+
+
