@@ -60,7 +60,11 @@ def newsletter_inscription(request):
             a.bureau = [999]
             a.save()
             text_content = 'Votre abonnement à la lettre éléctronique de l\'AUF a été validé.'
-            html_content = '<p>Bonjour,</p><p>Votre inscription à la lettre éléctronique de l\'AUF a bien été validée. Vous recevrez prochainement les dernières informations de l\'AUF dans votre boite de courriers éléctroniques.</p><p>Pour toutes informations complémentaires veuillez contacter votre bureau régional à l\'adresse suivante: <a href="http://www.auf.org/auf_dans_le_monde/">www.auf.org/auf_dans_le_monde</a></p><p>Merci</p>'
+            html_content = """
+<p>Bonjour,</p>
+<p>Votre inscription à la lettre électronique de l'AUF a bien été validée. Vous recevrez prochainement  les dernières informations de l'AUF dans votre boite de courriel électronique. Merci de votre intérêt.</p>
+<p>Pour toutes informations complémentaires veuillez entrer en contact avec nous sur<a href="www.auf.org">www.auf.org</a></p>
+"""
             msg = EmailMultiAlternatives('Inscription à la lettre éléctronique de l\'AUF',
                                          text_content, 'ne-pas-repondre@auf.org', [form.cleaned_data['adresse']])
             msg.attach_alternative(html_content, "text/html")
