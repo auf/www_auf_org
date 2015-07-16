@@ -63,7 +63,7 @@ def newsletter_inscription(request):
             html_content = """
 <p>Bonjour,</p>
 <p>Votre inscription à la lettre électronique de l'AUF a bien été validée. Vous recevrez prochainement  les dernières informations de l'AUF dans votre boite de courriel électronique. Merci de votre intérêt.</p>
-<p>Pour toutes informations complémentaires veuillez entrer en contact avec nous sur<a href="www.auf.org">www.auf.org</a></p>
+<p>Pour toutes informations complémentaires veuillez entrer en contact avec nous sur <a href="www.auf.org">www.auf.org</a></p>
 """
             msg = EmailMultiAlternatives('Inscription à la lettre éléctronique de l\'AUF',
                                          text_content, 'ne-pas-repondre@auf.org', [form.cleaned_data['adresse']])
