@@ -62,7 +62,7 @@ class CMSEmployePlugin(CMSPluginBase):
         if instance.service:
             qs = qs.filter(service=instance.service)
         if instance.fonction:
-            qs = qs.filter(fonction__contains=instance.fonction)
+            qs = qs.filter(fonction=instance.fonction)
         if instance.region:
             qs = qs.filter(implantation__region=instance.region)
 
