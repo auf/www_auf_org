@@ -386,7 +386,7 @@ class Responsable(models.Model):
         managed = False
 
     def __unicode__(self):
-        return self.POS_Title_fr
+        return self.POS_Title_fr + " (" + self.User_First_Name + " " + self.User_Last_Name + ")"
 
 
 class EmployePlugin(CMSPlugin):
