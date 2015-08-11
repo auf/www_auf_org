@@ -390,7 +390,7 @@ class Responsable(models.Model):
 
 
 class EmployePlugin(CMSPlugin):
-    reponsable = models.ForeignKey(
+    responsable = models.ForeignKey(
         Responsable, related_name="employe_plugin_responsable", null=True, blank=True)
     service = models.ForeignKey(
         Service, related_name="employe_plugin_service", null=True, blank=True)
