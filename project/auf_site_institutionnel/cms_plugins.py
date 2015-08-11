@@ -4,7 +4,7 @@ from django.utils.translation import ugettext as _
 
 from auf.django.references.models import Etablissement, Implantation, Employe
 
-from .fiters import MembreFilter
+from .filters import MembreFilter
 from .models import Partenaire, Responsable
 from .models import EmployePlugin, ImplantationPlugin
 
