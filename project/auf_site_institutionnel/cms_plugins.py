@@ -2,15 +2,10 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext as _
 
-from auf.django.references.models import Etablissement, Pays, Implantation, Employe
-from django.template import Context, RequestContext
+from auf.django.references.models import Etablissement, Implantation, Employe
 
-from project.auf_site_institutionnel.filters import MembreFilter
-from project.auf_site_institutionnel.filters import ImplantationFilter
-from project.auf_site_institutionnel.models import Partenaire
-
-
-#from newsletter.models import *
+from .fiters import MembreFilter
+from .models import Partenaire, Responsable
 from .models import EmployePlugin, ImplantationPlugin
 
 
@@ -59,6 +54,8 @@ class CMSEmployePlugin(CMSPluginBase):
         ctx = super(CMSEmployePlugin, self).render(
             context, instance, placeholder)
         qs = Employe.objects.filter(actif=True)
+        if instance.responsable:
+            qs = qs.filter(id=instance.responsable.User_Emp_Nb)
         if instance.service:
             qs = qs.filter(service=instance.service)
         if instance.fonction:

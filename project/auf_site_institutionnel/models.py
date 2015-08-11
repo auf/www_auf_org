@@ -356,7 +356,7 @@ class Partenaire(models.Model):
              'Acteurs economiques')))
     nom = models.TextField()
     objet = models.TextField()
-    budget = models.CharField(max_length=200)
+    BUDGET = models.CharField(max_length=200)
     periode = models.CharField(max_length=200)
     image = models.ImageField(null=True, blank=True, upload_to='partenaires')
     site = models.URLField(max_length=200)
@@ -371,7 +371,27 @@ class Partenaire(models.Model):
         return "/partenaire/%s/" % self.slug
 
 
+class Responsable(models.Model):
+    UO_Idx = models.AutoField(primary_key=True)
+    UO_Desc_fr = models.CharField(max_length=255)
+    UPR_POS_Idx = models.IntegerField()
+    POS_Title_fr = models.CharField(max_length=255)
+    User_Emp_Nb = models.CharField(max_length=16)
+    User_Last_Name = models.CharField(max_length=50)
+    User_First_Name = models.CharField(max_length=50)
+    actif = models.BooleanField()
+
+    class Meta:
+        db_table = "ref_responsable"
+        managed = False
+
+    def __unicode__(self):
+        return self.POS_Title_fr
+
+
 class EmployePlugin(CMSPlugin):
+    reponsable = models.ForeignKey(
+        Responsable, related_name="employe_plugin_responsable", null=True, blank=True)
     service = models.ForeignKey(
         Service, related_name="employe_plugin_service", null=True, blank=True)
     # FIXME
