@@ -252,7 +252,7 @@ class Evenement(models.Model):
     detail_horaire = models.TextField(null=True, blank=True)
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
-    date_pub = models.DateTimeField('date de creation')
+    date_pub = models.DateTimeField('date de creation', auto_now=True)
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now_add=True)
     status = models.CharField(
