@@ -237,7 +237,7 @@ ul#NavFixe .dropdown a.dropdown-toggle {
 
 #BlocPresentation h1 {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 16px;
     color: rgb(255, 0, 0);
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -790,7 +790,10 @@ ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
     line-height:1.9rem;
     margin-bottom: 10px;
     margin-left:6px;
+    text-align:justify;
 }
+
+.texte strong {text-align: justify;}
 
 .texte ul li {
     margin-left: 38px;
@@ -1886,7 +1889,6 @@ a[href ^='mailto:']::after {
 .col-md-12 #accordion .panel-title {
 text-align:center;}
 
-/*------------------------------------*/
 
 
 /*------------------------------------*/
@@ -1902,13 +1904,681 @@ a:after >  img{
 }
 */
 
+/*---------Classe pour enlèver l'icône sur liens type fichier----------*/
 a.noExternalStyle:after {
     display:none
 }
 
+
+/*----------Cache les boîtes vides--------------*/
 
 .cache-boite {
     background-color:white;
     height:40px;
     margin:-18px -18px -20px -18px;
 }
+
+/*----------Cache le checkbox des sous-pages (mobile)--------------*/
+
+input#sous-pages, .sous-pages label {
+display: none;
+}
+
+/*----------Correcteur Menu pour Safari--------------*/
+
+_::-webkit-full-page-media, _:future, :root #MenuPrincipal 
+{ font-size:1.25rem; }
+
+
+/*--------------------------------------*/
+/*---------------MOBILE-----------------*/
+/*--------------------------------------*/
+ 
+/*-------------------Téléphones---------------------*/
+ 
+@media screen and (max-width:767px) and (min-width:240px) {
+ 
+body {
+margin-top: 0px;
+}
+  
+/*.container {
+padding-right: 30px;
+padding-left: 30px;
+}*/
+
+/*---Tableaux---*/
+table {
+font-size: 1rem;
+}
+
+div#tabemploye {
+overflow-x: auto;
+margin-top: 22px;
+}
+
+div#tabemploye::before {
+content: "\f07e";
+margin: 0 auto;
+font-family: fontawesome;
+font-size: 3rem;
+margin-left: 41%;
+position: absolute;
+margin-top: -33px;
+color: silver;
+}
+   
+/*-Engin de recherche-*/
+ 
+.navbar-form .form-group {
+    margin-right:-55px;
+  }
+    
+.navbar-brand {
+margin: 0px;
+padding: 3px;
+margin-top: 1px;
+margin-bottom:-13px;
+height: 0px;
+max-width: 25%;
+display:inline-table;
+}
+   
+  .navbar-brand img {
+    zoom:36%;
+       
+  }
+ 
+   
+/*-----Bande de couleurs----*/
+ 
+  #NavFixe {
+    padding:0px;
+    width:100%;
+    display:inline-block;
+    padding-right:0px;
+    margin-bottom:-22px;
+   margin-top:5px;
+  }
+   
+  #NavFixe > li:not(.MenuRSS) {
+  text-align:center;
+border-right:1px solid silver;
+height:30px;
+  }
+   
+  #NavFixe > li.MenuLangue {
+  border-top: 5px solid #E52727;
+  }
+  #NavFixe > li.MenuContact {
+    border-top: 5px solid #702283;
+  }
+  #NavFixe > li.MenuPresse {
+  border-top: 5px solid #FFD500;
+    border-left:1px solid silver;
+  }
+  #NavFixe > li.MenuEmploi {
+    border-top: 5px solid #8DBE23;
+  }
+  #NavFixe > li.MenuRSS {
+    border-top: 5px solid #1D9DD9;
+  }
+   
+  /*-----Réseaux sociaux------*/
+   
+  li.MenuRSS .ReseauxSociaux {
+    top:19px;
+    right:14px;
+    position:absolute;
+    font-size:1.3rem;
+    border-bottom:1px dashed whitesmoke;
+    border-top:1px dashed whitesmoke;
+    max-height:2.8rem;
+       
+  }
+   
+  li.MenuRSS .ReseauxSociaux svg {
+    -ms-transform: scale(1); /* IE 9 */
+    -webkit-transform: scale(1); /* Safari */
+    transform: scale(1);
+  } 
+   
+  li.MenuRSS .ReseauxSociaux i {
+    margin-left:2px;
+  }
+   
+  /*-----Menu Langue------*/
+   
+   .MenuLangue .dropdown-menu {
+    margin-left:-107px;
+    margin-bottom:-40px;
+    font-size:1.4rem;
+    border:2px solid grey;
+    margin-top:0px;
+    background:whitesmoke;
+  }
+  
+  /*-----Menu Régions (ignorer le nom de la classe)------*/
+   
+    .MenuContact .dropdown.open {
+        border-left:1px solid #702283;
+        border-right:1px solid #702283;
+  }
+ 
+   
+  .MenuContact .dropdown-menu {
+   margin-left:-13.2em;
+    margin-bottom:-40px;
+    font-size:1.3rem;
+    border:2px solid grey;
+    margin-top:1px;
+    background:whitesmoke;
+       font-weight:900;
+  }
+   
+  .MenuContact .dropdown-menu > li {
+    margin-bottom:11px;
+   border-bottom:1px solid rgb(229, 229, 229);
+      text-align:center;
+  }
+  
+   /*-----Taille de police des menus sous la barre couleur------*/
+  
+    .MenuPresse a, .MenuContact a, .MenuLangue a, .MenuEmploi a {
+        font-size:0.8em;
+    }
+   
+   
+  /*-----Menu de droite----*/
+ #myNavmenu .region ul li a{
+    font-size:0.8em;
+  }
+   
+ #myNavmenu .navmenu-brand  {
+width:40%;
+ 
+  }
+   
+/*-Bannnière pages de CMS-*/
+ 
+  .banniere {
+    top: -10px;
+      padding-bottom:31px;
+  }
+ 
+/*-Onglets-*/
+ 
+.nav-tabs {
+margin-top: 0px;
+width: 574px;
+height: 43px;
+}
+
+.nav > li > a {
+position: relative;
+display: block;
+padding: 10px 5px;
+}
+ 
+  .tab-content {
+    margin-top: -3px;
+  }
+
+.tab-content > .tab-pane.active:nth-last-child(1) .btn-info {
+    font-size: 1.1rem;
+  }
+
+.tab-content > .tab-pane.active:nth-last-child(4) .btn-info {
+font-size: 0.82em;
+padding: 7px;
+} 
+
+/*-Contenu-*/
+   
+   
+#content .tab-content .media a.pull-left {
+float:none !important;
+margin:0 auto;
+}
+   
+#content .tab-content .media a img.img-thumbnail {
+float:none !important;
+margin:0 auto;
+} 
+   
+  #content {
+    padding-bottom:20px; 
+}
+  
+  .mobile {
+    padding-top:50px;
+  }
+ 
+ .texte h2 {
+padding-top:15px;
+margin-top:-2px;
+font-size:2rem;
+  }
+ 
+ .texte h3 {
+font-size:1.8rem;
+  }
+ 
+.django_social_share b { 
+font-size: 0.8em;
+}
+ 
+/*-Pied de page-*/
+   
+  #PiedPage {
+background: #707070;
+color: white;
+margin-bottom: 0px;
+    height: 50px;
+}
+ 
+#PiedPage p {
+font-size: 0.9rem;
+top:10px;
+margin-left:0px;
+text-align:center;
+background:#707070;
+padding:5px;
+}
+   
+  #PiedPage img {
+    display:none;
+  }
+ 
+ 
+/*---Style commun aux bureaux---*/
+ 
+/*-Titre du bureau et estampilles-*/
+ 
+ .nav > div.col-md-8 {
+   width:70%;
+   margin-top:5rem;
+   margin-bottom:-60px;
+   left:-1px;
+  }
+   
+ h2.titre-bureau {
+  font-size:1.5rem;
+  top:-75px;
+  left:34px;
+  position:relative;
+  text-align:center;
+     
+}
+ 
+svg.estampille {
+  -ms-transform:scale(0.5); /* IE 9 */
+  -webkit-transform:scale(0.5); /* SAFARI */
+  -moz-transform:scale(0.5); /* FIREFOX */
+  transform:scale(0.5);
+  left:-10px;
+  top:-33px;
+  display:block;
+}
+ 
+/*-Menu principal-*/
+ 
+ #MenuPrincipal {
+   margin-left:0px;
+ }
+ 
+.navbar-toggle {
+    margin-top:37px;
+    margin-left: 10px;
+  }
+
+ 
+/*-Onglets défilants mobile-*/
+ 
+nav.mobile-tabs {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+ 
+ 
+/*-Menu des sous pages-*/
+ 
+.menu-mobile {
+  position:absolute;
+  top:4px;
+  margin:0 auto;
+  width:93%;
+}
+   
+#myAffix.affix {
+width: 100%;
+position: initial;
+    background:whitesmoke;
+}
+  
+  #ColonneMenuSecondaire {
+    text-align:left;
+    border-left:0px;
+    margin-left:10px;
+  }
+  
+  div.sous-pages { 
+  color: white;
+  width: 100%;
+  padding: 0rem;
+  border-radius: 5px;
+  background: whitesmoke;
+ box-shadow:0px 1px 5px 2px silver;
+  text-align: center;
+}
+  
+div.sous-pages label { 
+  display: block;
+  background: #AA0A2F;
+  font-size: small;
+  border-radius: 5px;
+  padding: .6rem;
+  transition: .4s all linear; 
+  margin:0 auto;
+}
+div.sous-pages label:hover { 
+  cursor: pointer; background: rgba(170, 10, 47, 0.72); 
+}
+
+div.sous-pages label:after { 
+content:"\f13a";
+  font-family:fontawesome;
+  margin-left:6px;
+}  
+
+
+input.toggle ~ div { 
+  height: 0px; margin: .2rem;
+  overflow: hidden;
+  transition: .6s all cubic-bezier(0.730, -0.485, 0.145, 1.620)
+}
+input.toggle:checked ~ div { height:auto; }
+input.toggle:checked + label { background: #1D9DD9; }
+ input.toggle:checked + label:after { content:"\f057"; font-family:fontawesome; }
+input.toggle { display: none; }
+   
+/*---Carte implantations---*/
+  .col-md-12 > .filters {
+    padding-top:10px;
+    font-size:1.2rem;
+  }
+   
+ #filter-bureau {
+   display:block;
+     margin:0 auto;
+   width:80%;
+  height:25px;
+ }
+ 
+ 
+#carte {
+    margin-left:0px;
+  }
+
+ 
+}
+ 
+/*------------------------Tablettes-----------------------*/
+@media screen and (max-width:992px) and (min-width:768px) { 
+  
+     
+     
+/*-Réseaux sociaux (bande de couleurs)-*/
+  .ReseauxSociaux {
+font-size:1.2rem;
+ 
+} 
+  .ReseauxSociaux svg {
+    zoom:93%;
+    margin-right:-20px;
+  }
+     
+    .MenuContact .dropdown-menu {
+    margin-left:-201px;
+    margin-bottom:-40px;
+    font-size:1.3rem;
+    border:2px solid grey;
+    margin-top:1px;
+    background:whitesmoke;
+       font-weight:900;
+  }
+  
+/*-Estampille et titres des bureaux-*/
+ 
+h2.titre-bureau {
+  font-size:2.4rem;
+    margin-left:-40px;
+     
+}
+ 
+svg.estampille {
+  -ms-transform:scale(0.8); /* IE 9 */
+  -webkit-transform:scale(0.8); /* SAFARI */
+  -moz-transform:scale(0.8); /* FIREFOX */
+  transform:scale(0.8);
+  right:5px;
+    top:6px;
+}
+ 
+/*-Menu principal-*/
+ 
+  #MenuPrincipal {
+    font-size:0.94rem}
+   
+ 
+/*-Carousel-*/
+ 
+  .carrousel {
+    margin-left:180px;
+  }
+ 
+ 
+/*-Bannière des pages CMS-*/
+  .banniere {
+    top: -29px;
+  }
+   
+/*-Textes des articles-*/
+ 
+.mobile {padding-top:40px;
+}
+ 
+.right-menu::before {
+  content:"\f0d9";
+  font-family:Fontawesome;
+  margin-top:-3px;
+ margin-left:-18px;
+  position:absolute;
+ color:grey;
+}
+ 
+/*-Menu des sous pages-*/
+   .menu-mobile {
+  position:absolute;
+  top:4px;
+  margin-left:-14px;
+  margin:0 auto;
+  width:93%;
+}
+ 
+#myAffix.affix {
+width: 100%;
+position: initial;
+}
+   
+#ColonneMenuSecondaire {
+border:none;
+text-align:left;
+  margin-left:10px;
+  margin-bottom:10px;
+}
+   
+#ColonneMenuSecondaire li a {
+margin-bottom:-6px;
+}
+
+div.sous-pages { 
+  color: white;
+  width: 100%;
+  padding: 0rem;
+  border-radius: 5px;
+  background: whitesmoke;
+  margin: 1rem;
+ box-shadow:0px 1px 5px 2px silver;
+  text-align: center;
+}
+  
+div.sous-pages label { 
+  display: block;
+  background: #AA0A2F;
+  font-size: small;
+  border-radius: 5px;
+  padding: .6rem;
+  transition: .4s all linear; 
+  margin:0 auto;
+}
+div.sous-pages label:hover { 
+  cursor: pointer; background: rgba(170, 10, 47, 0.72); 
+}
+
+  
+div.sous-pages label:after { 
+content:"\f13a";
+  font-family:fontawesome;
+  margin-left:6px;
+}  
+
+input.toggle ~ div { 
+  height: 0px; margin: .2rem;
+  overflow: hidden;
+  transition: .6s all cubic-bezier(0.730, -0.485, 0.145, 1.620)
+}
+input.toggle:checked ~ div { height:auto; }
+input.toggle:checked + label { background: #1D9DD9; }
+ input.toggle:checked + label:after { content:"\f057"; font-family:fontawesome; }
+input.toggle { display: none; }
+   
+   
+/*-Pied de page-*/
+   
+  #PiedPage {
+background: #707070;
+color: white;
+margin-bottom: 0px;
+    height: 50px;
+}
+ 
+#PiedPage p {
+font-size: 0.9rem;
+top:10px;
+margin-left:0px;
+text-align:center;
+background:#707070;
+padding:5px;
+}
+   
+  #PiedPage img {
+    display:none;
+  }
+ 
+}
+
+/*------------------------Notebooks-----------------------*/
+
+@media screen and (max-width:1200px) and (min-width:992px) { 
+  /*-Réseaux sociaux (bande de couleurs)-*/
+  .ReseauxSociaux {
+font-size:1.2rem;
+ 
+} 
+  .ReseauxSociaux svg {
+    zoom:93%;
+    margin-right:-20px;
+  }
+     
+    .MenuContact .dropdown-menu {
+    margin-left:-60px;
+  }
+  
+/*-Estampille et titres des bureaux-*/
+ 
+h2.titre-bureau {
+  font-size:2.4rem;
+    margin-left:-40px;
+     
+}
+ 
+svg.estampille {
+  -ms-transform:scale(0.8); /* IE 9 */
+  -webkit-transform:scale(0.8); /* SAFARI */
+  -moz-transform:scale(0.8); /* FIREFOX */
+  transform:scale(0.8);
+  right:5px;
+    top:6px;
+}
+ 
+/*-Menu principal-*/
+ 
+  #MenuPrincipal {
+    font-size:1.1rem}
+   
+ 
+/*-Carousel-*/
+ 
+  .carrousel {
+    margin-left:180px;
+  }
+ 
+ 
+/*-Bannière des pages CMS-*/
+  .banniere {
+    top: -29px;
+  }
+   
+/*-Textes des articles-*/
+ 
+.right-menu::before {
+  content:"\f0d9";
+  font-family:Fontawesome;
+  margin-top:-3px;
+ margin-left:-18px;
+  position:absolute;
+ color:grey;
+}
+ 
+/*-Menu des sous pages-*/
+ 
+#myAffix.affix {
+width: 25%;
+}
+   
+/*-Pied de page-*/
+   
+  #PiedPage {
+background: #707070;
+color: white;
+margin-bottom: 0px;
+    height: 50px;
+}
+ 
+#PiedPage p {
+font-size: 0.9rem;
+top:10px;
+margin-left:0px;
+text-align:center;
+background:#707070;
+padding:5px;
+}
+   
+  #PiedPage img {
+    display:none;
+  }
+
+}
+
+
