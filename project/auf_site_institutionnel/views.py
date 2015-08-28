@@ -275,6 +275,7 @@ def contacter_employe(request, employe_id=None):
             expediteur = form.data.get('courriel')
             destinataire = [employe.courriel, ]
             send_mail(sujet, message, expediteur, destinataire, )
+            messages.info(request, u'Votre message a été transmis avec succès.')
             return redirect('employes')
     else:
         form = ContactEmployeForm()
