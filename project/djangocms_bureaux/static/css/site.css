@@ -2153,6 +2153,11 @@ margin:0 auto;
   .mobile {
     padding-top:50px;
   }
+
+  .paraintro {
+      text-align: justify;
+      font-weight: bold;
+  }
  
  .texte h2 {
 padding-top:15px;
