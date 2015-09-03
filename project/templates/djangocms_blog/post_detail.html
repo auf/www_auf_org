@@ -3,11 +3,15 @@
 {% load social_share %}
 {% load thumbnail %}
 
-{% block contenu %}
+{% block breadcrumb %}
 <div class="col-md-12" id="content" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
       {% show_breadcrumb %}
     </ul>
+</div>
+{% endblock %}
+
+{% block contenu %}
 <div class="col-md-4">
 
 {% if post.main_image %}
