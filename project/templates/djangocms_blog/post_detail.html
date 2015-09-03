@@ -4,7 +4,7 @@
 {% load thumbnail %}
 
 {% block breadcrumb %}
-<div class="col-md-12" id="content" style="background-color: white;">
+<div class="col-md-12" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
       {% show_breadcrumb %}
     </ul>
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block contenu %}
-<div class="col-md-12" style="background: white">
+<div class="col-md-12" id="content" style="background: white">
 <div class="col-md-4">
 
 {% if post.main_image %}
