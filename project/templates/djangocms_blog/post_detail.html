@@ -18,7 +18,7 @@
 {% if post.main_image %}
 {% render_model_block post "main_image" %}
             {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
-        <img class="img-thumbnail" "src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+        <img class="img-thumbnail" src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
 {% endrender_model_block %}
 {% else %}
 {% render_model_block post "main_image" %}
