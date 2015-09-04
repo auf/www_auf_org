@@ -20,14 +20,10 @@ class Newsletter(models.Model):
     photo_dossier = models.ImageField(
         upload_to='planete', null=True, blank=True)
     lien_dossier = models.URLField(max_length=300, null=True, blank=True)
-    appel = models.ManyToManyField(Appel_Offre, related_name='+', limit_choices_to={
-                                   'status': 3}, verbose_name='Appels d\'offres', blank=True, null=True)
-    actualite = models.ManyToManyField(Actualite, limit_choices_to={
-                                       'status': 3}, verbose_name='Actualités universitaires', blank=True, null=True)
-    evenement = models.ManyToManyField(Evenement, limit_choices_to={
-                                       'status': 3}, verbose_name='Evénements', blank=True, null=True)
-    publication = models.ManyToManyField(Publication, limit_choices_to={
-                                         'status': 3}, verbose_name='Publication', blank=True, null=True)
+    appel = models.ManyToManyField(Appel_Offre, related_name='+', verbose_name='Appels d\'offres', blank=True, null=True)
+    actualite = models.ManyToManyField(Actualite, verbose_name='Actualités universitaires', blank=True, null=True)
+    evenement = models.ManyToManyField(Evenement, verbose_name='Evénements', blank=True, null=True)
+    publication = models.ManyToManyField(Publication, verbose_name='Publication', blank=True, null=True)
     lien = models.EmailField(max_length=200, default='webmestre@auf.org')
     lien2 = models.URLField(max_length=250, default='http://www.auf.org')
     lienFace = models.URLField(
@@ -48,10 +44,8 @@ class Fil(models.Model):
     numero = models.IntegerField(max_length=11, default=0)
     bureau = models.ManyToManyField(Region)
     date = models.DateField()
-    actualite = models.ManyToManyField(Actualite, limit_choices_to={
-                                       'status': 3}, verbose_name='Choix des actualités', blank=True, null=True)
-    evenement = models.ManyToManyField(Evenement, limit_choices_to={
-                                       'status': 3}, verbose_name='Choix des événements', blank=True, null=True)
+    actualite = models.ManyToManyField(Actualite,verbose_name='Choix des actualités', blank=True, null=True)
+    evenement = models.ManyToManyField(Evenement, verbose_name='Choix des événements', blank=True, null=True)
     footer = models.TextField(default='Copyright AUF 2013')
 
     def __unicode__(self):
@@ -69,12 +63,9 @@ class Planete(models.Model):
     photo_dossier = models.ImageField(
         upload_to='planete', null=True, blank=True)
     lien_dossier = models.URLField(max_length=300, null=True, blank=True)
-    appel_planete = models.ManyToManyField(Appel_Offre, limit_choices_to={
-                                           'status': 3}, verbose_name='Appels d\'offres', blank=True, null=True)
-    bourse_planete = models.ManyToManyField(
-        Bourse, limit_choices_to={'status': 3}, verbose_name='Bourses', blank=True, null=True)
-    evenement_planete = models.ManyToManyField(Evenement, limit_choices_to={
-                                               'status': 3}, verbose_name='Evénements', blank=True, null=True)
+    appel_planete = models.ManyToManyField(Appel_Offre, verbose_name='Appels d\'offres', blank=True, null=True)
+    bourse_planete = models.ManyToManyField(Bourse, verbose_name='Bourses', blank=True, null=True)
+    evenement_planete = models.ManyToManyField(Evenement, verbose_name='Evénements', blank=True, null=True)
     fil_planete = models.ForeignKey(
         Fil, verbose_name='Fil d\'Actualités', blank=False, null=False)
     footer = models.TextField(
