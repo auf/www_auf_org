@@ -48,7 +48,7 @@
         <script type="text/javascript">
             function confirmer_confirmation() {
                 if (confirm("* Une fois le formulaire confirmé, vous ne pourrez plus le modifier.\n\nVoulez-vous confirmer ces informations ?")) {
-                    window.location.href='{% url espace_membre_valider %}';
+                    window.location.href='{% url "espace_membre_valider" %}';
                     return true;
                 }
                 return false;
@@ -216,7 +216,7 @@
     </fieldset>
 <hr />
         {% if not etablissement.validation_etablissement %}
-            <input type="submit" value="Modifier" onclick="window.location.href='{% url espace_membre_modifier %}'">
+            <input type="submit" value="Modifier" onclick="window.location.href='{% url "espace_membre_modifier" %}'">
             &nbsp;
             <input type="submit" value="Confirmer" onclick="confirmer_confirmation()">
             <br/>
