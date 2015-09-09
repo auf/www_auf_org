@@ -22,7 +22,6 @@ class ResponsableFormSet(BaseInlineFormSet):
 
 
 class ResponsableInline(admin.StackedInline):
-    template = "edit_inline.html"
     model = espace_membre.ResponsableModification
     extra = 0
     fields = ('salutation', 'nom', 'prenom',
