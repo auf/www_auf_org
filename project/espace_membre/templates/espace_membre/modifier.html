@@ -3,17 +3,57 @@
 
 {% block extra_head %}
 <link href="{% static "css/espace_membre.css" %}" rel="stylesheet">
+<style type="text/css">		
+    textarea, form#modif_membre input[type="text"] {		
+        width: 600px;		
+    }		
+		
+    form#modif_membre .erroneous_field {		
+        background-color: #FF9999;		
+    }		
+		
+    #BlocContenu .Contenu form#modif_membre fieldset p label {		
+        width: 600px;		
+    }		
+		
+    #BlocContenu .Contenu form#modif_membre fieldset h2 {		
+        background-color: #F0F0F0;		
+        border-top: 1px solid #C3C3C3;		
+        padding: 10px 0 5px;		
+        color: #808080;		
+    }		
+			
+    .hint_o {		
+        padding-top: 4px;		
+        font-size: 11px;		
+        float: right;		
+        width: 33%;		
+        text-align: right;		
+		color: #279ab7;		
+		cursor: pointer;		
+    }		
+		
+    .label_left {		
+        float: left;		
+        width: 66%;		
+    }		
+		
+    #BlocContenu .Contenu p.label_left_p {		
+        margin-bottom: 0;		
+    }		
+		
+</style>
 {% endblock %}
 
 {% block Contenu %}
 <div class="col-md-12" style="background-color: white;">
 <form method="post" id="modif_membre">
         <h1>Formulaire de mise à jour des données du membre :<br /> <strong>{{ form.instance.nom }}</strong></h1>
-    {% if erreur %}
-        <div style="font-size:16px;color:#ff0000;font-weight:bold">Veuillez corriger les erreurs suivantes.</div>
-    {% endif %}
         <div>
         <h2>Voici les informations que nous avons présentement sur votre établissement.<br />Veuillez s'il vous plaît compléter les données manquantes ou corriger les données erronées.</h2>
+        {% if erreur %}
+          <div class="alert alert-error">Veuillez corriger les champs marqués en rouge.</div>
+        {% endif %}
         <p>Notez que les champs marqués d'un * sont obligatoires.</p>
         </div>
     {% csrf_token %}
