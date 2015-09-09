@@ -63,8 +63,6 @@ h2 {
 input[type=submit] {
 border-radius:6px;
 padding:7px;
-margin:0 auto;
-display:block;
 background: #4194DE;
 color:white;
 }
@@ -148,8 +146,6 @@ border-color: #9acfea;
 #modif_membre input[type=submit] {
 border-radius:6px;
 padding:7px;
-margin:0 auto;
-display:block;
 background: #4194DE;
 color:white;
 }
@@ -233,8 +229,6 @@ border-color: #9acfea;
 #modif_membre input[type=submit] {
 border-radius:6px;
 padding:7px;
-margin:0 auto;
-display:block;
 background: #4194DE;
 color:white;
 }
