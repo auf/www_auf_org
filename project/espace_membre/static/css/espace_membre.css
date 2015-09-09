@@ -15,7 +15,6 @@ h1 {
     padding:10px;
     background:whitesmoke;
     margin-top:-20px;
-    margin-bottom:-10px;
 }
 
 
@@ -61,7 +60,7 @@ h2 {
    box-shadow: 0 0 7px rgb(141, 190, 35);
 }
 
-#modif_membre input[type=submit] {
+input[type=submit] {
 border-radius:6px;
 padding:7px;
 margin:0 auto;

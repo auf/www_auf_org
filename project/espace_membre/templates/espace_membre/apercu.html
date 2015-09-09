@@ -196,7 +196,7 @@
         {% if not etablissement.validation_etablissement %}
             <input type="submit" value="Modifier" onclick="window.location.href='{% url "espace_membre_modifier" %}'">
             &nbsp;
-            <input type="submit" value="Confirmer" onclick="confirmer_confirmation()">
+              <button class="btn btn-success" onclick="confirmer_confirmation()">Confirmer</button>
             <br/>
 
         {% endif %}
