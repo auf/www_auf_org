@@ -1,4 +1,10 @@
+{% load static %}
 {% extends "une_colonne.html" %}
+
+{% block extra_head %}
+<link href="{% static "css/espace_membre.css" %}" rel="stylesheet">
+{% endblock %}
+
 {% block Contenu %}
 <div class="col-md-12" style="background-color: white;">
 <form method="POST">

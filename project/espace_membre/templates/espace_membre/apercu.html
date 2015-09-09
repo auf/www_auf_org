@@ -1,28 +1,11 @@
+{% load static %}
 {% extends "une_colonne.html" %}
+
+{% block extra_head %}
+<link href="{% static "css/espace_membre.css" %}" rel="stylesheet">
+{% endblock %}
+
 {% block Contenu %}
-<style type="text/css">
-    #BlocContenu .Contenu p label {
-        width: 170px;
-	display: inline;
-	font-size: 12px;
-    }
-
-    #BlocContenu .Contenu fieldset h2 {
-	background-color: #F0F0F0;
-	border-top: 1px solid #C3C3C3;
-	padding: 10px 0 5px;
-	color: #808080;
-    }
-
-    #BlocContenu .Contenu fieldset p {
-	font-size: 13px;
-    }
-
-    h2 {
-        font-size: 16px;
-    }
-
-</style>
 <div class="col-md-12" style="background-color: white;">
 {% if etablissement.validation_etablissement %}
     <div>
