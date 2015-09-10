@@ -21,9 +21,9 @@ class MembreFilter(django_filters.FilterSet):
             ('',
              'Sélectionnez un statut...'),
             ('T',
-             'Membre Titulaires'),
+             'Membre Titulaire'),
             ('A',
-             'Membres associés')))
+             'Membre associé')))
     #qualite = django_filters.ChoiceFilter(label="Par type de membre", required=False, choices=(('', 'Sélectionnez un type...'), ('ESR', 'Établissement'), ('RES', 'Réseaux institutionnels'), ('CIR', 'Réseaux d administrateurs')))
     nom = django_filters.CharFilter(lookup_type='icontains', name='nom')
 
