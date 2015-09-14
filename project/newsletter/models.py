@@ -42,7 +42,7 @@ class Abonne(models.Model):
 
 class Fil(models.Model):
     numero = models.IntegerField(max_length=11, default=0)
-    bureau = models.ManyToManyField(Region)
+    bureau = models.ManyToManyField(Region, blank=True, null=True)
     date = models.DateField()
     actualite = models.ManyToManyField(Actualite,verbose_name='Choix des actualités', blank=True, null=True)
     evenement = models.ManyToManyField(Evenement, verbose_name='Choix des événements', blank=True, null=True)
