@@ -54,14 +54,18 @@ class CMSEmployePlugin(CMSPluginBase):
         ctx = super(CMSEmployePlugin, self).render(
             context, instance, placeholder)
         qs = Employe.objects.filter(actif=True)
-        if instance.responsable:
-            qs = qs.filter(id=instance.responsable.User_Emp_Nb)
-        if instance.service:
-            qs = qs.filter(service=instance.service)
-        if instance.fonction:
-            qs = qs.filter(fonction=instance.fonction)
-        if instance.region:
-            qs = qs.filter(implantation__region=instance.region)
+
+        try:
+            if instance.responsable:
+                qs = qs.filter(id=instance.responsable.User_Emp_Nb)
+            if instance.service:
+                qs = qs.filter(service=instance.service)
+            if instance.fonction:
+                qs = qs.filter(fonction=instance.fonction)
+            if instance.region:
+                qs = qs.filter(implantation__region=instance.region)
+        except:
+            qs = []
 
         ctx['object_list'] = qs
         ctx['layout_template'] = instance.layout_template
