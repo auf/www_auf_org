@@ -57,9 +57,9 @@ class DerniereActualites(ArticleFeed):
 
     def items(self, obj):
         if (self.region_actuel != ''):
-            return Actualite.objects.filter(bureau=obj).filter(status__in=[3, 5]).order_by('-date_pub')[:5]
+            return Actualite.objects.filter(bureau=obj).filter(status__in=[3, 6]).order_by('-date_pub')[:5]
         else:
-            return Actualite.objects.all().filter(status__in=[3, 6]).order_by('-date_pub')[:5]
+            return Actualite.objects.all().filter(status__in=[3, 5]).order_by('-date_pub')[:5]
 
 
 class DerniereVeille(ArticleFeed):
@@ -74,9 +74,9 @@ class DerniereVeille(ArticleFeed):
 
     def items(self, obj):
         if (self.region_actuel != ''):
-            return Veille.objects.filter(bureau=obj).filter(status__in=[3, 5]).order_by('-date_pub')[:5]
+            return Veille.objects.filter(bureau=obj).filter(status__in=[3, 6]).order_by('-date_pub')[:5]
         else:
-            return Veille.objects.all().filter(status__in=[3, 6]).order_by('-date_pub')[:5]
+            return Veille.objects.all().filter(status__in=[3, 5]).order_by('-date_pub')[:5]
 
 
 class DerniereAppel(ArticleFeed):
@@ -91,9 +91,9 @@ class DerniereAppel(ArticleFeed):
 
     def items(self, obj):
         if (self.region_actuel != ''):
-            return Appel_Offre.objects.filter(bureau=obj).filter(status__in=[3, 5]).order_by('-date_pub')[:5]
+            return Appel_Offre.objects.filter(bureau=obj).filter(status__in=[3, 6]).order_by('-date_pub')[:5]
         else:
-            return Appel_Offre.objects.all().filter(status__in=[3, 6]).order_by('-date_pub')[:5]
+            return Appel_Offre.objects.all().filter(status__in=[3, 5]).order_by('-date_pub')[:5]
 
 
 class DerniereAllocations(ArticleFeed):
@@ -108,9 +108,9 @@ class DerniereAllocations(ArticleFeed):
 
     def items(self, obj):
         if (self.region_actuel != ''):
-            return Bourse.objects.filter(bureau=obj).filter(status__in=[3, 5]).order_by('-date_pub')[:5]
+            return Bourse.objects.filter(bureau=obj).filter(status__in=[3, 6]).order_by('-date_pub')[:5]
         else:
-            return Bourse.objects.all().filter(status__in=[3, 6]).order_by('-date_pub')[:5]
+            return Bourse.objects.all().filter(status__in=[3, 5]).order_by('-date_pub')[:5]
 
 
 class DerniereEvenement(ArticleFeed):
@@ -125,9 +125,9 @@ class DerniereEvenement(ArticleFeed):
 
     def items(self, obj):
         if (self.region_actuel != ''):
-            return Evenement.objects.filter(bureau=obj).filter(status__in=[3, 5]).order_by('-date_pub')[:5]
+            return Evenement.objects.filter(bureau=obj).filter(status__in=[3, 6]).order_by('-date_pub')[:5]
         else:
-            return Evenement.objects.all().filter(status__in=[3, 6]).order_by('-date_pub')[:5]
+            return Evenement.objects.all().filter(status__in=[3, 5]).order_by('-date_pub')[:5]
 
 
 class DernierePublication(ArticleFeed):
@@ -142,9 +142,9 @@ class DernierePublication(ArticleFeed):
 
     def items(self, obj):
         if (self.region_actuel != ''):
-            return Publication.objects.filter(bureau=obj).filter(status__in=[3, 5]).order_by('-date_pub')[:5]
+            return Publication.objects.filter(bureau=obj).filter(status__in=[3, 6]).order_by('-date_pub')[:5]
         else:
-            return Publication.objects.all().filter(status__in=[3, 6]).order_by('-date_pub')[:5]
+            return Publication.objects.all().filter(status__in=[3, 5]).order_by('-date_pub')[:5]
 
 
 class foad(Feed):
