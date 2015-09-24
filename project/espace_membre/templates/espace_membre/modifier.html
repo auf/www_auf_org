@@ -57,10 +57,11 @@
         <p>Notez que les champs marqués d'un * sont obligatoires.</p>
         </div>
     {% csrf_token %}
+    <div class="alert alert-danger">
     {{ form.non_field_errors }}
     {{ formset_pha.non_field_errors }}
     {{ formset_com.non_field_errors }}
-
+    </div>
     <fieldset>
         <h2>Renseignements généraux</h2>
         <p>
