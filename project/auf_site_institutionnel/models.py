@@ -180,6 +180,14 @@ class Veille(models.Model):
     def get_absolute_url_region(self):
         return "/veille-regionale/%s/" % self.slug
 
+    def save(self, *args, **kwargs):
+        object = super(Veille, self).save(*args, **kwargs)
+        from cms.api import add_plugin
+        if self.cmstexte.cmsplugin_set.count() == 0:
+            add_plugin(self.cmstexte, "TextPlugin", "fr",
+                       body="Double-cliquez ici pour ajouter votre texte")
+        return object
+
 
 class Appel_Offre(models.Model):
     bureau = models.ManyToManyField(

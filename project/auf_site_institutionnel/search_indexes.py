@@ -5,7 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from haystack import indexes
 
 from project.auf_site_institutionnel.models import \
-    Bourse, Actualite, Appel_Offre, Evenement, Publication
+    Bourse, Actualite, Appel_Offre, Evenement, Publication, Veille
 
 
 class AufIndex(indexes.SearchIndex):
@@ -114,3 +114,18 @@ class PublicationIndex(AufIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         return Publication.objects.filter(status__in=[3, 5, 6])
+
+
+class VeilleIndex(AufIndex, indexes.Indexable):
+
+    def get_model(self):
+        return Veille
+
+    def prepare_section(self, obj):
+        return u"Veille"
+
+    def prepare_date_fin(self, obj):
+        return datetime.date(2999, 1, 1)
+
+    def index_queryset(self, using=None):
+        return Veille.objects.filter(status__in=[3, 5, 6])
