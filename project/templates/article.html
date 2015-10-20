@@ -32,7 +32,7 @@
     <div class="col-md-4">
       {% if object.image %}
         {% render_model_block object "image" %}
-          <img class="img-thumbnail" src="{% thumbnail object.image 300x300 crop %}"/>
+          <img class="img-thumbnail" src="{% thumbnail object.image 300x300 upscale %}"/>
         {% endrender_model_block %}
       {% else %}
         {% render_model_block object "image" %}
