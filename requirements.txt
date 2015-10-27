@@ -1,3 +1,4 @@
+django<1.7
 django-cms
 django-reversion
 django-compressor
@@ -11,8 +12,7 @@ djangocms-style
 djangocms-admin-style
 djangocms-column
 djangocms-inherit
-djangocms-aldryn-search
-djangocms-inherit
+aldryn-search
 
 
 django-haystack
