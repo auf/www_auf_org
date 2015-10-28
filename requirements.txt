@@ -23,7 +23,7 @@ aldryn-search
 django-haystack
 django-standard-form
 django-social-share
-django-tagging
+django-tagging==0.3.4
 django-pagination
 django-extensions
 django-adminfiles
