@@ -414,14 +414,6 @@ class EmployePlugin(CMSPlugin):
             max_length=256,
             help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
-    def __init__(self, *args, **kwargs):
-        super(EmployePlugin, self).__init__(*args, **kwargs)
-        self._meta.get_field_by_name('fonction')[0]._choices = \
-            set(
-                ((e.fonction, e.fonction) for e in
-                 Employe.objects.filter(actif=True))
-            )
-
 
 class ImplantationPlugin(CMSPlugin):
     region = models.ForeignKey(
