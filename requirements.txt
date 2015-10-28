@@ -1,7 +1,9 @@
 django<1.7
 django-cms
-django-reversion
+django-reversion==1.8.5
+django-bootstrap3==5.1.1
 django-compressor
+django-filter
 
 django-filer
 cmsplugin-filer
@@ -12,8 +14,21 @@ djangocms-style
 djangocms-admin-style
 djangocms-column
 djangocms-inherit
+djangocms-picture
+cmsplugin-tabs
+
 aldryn-search
 
 
 django-haystack
 django-standard-form
+django-social-share
+django-tagging
+django-pagination
+django-extensions
+django-adminfiles
+
+--extra-index-url=http://pypi.auf.org/
+
+auf.django.references==0.27
+auf.django.saml==1.18
