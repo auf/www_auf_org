@@ -31,6 +31,8 @@ django-adminfiles
 django-select2
 piwik
 
+South
+
 --extra-index-url=http://pypi.auf.org/
 
 auf.django.references==0.27
