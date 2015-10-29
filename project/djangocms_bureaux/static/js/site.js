@@ -26,7 +26,7 @@ var mapZones = new Array(
     zone8 = "Maghreb",
 	zone9 = "Europe-de-l-Ouest"
 );
-var selectedRegion = "International"
+var selectedRegion = "International";
 
 (function($) {
   var cache = [];

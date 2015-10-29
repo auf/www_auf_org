@@ -13,7 +13,26 @@ djangocms-column
 djangocms-inherit
 djangocms-aldryn-search
 djangocms-inherit
+djangocms-picture
+djangocms-blog
+cmsplugin-tabs
+aldryn-search
 
+raven
+django-admin-enhancer
 
 django-haystack
 django-standard-form
+django-social-share
+django-tagging==0.3.4
+django-pagination
+django-extensions
+django-adminfiles
+django-select2
+piwik
+
+--extra-index-url=http://pypi.auf.org/
+
+auf.django.references==0.27
+auf.django.saml==1.19
+auf.django.piwik
