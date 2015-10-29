@@ -18,7 +18,6 @@ djangocms-picture
 djangocms-blog
 cmsplugin-tabs
 aldryn-search
-
 raven
 django-admin-enhancer
 
