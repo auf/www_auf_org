@@ -15,8 +15,14 @@ djangocms-admin-style
 djangocms-column
 djangocms-inherit
 djangocms-picture
+<<<<<<< HEAD
 djangocms-blog
 cmsplugin-tabs
+=======
+cmsplugin-tabs
+
+aldryn-search
+>>>>>>> dbad0dfc9d4a53a7fa0932d25cdcc3c5afad876a
 
 aldryn-search
 raven
@@ -32,10 +38,9 @@ django-adminfiles
 django-select2
 piwik
 
-South
-
 --extra-index-url=http://pypi.auf.org/
 
 auf.django.references==0.27
 auf.django.saml==1.19
 auf.django.piwik
+
