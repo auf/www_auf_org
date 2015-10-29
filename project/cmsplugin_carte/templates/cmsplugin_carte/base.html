@@ -82,18 +82,20 @@
 {% endaddtoblock %}
 
   <div class="filters">
-    <form>
+    <form autocomplete="off">
       <label for="filter-bureau">Régions</label>
       <select id="filter-bureau">
         <option value="international">International</option>
         {% for b in bureaux %}
-          <option value="B{{ b.code }}" {% if bureau.0 == "B"|join:b.code %}selected{% endif %}>{{ b.nom }}</option>
+          <option value="B{{ b.code }}" {% if bureau.0 == "B"|add:b.code %}selected{% endif %}>{{ b.nom }}</option>
         {% endfor %}
 
       </select>
-      <input class="filter-type-etabli" name="filter-type-etabli" type="checkbox" value="etablissements">Voir les établissements membres</option>
-      <input class="filter-type-implan" name="filter-type-implan" type="checkbox" value="implantations" checked="checked">Voir les implantations</option>
-    </select>
+      <input id="filter-type-etabli"  class="filter-type-etabli" name="filter-type-etabli" type="checkbox" value="etablissements">
+      <label for="filter-type-etabli">Voir les établissements membres</label>
+      <input id="filter-type-implan" class="filter-type-implan" name="filter-type-implan" type="checkbox" value="implantations" checked="checked">
+      <label for="filter-type-implan">Voir les implantations</label>
+
     </form>
   </div>
   <div id="carte" style="height: 600px; width: 100%"
