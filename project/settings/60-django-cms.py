@@ -49,7 +49,6 @@ INSTALLED_APPS += (
     'sekizai',
     'filer',
     'easy_thumbnails',
-
     'cmsplugin_filer_file',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
@@ -139,6 +138,7 @@ THUMBNAIL_PROCESSORS = (
 #    'djangocms_style': 'djangocms_style.migrations_django',
 #    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
 #}
+
 
 CMS_TEMPLATES = (
     ('cms.html', gettext('Page du cms avec menu')),

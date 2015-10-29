@@ -1,6 +1,9 @@
+django<1.7
 django-cms
-django-reversion
+django-reversion==1.8.5
+django-bootstrap3==5.1.1
 django-compressor
+django-filter
 
 django-filer
 cmsplugin-filer
@@ -11,9 +14,33 @@ djangocms-style
 djangocms-admin-style
 djangocms-column
 djangocms-inherit
-djangocms-aldryn-search
-djangocms-inherit
+djangocms-picture
+<<<<<<< HEAD
+djangocms-blog
+cmsplugin-tabs
+=======
+cmsplugin-tabs
 
+aldryn-search
+>>>>>>> dbad0dfc9d4a53a7fa0932d25cdcc3c5afad876a
+
+aldryn-search
+raven
+django-admin-enhancer
 
 django-haystack
 django-standard-form
+django-social-share
+django-tagging==0.3.4
+django-pagination
+django-extensions
+django-adminfiles
+django-select2
+piwik
+
+--extra-index-url=http://pypi.auf.org/
+
+auf.django.references==0.27
+auf.django.saml==1.19
+auf.django.piwik
+

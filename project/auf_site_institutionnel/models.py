@@ -403,24 +403,16 @@ class EmployePlugin(CMSPlugin):
     service = models.ForeignKey(
         Service, related_name="employe_plugin_service", null=True, blank=True)
     # FIXME
-    fonction = models.CharField(
-        max_length=255,
-        null=True,
-        blank=True,
-        choices=set(
-            ((e.fonction,
-              e.fonction) for e in Employe.objects.filter(
-                actif=True))))
-    region = models.ForeignKey(
-        Region, related_name="employe_plugin_region", null=True, blank=True)
-    layout_template = models.CharField(
-        "Template utilisé pour l'affichage",
-        choices=DynamicTemplateChoices(
-            path=TEMPLATE_PATH,
-            include='.html',
-            exclude='default'),
-        max_length=256,
-        help_text="""Utiliser le template pour afficher le contenu de la liste""")
+    fonction = models.CharField(max_length=255, null=True, blank=True)
+    region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
+    layout_template = \
+        models.CharField("Template utilisé pour l'affichage",
+            choices = DynamicTemplateChoices(
+                path=TEMPLATE_PATH,
+                include='.html',
+                exclude='default'),
+            max_length=256,
+            help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
 
 class ImplantationPlugin(CMSPlugin):
