@@ -15,6 +15,7 @@ djangocms-admin-style
 djangocms-column
 djangocms-inherit
 djangocms-picture
+djangocms-blog
 cmsplugin-tabs
 
 aldryn-search
@@ -30,6 +31,8 @@ django-extensions
 django-adminfiles
 django-select2
 piwik
+
+South
 
 --extra-index-url=http://pypi.auf.org/
 
