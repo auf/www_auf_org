@@ -1,4 +1,6 @@
 # encoding: utf-8
+import os
+import datetime
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 
@@ -8,6 +10,8 @@ from django.test.client import RequestFactory
 import djangocms_blog.models as blog_models
 import filer.models as filer_models
 from django.db import transaction
+import shutil
+import resource
 
 from project.auf_site_institutionnel.models import (
      Bourse, Actualite, Veille, Appel_Offre, Evenement, Publication)
@@ -64,31 +68,45 @@ class Command(BaseCommand):
                         date_debut = a.date_debut
                     else:
                         date_debut = a.date_pub
-                    # noinspection PyArgumentList
-                    post = blog_models.Post(
-                        date_created=a.date_debut,
-                        date_modified=a.date_mod,
-                        date_published=a.date_pub,
-                        date_published_end=a.date_fin,
-                        title=a.titre,
-                        slug=a.slug,
-                        abstract=a.resume,
-                        post_text=render_placeholder_html(a.cmstexte)
-                    )
-
-                    image = filer_models.Image.objects.get_or_create(
-                        file=a.image.file, defaults={
-                            'name': a.slug, 'description': a.titre
-                        })
-
-                    post.main_image = image
-                    post.categories.add()
-                    tags = []
-                    if a.status in ('5', '3'):
-                        tags.append('International')
-                    if a.status in ('6', '3'):
-                        for region in a.bureau_set.all():
-                            tags.append(region.nom)
-                    post.save()
+                    try:
+                        post = blog_models.Post.objects\
+                            .translated(slug=a.slug)[0]
+                    except IndexError:
+                        # noinspection PyArgumentList
+                        post = blog_models.Post(
+                            date_created=date_debut,
+                            date_modified=a.date_mod,
+                            date_published=a.date_pub or datetime.datetime.now(),
+                            date_published_end=getattr(a, 'date_fin', None),
+                            title=a.titre,
+                            slug=a.slug,
+                            abstract=a.resume,
+                            post_text=render_placeholder_html(a.cmstexte)
+                        )
+                        if a.image:
+                            image_filename = os.path.join(settings.MEDIA_ROOT,
+                                                          a.image.name)
+                            image_path = os.path.dirname(image_filename)
+                            if not os.path.exists(image_path):
+                                os.makedirs(image_path)
+                            if not os.path.exists(image_filename):
+                                shutil.copy("/media/benselme/data/dev/projects/auf/"
+                                            "www_auf_org/sitestatic/img/logo.png",
+                                            image_filename)
+                            image, _ = filer_models.Image.objects.get_or_create(
+                                file=a.image.file, defaults={
+                                    'name': a.slug, 'description': a.titre
+                                })
+                            post.main_image = image
+                        tags = []
+                        if a.status in ('5', '3'):
+                            tags.append('International')
+                        if a.status in ('6', '3'):
+                            for region in a.bureau.all():
+                                tags.append(u"B" + region.code)
+                        post.save()
+                        if a.image:
+                            a.image.close()
+                    post.categories.add(categories[a.__class__])
         finally:
             transaction.savepoint_rollback(sp)
