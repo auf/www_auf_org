@@ -36,21 +36,21 @@ class Command(BaseCommand):
 
     @transaction.commit_on_success
     def handle(self, *args, **options):
+        testing = "test" in args
         sp = transaction.savepoint()
         try:
-            actualites = blog_models.BlogCategory.objects.create(name=u"Actualités",
-                                                                 slug="actualites")
+            actualites = blog_models.BlogCategory.objects.create(
+                name=u"Actualités", slug="actualites")
             veilles = blog_models.BlogCategory.objects.create(name=u"Veilles",
                                                               slug="veille")
             appels_offres = blog_models.BlogCategory.objects.create(
                 name=u"Appels d'offres", slug="appels_offres")
-            evenements = blog_models.BlogCategory.objects.create(name=u"Évènements",
-                                                                 slug="evenements")
+            evenements = blog_models.BlogCategory.objects.create(
+                name=u"Évènements", slug="evenements")
             publications = blog_models.BlogCategory.objects.create(
                 name=u"Publications", slug="publication")
             bourse = blog_models.BlogCategory.objects.create(name=u"Bourse",
                                                              slug="bourse")
-
             categories = {
                 Actualite: actualites,
                 Bourse: bourse,
@@ -76,7 +76,8 @@ class Command(BaseCommand):
                         post = blog_models.Post(
                             date_created=date_debut,
                             date_modified=a.date_mod,
-                            date_published=a.date_pub or datetime.datetime.now(),
+                            date_published=(a.date_pub or
+                                            datetime.datetime.now()),
                             date_published_end=getattr(a, 'date_fin', None),
                             title=a.titre,
                             slug=a.slug,
@@ -84,15 +85,8 @@ class Command(BaseCommand):
                             post_text=render_placeholder_html(a.cmstexte)
                         )
                         if a.image:
-                            image_filename = os.path.join(settings.MEDIA_ROOT,
-                                                          a.image.name)
-                            image_path = os.path.dirname(image_filename)
-                            if not os.path.exists(image_path):
-                                os.makedirs(image_path)
-                            if not os.path.exists(image_filename):
-                                shutil.copy("/media/benselme/data/dev/projects/auf/"
-                                            "www_auf_org/sitestatic/img/logo.png",
-                                            image_filename)
+                            if testing:
+                                create_test_image(a.image)
                             image, _ = filer_models.Image.objects.get_or_create(
                                 file=a.image.file, defaults={
                                     'name': a.slug, 'description': a.titre
@@ -105,8 +99,24 @@ class Command(BaseCommand):
                             for region in a.bureau.all():
                                 tags.append(u"B" + region.code)
                         post.save()
+                        post.tags.set(*tags)
                         if a.image:
                             a.image.close()
                     post.categories.add(categories[a.__class__])
         finally:
-            transaction.savepoint_rollback(sp)
+            if testing:
+                transaction.savepoint_rollback(sp)
+            else:
+                transaction.savepoint_commit(sp)
+
+
+def create_test_image(image):
+    image_filename = os.path.join(settings.MEDIA_ROOT,
+                                  image.name)
+    image_path = os.path.dirname(image_filename)
+    if not os.path.exists(image_path):
+        os.makedirs(image_path)
+    if not os.path.exists(image_filename):
+        shutil.copy("/media/benselme/data/dev/projects/auf/"
+                    "www_auf_org/sitestatic/img/logo.png",
+                    image_filename)
