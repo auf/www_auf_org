@@ -1,0 +1,8 @@
+
+*{padding:0;margin:0;}
+body { font-size:80%;}
+#titre {width:246px;background-color:#000000;padding:7px;overflow:auto;color:white;font-family: Arial,Helvetica Neue,Helvetica,sans-serif;font-size:1.1em;}
+#cadre {width:252px;background-color:#eeeeee;padding:4px;overflow:auto;}
+.img-partenaire {float: left; padding:3px;}
+
+.img-partenaire:hover { opacity: 0.7; filter: alpha(opacity=70); } 
