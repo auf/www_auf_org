@@ -3,298 +3,298 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	  <title>Brèves des Services Centraux </title>
-          {% render_block "css" %}
-	  <style type="text/css">
-		 #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
-		 body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
-		 /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
-		 .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
-		 .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
-		 #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
-		 /* End reset */
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Brèves des Services Centraux </title>
+    {% render_block "css" %}
+    <style type="text/css">
+     #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+     body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+     /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+     .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+     .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+     #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+     /* End reset */
 
-		 img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
-		 a img {border:none;}
-		 .image_fix {display:block;}
-		 p {margin: 1em 0; font-size: 13px; color: #636363;}
+     img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+     a img {border:none;}
+     .image_fix {display:block;}
+     p {margin: 1em 0; font-size: 13px; color: #636363;}
 
-		 ul{ padding: 0px;}
-		 li{ margin-left: 20px; margin-bottom: 12px; font-size: 13px; color: #636363;}
+     ul{ padding: 0px;}
+     li{ margin-left: 20px; margin-bottom: 12px; font-size: 13px; color: #636363;}
 
-		 h1, h2, h3, h4, h5, h6 {color: black !important;}
+     h1, h2, h3, h4, h5, h6 {color: black !important;}
 
-		 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
-		 h2 {color:#34495e !important; font-size: 15px; margin-top: 5px; margin-bottom:5px;}
+     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
+     h2 {color:#34495e !important; font-size: 15px; margin-top: 5px; margin-bottom:5px;}
      h3 {color:#279dd6 !important;  margin-top: 20px; margin-bottom:5px; font-weight:normal;}
-		 h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
-			 color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
-		 }
+     h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+       color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+     }
 
-		 h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
-			 color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
-		 }
+     h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+       color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+     }
 
-		 table td {border-collapse: collapse;}
+     table td {border-collapse: collapse;}
 
-		 table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+     table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
 
-		 a {color: orange;}
+     a {color: orange;}
 
-		 @media only screen and (max-device-width: 480px) {
+     @media only screen and (max-device-width: 480px) {
 
-			 a[href^="tel"], a[href^="sms"] {
-				 text-decoration: none;
-				 color: black; /* or whatever your want */
-				 pointer-events: none;
-				 cursor: default;
-			 }
+       a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: black; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+       }
 
-			 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
-				 text-decoration: default;
-				 color: orange !important; /* or whatever your want */
-				 pointer-events: auto;
-				 cursor: default;
-			 }
-		 }
+       .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: orange !important; /* or whatever your want */
+         pointer-events: auto;
+         cursor: default;
+       }
+     }
 
-		 /* More Specific Targeting */
+     /* More Specific Targeting */
 
-		 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-			 /* You guessed it, ipad (tablets, smaller screens, etc) */
+     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+       /* You guessed it, ipad (tablets, smaller screens, etc) */
 
-			 /* Step 1a: Repeating for the iPad */
-			 a[href^="tel"], a[href^="sms"] {
-				 text-decoration: none;
-				 color: blue; /* or whatever your want */
-				 pointer-events: none;
-				 cursor: default;
-			 }
+       /* Step 1a: Repeating for the iPad */
+       a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: blue; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+       }
 
-			 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
-				 text-decoration: default;
-				 color: orange !important;
-				 pointer-events: auto;
-				 cursor: default;
-			 }
-		 }
+       .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: orange !important;
+         pointer-events: auto;
+         cursor: default;
+       }
+     }
 
-		 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-			 /* Put your iPhone 4g styles in here */
-		 }
+     @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+       /* Put your iPhone 4g styles in here */
+     }
 
-		 /* Following Android targeting from:
-		    http://developer.android.com/guide/webapps/targeting.html
-		    http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
-		 @media only screen and (-webkit-device-pixel-ratio:.75){
-			 /* Put CSS for low density (ldpi) Android layouts in here */
-		 }
-		 @media only screen and (-webkit-device-pixel-ratio:1){
-			 /* Put CSS for medium density (mdpi) Android layouts in here */
-		 }
-		 @media only screen and (-webkit-device-pixel-ratio:1.5){
-			 /* Put CSS for high density (hdpi) Android layouts in here */
-		 }
-		 /* end Android targeting */
-		</style>
+     /* Following Android targeting from:
+        http://developer.android.com/guide/webapps/targeting.html
+        http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
+     @media only screen and (-webkit-device-pixel-ratio:.75){
+       /* Put CSS for low density (ldpi) Android layouts in here */
+     }
+     @media only screen and (-webkit-device-pixel-ratio:1){
+       /* Put CSS for medium density (mdpi) Android layouts in here */
+     }
+     @media only screen and (-webkit-device-pixel-ratio:1.5){
+       /* Put CSS for high density (hdpi) Android layouts in here */
+     }
+     /* end Android targeting */
+    </style>
 
-		<!-- Targeting Windows Mobile -->
-	  <!--[if IEMobile 7]>
-	    <style type="text/css">
+    <!-- Targeting Windows Mobile -->
+    <!--[if IEMobile 7]>
+      <style type="text/css">
 
-	    </style>
-	  <![endif]-->
+      </style>
+    <![endif]-->
 
-	  <!-- ***********************************************
-	       ****************************************************
-	       END MOBILE TARGETING
-	       ****************************************************
-	       ************************************************ -->
+    <!-- ***********************************************
+         ****************************************************
+         END MOBILE TARGETING
+         ****************************************************
+         ************************************************ -->
 
-	  <!--[if gte mso 9]>
-	    <style>
-		  /* Target Outlook 2007 and 2010 */
-	    </style>
-	  <![endif]-->
+    <!--[if gte mso 9]>
+      <style>
+      /* Target Outlook 2007 and 2010 */
+      </style>
+    <![endif]-->
   </head>
   <body>
     {% cms_toolbar %}
-	  <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
-	  <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #ecf0f1; font-family: Arial, Helvetica, sans-serif;">
-		  <tr>
-			  <td>
+    <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
+    <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #ecf0f1; font-family: Arial, Helvetica, sans-serif;">
+      <tr>
+        <td>
 
-				  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 800px; margin: auto;">
-					  <tr>
-						  <td>
+          <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 800px; margin: auto;">
+            <tr>
+              <td>
 
-							  <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
-							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; ">
-								  <tr>
-									  <td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;width: 600px; " align="center">
-										  <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org{% page_url request.current_page %}" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
-									  </td>
+                <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; ">
+                  <tr>
+                    <td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;width: 600px; " align="center">
+                      <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org{% page_url request.current_page %}" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
+                    </td>
 
-								  </tr>
-							  </table>
+                  </tr>
+                </table>
 
 
                 <table style="width: 802px; margin: auto;" align="left" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td valign="top"><img src="http://www.auf.org/static/lettre/imgBreves/auf-rouge.jpg" style="display: block;" /></td>
                     <td valign="top">
-	                    <table style="width: 692px; margin: auto" align="left" border="0" cellpadding="0" cellspacing="0">
-	                      <tr>
-	                        <td><img src="http://www.auf.org/static/lettre/imgBreves/top-rouge.jpg" style="display: block;" />	</td>
-	                      </tr>
+                      <table style="width: 692px; margin: auto" align="left" border="0" cellpadding="0" cellspacing="0">
                         <tr>
-	                        <td style="background-color:#ee2630;text-align:right;height:81px;">
+                          <td><img src="http://www.auf.org/static/lettre/imgBreves/top-rouge.jpg" style="display: block;" />  </td>
+                        </tr>
+                        <tr>
+                          <td style="background-color:#ee2630;text-align:right;height:81px;">
                             <table style="width: 692px; margin: auto" align="left" border="0" cellpadding="0" cellspacing="0">
                               <tr>
 
 
                                 <td style="height:20px;" width=50 colspan=2></td>
-		                          </tr>
-	                            <tr>
+                              </tr>
+                              <tr>
 
-	                              <td align="right">
-	                                <h1 style="color: #ffffff !important; font-weight:normal; font-size: 30px; text-transform: uppercase; margin:0;padding:0;line-height:24px;">Brèves des services centraux
-                                    </h1><span style="color: #ffffff ; font-weight:normal; font-size: 18px;padding-top:8px;">N<sup style="font-size:10px;">o</sup> {{ request.current_page.get_title }}</span>
-	                              </td>
+                                <td align="right">
+                                  <h1 style="color: #ffffff !important; font-weight:normal; font-size: 30px; text-transform: uppercase; margin:0;padding:0;line-height:24px;">Brèves des services centraux
+                                  </h1><span style="color: #ffffff ; font-weight:normal; font-size: 18px;padding-top:8px;">N<sup style="font-size:10px;">o</sup> {{ request.current_page.get_title }}</span>
+                                </td>
                                 <td style="width:90px;" width=90><img src="http://www.auf.org/static/lettre/imgBreves/trans.gif" width="100" height="1" style="display: block;" /></td>
-		                          </tr>
-		                        </table>
+                              </tr>
+                            </table>
                           </td>
-	                      </tr>
+                        </tr>
 
-	                      <tr>
-	                        <td><img src="http://www.auf.org/static/lettre/imgBreves/bas-rouge.jpg" style="display: block;" />	</td>
-	                      </tr>
-	                    </table>
+                        <tr>
+                          <td><img src="http://www.auf.org/static/lettre/imgBreves/bas-rouge.jpg" style="display: block;" />  </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                 </table>
 
                 <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto">
 
-								  <tr>
-									  <td style="vertical-align:top;width:150px;" width=150>
-										  <img src="http://www.auf.org/static/lettre/imgBreves/trans.gif" width="97" style="display: block;" />
-									  </td>
+                  <tr>
+                    <td style="vertical-align:top;width:150px;" width=150>
+                      <img src="http://www.auf.org/static/lettre/imgBreves/trans.gif" width="97" style="display: block;" />
+                    </td>
 
-									  <td style="vertical-align:top;">
+                    <td style="vertical-align:top;">
 
-										  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
-											  <tr>
-												  <td style="vertical-align:top;">
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
+                        <tr>
+                          <td style="vertical-align:top;">
 
-													  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
 
-														  <tr>
+                              <tr>
 
-															  <td style="vertical-align:top; padding-left:25px;padding-bottom:20px;padding-right:10px;">
+                                <td style="vertical-align:top; padding-left:25px;padding-bottom:20px;padding-right:10px;">
 
-																  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 565px; border-collapse: collapse;">
-																	  <tr>
-																		  <td style="vertical-align:top;">
+                                  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 565px; border-collapse: collapse;">
+                                    <tr>
+                                      <td style="vertical-align:top;">
                                         <p></p><p >Le 96e Conseil permanent
                                           de la Francophonie rend hommage à M. Bernard Cerquiglini, dont le
                                           mandat en tant que Recteur de l'Agence universitaire de la Francophonie
                                           prend fin, pour le travail accompli au sein de cet opérateur majeur
                                           ainsi que pour son militantisme au service de la Francophonie.</p><p></p>
-																		  </td>
-																	  </tr>
-																  </table>
+                                      </td>
+                                    </tr>
+                                  </table>
 
-															  </td>
-														  </tr>
+                                </td>
+                              </tr>
 
-													  </table>
+                            </table>
 
-												  </td>
+                          </td>
 
-												  <td style="vertical-align:top; text-align:right;">
+                          <td style="vertical-align:top; text-align:right;">
 
 
-												  </td>
-											  </tr>
-										  </table>
+                          </td>
+                        </tr>
+                      </table>
 
-									  </td>
+                    </td>
 
                     <td style="vertical-align:top">
-										  <div style="width:100px; display:block">&nbsp;</div>
-									  </td>
+                      <div style="width:100px; display:block">&nbsp;</div>
+                    </td>
 
-								  </tr>
+                  </tr>
 
-							  </table>
+                </table>
 
-							  <table style="width: 600px; margin: auto" align="center" border="0" cellpadding="0" cellspacing="0">
+                <table style="width: 600px; margin: auto" align="center" border="0" cellpadding="0" cellspacing="0">
 
-								  <tbody>
+                  <tbody>
 
                     {% placeholder "section" %}
 
-                    <!-- DÉBUT DE BOUCLE 
-                    <tr>
-									    <td style="vertical-align:top;">
-										    <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; text-align:center;">Activités des pôles supports</h2>
+                    <!-- DÉBUT DE BOUCLE
+                         <tr>
+                         <td style="vertical-align:top;">
+                         <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; text-align:center;">Activités des pôles supports</h2>
 
-										    <table style="background-color:#ffffff; width: 600px; margin: auto; margin-top: 20px;" align="center" border="0" cellpadding="0" cellspacing="0">
-											    <tbody><tr>
-												    <td style="vertical-align:top; text-align:right;">
-													    <img src="https://www.auf.org/static/lettre/imgBreves/corner.gif">
-												    </td>
-											    </tr>
-
-
-
-											    <tr>
-												    <td style="vertical-align:top; padding-left: 25px; padding-bottom: 20px; padding-right: 25px">
-
-                              <p></p>
-										        </td>
-											    </tr>
-										      </tbody></table>
-									    </td>
-								    </tr>
-                    FIN DE BOUCLE -->
+                         <table style="background-color:#ffffff; width: 600px; margin: auto; margin-top: 20px;" align="center" border="0" cellpadding="0" cellspacing="0">
+                         <tbody><tr>
+                         <td style="vertical-align:top; text-align:right;">
+                         <img src="https://www.auf.org/static/lettre/imgBreves/corner.gif">
+                         </td>
+                         </tr>
 
 
-								  </tbody>
 
-				        </table>
+                         <tr>
+                         <td style="vertical-align:top; padding-left: 25px; padding-bottom: 20px; padding-right: 25px">
 
-				        <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 25px;">
-					        <tr>
-						        <td style="vertical-align:top;">
-							        <img src="https://www.auf.org/static/lettre/imgBreves/logoFooterTop.gif" style="display:block;" />
-						        </td>
-					        </tr>
-				        </table>
+                         <p></p>
+                         </td>
+                         </tr>
+                         </tbody></table>
+                         </td>
+                         </tr>
+                         FIN DE BOUCLE -->
 
-				        <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 800px; margin: auto; background-color: #dadada;">
-					        <tr>
-						        <td style="vertical-align:top; padding-left:100px;">
-							        <img src="https://www.auf.org/static/lettre/imgBreves/logoFooterBottom.gif" />
-						        </td>
 
-						        <td style="vertical-align:top; padding-left:25px; padding-top: 25px; font-size: 14px; color: #445669; font-weight: normal; padding-right: 125px;padding-bottom: 25px;">
-							        Les brèves des services centraux sont une publication réalisée
+                  </tbody>
+
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 25px;">
+                  <tr>
+                    <td style="vertical-align:top;">
+                      <img src="https://www.auf.org/static/lettre/imgBreves/logoFooterTop.gif" style="display:block;" />
+                    </td>
+                  </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 800px; margin: auto; background-color: #dadada;">
+                  <tr>
+                    <td style="vertical-align:top; padding-left:100px;">
+                      <img src="https://www.auf.org/static/lettre/imgBreves/logoFooterBottom.gif" />
+                    </td>
+
+                    <td style="vertical-align:top; padding-left:25px; padding-top: 25px; font-size: 14px; color: #445669; font-weight: normal; padding-right: 125px;padding-bottom: 25px;">
+                      Les brèves des services centraux sont une publication réalisée
                       par l'Agence universitaire de la Francophonie. L'AUF, opérateur de la
                       Francophonie, est un réseau mondial de plus de 800 établissements d'enseignement
                       supérieur et de recherche.
-						        </td>
-					        </tr>
-				        </table>
+                    </td>
+                  </tr>
+                </table>
 
-			        </td>
-		        </tr>
-	        </table>
-	        <!-- End of wrapper table -->
-  {% render_block "js" %}
+              </td>
+            </tr>
+          </table>
+          <!-- End of wrapper table -->
+          {% render_block "js" %}
   </body>
 </html>
