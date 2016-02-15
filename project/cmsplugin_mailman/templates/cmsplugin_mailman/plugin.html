@@ -1,7 +1,6 @@
-{% load cms_tags %}
-{% load sekizai_tags %}
+{% load cms_tags sekizai_tags staticfiles %}
 
-{% addtoblock "js" %}<script src="mailman.js"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}js/mailman.js"></script>{% endaddtoblock %}
 
 <div class="cmsplugin_mailman">
 <a href="#myModal" role="button" class="btn btn-primary btn-large" data-toggle="modal" style="width:180px;height:75px">
@@ -16,7 +15,7 @@
 
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 class="modal-title" id="myModalLabel">Join our mailing lists!</h3>
+          <h3 class="modal-title" id="myModalLabel">{{ instance.titre }}</h3>
         </div>
         <div class="modal-body">
           <div id="submit_container">
@@ -28,7 +27,7 @@
               <div class="span2">
               </div>
               <div class="span3">
-                Full Name:
+                Nom:
               </div>
               <div class="span3">
                 <input name="fullname" type="text" id="fullname"/>
@@ -38,46 +37,19 @@
               <div class="span2">
               </div>
               <div class="span3">
-                Email Address:
+                Adresse courriel:
               </div>
               <div class="span3">
                 <input name="email" type="text" id="email"/>
               </div>
             </div>
             <div class="row-fluid" style="height:3px">
+               <input name="list" type="hidden" id="list" value="{{ instance.liste }}" />
 
             </div>
-            <div class="row-fluid">
-              <div class="span2">
-
-              </div>
-              <div class="span3">
-                <b>Pick lists to join!</b>
-              </div>
-              <div class="span6">
-                <div class="btn-group" data-toggle="buttons-checkbox">
-                  <button type="button" class="btn mlist">
-                    <span class="icons" style="display:none"><i class="icon-search icon-ok"></i></span>
-                    <span class="listname">Announce</span>
-                  </button>
-                  <button type="button" class="btn mlist">
-                    <span class="icons" style="display:none"><i class="icon-search icon-ok"></i></span>
-                    <span class="listname">Discuss</span>
-                  </button>
-                  <button type="button" class="btn mlist">
-                    <span class="icons" style="display:none"><i class="icon-search icon-ok"></i></span>
-                    <span class="listname">Projects</span>
-                  </button>
-                </div>
-              </div>
-              <div class="span3">
-
-              </div>
-            </div>
-
             <div class="modal-footer">
-              <button class="btn" data-dismiss="modal" aria-hidden="true" id="close">Close</button>
-              <button class="btn btn-primary" id="submit" >Win!</button>
+              <button class="btn" data-dismiss="modal" aria-hidden="true" id="close">Annuler</button>
+              <button class="btn btn-primary" id="submit" >Envoyer</button>
             </div>
           </div>
         </div>

@@ -77,6 +77,7 @@ INSTALLED_APPS += (
     'project.cmsplugin_modellist',
     'project.cmsplugin_carte',
     'project.cmsplugin_bootstrap_carousel',
+    'project.cmsplugin_mailman',
 
     'compressor',
 
