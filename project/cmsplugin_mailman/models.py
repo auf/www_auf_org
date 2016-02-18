@@ -5,9 +5,10 @@ import os
 from django.db import models
 from cms.models.pluginmodel import CMSPlugin
 
- from .lib.choices import DynamicTemplateChoices
+from .lib.choices import DynamicTemplateChoices
 
 TEMPLATE_PATH = os.path.join("cmsplugin_mailman", "layouts")
+
 
 class MailmanPluginModel(CMSPlugin):
     titre = models.CharField(max_length=100)
