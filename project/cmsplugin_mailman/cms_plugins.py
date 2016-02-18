@@ -6,7 +6,8 @@ from .models import MailmanPluginModel
 
 class MailmanPlugin(CMSPluginBase):
     model = MailmanPluginModel
-    render_template = "cmsplugin_mailman/plugin.html"
+    render_template = "cmsplugin_mailman/base.html"
+    admin_preview = False
     cache = True
 
     def render(self, context, instance, placeholder):
