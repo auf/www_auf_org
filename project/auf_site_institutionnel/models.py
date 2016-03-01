@@ -84,9 +84,10 @@ class Bourse(models.Model):
              '5 Mois avant le début des manifestations'),
             ('6',
              'Permanent')))
-    date_pub = models.DateTimeField('date de creation')
+    date_pub = models.DateTimeField('date de creation', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
     status = models.CharField(
         max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
@@ -123,9 +124,10 @@ class Actualite(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='actualite')
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
-    date_pub = models.DateField('date')
+    date_pub = models.DateField('date', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
     status = models.CharField(
         max_length=1, null=False, default='3', blank=False, choices=STATUTS)
 
@@ -162,9 +164,10 @@ class Veille(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='actualite')
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
-    date_pub = models.DateField('date')
+    date_pub = models.DateField('date', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
     status = models.CharField(
         max_length=1, null=False, default='3', blank=False, choices=STATUTS)
 
@@ -221,6 +224,7 @@ class Appel_Offre(models.Model):
             ('6',
              'Permanent')))
     date_pub = models.DateTimeField('date de creation', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
         'date de derniere modification', auto_now=True)
     status = models.CharField(
@@ -260,9 +264,10 @@ class Evenement(models.Model):
     detail_horaire = models.TextField(null=True, blank=True)
     date_debut = models.DateField(null=True, blank=True)
     date_fin = models.DateField(null=True, blank=True)
-    date_pub = models.DateTimeField('date de creation', auto_now=True)
+    date_pub = models.DateTimeField('date de creation', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
     status = models.CharField(
         max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
@@ -321,9 +326,10 @@ class Publication(models.Model):
     cmstexte = PlaceholderField('texte')
     docu = models.FileField(null=True, blank=True, upload_to='publication')
     image = models.ImageField(null=True, blank=True, upload_to='publication')
-    date_pub = models.DateField('date')
+    date_pub = models.DateField('date', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
     status = models.CharField(
         max_length=1, default='3', null=False, blank=False, choices=STATUTS)
 
@@ -368,9 +374,10 @@ class Partenaire(models.Model):
     periode = models.CharField(max_length=200)
     image = models.ImageField(null=True, blank=True, upload_to='partenaires')
     site = models.URLField(max_length=200)
-    date_pub = models.DateTimeField('date de creation', auto_now=True)
+    date_pub = models.DateTimeField('date de creation', auto_now_add=True)
+    date_pub.editable = True
     date_mod = models.DateTimeField(
-        'date de derniere modification', auto_now_add=True)
+        'date de derniere modification', auto_now=True)
 
     def __unicode__(self):
         return self.nom

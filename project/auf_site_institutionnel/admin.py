@@ -13,7 +13,7 @@ class RubriqueBureauAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Cibles', {'fields': ['bureau']}),
         ('Article', {
-         'fields': ['status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}),
+         'fields': ['status', 'titre', 'slug', 'image', 'resume', 'date_pub'], 'classes': ['wide']}),
         # 'texte'], 'classes': ['wide']}),
     ]
 
@@ -205,8 +205,7 @@ class PublicationAdmin(
         ('Cibles', {
             'fields': ['bureau']}), ('Article', {
                 'fields': [
-                    'status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']}), ('Date', {
-                        'fields': ['date_pub'], 'classes': ['wide']}), ]
+                    'status', 'titre', 'slug', 'image', 'docu', 'resume'], 'classes': ['wide']})]
 
     def afficher_les_bureaux(self, obj):
         return ', '.join([b.nom for b in obj.bureau.all()])
@@ -246,8 +245,7 @@ class ComaresAdmin(admin.ModelAdmin):
         ('Cibles', {
             'fields': ['bureau']}), ('Article', {
                 'fields': [
-                    'status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']}), ('Date', {
-                        'fields': ['date_pub'], 'classes': ['wide']}), ]
+                    'status', 'titre', 'slug', 'image', 'resume'], 'classes': ['wide']})]
 
     def afficher_les_bureaux(self, obj):
         return ', '.join([b.nom for b in obj.bureau.all()])
@@ -282,8 +280,7 @@ class ActualiteAdmin(
         PlaceholderAdminMixin,
         RubriqueBureauAdmin):
     frontend_editable_fields = ['titre', 'resume', "image"]
-    fieldsets = RubriqueBureauAdmin.fieldsets + \
-        [('Date', {'fields': ['date_pub'], 'classes': ['wide']}), ]
+    fieldsets = RubriqueBureauAdmin.fieldsets
     list_display = (
         'status', 'show_image2', 'titre', 'date_pub', 'afficher_les_bureaux')
 
@@ -309,8 +306,8 @@ class VeilleAdmin(
 	FrontendEditableAdminMixin,
 	PlaceholderAdminMixin,
 	RubriqueBureauAdmin):
-    fieldsets = RubriqueBureauAdmin.fieldsets + \
-        [('Date', {'fields': ['date_pub'], 'classes': ['wide']}), ]
+    frontend_editable_fields = ['titre', 'resume', "image"]
+    fieldsets = RubriqueBureauAdmin.fieldsets
 
     def queryset(self, request):
 
