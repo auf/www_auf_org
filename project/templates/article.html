@@ -8,6 +8,15 @@
 {% block title %}{{ object.titre }}{% endblock title %}
 {% block description %}{{ object.resume }}{% endblock %}
 
+{% block extra_head %}
+      {% if object.image %}
+          <meta property="og:image" content="{% thumbnail object.image 155x114 upscale %}" />
+      {% else %}
+          <meta property="og:image" content="/static/logodefaut.jpg" />
+      {% endif %}
+{% endblock %}
+
+
 {% block menu %}
   {% if bureau.0 %}
     {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
@@ -30,6 +39,7 @@
 {% block contenu %}
   <div class="col-md-12" id="content" style="background-color: white;">
     <div class="col-md-4">
+
       {% if object.image %}
         {% render_model_block object "image" %}
           <img class="img-thumbnail" src="{% thumbnail object.image 300x300 upscale %}"/>
