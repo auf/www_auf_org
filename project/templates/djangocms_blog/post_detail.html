@@ -55,6 +55,9 @@
     {% else %}
         <div class="blog-content">{% render_model post "post_text" "post_text" %}</div>
     {% endif %}
+
+ <p><strong>Date de pubication :</strong>  {{ post.date_published|date:"DATE_FORMAT" }}
+<br><strong>Date limite :</strong> {{ post.date_published_end|date:"DATE_FORMAT" }}</p>
     </div>
 </div>
 
