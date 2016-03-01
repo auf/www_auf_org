@@ -20,7 +20,7 @@
             {% render_model post "abstract" "" "" 'truncatewords_html:TRUNCWORDS_COUNT'  %}
         {% endif %}
 
- <p><strong>Date de pubication :</strong>  {{ post.date_published|date:"DATE_FORMAT" }}
+ <p><strong>Date de publication :</strong>  {{ post.date_published|date:"DATE_FORMAT" }}
 <br><strong>Date limite :</strong> {{ post.date_published_end|date:"DATE_FORMAT" }}</p>
     </div>
 
