@@ -26,7 +26,6 @@ class AufIndex(AldrynIndexBase):
     description = indexes.NgramField(indexed=False, stored=True)
     bureaux = indexes.FacetMultiValueField(stored=True, null=True)
     annee = indexes.FacetField(stored=True, null=True)
-    section = indexes.FacetField(stored=True, null=True)
 
     def prepare_bureaux(self, obj):
         try:
@@ -40,6 +39,3 @@ class AufIndex(AldrynIndexBase):
     def prepare_annee(self, obj):
         if obj.page.publication_date:
             return str(obj.page.publication_date.year)
-
-    def prepare_section(self, obj):
-        return obj.page.get_root().get_title()
