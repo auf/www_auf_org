@@ -18,7 +18,7 @@ def newsletter(request, id, slugRegion=''):
     list_offre = newsletter.appel.all().order_by('-date_fin').reverse()[:7]
     list_evenement = newsletter.evenement.all()[:4]
     list_publi = newsletter.publication.all()[:4]
-    list_actualite2 = newsletter.actualite.all()[:4]
+    list_actualite2 = newsletter.actualite.all()[:6]
     list_actualite = chain(list_actualite2, list_publi, list_evenement)
     return render_to_response('newsletter/lettre2.html', {'newsletter': newsletter, 'list_publi': list_publi, 'list_evenement': list_evenement, 'list_actualite': list_actualite, 'list_bureau': list_bureau, 'list_offre': list_offre}, context_instance=RequestContext(request))
 

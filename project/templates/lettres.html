@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static cms_tags sekizai_tags menu_tags auf %}
+
+{% get_bureau as bureau %}
+
+{% block title %}{% page_attribute "title" %}{% endblock title %}
+{% block description %}{% page_attribute "meta_description" %}{% endblock %}
+
+{% block menu %}
+  {% if bureau.0 %}
+    {% show_sub_menu 2 2 2 "bootstrap/menu/navbar.html" %}
+  {% else %}
+    {% show_menu 0 1 2 2 "bootstrap/menu/navbar.html" %}
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumb %}
+  <div class="col-md-12" style="background-color: white;">
+    <ul id="FilAriane" class="hidden-sm hidden-xs">
+      <li><a href="/">Accueil</a></li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block contenu %}
+  <div class="col-md-12" id="content" style="background-color: white;">
+    <div class="col-md-12">
+      {% placeholder texte %}
+     <ul>
+      {% show_sub_menu 1 None 0 "menu_lettres.html" %}
+     </ul>
+    </div>
+  </div>
+{% endblock %}

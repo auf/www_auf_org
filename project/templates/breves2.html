@@ -132,18 +132,6 @@
           <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 800px; margin: auto;">
             <tr>
               <td>
-
-                <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
-                <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; ">
-                  <tr>
-                    <td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;width: 600px; " align="center">
-                      <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org{% page_url request.current_page %}" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
-                    </td>
-
-                  </tr>
-                </table>
-
-
                 <table style="width: 800px; margin: auto;" align="left" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td valign="top"><img src="https://www.auf.org/static/lettre/imgBreves/auf-rouge.png" style="display: block;" /></td>
@@ -163,8 +151,8 @@
                               <tr>
 
                                 <td align="right">
-                                  <h1 style="color: #ffffff !important; font-weight:normal; font-size: 30px; text-transform: uppercase; margin:0;padding:0;line-height:24px;">Brèves des services centraux
-                                  </h1><span style="color: #ffffff ; font-weight:normal; font-size: 18px;padding-top:8px;">N<sup style="font-size:10px;">o</sup> {{ request.current_page.get_title }}</span>
+                                  <h1 style="color: #ffffff !important; font-weight:normal; font-size: 30px; text-transform: uppercase; margin:0;padding:0;line-height:24px;">{{ request.current_page.get_title.split|slice:":-2"|join:" " }}
+                                  </h1><span style="color: #ffffff ; font-weight:normal; font-size: 18px;padding-top:8px;">N<sup style="font-size:10px;">o</sup> {{ request.current_page.get_title.split|last }}</span>
                                 </td>
                                 <td style="width:90px;" width=90><img src="https://www.auf.org/static/lettre/imgBreves/trans.gif" width="100" height="1" style="display: block;" /></td>
                               </tr>

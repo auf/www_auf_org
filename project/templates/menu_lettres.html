@@ -1,0 +1,6 @@
+{% load cms_tags %}
+{% for child in children %}
+<li>
+<a href="{{ child.get_absolute_url }}">{% page_attribute "changed_date" child.id as date %}{{ date|date:"d M Y" }} - {{ child.get_menu_title }}</a>
+</li>
+{% endfor %}

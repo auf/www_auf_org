@@ -9,7 +9,6 @@ from .lib.choices import DynamicTemplateChoices
 
 TEMPLATE_PATH = os.path.join("cmsplugin_mailman", "layouts")
 
-
 class MailmanPluginModel(CMSPlugin):
     titre = models.CharField(max_length=100)
     liste = models.CharField(max_length=100)
