@@ -12,7 +12,7 @@ ol, ul {
 body {
     font-family: Open Sans;
     background-color: #E5E5E5;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 a {
@@ -91,17 +91,49 @@ tr {
     padding: 10px 0 0 10px;
 }
 
+
+.img-responsive, .thumbnail a > img, .thumbnail > img {
+
+}
+
+
+
+
+.img-responsive-tel {
+
+display:none;
+}
 /* -----Menu navigation couleurs---- */
+
+.container-ms {
+	padding-right: 0px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom:5px;
+	max-width:1170px;
+	text-align:right;
+
+}
+
+.container-ms p{
+margin:0px;
+}
+
+
 
 .ReseauxSociaux {
     margin-right: 19px;
 }
+
 
 #NavFixe {
     display: table-cell;
     width: 33%;
     padding-right: 7px;
     padding-left: 7px;
+ 	background: url(/static/img/barre-couleur.png) no-repeat center 8px;
+	padding-top:15px;
 }
 #NavFixe a {
     color: #474747;
@@ -117,27 +149,13 @@ tr {
     float: right;
     margin-top: 10px;
     padding: 1px 0 0 0;
-    font-size: 10px;
+font-size:10px;
     color: #474747;
-    width: 20%;
+    padding: 0px 25px; 
     text-align: right;
 }
-#NavFixe > li.MenuRSS {
-    border-top: 9px solid #1D9DD9;
-    font-size: 14px;
-}
-#NavFixe > li.MenuPresse {
-    border-top: 9px solid #FFD500;
-}
-#NavFixe > li.MenuEmploi {
-    border-top: 9px solid #8DBE23;
-}
-#NavFixe > li.MenuContact {
-    border-top: 9px solid #702283;
-}
-#NavFixe > li.MenuLangue {
-    border-top: 9px solid #E52727;
-}
+
+
 
 ul#NavFixe .dropdown a.dropdown-toggle {
     cursor: pointer;
@@ -346,6 +364,8 @@ overflow: hidden;
 .nav-tabs {
     margin-top:10px;
 }
+
+.ddmenutab{display:none;}
 
 ul.nav.nav-tabs a {
     margin-left:10px;
@@ -1761,10 +1781,10 @@ ul#sitemap li {
     margin-right: 52px;
 }
 #PiedPage p {
-    position: relative;
-    top: 71px;
-    margin-left: 66px;
-    font-size: 1em;
+
+    padding-top: 2em;
+  padding-left: 1em;
+    font-size: 0.9em;
 }
 #PiedPage a {
     color: #FFFFFF;
@@ -1942,6 +1962,25 @@ body {
 margin-top: 0px;
 }
   
+
+
+.img-responsive, .thumbnail a > img, .thumbnail > img,.navbar-brand > img {
+display:none;
+
+}
+
+ .thumbnail a > img, .thumbnail > img {
+
+display:block;max-width:100%; margin-left :5%;
+}
+
+
+.img-responsive-tel{
+
+    float:left;width:30%;display:block;max-width:100%; margin-left :5%;
+}
+
+
 /*.container {
 padding-right: 30px;
 padding-left: 30px;
@@ -1995,34 +2034,46 @@ display:inline-table;
   #NavFixe {
     padding:0px;
     width:100%;
-    display:inline-block;
+max-width:100%;
+    float:none;
     padding-right:0px;
-    margin-bottom:-22px;
-   margin-top:5px;
+    padding-bottom:7px;
+    margin-top:5px;
+ background:none; 
+
+
   }
+
+  #NavFixe li p {
+margin:0;
+  }
+
+  #NavFixe li ,  #NavFixe li a {
+font-size:14px;
+  }
+
+
    
-  #NavFixe > li:not(.MenuRSS) {
-  text-align:center;
-border-right:1px solid silver;
-height:30px;
-  }
-   
-  #NavFixe > li.MenuLangue {
-  border-top: 5px solid #E52727;
-  }
-  #NavFixe > li.MenuContact {
-    border-top: 5px solid #702283;
-  }
-  #NavFixe > li.MenuPresse {
-  border-top: 5px solid #FFD500;
-    border-left:1px solid silver;
-  }
-  #NavFixe > li.MenuEmploi {
-    border-top: 5px solid #8DBE23;
-  }
-  #NavFixe > li.MenuRSS {
-    border-top: 5px solid #1D9DD9;
-  }
+.barre-mobile {
+ 	background: url(/static/img/barre-couleur.png) no-repeat;
+width:100%;height:10px;; float:left;  background-size: contain;margin-bottom:8px;
+}
+
+#NavFixe > li.MenuBureaux {
+float:left;
+}
+#NavFixe > li.MenuEmploi {
+display:none;
+}
+
+#NavFixe > li.MenuLangue {
+display:none;
+}
+
+#NavFixe > li.MenuAppel {
+display:none;
+}
+
    
   /*-----Réseaux sociaux------*/
    
@@ -2074,6 +2125,7 @@ height:30px;
     margin-top:1px;
     background:whitesmoke;
        font-weight:900;
+   
   }
    
   .MenuContact .dropdown-menu > li {
@@ -2082,6 +2134,9 @@ height:30px;
       text-align:center;
   }
   
+
+
+
    /*-----Taille de police des menus sous la barre couleur------*/
   
     .MenuPresse a, .MenuContact a, .MenuLangue a, .MenuEmploi a {
@@ -2099,6 +2154,11 @@ width:40%;
  
   }
    
+
+.pull-left {
+    float: right !important;
+}
+
 /*-Bannnière pages de CMS-*/
  
   .banniere {
@@ -2108,16 +2168,32 @@ width:40%;
  
 /*-Onglets-*/
  
-.nav-tabs {
-margin-top: 0px;
-width: 574px;
-height: 43px;
-}
+
 
 .nav > li > a {
 position: relative;
 display: block;
 padding: 10px 5px;
+}
+
+
+.nav-tabs li {
+float:left;width:100%;
+}
+ 
+
+.nav-tabs li.active {
+float:left;width:100%;display:inline;
+}
+
+
+
+
+ul.nav.nav-tabs > li:nth-last-child(1) a {
+    background-color: #E52727;
+    color: white;
+    margin-right: 0px;
+    border: none;
 }
  
   .tab-content {
@@ -2133,6 +2209,13 @@ font-size: 0.82em;
 padding: 7px;
 } 
 
+.tab-content .media-body p {
+display:none;
+} 
+
+.tab-content .media-body p.text-muted {
+display:block;
+} 
 /*-Contenu-*/
    
    
@@ -2145,6 +2228,10 @@ margin:0 auto;
 float:none !important;
 margin:0 auto;
 } 
+
+#content > div > div.tab-content{
+position:relative;
+}
    
   #content {
     padding-bottom:20px; 
@@ -2179,7 +2266,7 @@ font-size: 0.8em;
 background: #707070;
 color: white;
 margin-bottom: 0px;
-    height: 50px;
+ overflow: auto;
 }
  
 #PiedPage p {
@@ -2206,6 +2293,7 @@ padding:5px;
    margin-bottom:-60px;
    left:-1px;
   }
+
    
  h2.titre-bureau {
   font-size:1.5rem;
@@ -2221,11 +2309,21 @@ svg.estampille {
   -webkit-transform:scale(0.5); /* SAFARI */
   -moz-transform:scale(0.5); /* FIREFOX */
   transform:scale(0.5);
-  left:-10px;
-  top:-33px;
-  display:block;
+    left: 3px;
+    top: -48px;
+  display:none;
 }
  
+
+
+
+h2.titre-bureau {
+    font-size: 1.5rem;
+    top: -30px;
+    left:20px;
+    position: relative;
+    text-align: left;
+}
 /*-Menu principal-*/
  
  #MenuPrincipal {
@@ -2245,7 +2343,10 @@ nav.mobile-tabs {
   -webkit-overflow-scrolling: touch;
 }
  
- 
+
+
+
+
 /*-Menu des sous pages-*/
  
 .menu-mobile {
@@ -2326,6 +2427,10 @@ input.toggle { display: none; }
   }
 
  
+#content .hidden-xs {
+    display: inline! important;
+}
+
 }
  
 /*------------------------Tablettes-----------------------*/
@@ -2568,7 +2673,7 @@ width: 25%;
 background: #707070;
 color: white;
 margin-bottom: 0px;
-    height: 50px;
+ overflow: auto;
 }
  
 #PiedPage p {
