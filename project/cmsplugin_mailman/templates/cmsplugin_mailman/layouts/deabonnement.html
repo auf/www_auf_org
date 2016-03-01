@@ -4,19 +4,14 @@
 
 <div class="cmsplugin_mailman">
             <div class="row-fluid">
-              <div id="noneSelectedError"></div>
-              <div id="badEmailError"></div>
-              <div class="form-group">
-                <label for="fullname">Nom : </label>
-                <input class="form-control" name="fullname" type="text" id="fullname" placeholder="Votre nom"/>
-              </div>
               <div class="form-group">
                 <label for="email">Adresse courriel : </label>
                 <input class="form-control" name="email" type="email" id="email" placeholder="nom.prenom@site.org" />
               </div>
             </div>
+            <hidden "name="unsubscribe" type="checkbox" id="unsubscribe" checked />
             <input name="list" type="hidden" id="list" value="{{ instance.liste }}" />
-              <button class="btn btn-primary" id="submit" >Envoyer</button>
+            <button class="btn btn-primary" id="submit" >Envoyer</button>
 </div>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="succesModal">
