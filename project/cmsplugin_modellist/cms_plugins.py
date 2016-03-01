@@ -15,7 +15,7 @@ FACETS = {
     'Evenement': 'Événements',
     'Partenaire': 'Partenaires',
     'Comares': 'Comares',
-    'Veille': 'Veilles',
+    'Veille': 'Veille',
 }
 
 SLUGS_REGION = {

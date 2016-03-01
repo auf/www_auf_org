@@ -66,7 +66,17 @@ def actualite_detail_br(request, slug, slugRegion=''):
                               context_instance=RequestContext(request))
 
 
-# VUES VEILLE REGIONALE
+def veille_detail(request, slug):
+    p = get_object_or_404(Veille, slug=slug)
+    bureau = ', '.join([b.nom for b in p.bureau.all()])
+    return render_to_response('article.html',
+                              {'object': p,
+                               'veille': p,
+                               'page_slug': 'veille/',
+                               'page_title': 'veille'},
+                              context_instance=RequestContext(request))
+
+
 def veille_detail_br(request, slug, slugRegion=''):
     slugRegionContext = ''
     slugPersonnaContext = ''

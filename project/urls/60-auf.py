@@ -15,7 +15,9 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
     #Url articles
     (r'^actualites/(?P<slug>[-\w]+)/$', 'actualite_detail'),
     (r'^bureau/bureau-(?P<slugRegion>[-\w]+)/actualites-regionales/(?P<slug>[-\w]+)/$', 'actualite_detail_br'),
+    (r'^veille/(?P<slug>[-\w]+)/$', 'veille_detail'),
     (r'^bureau/bureau-(?P<slugRegion>[-\w]+)/veille-regionale/(?P<slug>[-\w]+)/$', 'veille_detail_br'),
+
     (r'^allocations/(?P<slug>[-\w]+)/$', 'bourse_detail'),
     (r'^bureau/bureau-(?P<slugRegion>[-\w]+)/allocations-regionales/(?P<slug>[-\w]+)/$', 'bourse_detail_br'),
     (r'^appels-offre/(?P<slug>[-\w]+)/$', 'appel_offre_detail'),
