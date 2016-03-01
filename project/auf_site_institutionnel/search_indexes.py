@@ -101,7 +101,24 @@ class EvenementIndex(AufIndex, indexes.Indexable):
         return Evenement.objects.filter(status__in=[3, 5, 6])
 
 
-class PublicationIndex(AufIndex, indexes.Indexable):
+class PublicationIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.NgramField(document=True, use_template=True)
+    title = indexes.NgramField(model_attr='titre')
+    bureaux = indexes.FacetMultiValueField(null=True, stored=True)
+    annee = indexes.FacetField(stored=True, null=True)
+    section = indexes.FacetField(stored=True, null=True)
+    date_pub = indexes.DateField(model_attr='date_pub', null=True)
+
+    def prepare_bureaux(self, obj):
+        try:
+            return [b.nom for b in obj.bureau.all()]
+        except ObjectDoesNotExist as e:
+            print(e)
+            return [u'Non précisé']
+
+    def prepare_annee(self, obj):
+        if obj.date_pub is not None:
+            return str(obj.date_pub.year)
 
     def get_model(self):
         return Publication
