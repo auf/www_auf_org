@@ -813,6 +813,11 @@ ul.nav.nav-tabs > li.active:nth-last-child(1) > a {
     text-align:justify;
 }
 
+ .paraintro , .texte p.paraintro{
+      text-align: justify;
+      font-weight: bold;
+  }
+
 .texte strong {text-align: justify;}
 
 .texte ul li {
