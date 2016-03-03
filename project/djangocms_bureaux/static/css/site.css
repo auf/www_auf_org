@@ -2241,7 +2241,7 @@ position:relative;
     padding-top:50px;
   }
 
-  .paraintro {
+  .paraintro , .texte p.paraintro{
       text-align: justify;
       font-weight: bold;
   }
