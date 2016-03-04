@@ -1,0 +1,65 @@
+#+PROPERTY: header-args :exports code
+* Installation
+
+Installation des dépendances Debian:
+#+BEGIN_SRC sh
+sudo apt-get install git-core python-setuptools python-pil python-pillow python-mysqldb python-memcached python-pycairo python-egenix-mxdatetime python-egenix-mxtools python-lxml python-mapnik2 python-pygraphviz python-reportlab python-simplejson python-pyyaml python-dateutil python-psutil python-coverage python-markupsafe
+#+END_SRC
+
+Récupération du code source:
+#+BEGIN_SRC sh
+git clone https://github.com/auf/www_auf_org.git
+#+END_SRC
+
+* Configuration
+
+La configuration spécifique au site (base de données, courriels, raven, etc)
+doit être dans le fichier *projet/settings/20-local.py*.
+
+* Mise-à-jour
+
+Premièrement, récupérer le nouveau code:
+
+#+BEGIN_SRC sh
+git pull
+#+END_SRC
+
+Lors d'une modification à la base de données, lancé les synchronisations et migrations:
+
+#+BEGIN_SRC sh
+python manage.py syncdb
+python manage.py migrate
+#+END_SRC
+
+Lors d'une modification aux fichiers statiques lancer la construction de l'arboressance:
+
+#+BEGIN_SRC sh
+python manage.py collectstatic
+#+END_SRC
+
+Finalement, pour que le nouveau code python soit pris en compte:
+
+#+BEGIN_SRC sh
+sudo service apache2 reload
+#+END_SRC
+
+* Mise en place d'un environnement de développement
+
+Créer un environnement virtuel:
+
+#+BEGIN_SRC sh
+virtualenv .
+source bin/activate
+#+END_SRC
+
+Suivre les étapes d'installation et de configuration
+
+Construire le SDK (http://git.auf.org/?p=auf-django-sdk.git;a=summary)
+
+Créer la base de données:
+
+#+BEGIN_SRC sh
+mysqladmin create <nom de la BD>
+#+END_SRC
+
+Suivre les instructions de mise-à-jour.
