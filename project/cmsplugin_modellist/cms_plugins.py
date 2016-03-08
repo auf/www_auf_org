@@ -40,7 +40,7 @@ class ModelListCMSPlugin(CMSPluginBase):
 
         obj = get_model('auf_site_institutionnel', instance.modele)
         obj_query = obj.objects.exclude(
-            status__in=[1, 2, 4]).order_by('-date_pub')
+            status__in=[1, 2, 4]).order_by('-date_pub', '-id')
         bureau = instance.bureau.all()
 
         if bureau:
