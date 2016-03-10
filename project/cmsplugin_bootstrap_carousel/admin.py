@@ -5,7 +5,6 @@ from adminsortable.admin import SortableTabularInline
 
 class CarouselItemTabularInline(SortableTabularInline):
 	model = CarouselItem
-   	fields = ('capion_title', 'caption_content', 'image', 'url', 'the_order')
 
 class CarouselAdmin(SortableAdmin):
 	inlines = [CarouselItemTabularInline]
