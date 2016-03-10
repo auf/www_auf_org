@@ -5,6 +5,7 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 from filer.fields.image import FilerImageField
 from cms.models.pluginmodel import CMSPlugin
+from adminsortable.models import SortableMixin
 
 
 class Carousel(CMSPlugin):
