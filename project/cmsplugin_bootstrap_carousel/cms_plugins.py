@@ -21,7 +21,7 @@ class CarouselForm(ModelForm):
         return data
 
 
-class CarouselItemInline(admin.TabularInline):
+class CarouselItemInline(SortableTabularInline):
     model = CarouselItem
 
 
