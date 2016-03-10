@@ -85,6 +85,7 @@ INSTALLED_APPS += (
 
     'project.djangocms_bureaux',
     'project.importa',
+    'project.adminsortable',
 )
 
 LANGUAGES = [
