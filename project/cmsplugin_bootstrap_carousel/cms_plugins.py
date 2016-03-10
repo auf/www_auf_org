@@ -6,6 +6,7 @@ from .models import *
 from django.utils.translation import ugettext as _
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
+from adminsortable.admin import SortableTabularInline
 
 
 class CarouselForm(ModelForm):
