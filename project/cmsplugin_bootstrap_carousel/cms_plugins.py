@@ -31,6 +31,7 @@ class BootstrapCarouselPlugin(CMSPluginBase):
     form = CarouselForm
     name = _("Bootstrap Carousel")
     render_template = "cmsplugin_bootstrap_carousel/carousel.html"
+    change_form_template = 'cmsplugin_bootstrap_carousel/edit.html'
 
     inlines = [
         CarouselItemInline,
