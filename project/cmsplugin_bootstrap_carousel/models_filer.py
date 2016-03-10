@@ -55,9 +55,13 @@ class Carousel(CMSPlugin):
         return self.domid
 
 
-class CarouselItem(models.Model):
+class CarouselItem(SortableMixin):
     carousel = models.ForeignKey(Carousel)
     caption_title = models.CharField(max_length=100, blank=True, null=True)
     caption_content = models.TextField(blank=True, null=True)
     image = FilerImageField(blank=True, null=True)
     url = models.CharField(max_length=256, blank=True, default=None)
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True) 
+    
+    class Meta: 
+         ordering = ['the_order'] 
