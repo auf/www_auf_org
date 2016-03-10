@@ -1,0 +1,14 @@
+{% extends "admin/cms/page/plugin_change_form.html" %}
+{% load static from staticfiles %}
+
+{% addtoblock "js" %}
+   <script type="text/javascript" src="{% static 'adminsortable/js/jquery-ui-django-admin.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'adminsortable/js/jquery.django-csrf.js' %}"></script>
+   <script src="{% static 'adminsortable/js/admin.sortable.tabular.inlines.js' %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'adminsortable/css/admin.sortable.inline.css' %}"/>
+
+{% endaddtoblock %}
