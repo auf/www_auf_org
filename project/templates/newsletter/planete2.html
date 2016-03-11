@@ -4,7 +4,7 @@
   <head>
 	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	  <title>AUF - Planète N°{{ planete.numero}} - {{ planete.date }}</title>
+	  <title>AUF - Lettre d'information N°{{ newsletter.numero}} - {{ newsletter.date }}</title>
 	  <style type="text/css">
 
 		 #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
@@ -17,7 +17,7 @@
 		 img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
 		 a img {border:none;}
 		 .image_fix {display:block;}
-		 p {margin: 1em 0; font-size: 13px; color: #999999;}
+		 p {margin: 1em 0; font-size: 13px; color: #636363;}
 		 h1, h2, h3, h4, h5, h6 {color: black !important;}
 		 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
 		 h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
@@ -27,7 +27,7 @@
 			 color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
 		 }
 		 ul{ padding: 0px;}
-		 li{ margin-left: 20px; font-size: 13px; color: #999999;}
+		 li{ margin-left: 20px; font-size: 13px; color: #636363;}
 		 table td {border-collapse: collapse;}
 		 table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
 		 a {font-weight: bold; color: #e74c3c; font-size: 13px;}
@@ -119,7 +119,7 @@
 							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; text-align: center;">
 								  <tr>
 									  <td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;">
-										  <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org/planete-auf/{{planete.id}}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
+										  <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org/lettre-information/{{newsletter.id}}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
 									  </td>
 								  </tr>
 							  </table>
@@ -127,19 +127,19 @@
 							  <table cellpadding="0" cellspacing="0" border="0" align="center">
 								  <tr>
 									  <td>
-										  <img src="https://www.auf.org/static/lettre/imgPlanete/headerTop.gif" style="display: block;" />
+										  <img src="https://www.auf.org/static/lettre/images/headerTop.gif" style="display: block;" />
 									  </td>
 								  </tr>
 							  </table>
 
-							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #279dd6;">
+							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #6D277F;">
 								  <tr>
 									  <td style="vertical-align: top;">
-										  <img src="https://www.auf.org/static/lettre/imgPlanete/headerLeft.gif" style="display: block;" />
+										  <img src="https://www.auf.org/static/lettre/images/headerLeft.gif" style="display: block;" />
 									  </td>
 
 									  <td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
-										  <h1 style="color: #ffffff !important; font-weight:normal; font-size: 44px; text-transform: uppercase; line-height:44px; margin:0;">PLANETE AUF</h1>
+										  <h1 style="color: #fdd227 !important; font-weight:normal; font-size: 30px; text-transform: uppercase; line-height:44px; margin:0;">Lettre d'information</h1>
 										  <h2 style="text-transform: uppercase; color: #fff !important; font-size: 18px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO {{ planete.numero }}</b> - {{ planete.date|date:"F Y" }}</h2>
 									  </td>
 								  </tr>
@@ -148,7 +148,7 @@
 							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%;">
 								  <tr>
 									  <td style="text-align:left;">
-										  <img src="https://www.auf.org/static/lettre/imgPlanete/headerBottom.gif" style="display: block;" />
+										  <img src="https://www.auf.org/static/lettre/images/headerBottom.gif" style="display: block;" />
 									  </td>
 								  </tr>
 							  </table>
@@ -157,7 +157,7 @@
 
 								  <tr>
 									  <td style="vertical-align:top;">
-										  <img src="https://www.auf.org/static/lettre/imgPlanete/uneColLeft.gif" style="display: block;" />
+										  <img src="https://www.auf.org/static/lettre/images/uneColLeft.gif" style="display: block;" />
 									  </td>
 
 									  <td style="vertical-align:top;">
@@ -169,7 +169,7 @@
 													  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 575px">
 														  <tr>
 															  <td style="vertical-align:top;">
-																  <img src="https://www.auf.org/static/lettre/imgPlanete/uneImageTop.gif" style="display: block;" />
+																  <img src="https://www.auf.org/static/lettre/images/uneImageTop.gif" style="display: block;" />
 															  </td>
 														  </tr>
 
@@ -180,9 +180,9 @@
 																  <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#fff; width: 550px; border-collapse: collapse;">
 																	  <tr style="border-bottom:5px solid #8ebd32;">
 																		  <td style="vertical-align:top;">
-																			  <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>
-																			  {% if planete.photo_dossier %}
-																				  <img src="https://www.auf.org/media/{{planete.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
+																			  <!--<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>-->
+																			  {% if newsletter.photo_dossier %}
+																				  <img src="https://www.auf.org/media/{{newsletter.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
                                         {% else %}
                                           <img src="https://www.auf.org/static/logodefaut.jpg" style="display: block; margin: auto;" />
                                         {% endif %}
@@ -195,11 +195,12 @@
 																	  </tr>
 																	  <tr>
 																		  <td style="vertical-align:top;">
-																			  <h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;">{{ planete.titre_dossier }}</h2>
+																			  <h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;">{{ newsletter.titre_dossier }}</h2>
 																			  <p> {{ planete.texte_dossier|safe }}</p><b>
-                                          {% if planete.lien_dossier  %}
+                                       {% if planete.lien_dossier  %}
                                             <a href="{{ planete.lien_dossier }}" style="font-weight: bold; color: #e74c3c; font-size: 13px;">Consulter le dossier</a>
                                           {% endif %}
+								
 																		  </td>
 																	  </tr>
 																  </table>
@@ -234,42 +235,39 @@
 
 				  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto;">
 					  <tr>
-              <td style="vertical-align:top; padding-right: 20px;">
+              <td style="vertical-align:top;">
                 {% if list_projet %}
                   <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">ACTUALITÉ DES PROJETS</h2>
-
                   {% for projet in list_projet %}
-                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 380px; margin:0; background-color: #fff; margin-top: 20px;">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px;">
 
                       <tr>
-                        <td style="vertical-align:top; text-align:right;">
+                        <td style="vertical-align:top; text-align:right; padding-left: 25px;">
                           <img src="https://www.auf.org/static/lettre/imgPlanete/corner.gif" />
                         </td>
                       </tr>
 
                       <tr>
-                        <td style="vertical-align:top; text-align:right;">
-                          <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 340px; margin: auto; background-color: #fff;">
-                            <tr style="">
-                              <td style="vertical-align:top; text-align:right; padding-top: 22px;">
-                                {% if projet.photo_projet %}
-                                  <img src="https://www.auf.org/media/{{projet.photo_projet}}" alt="" style="display: block;border-bottom:5px solid #3498db; max-width: 235px; max-height: 230px;" />
-                                {% else %}
-                                  <img src="https://www.auf.org/static/logodefaut.jpg" alt="" style="display: block;border-bottom:5px solid #3498db; max-width: 235px; max-height: 230px;" />
-                                {% endif %}
-                                <img src="https://www.auf.org/static/lettre/imgPlanete/hintBlue.gif" style="display: block; margin-left: 110px;" />
-                              </td>
-                            </tr>
+                        <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
+                          <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
                             <tr>
-                              <td style="text-align:left; vertical-align:top;">
-                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;">{{ projet.titre_projet }}</h2>
-                                <p style="font-size: 13px; color: #999999;">{{ projet.texte_projet }}<br /><a href="{{ projet.lien_projet }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+                              <td style="vertical-align:top; text-align:left;">
+                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{ projet.titre_projet }}</h2>
+                                <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{{ projet.texte_projet }}<br /><a href="{{ projet.lien_projet }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+                              </td>
+                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
+                                <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
+                              </td>
+                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
+                                {% if projet.photo_projet %}
+                                  <img src="https://www.auf.org/media/{{projet.photo_projet}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;" />
+                                {% else %}
+                                  <img src="https://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;" />
+                                {% endif %}
                               </td>
                             </tr>
                           </table>
-
                         </td>
-
 								      </tr>
 							      </table>
                   {% endfor %}
@@ -278,8 +276,7 @@
 
 
 
-
-						  <td style="vertical-align:top;">
+						  <!--<td style="vertical-align:top;">
 							  <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">EN BREF</h2>
 
 							  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 190px; margin:0; background-color: #fff;">
@@ -307,7 +304,7 @@
 								  </tr>
 							  </table>
 
-						  </td>
+						  </td>-->
 
 					  </tr>
 				  </table>
@@ -318,7 +315,7 @@
                 {% if list_membre %}
 							    <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">PAROLE DE MEMBRES</h2>
 								  {% for membre in list_membre %}
-                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px;">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff;">
 
                       <tr>
                         <td style="vertical-align:top; text-align:right; padding-left: 25px;">
@@ -331,8 +328,8 @@
                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
                             <tr>
                               <td style="text-align:left; vertical-align:top;">
-                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;">{{ membre.titre_membre }}</h2>
-                                <p style="font-size: 13px; color: #999999;margin-bottom: 0;margin-top: 0;">{{ membre.texte_membre }}<br /><a href="{{ membre.lien_membre }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{ membre.titre_membre }}</h2>
+                                <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{{ membre.texte_membre }}<br /><a href="{{ membre.lien_membre }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
                               </td>
                               <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
                                 <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
@@ -358,7 +355,7 @@
 				  </table>
 
 
-				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; ">
 					  <tr>
 						  <td style="vertical-align:top;">
                 {% if list_offre %}
@@ -377,8 +374,8 @@
 										      <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
 											      <tr>
 												      <td style="text-align:left; vertical-align:top;">
-													      <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;">{{item.titre}}</h2>
-													      <p style="font-size: 13px; color: #999999;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+													      <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{item.titre}}</h2>
+													      <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
 												      </td>
 												      <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
 													      <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
@@ -429,7 +426,7 @@
 									<tr>
 										<td style="text-align:center; vertical-align:top;">
 											<h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Réagir</h2>
-											<p style="font-size: 13px; color: #999999;">Si vous souhaitez réagir par rapport au contenu ou à la forme de cette lettre d'information</p>
+											<p style="font-size: 13px; color: #636363;">Si vous souhaitez réagir par rapport au contenu ou à la forme de cette lettre d'information</p>
 										</td>
 									</tr>
 									    </table>
@@ -461,7 +458,7 @@
 										    <tr>
 											    <td style="text-align:center; vertical-align:top;">
 												    <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Se désabonner</h2>
-												    <p style="font-size: 13px; color: #999999;">Pour se désabonner de cette lettre d'information</p>
+												    <p style="font-size: 13px; color: #636363;">Pour se désabonner de cette lettre d'information</p>
 											    </td>
 										    </tr>
 									    </table>
@@ -493,7 +490,7 @@
 										    <tr>
 											    <td style="text-align:center; vertical-align:top;">
 												    <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Facebook</h2>
-												    <p style="font-size: 13px; color: #999999;">Suivez toute l’actualité de l’Agence Universitaire de la Francophonie</p>
+												    <p style="font-size: 13px; color: #636363;">Suivez toute l’actualité de l’Agence Universitaire de la Francophonie</p>
 											    </td>
 										    </tr>
 									    </table>
@@ -522,7 +519,7 @@
 					    </td>
 
 					    <td style="vertical-align:top; padding-left:25px; padding-top: 25px; font-size: 11px; color: #445669; font-weight: normal; padding-right: 125px;padding-bottom: 25px;">
-						    <p style="margin-top: 0;">La Lettre électronique de l'AUF est une publication réalisée par l'Agence universitaire de la Francophonie, une des plus grandes associations d'universités au monde, avec 804 établissements membres dans 102 pays. Cette lettre d'information est diffusée sur une base mensuelle. Elle est libre de droits, à condition d'en préciser la source. N'hésitez pas à la diffuser largement. Si vous avez un problème de lecture, le contenu de cette lettre est également disponible à cette adresse : http://www.auf.org/</p>
+						    <p style="margin-top: 0;">La Lettre électronique de l'AUF est une publication réalisée par l'Agence universitaire de la Francophonie. L'AUF, opérateur de la Francophonie, est un réseau mondial de plus de 800 établissements d'enseignement supérieur et de recherche. Cette lettre d'information est libre de droits, à condition d'en préciser la source. N'hésitez pas à la diffuser largement. Si vous avez un problème de lecture, le contenu de cette lettre est également disponible à cette adresse : http://www.auf.org/</p>
 
 						    <p>Reproduction autorisée avec mention de la source et de l’adresse URL.</p>
 					    </td>
