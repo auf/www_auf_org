@@ -4,12 +4,12 @@
   <head>
 	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	  <title>AUF - Lettre d'information N°{{ newsletter.numero}} - {{ newsletter.date }}</title>
+	  <title>AUF - Lettre d'information N°{{ planete.numero}} - {{ planete.date }}</title>
 	  <style type="text/css">
 
 		 #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
 		 body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
-		 /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+		 /* Prevent Webkit and Windows Mobile platforms from changing default font sizesl, while not breaking desktop design. */
 		 .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
 		 .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
 		 #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
@@ -119,7 +119,7 @@
 							  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; text-align: center;">
 								  <tr>
 									  <td style="line-height: 32px; height: 32px; font-size: 13px; font-style:italic; color: #282828;">
-										  <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org/lettre-information/{{newsletter.id}}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
+										  <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org/planete-auf/{{planete.id}}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
 									  </td>
 								  </tr>
 							  </table>
@@ -140,7 +140,7 @@
 
 									  <td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
 										  <h1 style="color: #fdd227 !important; font-weight:normal; font-size: 30px; text-transform: uppercase; line-height:44px; margin:0;">Lettre d'information</h1>
-										  <h2 style="text-transform: uppercase; color: #fff !important; font-size: 18px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO {{ planete.numero }}</b> - {{ planete.date|date:"F Y" }}</h2>
+										  <h2 style="text-transform: uppercase; color: #fff !important; font-size: 16px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO {{ planete.numero }}</b> - {{ planete.date|date:"F Y" }}</h2>
 									  </td>
 								  </tr>
 							  </table>
@@ -239,7 +239,7 @@
                 {% if list_projet %}
                   <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">ACTUALITÉS</h2>
                   {% for projet in list_projet %}
-                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px;">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; ">
 
                       <tr>
                         <td style="vertical-align:top; text-align:right; padding-left: 25px;">
@@ -270,6 +270,10 @@
                         </td>
 								      </tr>
 							      </table>
+
+<table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; ">
+                            <tr>
+<td height=20></td></tr></table>
                   {% endfor %}
 							  {% endif %}
 						  </td>
@@ -309,7 +313,7 @@
 					  </tr>
 				  </table>
 
-				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
+				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; ">
 					  <tr>
 						  <td style="vertical-align:top;">
                 {% if list_membre %}
@@ -359,9 +363,9 @@
 					  <tr>
 						  <td style="vertical-align:top;">
                 {% if list_offre %}
-							    <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">AGENDA / APPELS D'OFFRES</h2>
+							    <h2 style="color:#279dd6 !important; font-size: 25px; font-weight:normal; width: auto; margin-left: 25px;">AGENDA / APPELS D'OFFRES</h2>
 								  {% for item in list_offre %}
-							      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; margin-top: 20px">
+							      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; ">
 
 								      <tr>
 									      <td style="vertical-align:top; text-align:right; padding-left: 25px;">
@@ -375,7 +379,7 @@
 											      <tr>
 												      <td style="text-align:left; vertical-align:top;">
 													      <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{item.titre}}</h2>
-													      <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
+													      <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe }}{% else%}{{ item.texte|striptags|safe }}{% endif %}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
 												      </td>
 												      <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
 													      <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
@@ -391,7 +395,9 @@
 										      </table>
 									      </td>
 								      </tr>
-							      </table>
+							      </table><table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; ">
+                            <tr>
+<td height=20></td></tr></table>
 
 							    {% endfor %}
 							  {% endif %}
@@ -504,7 +510,12 @@
 			</tr>
 			    </table>
 
-			    <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 25px;">
+			    <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; ">
+<tr>
+					    <td style="vertical-align:top;" height=25>
+						   
+					    </td>
+				    </tr>
 				    <tr>
 					    <td style="vertical-align:top;">
 						    <img src="https://www.auf.org/static/lettre/imgPlanete/logoFooterTop.gif" style="display:block;" />
