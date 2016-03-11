@@ -181,8 +181,8 @@
 																	  <tr style="border-bottom:5px solid #8ebd32;">
 																		  <td style="vertical-align:top;">
 																			  <!--<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>-->
-																			  {% if newsletter.photo_dossier %}
-																				  <img src="https://www.auf.org/media/{{newsletter.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
+																			  {% if planete.photo_dossier %}
+																				  <img src="https://www.auf.org/media/{{planete.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
                                         {% else %}
                                           <img src="https://www.auf.org/static/logodefaut.jpg" style="display: block; margin: auto;" />
                                         {% endif %}
@@ -195,7 +195,7 @@
 																	  </tr>
 																	  <tr>
 																		  <td style="vertical-align:top;">
-																			  <h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;">{{ newsletter.titre_dossier }}</h2>
+																			  <h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;">{{ planete.titre_dossier }}</h2>
 																			  <p> {{ planete.texte_dossier|safe }}</p><b>
                                        {% if planete.lien_dossier  %}
                                             <a href="{{ planete.lien_dossier }}" style="font-weight: bold; color: #e74c3c; font-size: 13px;">Consulter le dossier</a>
