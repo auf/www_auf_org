@@ -24,6 +24,32 @@ STATUTS = (
     ('4', 'Dépublié')
 )
 
+class ActifsManager(models.Manager):
+    """
+    Manager pour ``ActifsModel``.
+    """
+    use_for_related_fields = True
+
+    def get_query_set(self):
+        return super(ActifsManager, self).get_query_set().filter(actif=True)
+
+
+class ActifsModel(models.Model):
+    """
+    Modèle faisant la gestion des objets actifs/inactifs.
+
+    Le manager par défaut ne liste que les objets actifs. Pour avoir tous
+    les objets, utiliser le manager ``avec_inactifs``.
+    """
+    actif = models.BooleanField(default=True, editable=False)
+
+    # Managers
+    objects = ActifsManager()
+    avec_inactifs = models.Manager()
+
+    class Meta:
+        abstract = True
+
 
 def association_employe_avec_django_user(sender, **kwargs):
     """
@@ -386,7 +412,7 @@ class Partenaire(models.Model):
         return "/partenaire/%s/" % self.slug
 
 
-class Responsable(models.Model):
+class Responsable(ActifsModel):
     UO_Idx = models.AutoField(primary_key=True)
     UO_Desc_fr = models.CharField(max_length=255)
     UPR_POS_Idx = models.IntegerField()
@@ -394,7 +420,6 @@ class Responsable(models.Model):
     User_Emp_Nb = models.CharField(max_length=16)
     User_Last_Name = models.CharField(max_length=50)
     User_First_Name = models.CharField(max_length=50)
-    actif = models.BooleanField()
 
     class Meta:
         db_table = "ref_responsable"
@@ -405,10 +430,16 @@ class Responsable(models.Model):
 
 
 class EmployePlugin(CMSPlugin):
-    responsable = models.ForeignKey(
-        Responsable, related_name="employe_plugin_responsable", null=True, blank=True)
-    service = models.ForeignKey(
-        Service, related_name="employe_plugin_service", null=True, blank=True)
+    responsable = models.ForeignKey(Responsable,
+        related_name="employe_plugin_responsable",
+        null=True,
+        blank=True,
+        limit_choices_to={'actif': True})
+    service = models.ForeignKey(Service,
+        related_name="employe_plugin_service",
+        null=True,
+        blank=True,
+        limit_choices_to={'actif': True})
     # FIXME
     fonction = models.CharField(max_length=255, null=True, blank=True)
     region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
