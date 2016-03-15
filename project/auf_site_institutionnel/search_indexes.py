@@ -16,7 +16,6 @@ class AufIndex(indexes.SearchIndex):
     section = indexes.FacetField(stored=True, null=True)
     partenaire = indexes.FacetField(stored=True, null=True)
     date_pub = indexes.DateField(model_attr='date_pub', null=True)
-    date_fin = indexes.DateField(model_attr='date_fin', null=True)
 
     def prepare_bureaux(self, obj):
         try:
@@ -43,7 +42,7 @@ class BourseIndex(AufIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return Bourse.objects.filter(status__in=[3, 5, 6])
+        return Bourse.objects.filter(status__in=[3, 5, 6]).order_by("date_pub")
 
 
 class ActualiteIndex(AufIndex, indexes.Indexable):
@@ -55,7 +54,7 @@ class ActualiteIndex(AufIndex, indexes.Indexable):
         return u"Actualité"
 
     def index_queryset(self, using=None):
-        return Actualite.objects.filter(status__in=[3, 5, 6])
+        return Actualite.objects.filter(status__in=[3, 5, 6]).order_by("date_pub")
 
 
 class AppelOffreIndex(AufIndex, indexes.Indexable):
@@ -80,7 +79,7 @@ class AppelOffreIndex(AufIndex, indexes.Indexable):
             return None
 
     def index_queryset(self, using=None):
-        return Appel_Offre.objects.filter(status__in=[3, 5, 6])
+        return Appel_Offre.objects.filter(status__in=[3, 5, 6]).order_by("date_pub")
 
 
 class EvenementIndex(AufIndex, indexes.Indexable):
@@ -98,7 +97,7 @@ class EvenementIndex(AufIndex, indexes.Indexable):
             return None
 
     def index_queryset(self, using=None):
-        return Evenement.objects.filter(status__in=[3, 5, 6])
+        return Evenement.objects.filter(status__in=[3, 5, 6]).order_by("date_pub")
 
 
 class PublicationIndex(indexes.SearchIndex, indexes.Indexable):
@@ -127,7 +126,7 @@ class PublicationIndex(indexes.SearchIndex, indexes.Indexable):
         return u"Publication"
 
     def index_queryset(self, using=None):
-        return Publication.objects.filter(status__in=[3, 5, 6])
+        return Publication.objects.filter(status__in=[3, 5, 6]).order_by("date_pub")
 
 
 class VeilleIndex(AufIndex, indexes.Indexable):
@@ -142,4 +141,4 @@ class VeilleIndex(AufIndex, indexes.Indexable):
         return datetime.date(2999, 1, 1)
 
     def index_queryset(self, using=None):
-        return Veille.objects.filter(status__in=[3, 5, 6])
+        return Veille.objects.filter(status__in=[3, 5, 6]).order_by("date_pub")

@@ -28,10 +28,10 @@ class AldrynFacetedSearchForm(SearchForm):
         if self.q:
             sqs = sqs.filter(content=sqs.query.clean(self.q))
 
-        if self.courant:
-            sqs = sqs.filter(date_fin__gte=datetime.date.today())
-        if self.cloture:
-            sqs = sqs.filter(date_fin__lt=datetime.date.today())
+#        if self.courant:
+#            sqs = sqs.filter(date_fin__gte=datetime.date.today())
+#        if self.cloture:
+#            sqs = sqs.filter(date_fin__lt=datetime.date.today())
 
         self.selected_facets = list(
             set(self.selected_facets.split('&') + self.selected_facets_get))
