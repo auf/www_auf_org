@@ -6,6 +6,7 @@ from .models import *
 from django.utils.translation import ugettext as _
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
+from adminsortable.admin import SortableTabularInline
 
 
 class CarouselForm(ModelForm):
@@ -21,7 +22,7 @@ class CarouselForm(ModelForm):
         return data
 
 
-class CarouselItemInline(admin.TabularInline):
+class CarouselItemInline(SortableTabularInline):
     model = CarouselItem
 
 
@@ -30,6 +31,7 @@ class BootstrapCarouselPlugin(CMSPluginBase):
     form = CarouselForm
     name = _("Bootstrap Carousel")
     render_template = "cmsplugin_bootstrap_carousel/carousel.html"
+    change_form_template = 'cmsplugin_bootstrap_carousel/edit.html'
 
     inlines = [
         CarouselItemInline,
