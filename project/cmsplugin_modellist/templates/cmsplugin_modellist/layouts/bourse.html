@@ -44,12 +44,15 @@
                     {% if p.date_debut %}
                         <p class="text-muted">Date de début: <strong>{{p.date_debut|date:"j F Y"}}</strong></p>
                     {% endif %}
+                    {% if p.date_fin %}
+                        <p class="text-muted">Date limite: <strong>{{p.date_fin|date:"j F Y"}}</strong></p>
+                    {% endif %}
                     <p>{{ p.resume }}</p>
                 </div>
             </div>
             <hr>
             <div class="mini-estampilles">
-                {% if p.bureau.all.count == 0 %}
+                {% if p.status == "5" or p.bureau.all.count == 0 %}
                     <i class="fa fa-globe">-International</i>
                 {% else %}
                     {% for b in p.bureau.all %}
@@ -59,7 +62,7 @@
             </div>
         </div>
     {% empty %}
-        <div class="thumbnail thumbnail-none">Aucun événement prévu en ce moment.</div>
+        <div class="thumbnail thumbnail-none">Aucune bourse n'est disponible en ce moment.</div>
     {% endfor %}
     {% if object_list %}
         <a class="btn btn-info pull-right" href="{{ voir_plus }}{% if bureau.0 %}&selected_facets=bureaux__{{ bureau.1|cut:"Bureau des "|cut:"Bureau " }}{% endif %}">Voir plus</a>
