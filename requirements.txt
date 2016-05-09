@@ -12,7 +12,7 @@ djangocms-style
 djangocms-admin-style
 djangocms-column
 djangocms-inherit
-djangocms-aldryn-search
+aldryn-search
 djangocms-inherit
 djangocms-picture
 djangocms-blog
