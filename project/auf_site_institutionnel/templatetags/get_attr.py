@@ -1,3 +1,7 @@
+from django.template import Library
+register = Library()
+
+
 @register.filter
 def get_attr(obj, args):
     """ Try to get an attribute from an object.
