@@ -60,3 +60,6 @@ project/xapian_index/
 
 # django-jenkins
 /reports
+
+# IDE
+.idea/
