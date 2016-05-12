@@ -49,7 +49,7 @@ function subscribe() {
 
     var email = $('#email').val();
     if (!validEmail(email)){
-        $('#badEmailError').html('<div id="badEmail" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Error! </strong>Invalid email, you noob.</div>');
+        $('#badEmailError').html('<div id="badEmail" class="alert alert-error"> <a class="close" data-dismiss="alert">×</a><strong>Erreur! </strong>Votre courriel est invalide, veuillez le corriger avant de soumettre votre demande.</div>');
         return;
     }
     var fullname = $('#fullname').val();
