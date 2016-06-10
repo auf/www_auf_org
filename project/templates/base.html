@@ -28,6 +28,31 @@
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-backdrop {
+  height: 100%;
+
+}
+</style>
 
     {% block extra_head %}{% endblock %}
   </head>
@@ -316,5 +341,31 @@
       ga('create', 'UA-73538306-1', 'auto');
       ga('send', 'pageview');
     </script>
+
+
+<script type="text/javascript">
+    function addMessage(message) {
+	$( '#teste' ).modal('toggle');
+    };
+    $.getJSON("{% url 'broadcast_messages' %}", function(data){
+        $.each(data, function(index, value) {addMessage(value.message)});
+    });
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="teste" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: 0px;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-title" id="myModalLabel"></h4>
+        <a target="_blank" href="https://sondages.auf.org/index.php/777574/lang-fr"><img width="570px" src="{% static "img/sondage.png" %}" alt="popup sondage" /></a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
   </body>
 </html>
