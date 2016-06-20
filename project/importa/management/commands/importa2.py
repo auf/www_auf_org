@@ -6,13 +6,13 @@ from django.core.files import File as DjangoFile
 from django.db import transaction
 from djangocms_text_ckeditor.models import Text
 from cms import api
-from cms.models import Page
+from cms.models import Page, User
 from cms.utils.copy_plugins import copy_plugins_to
 from adminfiles.models import FileUpload
 from adminfiles.parse import UPLOAD_RE
 from easy_thumbnails.exceptions import InvalidImageFormatError
 from filer.models.imagemodels import Image
-#from filer.models.filemodels import File
+# from filer.models.filemodels import File
 from project.djangocms_bureaux.models import AufFile as File
 from filer.models.foldermodels import Folder
 from cmsplugin_filer_file.models import FilerFile
@@ -54,6 +54,7 @@ class Command(BaseCommand):
             self.category_ids['Publication']
         ]).delete()
 
+    #@transaction.commit_manually
     def _create_post(self, a, i):
         p = Post.objects.language('fr').create(
             slug=a.slug,
@@ -67,14 +68,19 @@ class Command(BaseCommand):
 
         # category
         p.categories.add(BlogCategory.objects.language('fr').get(id=self.category_ids[i.__name__]))
+        p.save()
 
         # image
+
         if a.image and os.path.isfile(a.image.path):
-            # print a.image.path
-            obj = Image(file=DjangoFile(open(a.image.path, 'rb')), name=a.image.name)
-            obj.save()
-            p.main_image = obj
-            print p.main_image
+            myfile = DjangoFile(open(a.image.path), name=a.image.name)
+            user = User.objects.get(username='root')
+            image = Image.objects.create(owner=user,
+                                         is_public=True,
+                                         original_filename=a.image.name,
+                                         file=myfile)
+            image.save()
+            p.main_image = image
             p.save()
 
             # folder = Folder.objects.get(id=6)
@@ -101,7 +107,13 @@ class Command(BaseCommand):
                 except InvalidImageFormatError:
                     continue
 
+
     def handle(self, *args, **options):
+
+        if len(args) == 2 and args[0] == "clean" and args[1] == "only":
+            print "cleaning"
+            self._clean()
+            quit()
 
         if len(args) == 1 and args[0] == "clean":
             print "cleaning"
@@ -120,4 +132,3 @@ class Command(BaseCommand):
                         a.slug = a.slug[:-1] + "2"
 
                 self._create_post(a, i)
-

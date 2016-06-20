@@ -1,5 +1,6 @@
 {% load menu_tags cms_tags sekizai_tags %}
 {% load thumbnail %}
+{% load helper_tags %}
 
 
 {% addtoblock "js" %}
@@ -17,6 +18,7 @@ $(function () {
 <div class="thumbnail thumbnail-appels">
   <div class="media">
     <a class="pull-left" href="{{p.get_absolute_url}}">
+    {{ p.main_image }}
         {% if p.main_image %}
         <img class="img-thumbnail" src="{% thumbnail p.main_image 130x90 upscale %}"/>
         {% endif %}
@@ -44,8 +46,21 @@ $(function () {
           {% endif %}
       {% endfor %}
       </div>
-
+    {% else %}
+      {% estampilles p.tags.all %}
     {% endif %}
 </div>
+{% empty %}
+    {% if category == "actualites" %}
+    <div>Aucune actualité en ce moment.</div>
+    {% elif category == "evenements" %}
+    <div>Aucun événement prévu en ce moment.</div>
+    {% elif category == "appels-offre"%}
+    <div>Aucun appel d'offres en cours.</div>
+    {% elif category == "allocations"%}
+    <div>Aucune bourse n'est disponible en ce moment.</div>
+    {% elif category == "publications"%}
+    <div>Aucune publication n'est disponible en ce moment.</div>
+    {% endif %}
 {% endfor %}
 </div>
