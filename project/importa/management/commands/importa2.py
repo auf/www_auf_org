@@ -84,16 +84,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        if len(args) == 2 and args[0] == "clean" and args[1] == "only":
+        if args[0] == "clean" or args[0] == "test":
             print "cleaning"
             self._clean()
-            quit()
-
-        if len(args) == 1 and args[0] == "clean":
-            print "cleaning"
-            self._clean()
+            if args[1] == "only":
+                quit()
 
         for i in [Actualite, Bourse, Appel_Offre, Evenement, Publication]:
+            counter = 0
 
             for a in i.objects.all():
                 print "Original: %s %d - %s" % (i.__name__, a.pk, a.slug)
@@ -106,3 +104,6 @@ class Command(BaseCommand):
                         a.slug = a.slug[:-1] + "2"
 
                 self._create_post(a, i)
+                counter += 1
+                if args[0] == "test" and counter >= 30:
+                    break
