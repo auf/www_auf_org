@@ -1,27 +1,13 @@
 # encoding: utf-8
-import sys
 import os
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.core.files import File as DjangoFile
-from django.db import transaction
 from djangocms_text_ckeditor.models import Text
-from cms import api
-from cms.models import Page, User
 from cms.utils.copy_plugins import copy_plugins_to
-from adminfiles.models import FileUpload
-from adminfiles.parse import UPLOAD_RE
 from easy_thumbnails.exceptions import InvalidImageFormatError
 from filer.models.imagemodels import Image
-# from filer.models.filemodels import File
-from project.djangocms_bureaux.models import AufFile as File
-from filer.models.foldermodels import Folder
-from cmsplugin_filer_file.models import FilerFile
-from cmsplugin_filer_file.cms_plugins import FilerFilePlugin
-
-
 from djangocms_blog.models import BlogCategory, Post
-
-from project.auf_site_institutionnel.models import Bourse, Actualite, Veille, Appel_Offre, Evenement, Publication
+from project.auf_site_institutionnel.models import Bourse, Actualite, Appel_Offre, Evenement, Publication  # , Veille
 
 
 class Command(BaseCommand):
@@ -54,7 +40,6 @@ class Command(BaseCommand):
             self.category_ids['Publication']
         ]).delete()
 
-    #@transaction.commit_manually
     def _create_post(self, a, i):
         p = Post.objects.language('fr').create(
             slug=a.slug,
@@ -71,21 +56,11 @@ class Command(BaseCommand):
         p.save()
 
         # image
-
         if a.image and os.path.isfile(a.image.path):
-            myfile = DjangoFile(open(a.image.path), name=a.image.name)
-            user = User.objects.get(username='root')
-            image = Image.objects.create(owner=user,
-                                         is_public=True,
-                                         original_filename=a.image.name,
-                                         file=myfile)
-            image.save()
-            p.main_image = image
+            obj = Image(file=DjangoFile(open(a.image.path, 'rb')), name=a.image.name)
+            obj.save()
+            p.main_image = obj
             p.save()
-
-            # folder = Folder.objects.get(id=6)
-            # obj.folder = folder
-            # obj.save()
 
         # tags
         bureaux = a.bureau.all()
@@ -106,7 +81,6 @@ class Command(BaseCommand):
                     copy_plugins_to(a.cmstexte.get_plugins(), p.content, to_language="fr")
                 except InvalidImageFormatError:
                     continue
-
 
     def handle(self, *args, **options):
 
