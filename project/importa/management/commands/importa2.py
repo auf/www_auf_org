@@ -87,7 +87,7 @@ class Command(BaseCommand):
         if args[0] == "clean" or args[0] == "test":
             print "cleaning"
             self._clean()
-            if args[1] == "only":
+            if len(args) > 1 and args[1] == "only":
                 quit()
 
         for i in [Actualite, Bourse, Appel_Offre, Evenement, Publication]:
