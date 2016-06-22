@@ -4,6 +4,7 @@ django-bootstrap3==5.1.1
 django-filter
 django-compressor
 
+django-filer==0.9.9
 cmsplugin-filer
 easy_thumbnails
 

@@ -11,6 +11,7 @@ src/*
 # DB de dev
 *.db
 db.sqlite
+/database/*.sql
 
 # restants de merge
 *.orig
