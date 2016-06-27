@@ -30,6 +30,11 @@ $(function () {
             {% if p.date_published %}
             <p class="text-muted">Date de publication: <strong>{{p.date_published|date:"j F Y"}}</strong></p>
             {% endif %}
+            {% if category == "evenements" %}
+            <p class="text-muted">Date de début: <strong></strong></p>
+            {% elif category == "allocations" %}
+            <p class="text-muted">Date limite: <strong></strong></p>
+            {% endif %}
             <p>{{ p.abstract|safe }}</p>
         </div>
       </div>
@@ -61,5 +66,10 @@ $(function () {
         <div>Aucune publication n'est disponible en ce moment.</div>
         {% endif %}
     {% endfor %}
+    {% if posts_list %}
+        <a class="btn btn-info pull-right" href="/articles/category/{{ category }}/">Voir plus</a>
+    {% endif %}
+    <div style="clear:both">&nbsp;</div>
+
 </div>
 
