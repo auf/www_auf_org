@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 from django.db import models
 from auf.django.references.models import Region
 from project.auf_site_institutionnel.models import Actualite, Appel_Offre, Evenement, Publication, Bourse

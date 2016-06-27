@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 import csv
 from project.newsletter.models import *
 from django.contrib import admin

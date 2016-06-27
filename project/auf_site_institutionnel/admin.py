@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 from project.auf_site_institutionnel.models import *
 from django.db import models
 from django.forms import ModelForm
