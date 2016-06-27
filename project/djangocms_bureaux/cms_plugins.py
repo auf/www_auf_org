@@ -15,17 +15,18 @@ class AUFPlugin(BlogLatestEntriesPlugin):
     fields = ('latest_posts', 'tags')
     form = AUFLatestEntriesForm
 
-    def render(self, context, instance, placeholder):
-        context = super(AUFPlugin, self).render(
-            context, instance, placeholder
-        )
-        return context
-
 
 class AUFLatestNewsPlugin(AUFPlugin):
 
     name = _("Latest News")
     model = LatestNews
+
+    def render(self, context, instance, placeholder):
+        context = super(AUFPlugin, self).render(
+            context, instance, placeholder
+        )
+        context['category'] = "actualites"
+        return context
 
 
 class AUFLatestRequestsForProposalPlugin(AUFPlugin):
@@ -33,11 +34,25 @@ class AUFLatestRequestsForProposalPlugin(AUFPlugin):
     name = _("Latest Requests for proposal")
     model = LatestRequestsForProposal
 
+    def render(self, context, instance, placeholder):
+        context = super(AUFPlugin, self).render(
+            context, instance, placeholder
+        )
+        context['category'] = "appels-offre"
+        return context
+
 
 class AUFLatestGrantsPlugin(AUFPlugin):
 
     name = _("Latest Grants")
     model = LatestGrants
+
+    def render(self, context, instance, placeholder):
+        context = super(AUFPlugin, self).render(
+            context, instance, placeholder
+        )
+        context['category'] = "allocations"
+        return context
 
 
 class AUFLatestEventsPlugin(AUFPlugin):
@@ -45,11 +60,25 @@ class AUFLatestEventsPlugin(AUFPlugin):
     name = _("Latest Events")
     model = LatestEvents
 
+    def render(self, context, instance, placeholder):
+        context = super(AUFPlugin, self).render(
+            context, instance, placeholder
+        )
+        context['category'] = "evenements"
+        return context
+
 
 class AUFLatestPublicationsPlugin(AUFPlugin):
 
     name = _("Latest Publications")
     model = LatestPublications
+
+    def render(self, context, instance, placeholder):
+        context = super(AUFPlugin, self).render(
+            context, instance, placeholder
+        )
+        context['category'] = "publications"
+        return context
 
 
 class NbInstitutionsPlugin(CMSPluginBase):
