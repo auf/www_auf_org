@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 from django.db import models
-
 from cms.extensions import PageExtension
 from cms.extensions.extension_pool import extension_pool
+from djangocms_blog.models import LatestPostsPlugin
 from filer.fields.image import FilerImageField
 from filer.models.filemodels import File
 from filer.settings import FILER_ADMIN_ICON_SIZES
+from project.djangocms_bureaux.utils import get_auf_post_category
 
 ICONES = {
     "pdf": "file-pdf-o",
@@ -66,3 +68,86 @@ class ImageExtension(PageExtension):
     image = FilerImageField()
 
 extension_pool.register(ImageExtension)
+
+
+class LatestNews(LatestPostsPlugin):
+
+    def get_posts(self, request):
+        posts = self.post_queryset(request)
+        tags = list(self.tags.all())
+        if tags:
+            posts = posts.filter(tags__in=tags)
+
+        category = get_auf_post_category('Actualite')
+        posts = posts.filter(categories__in=[category])
+
+        return posts[:self.latest_posts]
+
+    class Meta:
+        proxy = True
+
+
+class LatestRequestsForProposal(LatestPostsPlugin):
+    def get_posts(self, request):
+        posts = self.post_queryset(request)
+        tags = list(self.tags.all())
+        if tags:
+            posts = posts.filter(tags__in=tags)
+
+        category = get_auf_post_category('Appel_Offre')
+        posts = posts.filter(categories__in=[category])
+
+        return posts[:self.latest_posts]
+
+    class Meta:
+        proxy = True
+
+
+class LatestGrants(LatestPostsPlugin):
+    def get_posts(self, request):
+        posts = self.post_queryset(request)
+        tags = list(self.tags.all())
+        if tags:
+            posts = posts.filter(tags__in=tags)
+
+        category = get_auf_post_category('Bourse')
+        posts = posts.filter(categories__in=[category])
+
+        return posts[:self.latest_posts]
+
+    class Meta:
+        proxy = True
+
+
+class LatestEvents(LatestPostsPlugin):
+
+    def get_posts(self, request):
+        posts = self.post_queryset(request)
+        tags = list(self.tags.all())
+        if tags:
+            posts = posts.filter(tags__in=tags)
+
+        category = get_auf_post_category('Evenement')
+        posts = posts.filter(categories__in=[category])
+
+        return posts[:self.latest_posts]
+
+    class Meta:
+        proxy = True
+
+
+class LatestPublications(LatestPostsPlugin):
+
+    def get_posts(self, request):
+        posts = self.post_queryset(request)
+        tags = list(self.tags.all())
+        if tags:
+            posts = posts.filter(tags__in=tags)
+
+        category = get_auf_post_category('Publication')
+        posts = posts.filter(categories__in=[category])
+
+        return posts[:self.latest_posts]
+
+    class Meta:
+        proxy = True
