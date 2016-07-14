@@ -20,6 +20,9 @@
     {% endblock %}
     {% for post in post_list %}
         {% include "djangocms_blog/includes/blog_item.html" with post=post image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
+        {% now "Y" as current_year %}
+        {% now "m" as current_month %}
+	<a href="{% url post_list.0.app_config.namespace|add:":posts-archive" current_year current_month %}">Voir plus</a>
     {% empty %}
     <p class="blog-empty">Aucun appel à concurrence en cours en ce moment.</p>
     {% endfor %}

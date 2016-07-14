@@ -3,6 +3,14 @@
 {% load social_share %}
 {% load thumbnail %}
 
+{% addtoblock "js" %}
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="popover"]').popover({html:true})
+        })
+    </script>
+{% endaddtoblock %}
+
 {% block breadcrumb %}
 <div class="col-md-12" style="background-color: white;">
     <ul id="FilAriane" class="hidden-sm hidden-xs">
@@ -17,8 +25,8 @@
 
 {% if post.main_image %}
 {% render_model_block post "main_image" %}
-            {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
-        <img class="img-thumbnail" src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+            {% thumbnail post.main_image 360x360 upscale as thumb %}
+        <img class="img-thumbnail" src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" />
 {% endrender_model_block %}
 {% else %}
 {% render_model_block post "main_image" %}
@@ -38,26 +46,25 @@
 
     <p class="paraintro"><strong>{% render_model post "abstract" %}</strong></p>
 
-    {% if post.bureau.all %}
-      <p>
-      {% for b in post.bureau.all %}
-          {% if b.nom == "International" %}
+ <p><strong>Date de publication :</strong>  {{ post.date_published|date:"DATE_FORMAT" }}
+<br><strong>Date limite :</strong> {{ post.date_published_end|date:"DATE_FORMAT" }}</p>
+
+    <p>
+        {% for b in post.tags.all %}
+          {% if b.slug == "international" %}
             <i class="fa fa-globe">-International</i>
           {% else %}
-          <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+            <i class="fa fa-circle {{b.slug}}" data-toggle="popover" data-content="<a href='/{{ b.slug }}'>Bureau {{ b.name }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-{{b.slug}}</i>
           {% endif %}
-      {% endfor %}
-      </p>
-    {% endif %}
+        {% endfor %}
+   </p>
+
     <div>
     {% if use_placeholder %}
         <div class="blog-content">{% render_placeholder post.content %}</div>
     {% else %}
         <div class="blog-content">{% render_model post "post_text" "post_text" %}</div>
     {% endif %}
-
- <p><strong>Date de publication :</strong>  {{ post.date_published|date:"DATE_FORMAT" }}
-<br><strong>Date limite :</strong> {{ post.date_published_end|date:"DATE_FORMAT" }}</p>
     </div>
 </div>
 

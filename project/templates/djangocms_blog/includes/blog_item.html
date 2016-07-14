@@ -1,30 +1,49 @@
-{% load i18n thumbnail cms_tags %}
+{% load i18n thumbnail cms_tags sekizai_tags %}
 
-<article id="post-{{ post.slug }}" class="post-item">
-    <header>
-        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+{% addtoblock "js" %}
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="popover"]').popover({html:true})
+        })
+    </script>
+{% endaddtoblock %}
+
+<article id="post-{{ post.slug }}" class="post-item thumbnail thumbnail-actu">
+  <div class="media">
+    <a class="pull-left" href="{{post.get_absolute_url}}">
+    {% if image and post.main_image %}
+      <img class="img-thumbnail" src="{% thumbnail post.main_image 130x90 upscale %}"/>
+    {% else %}
+      <img class="img-thumbnail" src="http://www.auf.org/static/logodefaut.jpg" width="130px" height="90px">
+    {% endif %}
+    </a>
+    <div class="media-body">
+      <a href="{{post.get_absolute_url}}">
+        <h4 class="title-date"><a href="{{post.get_absolute_url}}">{{ post.title }}</h4>
+      </a>
+    <p class="text-muted"><strong>Date de publication: {{post.date_published|date:"j F Y"}}</strong></p>
+    {% if post.date_published_end %}
+    <p class="text-muted"><strong>Date limite :</strong> {{ post.date_published_end|date:"j F Y" }}</p>
+    {% endif %}
     <!-- {% block blog_meta %}
             {% include "djangocms_blog/includes/blog_meta.html" %}
         {% endblock %}-->
-    </header>
-    {% if image and post.main_image %}
-    <div class="blog-visual">
-        {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
-        <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
-    </div>
-    {% endif %}
     <div class="blog-lead">
         {% if not TRUNCWORDS_COUNT %}
             {% render_model post "abstract" %}
         {% else %}
             {% render_model post "abstract" "" "" 'truncatewords_html:TRUNCWORDS_COUNT'  %}
         {% endif %}
-
- <p><strong>Date de publication :</strong>  {{ post.date_published|date:"DATE_FORMAT" }}
-<br><strong>Date limite :</strong> {{ post.date_published_end|date:"DATE_FORMAT" }}</p>
     </div>
-
-    <footer class="read-more">
-        <a href="{{ post.get_absolute_url }}">{% trans "Plus d'information" %} &raquo;</a>
-    </footer>
+ </div>
+    <hr>
+    <div class="mini-estampilles">
+        {% for b in post.tags.all %}
+          {% if b.slug == "international" %}
+            <i class="fa fa-globe">-International</i>
+          {% else %}
+            <i class="fa fa-circle {{b.slug}}" data-toggle="popover" data-content="<a href='/{{ b.slug }}'>Bureau {{ b.name }}</a>" data-placement="top" data-trigger="focus" tabindex="0">-{{b.slug}}</i>
+        {% endif %}
+        {% endfor %}
+   </div>
 </article>
