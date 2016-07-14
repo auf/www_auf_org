@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models_filer import Carousel, CarouselItem
+from .models import Carousel, CarouselItem
 from adminsortable.admin import SortableAdmin
 from adminsortable.admin import SortableTabularInline
 
