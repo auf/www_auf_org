@@ -40,20 +40,6 @@ urlpatterns += patterns('project.auf_site_institutionnel.views',
 
 )
 
-
-# Marc modul Upload
-# urlpatterns += patterns ('',
-#    url(r'^adminfiles/', include('adminfiles.urls')),
-#)
-
-
-# Mohamed
-# Lien pour Contacte
-#from contacts.views import contact
-# urlpatterns += patterns('',
-#    (r'^contact/$',contact),
-#)
-
 from feeds import *
 
 urlpatterns += patterns ('',
@@ -65,14 +51,6 @@ urlpatterns += patterns ('',
     (r'^flux/publication/$', DernierePublication()),
     (r'^flux/veille/$', DerniereVeille()),
     (r'^flux/foad/$', foad()),
-)
-
-#Lien pour Newsletter
-urlpatterns += patterns ('project.newsletter.views',
-    (r'^lettre-information/(?P<id>[-\w]+)/$', 'newsletter'),
-    (r'^fil-actualites/(?P<id>[-\w]+)/$', 'fil_actu'),
-    (r'^planete-auf/(?P<id>[-\w]+)/$', 'planete'),
-    (r'^breves/(?P<id>[-\w]+)/$', 'breve'),
 )
 
 #Lien pour contact

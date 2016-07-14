@@ -28,6 +28,31 @@
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-backdrop {
+  height: 100%;
+
+}
+</style>
 
     {% block extra_head %}{% endblock %}
   </head>
