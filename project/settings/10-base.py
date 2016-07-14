@@ -22,13 +22,10 @@ INSTALLED_APPS += (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-#    'south',
     'pagination',
     'tagging',
 )
 
-TEMPLATE_DIRS = (
+TEMPLATE_DIRS = [
     os.path.join(PROJECT_ROOT, "templates/"),
-)
-
-
+]
