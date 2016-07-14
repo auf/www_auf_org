@@ -12,7 +12,6 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 from django.forms import ModelForm
-from project.newsletter.models import AbonneForm
 
 from project.auf_site_institutionnel.models import *
 from filters import *

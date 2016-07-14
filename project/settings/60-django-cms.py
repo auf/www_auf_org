@@ -1,9 +1,12 @@
 gettext = lambda s: s
+_ = lambda s: s
 
 SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.cache.UpdateCacheMiddleware',
+# FIXME
+#    'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -11,7 +14,6 @@ MIDDLEWARE_CLASSES = [
     'auf.django.piwik.middleware.TrackMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
@@ -22,19 +24,33 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
-TEMPLATE_CONTEXT_PROCESSORS = [
-    "django.contrib.auth.context_processors.auth",
-    "django.contrib.messages.context_processors.messages",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.request",
-    "django.core.context_processors.media",
-    'django.core.context_processors.csrf',
-    "django.core.context_processors.tz",
-    "sekizai.context_processors.sekizai",
-    "django.core.context_processors.static",
-    "cms.context_processors.cms_settings",
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': TEMPLATE_DIRS,
+        'OPTIONS': {
+            'context_processors': [
+             "django.contrib.auth.context_processors.auth",
+             "django.contrib.messages.context_processors.messages",
+             "django.core.context_processors.i18n",
+             "django.core.context_processors.debug",
+             "django.core.context_processors.request",
+             "django.core.context_processors.media",
+             'django.core.context_processors.csrf',
+             "django.core.context_processors.tz",
+             "sekizai.context_processors.sekizai",
+             "django.core.context_processors.static",
+             "cms.context_processors.cms_settings",
+              ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
+          },
+     },
 ]
+
 
 INSTALLED_APPS = ('djangocms_admin_style',) + INSTALLED_APPS
 
@@ -64,6 +80,9 @@ INSTALLED_APPS += (
     'djangocms_style',
     'djangocms_text_ckeditor',
 
+    'aldryn_apphooks_config',
+    'djangocms_blog',
+
     'parler',
     'taggit',
     'taggit_autosuggest',
@@ -71,10 +90,7 @@ INSTALLED_APPS += (
     'meta',
     'meta_mixin',
     'admin_enhancer',
-    'djangocms_blog',
 
-    'project.cmsplugin_pagelist',
-    'project.cmsplugin_modellist',
     'project.cmsplugin_carte',
     'project.cmsplugin_bootstrap_carousel',
     'project.cmsplugin_mailman',
@@ -83,7 +99,6 @@ INSTALLED_APPS += (
 
     'adminfiles',
 
-    'project.djangocms_bureaux',
     'project.importa',
     'adminsortable',
 )
@@ -124,27 +139,12 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
-# MIGRATION_MODULES = {
-#    'cms': 'cms.migrations_django',
-#    'menus': 'menus.migrations_django',
-#    'filer': 'filer.migrations_django',
-#    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
-#    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
-#    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
-#    'cmsplugin_filer_link': 'cmsplugin_filer_link.migrations_django',
-#    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
-#    'cmsplugin_filer_utils': 'cmsplugin_filer_utils.migrations_django',
-#    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
-#    'djangocms_inherit': 'djangocms_inherit.migrations_django',
-#    'djangocms_column': 'djangocms_column.migrations_django',
-#    'djangocms_style': 'djangocms_style.migrations_django',
-#    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
-#}
-
-
 CMS_TEMPLATES = (
     ('cms.html', gettext('Page du cms avec menu')),
     ('breves2.html', gettext('Breves2')),
+    ('newsletter/fil.html', gettext('Fil')),
+    ('newsletter/lettre.html', gettext('Lettre')),
+    ('newsletter/planete.html', gettext('Planete')),
     ('lettres.html', gettext('lettres interne')),
     ('content_menu.html', gettext('Page menu')),
     ('trois_colonnes.html', gettext('Trois colonnes')),
@@ -161,11 +161,27 @@ CMS_TEMPLATES = (
 #)
 
 META_SITE_PROTOCOL = 'http'
-META_USE_SITES = False
-META_SITE_DOMAIN = 'test-www.auf.org'
+META_USE_SITES = True
 
 BLOG_ENABLE_COMMENTS = False
-BLOG_USE_PLACEHOLDER = False
+BLOG_USE_PLACEHOLDER = True
+
+BLOG_PLUGIN_TEMPLATE_FOLDERS = (
+    ('plugins', _('Default template')),
+    ('mini', _('Mini')),
+)
+
+PERMALINKS = (
+    ('full_date', _('Full date')),
+    ('short_date', _('Year /  Month')),
+    ('slug', _('Just slug')),
+)
+
+PERMALINKS_URLS = {
+    'full_date': r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/(?P<slug>\w[-\w]*)/$',
+    'short_date': r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<slug>\w[-\w]*)/$',
+    'slug': r'^(?P<slug>\w[-\w]*)/$',
+}
 
 CKEDITOR_SETTINGS = {
     'contentsCss': '/static/css/font-awesome.min.css',
