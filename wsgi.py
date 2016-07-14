@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 import os
 import sys
@@ -5,11 +6,13 @@ import sys
 SITE_ROOT = os.path.dirname(__file__)
 
 # Pour le dev en local
+sys.path.append(os.path.join(SITE_ROOT, '../auf-django-sdk/sdk/django18_base/'))
 sys.path.append(os.path.join(SITE_ROOT, '../auf-django-sdk/sdk/django16_auf/'))
 sys.path.append(os.path.join(SITE_ROOT, '../auf-django-sdk/sdk/django16_base/'))
 sys.path.append(os.path.join(SITE_ROOT, '../auf-django-sdk/sdk/django16_dev/'))
 
 # Pour la production
+sys.path.append('/var/lib/auf-django-sdk/django18_base/')
 sys.path.append('/var/lib/auf-django-sdk/django16_auf/')
 sys.path.append('/var/lib/auf-django-sdk/django16_base/')
 sys.path.append('/var/lib/auf-django-sdk/django16_dev/')

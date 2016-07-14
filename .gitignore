@@ -47,6 +47,7 @@ project/xapian_index/
 
 #mac
 .DS_Store
+.idea
 
 #sass
 .sass-cache/

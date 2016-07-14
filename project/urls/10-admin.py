@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 try:
     from django.conf.urls.defaults import patterns, include, \
         handler500, handler404, url

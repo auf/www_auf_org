@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from auf.django.saml import settings as saml_settings
 
 urlpatterns += patterns(
