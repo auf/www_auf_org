@@ -1,10 +1,11 @@
+{% load static i18n cms_tags menu_tags sekizai_tags auf %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
 	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	  <title>AUF - Lettre d'information N°{{ planete.numero}} - {{ planete.date }}</title>
+	  <title>AUF - Lettre d'information N°{{ request.current_page.get_title.split|last }}</title>
 	  <style type="text/css">
 
 		 #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
@@ -140,7 +141,7 @@
 
 									  <td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
 										  <h1 style="color: #fdd227 !important; font-weight:normal; font-size: 30px; text-transform: uppercase; line-height:44px; margin:0;">Lettre d'information</h1>
-										  <h2 style="text-transform: uppercase; color: #fff !important; font-size: 16px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO {{ planete.numero }}</b> - {{ planete.date|date:"F Y" }}</h2>
+										  <h2 style="text-transform: uppercase; color: #fff !important; font-size: 16px; font-weight: normal; margin-top:5px; margin-bottom: 0;"><b> NUMÉRO }{{ request.current_page.get_title.split|last }}</b></h2>
 									  </td>
 								  </tr>
 							  </table>
@@ -181,11 +182,6 @@
 																	  <tr style="border-bottom:5px solid #8ebd32;">
 																		  <td style="vertical-align:top;">
 																			  <!--<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>-->
-																			  {% if planete.photo_dossier %}
-																				  <img src="https://www.auf.org/media/{{planete.photo_dossier}}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
-                                        {% else %}
-                                          <img src="https://www.auf.org/static/logodefaut.jpg" style="display: block; margin: auto;" />
-                                        {% endif %}
 																		  </td>
 																	  </tr>
 																	  <tr>
@@ -197,9 +193,6 @@
 																		  <td style="vertical-align:top;">
 																			  <h2 style="color:#34495e !important; font-size: 18px; margin-top: 25px;line-height:23px;">{{ planete.titre_dossier }}</h2>
 																			  <p> {{ planete.texte_dossier|safe }}</p><b>
-                                       {% if planete.lien_dossier  %}
-                                            <a href="{{ planete.lien_dossier }}" style="font-weight: bold; color: #e74c3c; font-size: 13px;">lire la suite...</a>
-                                          {% endif %}
 								
 																		  </td>
 																	  </tr>
@@ -236,46 +229,7 @@
 				  <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 600px; margin: auto;">
 					  <tr>
               <td style="vertical-align:top;">
-                {% if list_projet %}
-                  <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">ACTUALITÉS</h2>
-                  {% for projet in list_projet %}
-                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; ">
-
-                      <tr>
-                        <td style="vertical-align:top; text-align:right; padding-left: 25px;">
-                          <img src="https://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
-                          <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
-                            <tr>
-                              <td style="vertical-align:top; text-align:left;">
-                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{ projet.titre_projet }}</h2>
-                                <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{{ projet.texte_projet }}<br /><a href="{{ projet.lien_projet }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                              </td>
-                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
-                                <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
-                              </td>
-                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
-                                {% if projet.photo_projet %}
-                                  <img src="https://www.auf.org/media/{{projet.photo_projet}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;" />
-                                {% else %}
-                                  <img src="https://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;" />
-                                {% endif %}
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-								      </tr>
-							      </table>
-
-<table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; ">
-                            <tr>
-<td height=20></td></tr></table>
-                  {% endfor %}
-							  {% endif %}
+{% placeholder projets %}
 						  </td>
 
 
@@ -295,12 +249,7 @@
 										  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 150px; margin: auto; background-color: #fff;">
 											  <tr>
 												  <td style="text-align:left; vertical-align:top;">
-                            {% for item in list_actualite %}
-														  <p style="font-size: 13px; color: #999999;margin-bottom: 25px;">{{ item.titre }}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                            {% endfor %}
-													  {% for item in list_evenement2 %}
-														  <p style="font-size: 13px; color: #999999;margin-bottom: 25px;">{{ item.titre }}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                            {% endfor %}
+{% placeholder actualite %}
 												  </td>
 											  </tr>
 										  </table>
@@ -316,43 +265,7 @@
 				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; ">
 					  <tr>
 						  <td style="vertical-align:top;">
-                {% if list_membre %}
-							    <h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 30px; font-weight:normal; width: auto; margin-left: 25px;">PAROLE DE MEMBRES</h2>
-								  {% for membre in list_membre %}
-                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff;">
-
-                      <tr>
-                        <td style="vertical-align:top; text-align:right; padding-left: 25px;">
-                          <img src="https://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
-                          <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
-                            <tr>
-                              <td style="text-align:left; vertical-align:top;">
-                                <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{ membre.titre_membre }}</h2>
-                                <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{{ membre.texte_membre }}<br /><a href="{{ membre.lien_membre }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-                              </td>
-                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
-                                <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
-                              </td>
-                              <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
-                                {% if membre.photo_membre %}
-                                  <img src="https://www.auf.org/media/{{membre.photo_membre}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                {% else %}
-                                  <img src="https://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                {% endif %}
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-							    {% endfor %}
-							  {% endif %}
+{% placeholder membre %}
 
 						  </td>
 					  </tr>
@@ -362,34 +275,7 @@
 				  <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; ">
 					  <tr>
 						  <td style="vertical-align:top;">
-                {% if list_offre %}
-							    <h2 style="color:#279dd6 !important; font-size: 25px; font-weight:normal; width: auto; margin-left: 25px;">AGENDA / APPELS D'OFFRES</h2>
-								  {% for item in list_offre %}
-							      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; margin:0; background-color: #fff; ">
-
-								      <tr>
-									      <td style="vertical-align:top; text-align:right; padding-left: 25px;">
-										      <img src="https://www.auf.org/static/lettre/imgPlanete/corner.gif" />
-									      </td>
-								      </tr>
-
-								      <tr>
-									      <td style="vertical-align:top; text-align:right; padding-left: 25px;padding-right: 25px;padding-bottom: 25px;">
-										      <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: auto; background-color: #fff;">
-											      <tr>
-												      <td style="text-align:left; vertical-align:top;">
-													      <h2 style="color:#34495e !important; font-size: 18px; margin-top: 20px;margin-bottom: 5px;line-height: 23px;">{{item.titre}}</h2>
-													      <p style="font-size: 13px; color: #636363;margin-bottom: 0;margin-top: 0;">{% if item.resume %}{{ item.resume|striptags|safe }}{% else%}{{ item.texte|striptags|safe }}{% endif %}<br /><a href="https://www.auf.org{{ item.get_absolute_url }}" style="font-weight: bold; color: #e74c3c;">lire la suite...</a></p>
-												      </td>
-												      <td style="vertical-align:middle; text-align:right; padding-top: 22px;padding-left: 20px;">
-													      <img src="https://www.auf.org/static/lettre/imgPlanete/hintLeftBlue.gif" style="" />
-												      </td>
-												      <td style="vertical-align:middle; text-align:right; padding-top: 22px;">
-													      {% if item.image %}
-                                  <img src="https://www.auf.org/media/{{item.image}}" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                {% else %}
-                                  <img src="https://www.auf.org/static/logodefaut.jpg" alt="" style="border-left:5px solid #3498db; max-width: 185px; max-height: 220px;"  />
-                                {% endif %}
+{% placeholder offre %}
 												      </td>
 											      </tr>
 										      </table>
@@ -399,8 +285,6 @@
                             <tr>
 <td height=20></td></tr></table>
 
-							    {% endfor %}
-							  {% endif %}
 
 						  </td>
 					  </tr>

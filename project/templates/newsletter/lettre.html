@@ -1,0 +1,248 @@
+{% load static i18n cms_tags menu_tags sekizai_tags auf %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AUF - Lettre d'information N°{{ request.current_page.get_title.split|last }}</title>
+    <style type="text/css">
+     #outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+     body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+     .ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */
+     /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+     .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+     #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+     img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+     a img {border:none;}
+     .image_fix {display:block;}
+     .row1{ padding-right: 20px;}
+     p {margin: 1em 0;}
+     h1, h2, h3, h4, h5, h6 {color: black !important;}
+     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
+     h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+       color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+     }
+     h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+       color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+     }
+     table td {border-collapse: collapse;}
+     table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+
+     a {color: orange;}
+
+     @media only screen and (max-device-width: 480px) {
+
+       a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: black; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+       }
+
+       .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: orange !important; /* or whatever your want */
+         pointer-events: auto;
+         cursor: default;
+       }
+     }
+
+
+     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+       a[href^="tel"], a[href^="sms"] {
+         text-decoration: none;
+         color: blue; /* or whatever your want */
+         pointer-events: none;
+         cursor: default;
+       }
+
+       .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+         text-decoration: default;
+         color: orange !important;
+         pointer-events: auto;
+         cursor: default;
+       }
+     }
+    </style>
+  </head>
+  <body>
+    <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
+    <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="background-color: #ecf0f1; font-family: Arial, Helvetica, sans-serif;">
+      <tr>
+        <td>
+
+          <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 800px; margin: auto;">
+            <tr>
+              <td>
+
+                <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; text-align: center;">
+                  <tr>
+                    <td style="line-height: 32px; height: 32px; font-size: 12px; font-style:italic; color: #282828;">
+                      <i>Vous n'arrivez pas à lire cette lettre d'information ? <a href="https://www.auf.org/lettre-information/{{ request.current_page.get_title.split|last }}/" style="color: #282828; text-decoration: none;"><b>Essayez donc la version navigateur</b></a></i>
+                    </td>
+                  </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center">
+                  <tr>
+                    <td>
+                      <img src="https://www.auf.org/static/lettre/images/headerTop.gif" style="display: block;" />
+                    </td>
+                  </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #6d277f;">
+                  <tr>
+                    <td style="vertical-align: top;">
+                      <img src="https://www.auf.org/static/lettre/images/headerLeft.gif" style="display: block;" />
+                    </td>
+
+                    <td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
+                      <h1 style="color: #fdd227 !important; font-weight:normal; font-size: 30px; text-transform: uppercase; line-height:24px; margin:0;">Lettre d'information</h1>
+                      <h2 style="text-transform: uppercase; color: #fff !important; font-size: 18px; font-weight: normal; margin-top:5px; margin-bottom: 0;">Nº{{ request.current_page.get_title.split|last }}</h2>
+                    </td>
+                  </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%;">
+                  <tr>
+                    <td style="text-align:left;">
+                      <img src="https://www.auf.org/static/lettre/images/headerBottom.gif" style="display: block;" />
+                    </td>
+                  </tr>
+                </table>
+
+{% placeholder dossier %}
+
+                <div style="clear:both"></div>
+
+                <table cellpadding="0" cellspacing="0" border="0" style="vertical-align:top; width: 100%; margin: auto;">
+{% placeholder offre %}
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto;">
+{% placeholder actualite %}
+                </table>
+
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 20px;">
+                  <tr>
+                    <td style="vertical-align:top; padding-right: 24px;">
+
+
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 250px;">
+                        <tr>
+                          <td style="vertical-align:top; text-align:right;">
+                            <img src="https://www.auf.org/static/lettre/images/corner.gif" />
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="vertical-align:top; text-align:right;">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
+                              <tr>
+                                <td style="vertical-align:top; text-align:center; padding-top: 22px;">
+                                </td>
+                              </tr>
+                        </tr>
+                        <tr>
+                          <td style="text-align:center; vertical-align:top;">
+                            <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Réagir</h2>
+                            <p style="font-size: 12px; color: #999999;">Si vous souhaitez réagir par rapport au contenu ou à la forme de cette lettre d'information</p>
+                          </td>
+                        </tr>
+                            </table>
+                          </td>
+                  </tr>
+                      </table>
+
+
+                    </td>
+
+                    <td style="vertical-align:top; padding-right: 24px;">
+
+
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 250px;">
+                        <tr>
+                          <td style="vertical-align:top; text-align:right;">
+                            <img src="https://www.auf.org/static/lettre/images/corner.gif" />
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="vertical-align:top; text-align:center;">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
+                              <tr>
+                                <td style="vertical-align:top; padding-top: 22px; text-align:center;">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align:center; vertical-align:top;">
+                                  <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Se désabonner</h2>
+                                  <p style="font-size: 12px; color: #999999;">Pour se désabonner de cette lettre d'information</p>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+
+
+                    </td>
+
+                    <td style="vertical-align:top;">
+
+
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 184px; margin:0; background-color: #fff; height: 250px;">
+                        <tr>
+                          <td style="vertical-align:top; text-align:right;">
+                            <img src="https://www.auf.org/static/lettre/images/corner.gif" />
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="vertical-align:top; text-align:center;">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 164px; margin: auto; background-color: #fff;">
+                              <tr>
+                                <td style="vertical-align:top; text-align:center; padding-top: 22px;">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="text-align:center; vertical-align:top;">
+                                  <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">Facebook</h2>
+                                  <p style="font-size: 12px; color: #999999;">Suivez toute l’actualité de l’Agence universitaire de la Francophonie</p>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+
+
+                    </td>
+
+                        </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto; margin-top: 25px;">
+                  <tr>
+                    <td style="vertical-align:top;">
+                      <img src="https://www.auf.org/static/lettre/images/logoFooterTop.gif" style="display:block;" />
+                    </td>
+                  </tr>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 800px; margin: auto; background-color: #dadada;">
+                  <tr>
+{% placeholder footer %}
+                  </tr>
+                </table>
+
+        </td>
+                        </tr>
+          </table>
+          <!-- End of wrapper table -->
+  </body>
+</html>

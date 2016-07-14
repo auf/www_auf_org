@@ -1,8 +1,9 @@
+{% load static i18n cms_tags menu_tags sekizai_tags auf %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>AUF - Fil d'actualité interne N°{{ fil.numero}} - {{ fil.date }}</title>
+<title>AUF - {% block title %}{% page_attribute "title" %}{% endblock title %}</title>
 </head>
 
 <style>
@@ -32,7 +33,7 @@ text-decoration:none;
 <!-- PARTIE HAUTE-->
 <table align="center" width="600" cellpadding="2" cellspacing="2">
   <tr>
-    <td bgcolor="#FFFFFF" align="center"><font face="Arial, Helvetica, sans-serif" size="1" color="#999999"><a href="http://www.auf.org/fil-actualites/{{fil.id}}/">Voir la version en ligne</a></font></td>
+    <td bgcolor="#FFFFFF" align="center"><font face="Arial, Helvetica, sans-serif" size="1" color="#999999"><a href="http://www.auf.org/fil-actualites/{{ request.current_page.get_title.split|last }}/">Voir la version en ligne</a></font></td>
   </tr>
 </table>
 
@@ -54,18 +55,7 @@ text-decoration:none;
     <td><TABLE width="540" border="0" cellpadding="0" cellspacing="0" align="center">
         <TR>
           <TD>
-             {% for item in list_actualite %}
-                <p style="font-family: arial,  helvetica, sans-serif;font-size: 14px;color: #666666; margin: 26px 0px 0px 0px; font-weight: bold"><a href="http://www.auf.org{{ item.get_absolute_url }}" target="_blank">{{ item.titre }}</a></p>
-                <p style="font-family: arial,  helvetica, sans-serif;font-size: 12px;color: #666666; margin: 4px 0px 6px 0px; font-weight: bold">{{ item.date }}</p>
-                <p style="font-family: arial,  helvetica, sans-serif;font-size: 12px;color: #666666; margin: 0px 0px 20px 0px;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}</p>
-                <div style="height:1px; width: 100%; background-color:#CCCCCC"></div>
-            {% endfor %}
-            {% for item in list_evenement %}
-                <p style="font-family: arial,  helvetica, sans-serif;font-size: 14px;color: #666666; margin: 26px 0px 0px 0px; font-weight: bold"><a href="http://www.auf.org{{ item.get_absolute_url }}" target="_blank">{{ item.titre }}</a></p>
-                <p style="font-family: arial,  helvetica, sans-serif;font-size: 12px;color: #666666; margin: 4px 0px 6px 0px; font-weight: bold">{{ item.date }}</p>
-                <p style="font-family: arial,  helvetica, sans-serif;font-size: 12px;color: #666666; margin: 0px 0px 20px 0px;">{% if item.resume %}{{ item.resume|striptags|safe|truncatewords_html:30 }}{% else%}{{ item.texte|striptags|safe|truncatewords_html:30 }}{% endif %}</p>
-                <div style="height:1px; width: 100%; background-color:#CCCCCC"></div>
-            {% endfor %}
+            {% placeholder texte %}
            </TD>
         </TR>
       </TABLE>
@@ -77,7 +67,9 @@ text-decoration:none;
 <table align="center" width="600" style="border: #666666 1px solid; border-top: none" cellpadding="0" cellspacing="0">
   <tr>
     <td bgcolor="#ab0132" height="30" align="center" >
-      <p style="font-family: arial,  helvetica, sans-serif;font-size: 11px;color: #fff;">{{ fil.footer }}<br />Contact: <a href="mailto:communication@auf.org" style="color:#FFFFFF">communication@auf.org</a></p>
+      <p style="font-family: arial,  helvetica, sans-serif;font-size: 11px;color: #fff;">
+      {% placeholder texte %}
+      <br />Contact: <a href="mailto:communication@auf.org" style="color:#FFFFFF">communication@auf.org</a></p>
     </td>
   </tr>
 </table>
