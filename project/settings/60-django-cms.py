@@ -93,9 +93,12 @@ INSTALLED_APPS += (
     'meta_mixin',
     'admin_enhancer',
 
+    'smart_selects',
+
     'project.cmsplugin_carte',
     'project.cmsplugin_bootstrap_carousel',
     'project.cmsplugin_mailman',
+    'project.djangocms_blog_singlepost_plugin',
 
     'compressor',
 
