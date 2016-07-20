@@ -53,11 +53,6 @@ urlpatterns += patterns ('',
     (r'^flux/foad/$', foad()),
 )
 
-#Lien pour contact
-urlpatterns += patterns ('project.contacts.views',
-    (r'^contact/$','contact'),
-)
-
 urlpatterns += patterns('',
     url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}}),
 )
