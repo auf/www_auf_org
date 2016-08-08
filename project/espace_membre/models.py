@@ -166,7 +166,7 @@ class ResponsableAbstrait(models.Model):
                                         verbose_name=u"Modifié par")
 
     salutation = models.CharField(max_length=64, blank=True, default=u"")
-    fonction = models.CharField(max_length=64, blank=True, default=u"")
+    fonction = models.CharField(max_length=128, blank=True, default=u"")
     sousfonction = models.CharField(
         max_length=64, blank=True, default=u"", verbose_name=u"Sous-fonction")
 
