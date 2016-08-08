@@ -53,7 +53,7 @@
       </div>
       <hr>
       <div class="mini-estampilles">
-        {% if p.bureau.all.count == 0 or p.status == 3 or p.status == 5 %}
+        {% if p.bureau.all.count == 0 or p.status == "3" or p.status == "5" %}
           <i class="fa fa-globe">-International</i>
         {% else %}
           {% for b in p.bureau.all %}

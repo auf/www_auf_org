@@ -67,7 +67,7 @@
       {% endif %}
 
       <p>
-        {% if object.bureau.all.count == 0 or object.status == 3 or object.status == 5 %}
+        {% if object.bureau.all.count == 0 or object.status == "3" or object.status == "5" %}
           <i class="fa fa-globe">-International</i>
         {% else %}
           {% for b in object.bureau.all %}
