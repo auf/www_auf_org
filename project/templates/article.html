@@ -72,7 +72,6 @@
         {% for b in object.bureau.all %}
             <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
         {% endfor %}
-        {% endif %}
       </p>
       <div>
         {% render_placeholder object.cmstexte %}
