@@ -19,7 +19,7 @@ class AufIndex(indexes.SearchIndex):
 
     def prepare_bureaux(self, obj):
         try:
-            if obj.bureau.all.count == 0 or obj.status == "3" or obj.status == "5":
+            if obj.bureau.all().count == 0 or obj.status == "3" or obj.status == "5":
                 return [u'International']
             return [b.nom for b in obj.bureau.all()]
         except ObjectDoesNotExist as e:
