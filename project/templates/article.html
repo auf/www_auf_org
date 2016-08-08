@@ -62,8 +62,12 @@
 
       <p class="paraintro">{% render_model object "resume" "resume" %}</p>
 
+      {% if object.date_pub %}
+          <p class="text-muted">Date de publication: <strong>{{object.date_pub|date:"j F Y"}}</strong></p>
+      {% endif %}
+
       <p>
-        {% if object.bureau.all.count == 0 %}
+        {% if object.bureau.all.count == 0 or object.statut == 3 or object.statut == 5 %}
           <i class="fa fa-globe">-International</i>
         {% else %}
           {% for b in object.bureau.all %}
