@@ -69,6 +69,7 @@
       <p>
         {% if object.bureau.all.count == 0 or object.status == "3" or object.status == "5" %}
           <i class="fa fa-globe">-International</i>
+        {% endif %}
         {% for b in object.bureau.all %}
             <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
         {% endfor %}
