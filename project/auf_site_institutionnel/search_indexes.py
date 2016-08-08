@@ -21,7 +21,7 @@ class AufIndex(indexes.SearchIndex):
         regions = []
         try:
             if obj.bureau.all().count == 0 or obj.status == "3" or obj.status == "5":
-                region.append(u'International')
+                regions.append(u'International')
             return regions + [b.nom for b in obj.bureau.all()]
         except ObjectDoesNotExist as e:
             print(e)
