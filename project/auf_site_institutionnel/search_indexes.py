@@ -18,10 +18,11 @@ class AufIndex(indexes.SearchIndex):
     date_pub = indexes.DateField(model_attr='date_pub', null=True)
 
     def prepare_bureaux(self, obj):
+        regions = []
         try:
             if obj.bureau.all().count == 0 or obj.status == "3" or obj.status == "5":
-                return [u'International']
-            return [b.nom for b in obj.bureau.all()]
+                region.append(u'International')
+            return regions + [b.nom for b in obj.bureau.all()]
         except ObjectDoesNotExist as e:
             print(e)
             return []
