@@ -65,6 +65,6 @@
    <p>Aucun article en ce moment.</p>
   {% endfor %}
 
-  <a class="btn btn-info pull-right" href="{{ voir_plus }}{% if bureau.0 %}&selected_facets=bureaux__{{ bureau.1|cut:"Bureau des "|cut:"Bureau " }}{% endif %}">Voir plus</a>
+  <a class="btn btn-info pull-right" href="{{ voir_plus }}{% if bureau.0 %}&selected_facets=bureaux__{{ bureau.1|cut:"Bureau des "|cut:"Bureau " }}{% endif %}{% if p.bureau.all.count == 0 or p.status == "3" or p.status == "5" %}International{% endif %}">Voir plus</a>
   <a href="{{ lien_rss }}"><i class="fa fa-rss fa-2x "></i></a>
 </div>
