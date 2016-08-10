@@ -81,7 +81,7 @@ class BourseAdmin(
         Attention : Étant donnée que le modèle Région ne fait pas partie du référentiel,
         on part du postulat que le id de la région est le même que dans le référentiel.
         """
-        qs = self.model.all_objects.get_query_set()
+        qs = self.model._default_manager.get_query_set()
 
         if request.user.is_superuser:
             return qs
@@ -144,7 +144,7 @@ class Appel_OffreAdmin(
         Attention : Étant donnée que le modèle Région ne fait pas partie du référentiel,
         on part du postulat que le id de la région est le même que dans le référentiel.
         """
-        qs = self.model.all_objects.get_query_set()
+        qs = self.model._default_manager.get_query_set()
 
         if request.user.is_superuser:
             return qs
@@ -185,7 +185,7 @@ class EvenementAdmin(
         Attention : Étant donnée que le modèle Région ne fait pas partie du référentiel,
         on part du postulat que le id de la région est le même que dans le référentiel.
         """
-        qs = self.model.all_objects.get_query_set()
+        qs = self.model._default_manager.get_query_set()
 
         if request.user.is_superuser:
             return qs
