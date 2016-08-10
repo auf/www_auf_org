@@ -1,16 +1,14 @@
 # coding: utf8
 import os
 
+from datetime import date
 from django.db import models
 from django.db.models.signals import post_init
 from django.contrib.auth.models import User
 from django.conf import settings
-
 from cms.models.fields import PlaceholderField
 from cms.models.pluginmodel import CMSPlugin
-
 from auf.django.references.models import Employe, Region, Service
-
 from project.cmsplugin_modellist.lib.choices import DynamicTemplateChoices
 
 TEMPLATE_PATH = os.path.join("auf_site_institutionnel/employe", "layouts")
@@ -23,6 +21,60 @@ STATUTS = (
     ('5', 'Publié sur le site international'),
     ('4', 'Dépublié')
 )
+
+
+class ExpirableManager(models.Manager):
+    """
+    Manager pour les modèles de type "Expirable"
+    """
+
+    use_for_related_fields = True
+
+    def get_queryset(self):
+        return super(ExpirableManager, self).get_queryset().filter(date_fin__gte=date.today())
+
+
+class Expirable(models.Model):
+    """
+    Modèle abstrait gérant l'expiration d'objets ayant des dates de fin
+    """
+
+    date_fin = models.DateField(null=True, blank=True)
+
+    @property
+    def is_not_expired(self):
+        return date.today() <= self.date_fin
+
+    @property
+    def is_expired(self):
+        return not self.is_not_expired
+
+    # Managers
+    objects = ExpirableManager()
+    all_objects = models.Manager()
+
+    class Meta:
+        abstract = True
+
+
+class Unexpirable(models.Model):
+    """
+    Modèle abstrait gérant l'expiration d'objets sans date de fin
+    """
+
+    date_fin = models.DateField(null=True, blank=True)
+
+    @property
+    def is_not_expired(self):
+        return True
+
+    @property
+    def is_expired(self):
+        return not self.is_not_expired
+
+    class Meta:
+        abstract = True
+
 
 class ActifsManager(models.Manager):
     """
@@ -82,7 +134,7 @@ class Personna(models.Model):
         return self.nom
 
 
-class Bourse(models.Model):
+class Bourse(Expirable, models.Model):
     bureau = models.ManyToManyField(
         Region, blank=True, null=True, related_name="bourse_bureau")
     personna = models.ManyToManyField(Personna)
@@ -90,9 +142,8 @@ class Bourse(models.Model):
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
     texte = models.TextField(null=True, blank=True)
-    cmstexte = PlaceholderField('texte')
+    cmstexte = PlaceholderField(slotname='texte')
     image = models.ImageField(upload_to='bourse', null=True, blank=True)
-    date_fin = models.DateField(null=True, blank=True)
     date_fin2 = models.CharField(
         max_length=1,
         null=True,
@@ -130,26 +181,25 @@ class Bourse(models.Model):
         return "/allocations-regionales/%s/" % self.slug
 
     def save(self, *args, **kwargs):
-        object = super(Bourse, self).save(*args, **kwargs)
+        obj = super(Bourse, self).save(*args, **kwargs)
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
                        body="Double-cliquez ici pour ajouter votre texte")
-        return object
+        return obj
 
 
-class Actualite(models.Model):
+class Actualite(Unexpirable, models.Model):
     bureau = models.ManyToManyField(
         Region, blank=True, null=True, related_name="actualite_bureau")
     personna = models.ManyToManyField(Personna)
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
-    cmstexte = PlaceholderField('texte')
+    cmstexte = PlaceholderField(slotname='texte')
     texte = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='actualite')
     date_debut = models.DateField(null=True, blank=True)
-    date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateField('date', auto_now_add=True)
     date_pub.editable = True
     date_mod = models.DateTimeField(
@@ -170,15 +220,15 @@ class Actualite(models.Model):
         return "/actualites-regionales/%s/" % self.slug
 
     def save(self, *args, **kwargs):
-        object = super(Actualite, self).save(*args, **kwargs)
+        obj = super(Actualite, self).save(*args, **kwargs)
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
                        body="Double-cliquez ici pour ajouter votre texte")
-        return object
+        return obj
 
 
-class Veille(models.Model):
+class Veille(Unexpirable, models.Model):
     bureau = models.ManyToManyField(
         Region, blank=True, null=True, related_name="veille_bureau")
     personna = models.ManyToManyField(Personna)
@@ -186,10 +236,9 @@ class Veille(models.Model):
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
     texte = models.TextField(null=True, blank=True)
-    cmstexte = PlaceholderField('texte')
+    cmstexte = PlaceholderField(slotname='texte')
     image = models.ImageField(null=True, blank=True, upload_to='actualite')
     date_debut = models.DateField(null=True, blank=True)
-    date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateField('date', auto_now_add=True)
     date_pub.editable = True
     date_mod = models.DateTimeField(
@@ -210,15 +259,15 @@ class Veille(models.Model):
         return "/veille-regionale/%s/" % self.slug
 
     def save(self, *args, **kwargs):
-        object = super(Veille, self).save(*args, **kwargs)
+        obj = super(Veille, self).save(*args, **kwargs)
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
                        body="Double-cliquez ici pour ajouter votre texte")
-        return object
+        return obj
 
 
-class Appel_Offre(models.Model):
+class Appel_Offre(Expirable, models.Model):
     bureau = models.ManyToManyField(
         Region, blank=True, null=True, related_name="appel_offre_bureau")
     auf = models.BooleanField(
@@ -229,9 +278,8 @@ class Appel_Offre(models.Model):
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
     texte = models.TextField(null=True, blank=True)
-    cmstexte = PlaceholderField('texte')
+    cmstexte = PlaceholderField(slotname='texte')
     image = models.ImageField(null=True, blank=True, upload_to='appel_offre')
-    date_fin = models.DateField(null=True, blank=True)
     date_fin2 = models.CharField(
         max_length=1,
         null=True,
@@ -269,27 +317,26 @@ class Appel_Offre(models.Model):
         return "/appels-offre-regionales/%s/" % self.slug
 
     def save(self, *args, **kwargs):
-        object = super(Appel_Offre, self).save(*args, **kwargs)
+        obj = super(Appel_Offre, self).save(*args, **kwargs)
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
                        body="Double-cliquez ici pour ajouter votre texte")
-        return object
+        return obj
 
 
-class Evenement(models.Model):
+class Evenement(Expirable, models.Model):
     bureau = models.ManyToManyField(
         Region, blank=True, null=True, related_name="evenement_bureau")
     titre = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
     texte = models.TextField(null=True, blank=True)
-    cmstexte = PlaceholderField('texte')
+    cmstexte = PlaceholderField(slotname='texte')
     image = models.ImageField(null=True, blank=True, upload_to='evenement')
     lieu = models.CharField(max_length=200, null=True, blank=True)
     detail_horaire = models.TextField(null=True, blank=True)
     date_debut = models.DateField(null=True, blank=True)
-    date_fin = models.DateField(null=True, blank=True)
     date_pub = models.DateTimeField('date de creation', auto_now_add=True)
     date_pub.editable = True
     date_mod = models.DateTimeField(
@@ -310,12 +357,12 @@ class Evenement(models.Model):
         return "/evenements-regionales/%s/" % self.slug
 
     def save(self, *args, **kwargs):
-        object = super(Evenement, self).save(*args, **kwargs)
+        obj = super(Evenement, self).save(*args, **kwargs)
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
                        body="Double-cliquez ici pour ajouter votre texte")
-        return object
+        return obj
 
 
 class Comares(models.Model):
@@ -349,7 +396,7 @@ class Publication(models.Model):
     slug = models.SlugField(unique=True)
     resume = models.TextField(null=True, blank=True)
     texte = models.TextField(null=True, blank=True)
-    cmstexte = PlaceholderField('texte')
+    cmstexte = PlaceholderField(slotname='texte')
     docu = models.FileField(null=True, blank=True, upload_to='publication')
     image = models.ImageField(null=True, blank=True, upload_to='publication')
     date_pub = models.DateField('date', auto_now_add=True)
@@ -372,12 +419,12 @@ class Publication(models.Model):
         return "/publications-regionales/%s/" % self.slug
 
     def save(self, *args, **kwargs):
-        object = super(Publication, self).save(*args, **kwargs)
+        obj = super(Publication, self).save(*args, **kwargs)
         from cms.api import add_plugin
         if self.cmstexte.cmsplugin_set.count() == 0:
             add_plugin(self.cmstexte, "TextPlugin", "fr",
                        body="Double-cliquez ici pour ajouter votre texte")
-        return object
+        return obj
 
 
 class Partenaire(models.Model):
@@ -431,26 +478,27 @@ class Responsable(ActifsModel):
 
 class EmployePlugin(CMSPlugin):
     responsable = models.ForeignKey(Responsable,
-        related_name="employe_plugin_responsable",
-        null=True,
-        blank=True,
-        limit_choices_to={'actif': True})
+                                    related_name="employe_plugin_responsable",
+                                    null=True,
+                                    blank=True,
+                                    limit_choices_to={'actif': True})
     service = models.ForeignKey(Service,
-        related_name="employe_plugin_service",
-        null=True,
-        blank=True,
-        limit_choices_to={'actif': True})
+                                related_name="employe_plugin_service",
+                                null=True,
+                                blank=True,
+                                limit_choices_to={'actif': True})
     # FIXME
     fonction = models.CharField(max_length=255, null=True, blank=True)
     region = models.ForeignKey(Region, related_name="employe_plugin_region", null=True, blank=True)
     layout_template = \
         models.CharField("Template utilisé pour l'affichage",
-            choices = DynamicTemplateChoices(
-                path=TEMPLATE_PATH,
-                include='.html',
-                exclude='default'),
-            max_length=256,
-            help_text="""Utiliser le template pour afficher le contenu de la liste""")
+                         choices=DynamicTemplateChoices(
+                             path=TEMPLATE_PATH,
+                             include='.html',
+                             exclude='default'
+                         ),
+                         max_length=256,
+                         help_text="""Utiliser le template pour afficher le contenu de la liste""")
 
 
 class ImplantationPlugin(CMSPlugin):
@@ -458,4 +506,5 @@ class ImplantationPlugin(CMSPlugin):
         Region,
         related_name="implantation_plugin_region",
         null=True,
-        blank=True)
+        blank=True
+    )
