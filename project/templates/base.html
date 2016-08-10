@@ -345,7 +345,8 @@
 
 <script type="text/javascript">
     function addMessage(message) {
-	$( '#teste' ).modal('toggle');
+	  $('#teste').modal('toggle');
+      $('#myModalText').append(message);
     };
     $.getJSON("{% url 'broadcast_messages' %}", function(data){
         $.each(data, function(index, value) {addMessage(value.message)});
@@ -361,7 +362,7 @@
       </div>
       <div class="modal-body">
         <h4 class="modal-title" id="myModalLabel"></h4>
-        <a target="_blank" href="https://sondages.auf.org/index.php/777574/lang-fr"><img width="570px" src="{% static "img/sondage.png" %}" alt="popup sondage" /></a>
+        <div id="myModalText"></div>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
