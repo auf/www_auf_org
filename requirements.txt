@@ -12,12 +12,9 @@ djangocms-style
 djangocms-admin-style
 djangocms-column
 djangocms-inherit
-djangocms-aldryn-search
-djangocms-inherit
 djangocms-picture
 djangocms-blog
 cmsplugin-tabs
-aldryn-search
 
 raven
 django-admin-enhancer
