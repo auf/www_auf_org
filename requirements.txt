@@ -18,6 +18,7 @@ cmsplugin-tabs
 
 raven
 django-admin-enhancer
+django-admin-sortable
 
 django-haystack
 django-standard-form

@@ -11,6 +11,7 @@ import auf.django.references.models as ref
 
 RESPONSABLE_ETABLISSEMENT = u'r'
 RESPONSABLE_COMMUNICATION = u'c'
+RESPONSABLE_RELATIONS_INTERNATIONALES = u'i'
 
 ETABLISSEMENT_CHOIX = (
     (u"ESR", u"Établissement d'enseignement supérieur et de recherche"),
@@ -19,8 +20,8 @@ ETABLISSEMENT_CHOIX = (
 )
 RESPONSABLE_CHOIX = (
     (RESPONSABLE_ETABLISSEMENT, u"Responsable d'établissement"),
-    (RESPONSABLE_COMMUNICATION,
-     u"Communication & relations internationales"),
+    (RESPONSABLE_COMMUNICATION, u"Communication"),
+    (RESPONSABLE_RELATIONS_INTERNATIONALES, u"Relations internationales"),
 )
 
 
