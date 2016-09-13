@@ -51,7 +51,7 @@ def connexion(request, token):
 def apercu(request):
     e = models.EtablissementModification.objects \
         .get(etablissement=request.session['espace_membre_etablissement'])
-
+    print e.validation_etablissement
     #form = forms.EtablissementForm(None, instance=e)
 
     formset_pha, formset_com = construire_formset(request)

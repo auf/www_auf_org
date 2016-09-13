@@ -1,0 +1,11 @@
+{% extends "admin/change_form.html" %}
+{% load espace_membre_extra %}
+
+{% block field_sets %}
+{% for fieldset in adminform %}
+  {% include "admin/espace_membre/includes/fieldset.html" %}
+{% endfor %}
+{% endblock %}
+
+
+{% block submit_buttons_bottom %}{% submit_row_espace_membre %}{% endblock %}
