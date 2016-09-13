@@ -1,3 +1,4 @@
+{% load thumbnail %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -145,7 +146,7 @@
                                       <tr style="border-bottom:5px solid #8ebd32;">
                                         <td style="vertical-align:top;" align="center">
                                           {% if newsletter.photo_dossier %}
-                                            <img src="https://www.auf.org/media/{{newsletter.photo_dossier}}" style="display: block; max-width: 550px; max-height: 300px"   alt="dossier du mois"/>
+                                            <img src="https://www.auf.org/{% thumbnail newsletter.photo_dossier 550x300 upscale %}" style="display: block; max-width: 550px; max-height: 300px"   alt="dossier du mois"/>
                                           {% else %}
                                             <img src="https://www.auf.org/static/logodefaut.jpg" style="display: block; max-width: 550px; max-height: 300px"   alt="dossier du mois"/>
                                           {% endif %}
@@ -262,7 +263,7 @@
                                   <td style="vertical-align:top; text-align:right; padding-top: 16px">
                                     {% if item.image %}
                                       <p align="center" style="margin: 0">
-                                        <img src="https://www.auf.org/media/{{ item.image }}"  title="{{ item.titre }}" alt="{{ item.titre }}" style="display: block; max-width: 235px; height: 160px;"/>
+                                        <img src="https://www.auf.org/{% thumbnail item.image 235x160 upscale %}"  title="{{ item.titre }}" alt="{{ item.titre }}" style="display: block; max-width: 235px; height: 160px;"/>
                                       </p>
                                     {% else%}
                                       <img src="https://www.auf.org/static/logodefaut.jpg" height="118" title="{{ item.titre }}" alt="{{ item.titre }}" style="display: block;" />
