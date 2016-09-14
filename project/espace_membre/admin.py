@@ -66,6 +66,19 @@ class ResponsableComInline(ResponsableInline):
         return queryset
 
 
+class ResponsableRelationsInternationalesInline(ResponsableInline):
+    verbose_name = u'Responsable Relations internationales'
+    verbose_name_plural = u'Responsables Relations internationales'
+    type_responsable = espace_membre.RESPONSABLE_RELATIONS_INTERNATIONALES
+
+    def queryset(self, request):
+        queryset = super(ResponsableRelationsInternationalesInline,
+                         self).queryset(request)
+        queryset = queryset.filter(
+            type=espace_membre.RESPONSABLE_RELATIONS_INTERNATIONALES)
+        return queryset
+
+
 class CourrielAdmin(admin.ModelAdmin):
     fields = ('sujet', 'contenu')
     list_display = ('id', 'sujet', 'date_creation')
@@ -97,7 +110,8 @@ class EtablissementAdmin(admin.ModelAdmin):
                     'validation_etablissement', 'date_validation_sai',
                     'validation_sai', 'date_validation_com', 'validation_com')
     list_filter = ('validation_etablissement',)
-    inlines = (ResponsablePHAInline, ResponsableComInline, )
+    inlines = (ResponsablePHAInline, ResponsableComInline,
+               ResponsableRelationsInternationalesInline, )
     search_fields = ('nom', 'sigle')
     actions = ('faire_valider_par_sai',)
     fieldsets = (
