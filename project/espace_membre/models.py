@@ -141,7 +141,6 @@ class EtablissementModification(EtablissementAbstrait, Diffable):
         if self._original_state['validation_com'] == False and\
                 self.validation_com == True:
             self.date_validation_com = datetime.date.today()
-        print "validé sai" if self.validation_sai else "non validé SAI"
 
         super(EtablissementModification, self).save(*args, **kwargs)
 
@@ -151,17 +150,17 @@ class EtablissementModification(EtablissementAbstrait, Diffable):
     def get_responsables_modification_set(self):
         return ResponsableModification.objects.filter(etablissement=self)
 
-    def get_responsables_pha(self):
-        return self.get_responsables_set().filter(type=RESPONSABLE_ETABLISSEMENT)
-
-    def get_responsables_com(self):
-        return self.get_responsables_set().filter(type=RESPONSABLE_COMMUNICATION)
-
     def get_responsables_modification_pha(self):
-        return self.get_responsables_modification_set().filter(type=RESPONSABLE_ETABLISSEMENT)
+        return self.get_responsables_modification_set()\
+            .filter(type=RESPONSABLE_ETABLISSEMENT)
 
     def get_responsables_modification_com(self):
-        return self.get_responsables_modification_set().filter(type=RESPONSABLE_COMMUNICATION)
+        return self.get_responsables_modification_set()\
+            .filter(type=RESPONSABLE_COMMUNICATION)
+
+    def get_responsables_modification_international(self):
+        return self.get_responsables_modification_set()\
+            .filter(type=RESPONSABLE_RELATIONS_INTERNATIONALES)
 
     validation_etablissement.validation_sai_com_filter = True
 

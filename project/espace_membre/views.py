@@ -2,6 +2,7 @@
 import datetime
 from django.conf import settings
 from django.core.mail.message import EmailMessage
+from django.db import transaction
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response
@@ -9,10 +10,12 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect
 from django.forms.models import modelformset_factory
 from django.forms.models import model_to_dict
+from django.views.decorators.cache import never_cache
 
 from project.espace_membre import models
 from project.espace_membre.decorators import membre_connecte
 from project.espace_membre import forms
+from project.espace_membre.models import RESPONSABLE_RELATIONS_INTERNATIONALES
 
 
 def accueil(request):
@@ -47,27 +50,27 @@ def connexion(request, token):
         return redirect('espace_membre_accueil')
 
 
+@never_cache
 @membre_connecte
 def apercu(request):
     e = models.EtablissementModification.objects \
         .get(etablissement=request.session['espace_membre_etablissement'])
-    print e.validation_etablissement
-    #form = forms.EtablissementForm(None, instance=e)
-
-    formset_pha, formset_com = construire_formset(request)
-
+    formset_pha, formset_com, formset_relations_internationales = \
+        construire_formset(request)
     form = forms.EtablissementForm(request.POST or None, instance=e)
 
     c = {
         'form': form,
         'formset_pha': formset_pha,
         'formset_com': formset_com,
+        'formset_relations_internationales': formset_relations_internationales,
         'etablissement': e,
         'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
     }
     return render_to_response('espace_membre/apercu.html', c, RequestContext(request))
 
 
+@transaction.atomic
 @membre_connecte
 def modifier(request):
     e = models.EtablissementModification.objects \
@@ -75,7 +78,8 @@ def modifier(request):
     if e.validation_etablissement:
         return redirect('espace_membre_apercu')
 
-    formset_pha, formset_com = construire_formset(request)
+    formset_pha, formset_com, formset_relations_internationales = \
+        construire_formset(request)
 
     form = forms.EtablissementForm(request.POST or None, instance=e)
 
@@ -91,6 +95,11 @@ def modifier(request):
         for f in formset_com.save(commit=False):
             f.etablissement = e
             f.type = "c"
+            f.modification_par = u"Établissement"
+            f.save()
+        for f in formset_relations_internationales.save(commit=False):
+            f.etablissement = e
+            f.type = RESPONSABLE_RELATIONS_INTERNATIONALES
             f.modification_par = u"Établissement"
             f.save()
         # on limite à un PHA
@@ -112,6 +121,7 @@ def modifier(request):
         'form': form,
         'formset_com': formset_com,
         'formset_pha': formset_pha,
+        'formset_relations_internationales': formset_relations_internationales,
         'erreur': erreur,
         'ESPACE_MEMBRE_SENDER': settings.ESPACE_MEMBRE_SENDER,
     }
@@ -119,6 +129,7 @@ def modifier(request):
     return render_to_response('espace_membre/modifier.html', c, RequestContext(request))
 
 
+@never_cache
 @membre_connecte
 def valider(request):
     e = models.EtablissementModification.objects \
@@ -128,15 +139,18 @@ def valider(request):
         e.date_validation_etablissement = datetime.date.today()
         e.set_flags_a_valider()
         e.save()
-        message = EmailMessage(u"Validation des données",
-                               u"L''établissement %s(%s) a validé ses données." % (
-                                   e.nom, e.id),
-                               # adresse de retour
-                               settings.ESPACE_MEMBRE_SENDER,
-                               # adresses des destinataires
-                               [admin[1]
-                                   for admin in settings.ESPACE_MEMBRE_ADMINS]
-                               )
+        body = u"L''établissement {}(id:{}, région:{}) a validé ses données."\
+            .format(e.nom, e.id, e.region.code)
+        destinataire = u"ag2017.{}@auf.org".format(e.region.code)
+        message = EmailMessage(
+            u"Validation des données",
+            body,
+            # adresse de retour
+            settings.ESPACE_MEMBRE_SENDER,
+            # adresses des destinataires
+            [destinataire],
+            cc=["annuaire@auf.org"],
+        )
         message.send(fail_silently=True)
 
     return redirect('espace_membre_apercu')
@@ -196,19 +210,22 @@ def construire_formset(request):
         pass
 
     ResponsableFormset = modelformset_factory(
-        models.ResponsableModification, forms.ResponsableForm, extra=0,
-        can_delete=False, formset=forms.RequiredFormSet)
-    ResponsableFormsetCom = modelformset_factory(
-        models.ResponsableModification, forms.ResponsableCommunicationForm,
+        models.ResponsableModification, forms.ResponsableForm, extra=1,
+        max_num=1, can_delete=False, formset=forms.RequiredFormSet)
+    ResponsableFormsetAutre = modelformset_factory(
+        models.ResponsableModification, forms.ResponsableAutreForm,
         extra=1, max_num=1, can_delete=False, formset=forms.RequiredFormSet)
 
-    formset_com = ResponsableFormsetCom(
-        request.POST or None,
-        queryset=e.get_responsables_modification_com(), prefix='com'
-    )
     formset_pha = ResponsableFormset(
         request.POST or None,
         queryset=e.get_responsables_modification_pha(), prefix='pha'
     )
-
-    return formset_pha, formset_com
+    formset_com = ResponsableFormsetAutre(
+        request.POST or None,
+        queryset=e.get_responsables_modification_com(), prefix='com'
+    )
+    formset_relations_internationales = ResponsableFormsetAutre(
+        request.POST or None,
+        queryset=e.get_responsables_modification_international(), prefix='int'
+    )
+    return formset_pha, formset_com, formset_relations_internationales

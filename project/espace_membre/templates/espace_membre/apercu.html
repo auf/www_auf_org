@@ -146,8 +146,30 @@
     </fieldset>
 
     <fieldset>
-        <h2>Communication & relations internationales</h2>
+        <h2>Communication</h2>
         {% for f in formset_com %}
+            <p>
+                {{ f.courriel.label_tag }}<br/>
+                {{ f.instance.courriel }}
+            </p>
+            <p>
+                {{ f.nom.label_tag }}<br/>
+                {{ f.instance.nom }}
+            </p>
+            <p>
+                {{ f.prenom.label_tag }}<br/>
+                {{ f.instance.prenom }}
+            </p>
+            {% if not forloop.last %}
+                <hr />
+            {% endif %}
+
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+        <h2>Relations internationales</h2>
+        {% for f in formset_relations_internationales %}
             <p>
                 {{ f.courriel.label_tag }}<br/>
                 {{ f.instance.courriel }}
