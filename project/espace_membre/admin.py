@@ -108,7 +108,8 @@ admin.site.register(
 class EtablissementAdmin(admin.ModelAdmin):
     list_display = ('nom', 'sigle', 'date_validation_etablissement',
                     'validation_etablissement', 'date_validation_sai',
-                    'validation_sai', 'date_validation_com', 'validation_com')
+                    'validation_sai', 'date_validation_com', 'validation_com',
+                    'code_region', )
     list_filter = ('validation_etablissement',)
     inlines = (ResponsablePHAInline, ResponsableComInline,
                ResponsableRelationsInternationalesInline, )
@@ -153,6 +154,8 @@ class EtablissementAdmin(admin.ModelAdmin):
 
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '80'})}, }
+
+    list_select_related = ('region', )
 
     def faire_valider_par_sai(self, request, queryset):
         queryset.update(validation_sai=True, date_validation_sai=date.today())

@@ -42,7 +42,7 @@ class EtablissementAbstrait(ref.EtablissementBase):
         return u"%s" % self.nom
 
 
-def make_diff(object):
+def make_diff(obj):
     def compare_attr(value1, value2):
         def strip_end_slash(value):
             return value[:-1] if value and isinstance(value, unicode) and value[-1] == u"/" else value
@@ -52,26 +52,36 @@ def make_diff(object):
         # modification du champ.
         return strip_end_slash(value1) == strip_end_slash(value2)
 
-    object.diff = {}
-    if object.id:
-        fields_to_ignore = object.ignore_in_diff
-        ancien = object.ancien()
-        for f in object._meta.fields:
-            if not f.name == 'id' and not f.name in fields_to_ignore:
+    diff = {}
+    if obj.id:
+        fields_to_ignore = obj.ignore_in_diff
+        ancien = obj.ancien()
+        for f in obj._meta.fields:
+            if not f.name == 'id' and f.name not in fields_to_ignore:
                 try:
                     if not ancien:
-                        object.diff[f.name] = ""
-                    elif not compare_attr(getattr(ancien, f.name), getattr(object, f.name)):
-                        object.diff[f.name] = getattr(ancien, f.name)
+                        diff[f.name] = ""
+                    elif not compare_attr(getattr(ancien, f.name),
+                                          getattr(obj, f.name)):
+                        diff[f.name] = getattr(ancien, f.name)
                 except AttributeError:
                     pass
+    return diff
+
+
+class Diffable(object):
+    @property
+    def diff(self):
+        if not hasattr(self, '_diff'):
+            self._diff = make_diff(self)
+        return self._diff
 
 
 class Etablissement(EtablissementAbstrait):
     pass
 
 
-class EtablissementModification(EtablissementAbstrait):
+class EtablissementModification(EtablissementAbstrait, Diffable):
     etablissement = models.OneToOneField(
         Etablissement, null=True, related_name='modification')
     validation_etablissement = models.BooleanField(default=False,
@@ -99,13 +109,15 @@ class EtablissementModification(EtablissementAbstrait):
 
     ignore_in_diff = ()
 
+    def code_region(self):
+        return self.region.code
+
     def ancien(self):
         return self.etablissement
 
     def __init__(self, *args, **kwargs):
         super(EtablissementModification, self).__init__(*args, **kwargs)
         self._original_state = dict(self.__dict__)
-        make_diff(self)
 
     def set_flags_a_valider(self):
         self.validation_com = True
@@ -183,7 +195,7 @@ class Responsable(ResponsableAbstrait):
     etablissement = models.ForeignKey(Etablissement)
 
 
-class ResponsableModification(ResponsableAbstrait):
+class ResponsableModification(ResponsableAbstrait, Diffable):
     etablissement = models.ForeignKey(EtablissementModification)
     responsable = models.OneToOneField(Responsable, null=True)
 
@@ -194,7 +206,6 @@ class ResponsableModification(ResponsableAbstrait):
 
     def __init__(self, *args, **kwargs):
         super(ResponsableModification, self).__init__(*args, **kwargs)
-        make_diff(self)
 
     def set_flags_a_valider(self, etablissement):
         if not self.id or self.diff:
