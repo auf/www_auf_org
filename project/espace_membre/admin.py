@@ -156,6 +156,14 @@ class EtablissementAdmin(admin.ModelAdmin):
         queryset.select_related('etablissement')
         return queryset
 
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        response = super(EtablissementAdmin, self).change_view(
+            request, object_id, form_url, extra_context)
+        if request.POST.get('_save') == u'Valider et retourner à la liste':
+            espace_membre.EtablissementModification.objects\
+                .filter(id=object_id)\
+                .update(validation_sai=True, date_validation_sai=date.today())
+        return response
 
 admin.site.register(
     espace_membre.EtablissementModification, EtablissementAdmin
