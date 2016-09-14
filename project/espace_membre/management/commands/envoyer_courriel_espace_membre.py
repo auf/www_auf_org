@@ -153,7 +153,7 @@ class Command(BaseCommand):
                     log.envoye = True
                     log.save()
                     transaction.commit()
-                    # time.sleep(2)
+                    time.sleep(2)
                 except smtplib.SMTPException as e:
                     err_message = u"Erreur lors de l'envoi pour etablissement "\
                         u"ID: {}}\n"
