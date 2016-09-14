@@ -57,11 +57,14 @@
         <p>Notez que les champs marqués d'un * sont obligatoires.</p>
         </div>
     {% csrf_token %}
+    {% if form.non_field_errors or formset_pha.non_field_errors or formset_com.non_field_errors or formset_relations_internationales.non_field_errors %}
     <div class="alert alert-danger">
     {{ form.non_field_errors }}
     {{ formset_pha.non_field_errors }}
     {{ formset_com.non_field_errors }}
+    {{ formset_relations_internationales.non_field_errors }}
     </div>
+    {% endif %}
     <fieldset>
         <h2>Renseignements généraux</h2>
         <p>
@@ -180,7 +183,7 @@
     </fieldset>
 
     <fieldset>
-        <h2>Communication & relations internationales</h2>
+        <h2>Communication</h2>
         {{ formset_com.management_form }}
         {% for f in formset_com %}
             <div class="formset_com">
@@ -204,6 +207,36 @@
             </div>
             {% if not forloop.last %}
                 
+            {% endif %}
+
+        {% endfor %}
+    </fieldset>
+
+<fieldset>
+        <h2>Relations internationales</h2>
+        {{ formset_relations_internationales.management_form }}
+        {% for f in formset_relations_internationales %}
+            <div class="formset_com">
+                <!--{% if f.instance.pk %}{{ f.DELETE }}{% endif %}-->
+                {{ f.id }}
+                <p>
+                    {{ f.courriel.label_tag }}<br/>
+                    {{ f.courriel }}<br/>
+                    {{ f.courriel.errors }}
+                </p>
+                <p>
+                    {{ f.nom.label_tag }}<br/>
+                    {{ f.nom }}<br/>
+                    {{ f.nom.errors }}
+                </p>
+                <p>
+                    {{ f.prenom.label_tag }}<br/>
+                    {{ f.prenom }}<br/>
+                    {{ f.prenom.errors }}
+                </p>
+            </div>
+            {% if not forloop.last %}
+
             {% endif %}
 
         {% endfor %}

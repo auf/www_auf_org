@@ -95,10 +95,10 @@ class ResponsableForm(forms.ModelForm):
         return ret
 
 
-class ResponsableCommunicationForm(forms.ModelForm):
+class ResponsableAutreForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
-        super(ResponsableCommunicationForm, self).__init__(*args, **kwargs)
+        super(ResponsableAutreForm, self).__init__(*args, **kwargs)
         self.fields["courriel"].required = True
         self.fields["nom"].required = False
         self.fields["prenom"].required = False
@@ -106,7 +106,7 @@ class ResponsableCommunicationForm(forms.ModelForm):
         add_style_to_required_fields(self)
 
     def clean(self):
-        ret = super(ResponsableCommunicationForm, self).clean()
+        ret = super(ResponsableAutreForm, self).clean()
         for f in self.errors:
             self.fields[f].widget.attrs.update({'class': 'erroneous_field'})
         return ret

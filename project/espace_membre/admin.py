@@ -22,6 +22,7 @@ class ResponsableFormSet(BaseInlineFormSet):
 
 
 class ResponsableInline(admin.StackedInline):
+    template = 'admin/espace_membre/edit_inline.html'
     model = espace_membre.ResponsableModification
     extra = 0
     fields = ('salutation', 'nom', 'prenom',
@@ -65,6 +66,19 @@ class ResponsableComInline(ResponsableInline):
         return queryset
 
 
+class ResponsableRelationsInternationalesInline(ResponsableInline):
+    verbose_name = u'Responsable Relations internationales'
+    verbose_name_plural = u'Responsables Relations internationales'
+    type_responsable = espace_membre.RESPONSABLE_RELATIONS_INTERNATIONALES
+
+    def queryset(self, request):
+        queryset = super(ResponsableRelationsInternationalesInline,
+                         self).queryset(request)
+        queryset = queryset.filter(
+            type=espace_membre.RESPONSABLE_RELATIONS_INTERNATIONALES)
+        return queryset
+
+
 class CourrielAdmin(admin.ModelAdmin):
     fields = ('sujet', 'contenu')
     list_display = ('id', 'sujet', 'date_creation')
@@ -94,9 +108,12 @@ admin.site.register(
 class EtablissementAdmin(admin.ModelAdmin):
     list_display = ('nom', 'sigle', 'date_validation_etablissement',
                     'validation_etablissement', 'date_validation_sai',
-                    'validation_sai', 'date_validation_com', 'validation_com')
-    list_filter = ('validation_etablissement',)
-    inlines = (ResponsablePHAInline, ResponsableComInline, )
+                    'validation_sai', 'date_validation_com', 'validation_com',
+                    'code_region', )
+    list_filter = ('validation_etablissement', 'validation_sai',
+                   'validation_com', 'region')
+    inlines = (ResponsablePHAInline, ResponsableComInline,
+               ResponsableRelationsInternationalesInline, )
     search_fields = ('nom', 'sigle')
     actions = ('faire_valider_par_sai',)
     fieldsets = (
@@ -139,6 +156,8 @@ class EtablissementAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '80'})}, }
 
+    list_select_related = ('region', )
+
     def faire_valider_par_sai(self, request, queryset):
         queryset.update(validation_sai=True, date_validation_sai=date.today())
 
@@ -156,6 +175,14 @@ class EtablissementAdmin(admin.ModelAdmin):
         queryset.select_related('etablissement')
         return queryset
 
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        response = super(EtablissementAdmin, self).change_view(
+            request, object_id, form_url, extra_context)
+        if request.POST.get('_save') == u'Valider et retourner à la liste':
+            espace_membre.EtablissementModification.objects\
+                .filter(id=object_id)\
+                .update(validation_sai=True, date_validation_sai=date.today())
+        return response
 
 admin.site.register(
     espace_membre.EtablissementModification, EtablissementAdmin

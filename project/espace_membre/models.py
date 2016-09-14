@@ -11,6 +11,7 @@ import auf.django.references.models as ref
 
 RESPONSABLE_ETABLISSEMENT = u'r'
 RESPONSABLE_COMMUNICATION = u'c'
+RESPONSABLE_RELATIONS_INTERNATIONALES = u'i'
 
 ETABLISSEMENT_CHOIX = (
     (u"ESR", u"Établissement d'enseignement supérieur et de recherche"),
@@ -19,8 +20,8 @@ ETABLISSEMENT_CHOIX = (
 )
 RESPONSABLE_CHOIX = (
     (RESPONSABLE_ETABLISSEMENT, u"Responsable d'établissement"),
-    (RESPONSABLE_COMMUNICATION,
-     u"Communication & relations internationales"),
+    (RESPONSABLE_COMMUNICATION, u"Communication"),
+    (RESPONSABLE_RELATIONS_INTERNATIONALES, u"Relations internationales"),
 )
 
 
@@ -41,7 +42,7 @@ class EtablissementAbstrait(ref.EtablissementBase):
         return u"%s" % self.nom
 
 
-def make_diff(object):
+def make_diff(obj):
     def compare_attr(value1, value2):
         def strip_end_slash(value):
             return value[:-1] if value and isinstance(value, unicode) and value[-1] == u"/" else value
@@ -51,26 +52,36 @@ def make_diff(object):
         # modification du champ.
         return strip_end_slash(value1) == strip_end_slash(value2)
 
-    object.diff = {}
-    if object.id:
-        fields_to_ignore = object.ignore_in_diff
-        ancien = object.ancien()
-        for f in object._meta.fields:
-            if not f.name == 'id' and not f.name in fields_to_ignore:
+    diff = {}
+    if obj.id:
+        fields_to_ignore = obj.ignore_in_diff
+        ancien = obj.ancien()
+        for f in obj._meta.fields:
+            if not f.name == 'id' and f.name not in fields_to_ignore:
                 try:
                     if not ancien:
-                        object.diff[f.name] = ""
-                    elif not compare_attr(getattr(ancien, f.name), getattr(object, f.name)):
-                        object.diff[f.name] = getattr(ancien, f.name)
+                        diff[f.name] = ""
+                    elif not compare_attr(getattr(ancien, f.name),
+                                          getattr(obj, f.name)):
+                        diff[f.name] = getattr(ancien, f.name)
                 except AttributeError:
                     pass
+    return diff
+
+
+class Diffable(object):
+    @property
+    def diff(self):
+        if not hasattr(self, '_diff'):
+            self._diff = make_diff(self)
+        return self._diff
 
 
 class Etablissement(EtablissementAbstrait):
     pass
 
 
-class EtablissementModification(EtablissementAbstrait):
+class EtablissementModification(EtablissementAbstrait, Diffable):
     etablissement = models.OneToOneField(
         Etablissement, null=True, related_name='modification')
     validation_etablissement = models.BooleanField(default=False,
@@ -98,13 +109,15 @@ class EtablissementModification(EtablissementAbstrait):
 
     ignore_in_diff = ()
 
+    def code_region(self):
+        return self.region.code
+
     def ancien(self):
         return self.etablissement
 
     def __init__(self, *args, **kwargs):
         super(EtablissementModification, self).__init__(*args, **kwargs)
         self._original_state = dict(self.__dict__)
-        make_diff(self)
 
     def set_flags_a_valider(self):
         self.validation_com = True
@@ -128,7 +141,6 @@ class EtablissementModification(EtablissementAbstrait):
         if self._original_state['validation_com'] == False and\
                 self.validation_com == True:
             self.date_validation_com = datetime.date.today()
-        print "validé sai" if self.validation_sai else "non validé SAI"
 
         super(EtablissementModification, self).save(*args, **kwargs)
 
@@ -138,17 +150,17 @@ class EtablissementModification(EtablissementAbstrait):
     def get_responsables_modification_set(self):
         return ResponsableModification.objects.filter(etablissement=self)
 
-    def get_responsables_pha(self):
-        return self.get_responsables_set().filter(type=RESPONSABLE_ETABLISSEMENT)
-
-    def get_responsables_com(self):
-        return self.get_responsables_set().filter(type=RESPONSABLE_COMMUNICATION)
-
     def get_responsables_modification_pha(self):
-        return self.get_responsables_modification_set().filter(type=RESPONSABLE_ETABLISSEMENT)
+        return self.get_responsables_modification_set()\
+            .filter(type=RESPONSABLE_ETABLISSEMENT)
 
     def get_responsables_modification_com(self):
-        return self.get_responsables_modification_set().filter(type=RESPONSABLE_COMMUNICATION)
+        return self.get_responsables_modification_set()\
+            .filter(type=RESPONSABLE_COMMUNICATION)
+
+    def get_responsables_modification_international(self):
+        return self.get_responsables_modification_set()\
+            .filter(type=RESPONSABLE_RELATIONS_INTERNATIONALES)
 
     validation_etablissement.validation_sai_com_filter = True
 
@@ -182,7 +194,7 @@ class Responsable(ResponsableAbstrait):
     etablissement = models.ForeignKey(Etablissement)
 
 
-class ResponsableModification(ResponsableAbstrait):
+class ResponsableModification(ResponsableAbstrait, Diffable):
     etablissement = models.ForeignKey(EtablissementModification)
     responsable = models.OneToOneField(Responsable, null=True)
 
@@ -193,7 +205,6 @@ class ResponsableModification(ResponsableAbstrait):
 
     def __init__(self, *args, **kwargs):
         super(ResponsableModification, self).__init__(*args, **kwargs)
-        make_diff(self)
 
     def set_flags_a_valider(self, etablissement):
         if not self.id or self.diff:
