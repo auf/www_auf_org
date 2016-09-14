@@ -110,7 +110,8 @@ class EtablissementAdmin(admin.ModelAdmin):
                     'validation_etablissement', 'date_validation_sai',
                     'validation_sai', 'date_validation_com', 'validation_com',
                     'code_region', )
-    list_filter = ('validation_etablissement',)
+    list_filter = ('validation_etablissement', 'validation_sai',
+                   'validation_com', 'region')
     inlines = (ResponsablePHAInline, ResponsableComInline,
                ResponsableRelationsInternationalesInline, )
     search_fields = ('nom', 'sigle')
