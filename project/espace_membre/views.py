@@ -2,6 +2,8 @@
 import datetime
 from django.conf import settings
 from django.core.mail.message import EmailMessage
+from django.core.urlresolvers import reverse
+from django.contrib.sites.models import Site
 from django.db import transaction
 
 from django.template import RequestContext
@@ -139,11 +141,18 @@ def valider(request):
         e.date_validation_etablissement = datetime.date.today()
         e.set_flags_a_valider()
         e.save()
-        body = u"L''établissement {}(id:{}, région:{}) a validé ses données."\
-            .format(e.nom, e.id, e.region.code)
-        destinataire = u"ag2017.{}@auf.org".format(e.region.code)
+        change_url = reverse('admin:espace_membre_'
+                             'etablissementmodification_change', args=(e.id, ))
+        current_site = Site.objects.get_current()
+        change_url = "https://" + current_site.domain + change_url
+        body = u"L''établissement {}(id:{}, région:{}) a validé ses données. " \
+               u"Voir {}"\
+            .format(e.nom, e.id, e.region.code, change_url)
+        destinataire = u"ag2017.b{}@auf.org".format(e.region.code)
+        subject = u"Annuaire - Validation de l'établissement {} (région: b{})" \
+            .format(e.id, e.region.code)
         message = EmailMessage(
-            u"Validation des données",
+            subject,
             body,
             # adresse de retour
             settings.ESPACE_MEMBRE_SENDER,
