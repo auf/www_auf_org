@@ -96,7 +96,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #6d277f;">
                   <tr>
                     <td style="vertical-align: top;">
-                      <img src="https://www.auf.org/static/lettre/images/headerLeft.gif" width="108" style="display: block;" />
+                      <img src="https://www.auf.org/static/lettre/images/headerLeft.gif" width="108" height="80" style="display: block;" />
                     </td>
 
                     <td style="width: 692px; text-align: right; padding-right: 100px; vertical-align:top;">
@@ -112,7 +112,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%;">
                   <tr>
                     <td style="text-align:left;">
-                      <img src="https://www.auf.org/static/lettre/images/headerBottom.gif" width="175" style="display: block;" />
+                      <img src="https://www.auf.org/static/lettre/images/headerBottom.gif" style="display: block;" />
                     </td>
                   </tr>
                 </table>
@@ -242,7 +242,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" align="center" style=" width: 600px; margin: auto;">
                   {% if list_actualite %}
                     {% for item in list_actualite %}
-                      {% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 5 or forloop.counter == 7 or forloop.counter == 9 or forloop.counter == 11 or forloop.counter == 13%}
+                      {% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 5 or forloop.counter == 7 or forloop.counter == 9 or forloop.counter == 11 or forloop.counter == 13 %}
                         <tr>
                       {% endif %}
 
@@ -277,7 +277,7 @@
                                 </tr>
                                 <tr>
                                   <td style="text-align:left; vertical-align:top; padding-bottom: 8px;">
-                                    <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">{{ item.titre }}</h2>
+                                    <h2 style="color:#34495e !important; font-size: 15px; margin-top: 20px;">aaa{{ item.titre }}</h2>
                                     <p style="font-size: 12px; color: #999999;">
                                       {% if item.resume %}
                                         {{ item.resume|striptags|safe|truncatewords_html:30 }}
@@ -299,7 +299,7 @@
 
                       </td>
 
-                      {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 6 or forloop.counter == 8 or forloop.counter == 10%}
+                      {% if forloop.counter == 2 or forloop.counter == 4 or forloop.counter == 6 or forloop.counter == 8 or forloop.counter == 10 %}
                         <tr>
                       {% endif %}
                     {% endfor %}
