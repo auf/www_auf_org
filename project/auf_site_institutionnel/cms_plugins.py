@@ -82,7 +82,7 @@ class CMSImplantationPlugin(CMSPluginBase):
     def render(self, context, instance, placeholder):
         ctx = super(CMSImplantationPlugin, self).render(
             context, instance, placeholder)
-        qs = Implantation.objects.filter(actif=True)
+        qs = Implantation.ouvertes.filter(actif=True)
         if instance.region:
             qs = qs.filter(region=instance.region)
 
