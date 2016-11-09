@@ -183,7 +183,7 @@
 																		  <td style="vertical-align:top;">
 																			  <!--<h2 style="color:#279dd6 !important; font-size: 25px; margin-top: 0;text-align: right; text-transform: uppercase; font-weight: normal;">DOSSIER</h2>-->
 																			  {% if planete.photo_dossier %}
-																				  <img src="https://www.auf.org/{% thumbnail planete.photo_dossier 560x500 upscale %}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
+																				  <img src="https://www.auf.org/{{ planete.photo_dossier }}" style="display: block; margin: auto; max-width:560px; max-height: 500px" />
                                         {% else %}
                                           <img src="https://www.auf.org/static/logodefaut.jpg" style="display: block; margin: auto;" />
                                         {% endif %}
