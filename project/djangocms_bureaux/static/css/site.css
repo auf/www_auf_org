@@ -1812,13 +1812,13 @@ ul#sitemap li {
     margin:15px auto ;
 }
 
-.facebook-this, .gplus-this, .tweet-this {
+.facebook-this, .gplus-this, .tweet-this, .linkedin-this {
     display:inline;
     margin-left: 09px;
     font-size:1rem;
 }
 
-.facebook-this .fa-facebook-official, .gplus-this .fa-google-plus, .tweet-this .fa-twitter {
+.facebook-this .fa-facebook-official, .gplus-this .fa-google-plus, .tweet-this .fa-twitter, .linkedin-this .fa-linkedin {
     border-radius: 29px;
     background: rgb(233, 233, 233);
     padding: 7px;
@@ -1827,6 +1827,11 @@ ul#sitemap li {
 
 .facebook-this .fa-facebook-official:hover {
     color:#3b5998;
+    background:whitesmoke;
+}
+
+.linkedin-this .fa-linkedin:hover {
+    color:#0077b5;
     background:whitesmoke;
 }
 
