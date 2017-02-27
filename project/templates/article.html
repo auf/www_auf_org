@@ -71,7 +71,7 @@
           <i class="fa fa-globe">-International</i>
         {% endif %}
         {% for b in object.bureau.all %}
-            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+            <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-{{b.nom}}</i>
         {% endfor %}
       </p>
       <div>
