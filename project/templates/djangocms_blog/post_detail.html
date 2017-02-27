@@ -44,7 +44,7 @@
           {% if b.nom == "International" %}
             <i class="fa fa-globe">-International</i>
           {% else %}
-          <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-B{{b.code}}</i>
+          <i class="fa fa-circle B{{b.code}}" data-toggle="popover" data-content="{{ b.nom }}" data-placement="top" data-trigger="focus" tabindex="0">-{{b.nom}}</i>
           {% endif %}
       {% endfor %}
       </p>
